@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindowExporter</class>
+ <widget class="QMainWindow" name="MainWindowExporter">
+  <property name="windowTitle">
+   <string>Exporter</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <property name="leftMargin">
+     <number>3</number>
+    </property>
+    <property name="topMargin">
+     <number>3</number>
+    </property>
+    <property name="rightMargin">
+     <number>3</number>
+    </property>
+    <property name="bottomMargin">
+     <number>3</number>
+    </property>
+    <property name="spacing">
+     <number>2</number>
+    </property>
+    <item row="0" column="0">
+     <layout class="QGridLayout" name="gridLayout">
+      <property name="spacing">
+       <number>2</number>
+      </property>
+      <item row="0" column="2">
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <property name="spacing">
+         <number>2</number>
+        </property>
+        <item>
+         <widget class="QPushButton" name="btnFixMaterial">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>21</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton { 
+	background-color: rgb(159, 169, 163);
+	border: 1px;
+}
+</string>
+          </property>
+          <property name="text">
+           <string>FIX MAT</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="spacing">
+         <number>2</number>
+        </property>
+        <item>
+         <widget class="QCheckBox" name="cbBinary">
+          <property name="maximumSize">
+           <size>
+            <width>40</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(103, 77, 60);
+color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>Bin</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="cbKeepInstance">
+          <property name="maximumSize">
+           <size>
+            <width>40</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Nếu tick chọn sẽ giữ Instance khi export file&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(103, 77, 60);
+color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>Ins</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="cbKeepVertexNormal">
+          <property name="maximumSize">
+           <size>
+            <width>40</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Nếu tick chọn sẽ Lock Normal khi Import(Chỉ có tác dụng khi Import)&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(159, 169, 163);
+color: rgb(0, 0, 0);</string>
+          </property>
+          <property name="text">
+           <string>Nor</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="cbKeepGroup">
+          <property name="maximumSize">
+           <size>
+            <width>40</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Nếu tick chọn Sẽ tạo group khi import file vào scene với tên &amp;quot;ZZZ_imported_group&amp;quot;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(159, 169, 163);
+color: rgb(0, 0, 0);</string>
+          </property>
+          <property name="text">
+           <string>Grp</string>
+          </property>
+          <property name="tristate">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="1" rowspan="2" colspan="2">
+       <layout class="QHBoxLayout" name="horizontalLayout_8">
+        <property name="spacing">
+         <number>2</number>
+        </property>
+        <item>
+         <widget class="QPushButton" name="btnExport">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>54</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>70</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Export Standard&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton { 
+	
+	
+	
+	background-color: rgb(103, 77, 60);
+	border: 1px;
+}
+</string>
+          </property>
+          <property name="text">
+           <string>Export </string>
+          </property>
+          <property name="checkable">
+           <bool>false</bool>
+          </property>
+          <property name="default">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnImport">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>54</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>70</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Import Standard&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton { 
+	background-color: rgb(159, 169, 163);
+	border: 1px;
+}
+</string>
+          </property>
+          <property name="text">
+           <string> Import</string>
+          </property>
+          <property name="autoDefault">
+           <bool>false</bool>
+          </property>
+          <property name="default">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="2" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <property name="spacing">
+         <number>2</number>
+        </property>
+        <item>
+         <widget class="QPushButton" name="btnExportSP">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>23</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>23</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Export to Substance Painter</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="3" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <property name="spacing">
+         <number>2</number>
+        </property>
+        <item>
+         <widget class="QPushButton" name="btnExportSeparatePart">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>23</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>23</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Separate</string>
+          </property>
+          <property name="default">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton">
+          <property name="text">
+           <string>Current Folder</string>
+          </property>
+          <property name="default">
+           <bool>true</bool>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="3" column="1" colspan="2">
+       <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <property name="spacing">
+         <number>2</number>
+        </property>
+        <item>
+         <widget class="QPushButton" name="btnExportHigh">
+          <property name="minimumSize">
+           <size>
+            <width>70</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>70</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>HIGH</string>
+          </property>
+          <property name="default">
+           <bool>true</bool>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnExportLow">
+          <property name="minimumSize">
+           <size>
+            <width>70</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>70</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>LOW</string>
+          </property>
+          <property name="default">
+           <bool>true</bool>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="4" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <property name="spacing">
+         <number>2</number>
+        </property>
+        <item>
+         <widget class="QPushButton" name="btnExportWorking">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>21</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Export Working File&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton { 
+	background-color: rgb(103, 77, 60);
+	border: 1px;
+}
+</string>
+          </property>
+          <property name="text">
+           <string>Export W&gt;</string>
+          </property>
+          <property name="default">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnImportWorking">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>21</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Import Working File&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton { 
+	background-color: rgb(159, 169, 163);
+	border: 1px;
+}
+</string>
+          </property>
+          <property name="text">
+           <string>Import W&lt;</string>
+          </property>
+          <property name="default">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="4" column="1" colspan="2">
+       <layout class="QHBoxLayout" name="horizontalLayout_7">
+        <property name="spacing">
+         <number>2</number>
+        </property>
+        <item>
+         <widget class="QPushButton" name="btnOpenFolder">
+          <property name="minimumSize">
+           <size>
+            <width>70</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>70</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>OPEN</string>
+          </property>
+          <property name="default">
+           <bool>true</bool>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnDeleteFolder">
+          <property name="minimumSize">
+           <size>
+            <width>70</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>70</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>CLEAN  </string>
+          </property>
+          <property name="default">
+           <bool>true</bool>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="0" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_9">
+        <property name="spacing">
+         <number>2</number>
+        </property>
+        <item>
+         <widget class="QRadioButton" name="rbFBX">
+          <property name="maximumSize">
+           <size>
+            <width>40</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Export ra file định dạng .FBX&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>FBX</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="rbObj">
+          <property name="maximumSize">
+           <size>
+            <width>40</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Export ra file định dạng .OBJ&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>OBJ</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="rbSelf">
+          <property name="maximumSize">
+           <size>
+            <width>40</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Export ra file định dạng theo Software đang sử dụng&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Self</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="cbKeepID">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>40</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Nếu tick chọn sẽ thêm suffix ID* vào tên Material khi Export(Chỉ dùng cho Multisub Material trong 3dsmax)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(103, 77, 60);
+color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="text">
+           <string>ID</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="btnAddID">
+        <property name="minimumSize">
+         <size>
+          <width>70</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>70</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Add ID</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>317</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
