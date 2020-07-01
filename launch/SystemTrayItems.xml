@@ -1,0 +1,16 @@
+<data>
+    <GroupItems>
+		<item name="Maya 2017" exe_path="bin\maya.exe" icon="icon\maya.jpg" library="htp_maya"></item>
+        <item name="Maya 2018" exe_path="bin\maya.exe" icon="icon\maya.jpg" library="htp_maya"></item>
+    </GroupItems>
+	<GroupItems>
+		<item name="3ds Max 2018" exe_path="3dsmax.exe" icon="icon\max.jpg" library="htp_max"></item>
+		<item name="3ds Max 2021" exe_path="3dsmax.exe" icon="icon\max.jpg" library="htp_max" install_location="C:\Program Files\Autodesk\3ds Max 2021"></item>
+	</GroupItems>
+	<GroupItems>
+		<item name="Houdini 18.0.391" exe_path="bin\houdinifx.exe" icon="icon\houdini.jpg" library="htp_houdini" install_location="D:\Houdini 18.0.391"></item>
+	</GroupItems>
+	<GroupItems>
+		<item name="Substance Designer" exe_path="Substance Designer.exe" icon="icon\substance_designer.jpg" library=""></item>
+	</GroupItems>
+</data>

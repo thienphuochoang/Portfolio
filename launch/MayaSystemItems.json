@@ -1,0 +1,14 @@
+{
+	"Validation":
+	{
+		"command":"",
+		"icon":"/icon/validation.png",
+		"subItem":""
+	},
+	"Exporter":
+	{
+		"command":"from htp_maya.exporter.controller import main; reload(main)",
+		"icon":"/icon/exporter.png",
+		"subItem":""
+	}
+}
