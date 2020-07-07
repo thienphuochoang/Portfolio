@@ -1,5 +1,6 @@
-
+import importlib
 import controller
-reload(controller)
-
-print dir(controller)
+try:
+	importlib.reload(controller)
+except:
+	reload(controller)

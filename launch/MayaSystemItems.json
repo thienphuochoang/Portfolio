@@ -7,7 +7,7 @@
 	},
 	"Exporter":
 	{
-		"command":"from htp_maya.exporter.controller import main; reload(main)",
+		"command":"import importlib;\nfrom htp_maya.exporter.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
 		"icon":"/icon/exporter.png",
 		"subItem":""
 	}

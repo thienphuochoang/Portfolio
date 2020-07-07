@@ -40,7 +40,10 @@ mayaMainWindow = wrapInstance(long(mayaMainWindowPtr), QtWidgets.QWidget)  # cre
 def import_file(str_module):
     """import a module from string"""
     nameModule = importlib.import_module(str_module)
-    reload(nameModule)
+    try:
+        reload(nameModule)
+    except:
+        importlib.reload(nameModule)
     return nameModule
     
 #import Function____________________

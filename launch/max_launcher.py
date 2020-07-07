@@ -1,9 +1,15 @@
 import os
+import sys
 try:
 	import winreg
 except ImportError:
 	import _winreg as winreg
 
+
+currentFilePath = os.path.dirname(os.path.abspath(__file__))
+currentFilePath = currentFilePath.replace("\\","/")
+currentFilePath = ("/".join(currentFilePath.split("/")[:-1]))
+sys.path.append(currentFilePath)
 class LauncherFunction():
 	def __init__(self):
 		self.maxVersionDict =   {"15.0": "2013","16.0": "2014","17.0": "2015","18.0": "2016","19.0": "2017","20.0": "2018","21.0": "2019","22.0": "2020","23.0": "2021"}
@@ -36,6 +42,14 @@ class LauncherFunction():
 		self.maxLibrary = "htp_max"
 		return (self.maxLibrary)
 
+	def getOpenCommandLine(self, exeFilePath, maxLibrary):
+		#self.openingCommandLine = "\"" + exeFilePath + "\" -c" + ' python(\""import sys; sys.path.append('""+currentFilePath+""'); from '+mayaLibrary+' import startup; startup.main()\"")'
+		#self.openingCommandLine = shlex.split(self.openingCommandLine)
+		#self.openingCommandLine = subprocess.Popen([exeFilePath, "-c", "python(\"import sys; sys.path.append('"+currentFilePath+"'); from "+mayaLibrary+" import startup; startup.main()\")"])
+		startupCommandLine = currentFilePath + "/" + self.maxLibrary + "/" + "startup.py"
+		self.openingCommandLine = [exeFilePath, "-u PythonHost", "\""+startupCommandLine+ "\""]
+		return (self.openingCommandLine)
+
 	def getAllVersionInfo(self):
 		self.maxInformationDict = {}
 		for maxVersion, maxYearVersion in self.maxVersionDict.items():
@@ -44,5 +58,6 @@ class LauncherFunction():
 				maxDisplayedIcon = self.getDisplayIcon(maxInstalledLocation)
 				maxExeFilePath = self.getExeFilePath(maxInstalledLocation)
 				maxImportedLibrary = self.getLibrary()
-				self.maxInformationDict["3DSMax " + maxYearVersion] = [maxInstalledLocation, maxDisplayedIcon, maxExeFilePath, maxImportedLibrary]
+				maxOpeningCommandLine = self.getOpenCommandLine(maxExeFilePath, maxImportedLibrary)
+				self.maxInformationDict["3DSMax " + maxYearVersion] = [maxInstalledLocation, maxDisplayedIcon, maxExeFilePath, maxImportedLibrary, maxOpeningCommandLine]
 		return self.maxInformationDict

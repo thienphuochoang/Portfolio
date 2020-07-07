@@ -1,0 +1,10 @@
+{
+	"Normal Tool":
+	{
+		"macro_name":"htp_normal_tool",
+		"macro_tooltip":"This is a normal tool",
+		"macro_text":"Normal Tools",
+		"command":"htp_max/normal_tool/function/vertex_normal_tools.ms",
+		"subItem":""
+	}
+}

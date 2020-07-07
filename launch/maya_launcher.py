@@ -1,9 +1,15 @@
 import os
+import sys
 try:
 	import winreg
 except ImportError:
 	import _winreg as winreg
 
+
+currentFilePath = os.path.dirname(os.path.abspath(__file__))
+currentFilePath = currentFilePath.replace("\\","/")
+currentFilePath = ("/".join(currentFilePath.split("/")[:-1]))
+sys.path.append(currentFilePath)
 class LauncherFunction():
 	def __init__(self):
 		self.mayaVersionList =   ["2013","2014","2015","2016","2017","2018","2019","2020","2021"]
@@ -36,6 +42,13 @@ class LauncherFunction():
 		self.mayaLibrary = "htp_maya"
 		return (self.mayaLibrary)
 
+	def getOpenCommandLine(self, exeFilePath, mayaLibrary):
+		#self.openingCommandLine = "\"" + exeFilePath + "\" -c" + ' python(\""import sys; sys.path.append('""+currentFilePath+""'); from '+mayaLibrary+' import startup; startup.main()\"")'
+		#self.openingCommandLine = shlex.split(self.openingCommandLine)
+		#self.openingCommandLine = subprocess.Popen([exeFilePath, "-c", "python(\"import sys; sys.path.append('"+currentFilePath+"'); from "+mayaLibrary+" import startup; startup.main()\")"])
+		self.openingCommandLine = [exeFilePath, "-c", "python(\"import sys; sys.path.append('"+currentFilePath+"'); from "+mayaLibrary+" import startup; startup.main()\")"]
+		return (self.openingCommandLine)
+
 	def getAllVersionInfo(self):
 		self.mayaInformationDict = {}
 		for mayaVersion in self.mayaVersionList:
@@ -44,5 +57,6 @@ class LauncherFunction():
 				mayaDisplayedIcon = self.getDisplayIcon(mayaInstalledLocation)
 				mayaExeFilePath = self.getExeFilePath(mayaInstalledLocation)
 				mayaImportedLibrary = self.getLibrary()
-				self.mayaInformationDict["Maya " + mayaVersion] = [mayaInstalledLocation, mayaDisplayedIcon, mayaExeFilePath, mayaImportedLibrary]
+				mayaOpeningCommandLine = self.getOpenCommandLine(mayaExeFilePath, mayaImportedLibrary)
+				self.mayaInformationDict["Maya " + mayaVersion] = [mayaInstalledLocation, mayaDisplayedIcon, mayaExeFilePath, mayaImportedLibrary, mayaOpeningCommandLine]
 		return self.mayaInformationDict

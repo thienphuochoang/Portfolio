@@ -8,7 +8,7 @@ try:
 	import winreg
 except ImportError:
 	import _winreg as winreg
-
+import shlex
 currentFilePath = os.path.dirname(os.path.abspath(__file__))
 currentFilePath = currentFilePath.replace("\\","/")
 sys.path.append(currentFilePath)
@@ -35,21 +35,31 @@ class GeneralIconManagement():
 		self.waveHandIcon = currentFilePath + "/icon/wavehand.png"
 
 class SystemTrayItem(QtWidgets.QAction):
-	def __init__(self, itemName, icon, exeFilePath, library, parent = None):
+	def __init__(self, itemName, icon, exeFilePath, library, commandLine, parent = None):
 		QtWidgets.QAction.__init__(self, parent)
 		self.itemName = itemName
 		self.icon = icon
 		self.exeFilePath = exeFilePath
 		self.library = library
+		self.commandLine = commandLine
+		#self.commandLine = shlex.split(self.commandLine)
+		print (self.commandLine)
+		#print (args)
+		#a = (self.commandLine).split()
+		#print (a)
+		#print ((self.commandLine))
 		self.setText(self.itemName)
 		self.setIcon(QtGui.QIcon(self.icon))
-		self.triggered.connect(lambda: self.startSoftware(self.exeFilePath, self.library))
+		self.triggered.connect(lambda: self.startSoftware())
 
-	def startSoftware(self, exeFilePath, library):
-		try:
-			subprocess.Popen([exeFilePath, "-c", "python(\"import sys; sys.path.append('"+currentFilePath+"'); from "+library+" import startup; startup.main()\")"])
-		except:
-			subprocess.Popen([exeFilePath])
+	def startSoftware(self):
+		#try:
+			#args = shlex.split(self.commandLine)
+			#print (args)
+			#subprocess.Popen([exeFilePath, "-c", "python(\"import sys; sys.path.append('"+currentFilePath+"'); from "+library+" import startup; startup.main()\")"])
+		subprocess.Popen(self.commandLine)
+		#except:
+			#subprocess.Popen([self.exeFilePath])
 
 class SystemTrayIcon(QtWidgets.QSystemTrayIcon):
 	"""
@@ -78,7 +88,8 @@ class SystemTrayIcon(QtWidgets.QSystemTrayIcon):
 			moduleInformation = moduleFunction.getAllVersionInfo()
 			if moduleInformation:
 				for itemName, info in moduleInformation.items():
-					newAction = SystemTrayItem(itemName , info[1], info[2], info[-1], self.menu)
+					#print (info[-1])
+					newAction = SystemTrayItem(itemName , info[1], info[2], info[3], info[-1], self.menu)
 					self.menu.addAction(newAction)
 		self.menu.addSeparator()
 		#mayaLauncherFunction = maya_launcher.MayaLauncherFunction(currentFilePath)
