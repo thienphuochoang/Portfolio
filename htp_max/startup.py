@@ -107,19 +107,29 @@ class mainMenuUI():
 class subMenuItem():
 	def __init__(self, htpMenu, macroName, macroTooltip, macroText, commandExecution):
 		self.commandExecution = commandExecution
-		self.commandExecution = 'filein' + '("'+currentFilePath+ "/" + self.commandExecution + '")'
-		#rt.exeFunc = self.executeFunction
+
+		self.checkFileMaxScriptOrPython()
+
 		self.macroscript_name = macroName
 		self.macroscript_category = mainMenuName
 		self.macroscript_tooltip = macroTooltip
 		self.macroscript_text = macroText
 		self.macroscript_content = self.commandExecution
+
+
+
 		self.macro_id = rt.macros.new(self.macroscript_category, self.macroscript_name, self.macroscript_tooltip, self.macroscript_text, self.macroscript_content)
 		self.menu_item = rt.menuMan.createActionItem(self.macroscript_name, self.macroscript_category)
 		htpMenu.addItem(self.menu_item, (htpMenu.numItems()+1))
-		#print (rt.exeFunc)
-	#def executeFunction(self):
-		#exec(self.commandExecution)
+
+	def checkFileMaxScriptOrPython(self):
+		checkFlag = self.commandExecution.endswith(".ms")
+		if checkFlag == True:
+			self.commandExecution = 'filein' + '("'+currentFilePath+ "/" + self.commandExecution + '")'
+		else:
+			self.commandExecution = repr(self.commandExecution)
+			self.commandExecution = self.commandExecution.replace("'","\"")
+			self.commandExecution = 'python.execute ' + self.commandExecution
 		
 def main():
 	menuCreation = mainMenuUI()

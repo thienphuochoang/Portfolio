@@ -4,7 +4,7 @@ try:
 	import winreg
 except ImportError:
 	import _winreg as winreg
-
+#import shlex
 
 currentFilePath = os.path.dirname(os.path.abspath(__file__))
 currentFilePath = currentFilePath.replace("\\","/")
@@ -47,6 +47,9 @@ class LauncherFunction():
 		#self.openingCommandLine = shlex.split(self.openingCommandLine)
 		#self.openingCommandLine = subprocess.Popen([exeFilePath, "-c", "python(\"import sys; sys.path.append('"+currentFilePath+"'); from "+mayaLibrary+" import startup; startup.main()\")"])
 		self.openingCommandLine = [exeFilePath, "-c", "python(\"import sys; sys.path.append('"+currentFilePath+"'); from "+mayaLibrary+" import startup; startup.main()\")"]
+		#b = exeFilePath + " -c " + "python(\"import sys; sys.path.append('"+currentFilePath+"'); from "+mayaLibrary+" import startup; startup.main()\")"
+		#a = shlex.split(b)
+		#print (a)
 		return (self.openingCommandLine)
 
 	def getAllVersionInfo(self):
