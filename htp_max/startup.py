@@ -11,19 +11,22 @@ mainMenuName = "HTP_Tools"
 
 import pymxs
 rt = pymxs.runtime
+#defaultUserMacroFolder = r"C:\Users\PhuocHoang\AppData\Local\Autodesk\3dsMax\2021 - 64bit\ENU\usermacros"
+def setToOldUserMacroFolder():
+	maxEnuFolder = rt.getDir(rt.Name("maxData"))
+	maxEnuFolder = maxEnuFolder.replace("\\","/")
+	defaultUserMacroFolder = maxEnuFolder + "usermacros"
+	rt.setDir(rt.Name("usermacros"), defaultUserMacroFolder)
+
 class mainMenuUI():
 	def __init__(self):
 		"""
 		Create drop down menu in Max
 		"""
-		#theMainMenu = menuMan.getMainMenuBar() --get the main menu bar
-		#theMenu = menuMan.createMenu "Forum Help" --create a menu called Forum Help
-		#theSubMenu = menuMan.createSubMenuItem "Forum Help" theMenu --create a SubMenuItem
-		#theMainMenu.addItem theSubMenu (theMainMenu.numItems()+1) --add the SubMenu to the Main Menu
-		#theAction = menuMan.createActionItem "PutMeOnAMenu" "Forum Help" --create an ActionItem from the MacroScript
-		#theMenu.addItem theAction (theMenu.numItems()+1) --add the ActionItem to the menu
-		#menuMan.updateMenuBar() --update the menu bar
 		
+		#Change user macroscript folder path
+		self.changeUserMacroScript()
+
 		#Remove old menu
 		self.htpMenu = rt.menuMan.findMenu(mainMenuName)
 		if self.htpMenu != rt.undefined:
@@ -51,58 +54,20 @@ class mainMenuUI():
 				macro_text = value["macro_text"]
 				print (command)
 				actionItem = subMenuItem(self.htpMenu, macro_name, macro_tooltip, macro_text, command)
-				#actionItem = rt.menuMan.createActionItem("Bend", "Modifiers")
-				#self.mainMenuBar.addItem(actionItem, index)
+
 
 		rt.menuMan.updateMenuBar()
-				#rt.menuMan.createActionItem("Bend", "Modifiers")
+		rt.callbacks.addScript(rt.Name("postSystemShutdown"), "python.execute(\"setToOldUserMacroFolder()\")")
+		#print (defaultUserMacroFolder)
 
-		# sub = rt.menuMan.createMenu("Apply Modifier")
-		# a = rt.menuMan.createActionItem("Bend", "Modifiers")
-		# sub.addItem(a, -1)
-		# b = rt.menuMan.createActionItem("Taper", "Modifiers")
-		# sub.addItem(b, -1)
-		# item = rt.menuMan.createSubMenuItem("Apply Modifier", sub)
-		# menu.addItem(item, -1)
-		# mitem = rt.menuMan.createSubMenuItem(mainMenuName, menu)
-		# index = mainMenuBar.numItems()
-		# mainMenuBar.addItem(mitem, index)
-		# rt.menuMan.updateMenuBar()
-		'''
-
-		(
-		menu = menuMan.createMenu "Custom Tools"
-		sub = menuMan.createMenu "Apply Modifier"
-		test = menuMan.createMenu "test"
-		a = menuMan.createActionItem "Bend" "Modifiers"
-		sub.addItem a -1
-		b = menuMan.createActionItem "Taper" "Modifiers"
-		sub.addItem b -1
-		item = menuMan.createSubMenuItem "Apply Modifier" sub
-		item2 = menuMan.createSubMenuItem "test" test
-		menu.addItem item -1
-		menu.addItem item2 -1
-		mitem = menuMan.createSubMenuItem "Custom Tools" menu
-		index = mainMenuBar.numItems() -- add before last (usualy it's "Help")
-		mainMenuBar.addItem mitem index
-		menuMan.updateMenuBar()
-		)
-
-
-		mainWindow = mel.eval('global string $gMainWindow; $temp = $gMainWindow')
-		if cmds.menu(mainMenuName, q = True, exists = True):
-			cmds.deleteUI(mainMenuName, menu = True)
-		self.mainMenu = cmds.menu(mainMenuName, l = mainMenuName, parent = mainWindow, tearOff= True)
-		with open(mayaMenuItems) as menuItemDatabase:
-			self.data = json.load(menuItemDatabase)
-			for key, value in self.data.iteritems():
-				imagePath = iconPath + value["icon"]
-				command = value["command"]
-				if value["subItem"]:
-					item = mainMenuItem(self.mainMenu, key, imagePath, command, True)
-				else:
-					item = mainMenuItem(self.mainMenu, key, imagePath, command, False)
-		'''
+	def changeUserMacroScript(self):
+		self.oldCurrentUserMacroFolder = rt.getDir(rt.Name("usermacros"))
+		self.newUserMacroScriptFolder = self.oldCurrentUserMacroFolder.replace("\\","/")
+		self.newUserMacroScriptFolder = "/".join(self.newUserMacroScriptFolder.split("/")[:-1])
+		self.newUserMacroScriptFolder = self.newUserMacroScriptFolder + "/" + "HTP_Tools_usermacros"
+		if not os.path.isdir(self.newUserMacroScriptFolder):
+			os.mkdir(self.newUserMacroScriptFolder)
+		rt.setDir(rt.Name("usermacros"), self.newUserMacroScriptFolder)
 		
 class subMenuItem():
 	def __init__(self, htpMenu, macroName, macroTooltip, macroText, commandExecution):

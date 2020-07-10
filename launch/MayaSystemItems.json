@@ -1,14 +1,28 @@
-{
-	"Validation":
+[
 	{
+		"name": "Validation",
 		"command":"",
-		"icon":"/icon/validation.png",
-		"subItem":""
+		"icon":"icon/validation.png",
+		"subItem":[]
 	},
-	"Exporter":
 	{
+		"name": "Exporter",
 		"command":"import importlib;\nfrom htp_maya.exporter.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
-		"icon":"/icon/exporter.png",
-		"subItem":""
+		"icon":"icon/exporter.png",
+		"subItem":[]
+	},
+	{
+		"name": "Utilities",
+		"command":"",
+		"icon":"icon/settings.png",
+		"subItem":
+		[
+			{
+				"name": "Transfer Transformation",
+				"command":"import importlib;\nfrom htp_maya.transfer_transformation.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
+				"icon":"icon/socket.jpg",
+				"subItem":[]
+			}
+		]
 	}
-}
+]
