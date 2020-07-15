@@ -1,18 +1,16 @@
-{
-	"Normal Tool":
+[	
 	{
+		"macro_text":"Normal Tools",
 		"macro_name":"htp_normal_tool",
 		"macro_tooltip":"This is a normal tool",
-		"macro_text":"Normal Tools",
 		"command":"htp_max/normal_tool/function/vertex_normal_tools.ms",
-		"subItem":""
+		"subItem":[]
 	},
-	"Exporter Tool":
 	{
+		"macro_text":"Exporter Tool",
 		"macro_name":"htp_exporter_tool",
 		"macro_tooltip":"This is an exporter tool",
-		"macro_text":"Exporter Tool",
 		"command":"import importlib;\nfrom htp_max.exporter.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
-		"subItem":""
+		"subItem":[]
 	}
-}
+]

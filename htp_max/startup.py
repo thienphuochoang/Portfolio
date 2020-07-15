@@ -47,12 +47,11 @@ class mainMenuUI():
 
 		with open(maxMenuItems) as menuItemDatabase:
 			self.data = json.load(menuItemDatabase)
-			for key, value in self.data.items():
+			for value in self.data:
 				command = value["command"]
 				macro_name = value["macro_name"]
 				macro_tooltip = value["macro_tooltip"]
 				macro_text = value["macro_text"]
-				print (command)
 				actionItem = subMenuItem(self.htpMenu, macro_name, macro_tooltip, macro_text, command)
 
 
