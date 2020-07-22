@@ -52,7 +52,18 @@ class mainMenuUI():
 				macro_name = value["macro_name"]
 				macro_tooltip = value["macro_tooltip"]
 				macro_text = value["macro_text"]
-				actionItem = subMenuItem(self.htpMenu, macro_name, macro_tooltip, macro_text, command)
+				numberOfActionItems = value["subItem"]
+				if len(numberOfActionItems) > 0:
+					menuItem = subMenuItem(self.htpMenu, macro_text)
+					appendSubMenu = menuItem.appendSubMenuToHTPMenu()
+					for action in numberOfActionItems:
+						actionCommand = action["command"]
+						actionMacro_name = action["macro_name"]
+						actionMacro_tooltip = action["macro_tooltip"]
+						actionMacro_text = action["macro_text"]
+						actionItem = subMenuAction(appendSubMenu, actionMacro_name, actionMacro_tooltip, actionMacro_text, actionCommand)
+				else:
+					actionItem = subMenuAction(self.htpMenu, macro_name, macro_tooltip, macro_text, command)
 
 
 		rt.menuMan.updateMenuBar()
@@ -69,7 +80,18 @@ class mainMenuUI():
 		rt.setDir(rt.Name("usermacros"), self.newUserMacroScriptFolder)
 		
 class subMenuItem():
-	def __init__(self, htpMenu, macroName, macroTooltip, macroText, commandExecution):
+	def __init__(self, htpMenu, macroText):
+		self.htpMenu = htpMenu
+		self.macroscript_text = macroText
+
+	def appendSubMenuToHTPMenu(self):
+		self.menu = rt.menuMan.createMenu(self.macroscript_text)
+		self.subMenu = rt.menuMan.createSubMenuItem(self.macroscript_text, self.menu)
+		self.htpMenu.addItem(self.subMenu, -1)
+		return self.menu
+
+class subMenuAction():
+	def __init__(self, parentMenu, macroName, macroTooltip, macroText, commandExecution):
 		self.commandExecution = commandExecution
 
 		self.checkFileMaxScriptOrPython()
@@ -79,21 +101,21 @@ class subMenuItem():
 		self.macroscript_tooltip = macroTooltip
 		self.macroscript_text = macroText
 		self.macroscript_content = self.commandExecution
-
-
+		self.parentMenu = parentMenu
 
 		self.macro_id = rt.macros.new(self.macroscript_category, self.macroscript_name, self.macroscript_tooltip, self.macroscript_text, self.macroscript_content)
 		self.menu_item = rt.menuMan.createActionItem(self.macroscript_name, self.macroscript_category)
-		htpMenu.addItem(self.menu_item, (htpMenu.numItems()+1))
+		parentMenu.addItem(self.menu_item, -1)
 
 	def checkFileMaxScriptOrPython(self):
-		checkFlag = self.commandExecution.endswith(".ms")
-		if checkFlag == True:
-			self.commandExecution = 'filein' + '("'+currentFilePath+ "/" + self.commandExecution + '")'
-		else:
-			self.commandExecution = repr(self.commandExecution)
-			self.commandExecution = self.commandExecution.replace("'","\"")
-			self.commandExecution = 'python.execute ' + self.commandExecution
+		if self.commandExecution:
+			checkMaxscriptFlag = self.commandExecution.endswith(".ms")
+			if checkMaxscriptFlag == True:
+				self.commandExecution = 'filein' + '("'+currentFilePath+ "/" + self.commandExecution + '")'
+			else:
+				self.commandExecution = repr(self.commandExecution)
+				self.commandExecution = self.commandExecution.replace("'","\"")
+				self.commandExecution = 'python.execute ' + self.commandExecution
 		
 def main():
 	menuCreation = mainMenuUI()

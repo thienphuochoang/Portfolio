@@ -1,6 +1,6 @@
 [	
 	{
-		"macro_text":"Normal Tools",
+		"macro_text":"Normal Tool",
 		"macro_name":"htp_normal_tool",
 		"macro_tooltip":"This is a normal tool",
 		"command":"htp_max/normal_tool/function/vertex_normal_tools.ms",
@@ -12,5 +12,21 @@
 		"macro_tooltip":"This is an exporter tool",
 		"command":"import importlib;\nfrom htp_max.exporter.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
 		"subItem":[]
+	},
+	{
+		"macro_text":"UV Tools",
+		"macro_name":"htp_uv_tool",
+		"macro_tooltip":"This is a collection of uv tools",
+		"command":"",
+		"subItem":
+		[
+			{
+				"macro_text":"Texel Density",
+				"macro_name":"htp_texel_density_tool",
+				"macro_tooltip":"This is a texel density tool",
+				"command":"htp_max/uv_tool/function/texel_density_tool.ms",
+				"subItem":[]
+			}
+		]
 	}
 ]
