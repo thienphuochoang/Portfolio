@@ -39,7 +39,7 @@ class LauncherFunction():
 			return maxExeFilePath
 
 	def getLibrary(self):
-		self.maxLibrary = "htp_max"
+		self.maxLibrary = "puzzle_max"
 		return (self.maxLibrary)
 
 	def getOpenCommandLine(self, exeFilePath, maxLibrary):

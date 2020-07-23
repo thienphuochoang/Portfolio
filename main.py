@@ -21,15 +21,23 @@ def importModulesFromLaunchFolder():
 	for file in os.listdir(currentFilePath + "/launch"):
 		if file.endswith(".py") and "__init__" not in file:
 			importModule = file.replace(".py","")
-			importedModule = importlib.import_module("launch." + importModule)
-			importModuleList.append(importedModule)
+			try:
+				importedModule = importlib.import_module("launch." + importModule)
+				importModuleList.append(importedModule)
+			except:
+				print (importModule + "is not installed")
+			
+			#try:
+				#importModuleList.append(importedModule)
+			#except:
+				
 	return importModuleList
 
 class GeneralIconManagement():
 	def __init__(self):
-		self.mainIcon = currentFilePath + "/icon/SystemTray.png"
-		self.exitIcon = currentFilePath + "/icon/exit.jpg"
-		self.waveHandIcon = currentFilePath + "/icon/wavehand.png"
+		self.mainIcon = currentFilePath + "/lib/icon/SystemTray.png"
+		self.exitIcon = currentFilePath + "/lib/icon/exit.jpg"
+		self.waveHandIcon = currentFilePath + "/lib/icon/welcome.jpg"
 
 class SystemTrayItem(QtWidgets.QAction):
 	def __init__(self, itemName, icon, exeFilePath, library, commandLine, parent = None):
@@ -70,12 +78,15 @@ class SystemTrayIcon(QtWidgets.QSystemTrayIcon):
 	def importAllSoftwareFunction(self):
 		modulesList = importModulesFromLaunchFolder()
 		for module in modulesList:
-			moduleFunction = module.LauncherFunction()
-			moduleInformation = moduleFunction.getAllVersionInfo()
-			if moduleInformation:
-				for itemName, info in moduleInformation.items():
-					newAction = SystemTrayItem(itemName , info[1], info[2], info[3], info[-1], self.menu)
-					self.menu.addAction(newAction)
+			try:
+				moduleFunction = module.LauncherFunction()
+				moduleInformation = moduleFunction.getAllVersionInfo()
+				if moduleInformation:
+					for itemName, info in moduleInformation.items():
+						newAction = SystemTrayItem(itemName , info[1], info[2], info[3], info[-1], self.menu)
+						self.menu.addAction(newAction)
+			except:
+				print (str(module) + "is not installed")
 		self.menu.addSeparator()
 	
 if __name__ == '__main__':
@@ -84,6 +95,6 @@ if __name__ == '__main__':
 	w = QtWidgets.QWidget()
 	tray_icon = SystemTrayIcon(QtGui.QIcon(iconInstanceClass.mainIcon), w)
 	tray_icon.show()
-	tray_icon.showMessage('Graphic Software Management Tools', 'Hello ' + getpass.getuser() + '. Hope you have a great day!!!',QtGui.QIcon(iconInstanceClass.waveHandIcon))
+	tray_icon.showMessage('PUZZLE Tool Collection', 'Hello ' + getpass.getuser() + '. Hope you have a great day!!!',QtGui.QIcon(iconInstanceClass.waveHandIcon))
 
 	sys.exit(app.exec_())

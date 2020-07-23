@@ -2,25 +2,25 @@
 	{
 		"name": "Validation",
 		"command":"",
-		"icon":"icon/validation.png",
+		"icon":"lib/icon/validation.png",
 		"subItem":[]
 	},
 	{
 		"name": "Exporter",
-		"command":"import importlib;\nfrom htp_maya.exporter.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
-		"icon":"icon/exporter.png",
+		"command":"import importlib;\nfrom puzzle_maya.exporter.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
+		"icon":"lib/icon/exporter.png",
 		"subItem":[]
 	},
 	{
-		"name": "Utilities",
+		"name": "Animation",
 		"command":"",
-		"icon":"icon/settings.png",
+		"icon":"lib/icon/animation.png",
 		"subItem":
 		[
 			{
 				"name": "Transfer Transformation",
-				"command":"import importlib;\nfrom htp_maya.transfer_transformation.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
-				"icon":"icon/socket.jpg",
+				"command":"import importlib;\nfrom puzzle_maya.transfer_transformation.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
+				"icon":"lib/icon/socket.jpg",
 				"subItem":[]
 			}
 		]

@@ -39,7 +39,7 @@ class LauncherFunction():
 			return mayaExeFilePath
 
 	def getLibrary(self):
-		self.mayaLibrary = "htp_maya"
+		self.mayaLibrary = "puzzle_maya"
 		return (self.mayaLibrary)
 
 	def getOpenCommandLine(self, exeFilePath, mayaLibrary):

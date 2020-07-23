@@ -213,8 +213,9 @@ rollout rol_UVTexelDensity "Texel Density Tool"
 	local checkMapBackupMat = #()
 	local checkMapBackupObj = #()
 	local checkMapMaterial
-	local checkerMapList = #("Checker512.png", "Checker1024.png")
+	local checkerMapList = #("checker_map_256x256.png", "checker_map_512x512.png", "checker_map_1024x1024.png", "checker_map_2048x2048.png")
 	local countChecker = 1
+	local userIconDirectory = getDir #usericons
 	
 	fn GetResolution ResolutionString = 
 	(
@@ -251,9 +252,9 @@ rollout rol_UVTexelDensity "Texel Density Tool"
 	
 	--button btnCheckerMap "Checker Map" pos:[85,69] width:25 height:25 images:#(@"\\glassegg.com\TOOLS\TECHNICAL_SCRIPT\Projects\NetEase_Evn_19\Scripts\icon\checker_icon.jpg", undefined, 1, 1, 1, 1, 1)
 	--spinner spn8 "" pos:[129,74] width:60 height:16 enabled:true range:[0,100,0]
-	button btnTexelMaterial "" pos:[32,68] width:24 height:24 images:#("//glassegg.com/TOOLS/TECHNICAL_SCRIPT/Projects/Environment_Default/Lib/icon/texel_material.png", undefined, 1, 1, 1, 1, 1)
-	button chbCheckChecker "Button" pos:[72,68] width:24 height:24 images:#("//glassegg.com/TOOLS/TECHNICAL_SCRIPT/Projects/Environment_Default/Lib/icon/checker_icon.jpg", undefined, 1, 1, 1, 1, 1)
-	button btnReset "Reset" pos:[212,68] width:24 height:24 images:#("//glassegg.com/TOOLS/TECHNICAL_SCRIPT/Projects/Environment_Default/Max/checker/app/src/reset.jpg", undefined, 1, 1, 1, 1, 1)
+	button btnTexelMaterial "" pos:[32,68] width:24 height:24 images:#(userIconDirectory + "\\" + "checker_material.jpg", undefined, 1, 1, 1, 1, 1)
+	button chbCheckChecker "Button" pos:[72,68] width:24 height:24 images:#(userIconDirectory + "\\" + "checker_icon.jpg", undefined, 1, 1, 1, 1, 1)
+	button btnReset "Reset" pos:[212,68] width:24 height:24 images:#(userIconDirectory + "\\" + "reset.jpg", undefined, 1, 1, 1, 1, 1)
 	spinner spn_TilingUV1 "U" pos:[102,72] width:41 height:20 align:#left range:[0,100,1]
 	spinner spn_TilingUV2 "V" pos:[152,72] width:41 height:20 align:#left range:[0,100,1]
 	--spinner spnValueChecker Pos:[107,72] range:[0,100,1.0] width:60 height:25 type:#float scale: 0.1 tooltip: "Checker Map Ratio"
@@ -405,52 +406,52 @@ rollout rol_UVTexelDensity "Texel Density Tool"
 	)
 	on chbCheckChecker pressed do
 	(
-		--btnReset.images = #("//glassegg.com/TOOLS/TECHNICAL_SCRIPT/Projects/Environment_Default/Max/checker/app/src/Checker512.png", undefined, 1, 1, 1, 1, 1)
 		if selection != undefined do
 		(
-			CheckerPath = "\\\\glassegg.com\\TOOLS\\TECHNICAL_SCRIPT\\Projects\\Environment_Default\\Max\\checker\\app\\src"
-			MatPath = "\\\\glassegg.com\\TOOLS\\TECHNICAL_SCRIPT\\Projects\\Environment_Default\\Max\\checker\\app\\res"
-			MatFiles = getFiles (MatPath+"\\"+ "Environment_Default_Checker_Mat" +".mat")
-			local Temp = loadTempMaterialLibrary MatFiles[1]
-						
+			checkerMat = Standardmaterial()
+			checkerMat.name = "Puzzle_Checker_Material"
+			tempArray = filterString userIconDirectory "\\"
+			checkerPath = ""
+			for i=1 to tempArray.count do
+			(
+				if i == tempArray.count then
+				(
+					break
+				)
+				else
+				(
+					checkerPath = checkerPath + tempArray[i] + "\\"
+				)
+			)
+			checkerPath = checkerPath + "resource"
 			for i in selection do
 			(
-				if i.material.name != "Environment_Default_Checker_Material" do
+				if i.material.name != "Puzzle_Checker_Material" do
 				(
 					append checkMapBackupMat i.material
 					append checkMapBackupObj i
 				)
-				--print (checkerMapList[countChecker])
 				if checkerMapList[countChecker] != undefined then
 				(
-					checkerFullPath = CheckerPath + "\\" + checkerMapList[countChecker]
-					Temp[1].DiffuseMap = Bitmaptexture filename:checkerFullPath
-					Temp[1].diffuseMap.coords.U_Tiling = spn_TilingUV1.value
-					Temp[1].diffuseMap.coords.V_Tiling = spn_TilingUV2.value
+					checkerFullPath = checkerPath + "\\" + checkerMapList[countChecker]
+					checkerMat.diffuseMap = Bitmaptexture filename:checkerFullPath
+					checkerMat.diffuseMap.coords.U_Tiling = spn_TilingUV1.value
+					checkerMat.diffuseMap.coords.V_Tiling = spn_TilingUV2.value
 					chbCheckChecker.images = #(checkerFullPath, undefined, 1, 1, 1, 1, 1)
 					countChecker = countChecker + 1
-					i.material = Temp[1]
+					i.material = checkerMat
 				)
 				else
 				(
 					countChecker = 1
 					checkerFullPath = CheckerPath + "\\" + checkerMapList[countChecker]
-					Temp[1].DiffuseMap = Bitmaptexture filename:checkerFullPath
-					Temp[1].diffuseMap.coords.U_Tiling = spn_TilingUV1.value
-					Temp[1].diffuseMap.coords.V_Tiling = spn_TilingUV2.value
+					checkerMat.DiffuseMap = Bitmaptexture filename:checkerFullPath
+					checkerMat.diffuseMap.coords.U_Tiling = spn_TilingUV1.value
+					checkerMat.diffuseMap.coords.V_Tiling = spn_TilingUV2.value
 					chbCheckChecker.images = #(checkerFullPath, undefined, 1, 1, 1, 1, 1)
 					countChecker = countChecker + 1
-					i.material = Temp[1]
+					i.material = checkerMat
 				)
-				--for checkerName in checkerMapList do
-				--(
-					--print countChecker
-					--countChecker = countChecker + 1
-					--Temp[1].DiffuseMap = Bitmaptexture filename:
-				--)
-				--Temp[1].DiffuseMap = Bitmaptexture filename:
-				--i.material = Temp[1]
-				--showtextureMap i.material  i.material.DiffuseMap on
 			)
 		)
 	)
@@ -472,7 +473,7 @@ rollout rol_UVTexelDensity "Texel Density Tool"
 		(
 			for obj in selection do
 			(
-				if obj.mat.name == "Environment_Default_Checker_Material" do
+				if obj.mat.name == "Puzzle_Checker_Material" do
 				(
 					obj.mat.diffuseMap.coords.U_Tiling = value
 				)
@@ -485,13 +486,14 @@ rollout rol_UVTexelDensity "Texel Density Tool"
 		(
 			for obj in selection do
 			(
-				if obj.mat.name == "Environment_Default_Checker_Material" do
+				if obj.mat.name == "Puzzle_Checker_Material" do
 				(
 					obj.mat.diffuseMap.coords.V_Tiling = value
 				)
 			)
 		)
 	)
+
 	on btnTexelMaterial pressed do
 	(
 		break

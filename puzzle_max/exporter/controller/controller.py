@@ -25,7 +25,7 @@ def import_file(str_module):
 	return nameModule
 	
 #import Function____________________
-eif = import_file(r"htp_max.exporter.function.exporter_function")
+eif = import_file(r"puzzle_max.exporter.function.exporter_function")
 exporter_mainUI = import_file(r"lib.ui.Exporter_MainUI")
 
 		

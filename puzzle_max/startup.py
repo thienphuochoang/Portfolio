@@ -6,7 +6,7 @@ currentFilePath = currentFilePath.replace("\\","/")
 currentFilePath = "/".join(currentFilePath.split("/")[:-1])
 sys.path.append(currentFilePath)
 maxMenuItems = currentFilePath + "/launch/" + "MaxSystemItems.json"
-mainMenuName = "HTP_Tools"
+mainMenuName = "PUZZLE_Tools"
 
 
 import pymxs
@@ -15,6 +15,10 @@ rt = pymxs.runtime
 def setToOldUserMacroFolder():
 	maxEnuFolder = rt.getDir(rt.Name("maxData"))
 	maxEnuFolder = maxEnuFolder.replace("\\","/")
+
+	defaultUserIconFolder = maxEnuFolder + "usericons"
+	rt.setDir(rt.Name("usericons"), defaultUserIconFolder)
+	
 	defaultUserMacroFolder = maxEnuFolder + "usermacros"
 	rt.setDir(rt.Name("usermacros"), defaultUserMacroFolder)
 
@@ -26,6 +30,9 @@ class mainMenuUI():
 		
 		#Change user macroscript folder path
 		self.changeUserMacroScript()
+
+		#Change user icon folder path
+		self.changeUserIconDirectory()
 
 		#Remove old menu
 		self.htpMenu = rt.menuMan.findMenu(mainMenuName)
@@ -68,16 +75,29 @@ class mainMenuUI():
 
 		rt.menuMan.updateMenuBar()
 		rt.callbacks.addScript(rt.Name("postSystemShutdown"), "python.execute(\"setToOldUserMacroFolder()\")")
-		#print (defaultUserMacroFolder)
 
 	def changeUserMacroScript(self):
+		'''
+		Change macro script directory
+		'''
 		self.oldCurrentUserMacroFolder = rt.getDir(rt.Name("usermacros"))
 		self.newUserMacroScriptFolder = self.oldCurrentUserMacroFolder.replace("\\","/")
 		self.newUserMacroScriptFolder = "/".join(self.newUserMacroScriptFolder.split("/")[:-1])
-		self.newUserMacroScriptFolder = self.newUserMacroScriptFolder + "/" + "HTP_Tools_usermacros"
+		self.newUserMacroScriptFolder = self.newUserMacroScriptFolder + "/" + "PUZZLE_Tools_usermacros"
 		if not os.path.isdir(self.newUserMacroScriptFolder):
 			os.mkdir(self.newUserMacroScriptFolder)
 		rt.setDir(rt.Name("usermacros"), self.newUserMacroScriptFolder)
+
+	def changeUserIconDirectory(self):
+		'''
+		Change user icon directory
+		'''
+		self.oldCurrentUserIconFolder = rt.getDir(rt.Name("usericons"))
+		self.newUserIconFolder = self.oldCurrentUserIconFolder.replace("\\","/")
+		self.newUserIconFolder = currentFilePath + "/" + "lib/icon"
+		if not os.path.isdir(self.newUserIconFolder):
+			os.mkdir(self.newUserIconFolder)
+		rt.setDir(rt.Name("usericons"), self.newUserIconFolder)
 		
 class subMenuItem():
 	def __init__(self, htpMenu, macroText):

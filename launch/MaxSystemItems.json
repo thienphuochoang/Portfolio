@@ -1,30 +1,30 @@
 [	
 	{
 		"macro_text":"Normal Tool",
-		"macro_name":"htp_normal_tool",
+		"macro_name":"puzzle_normal_tool",
 		"macro_tooltip":"This is a normal tool",
-		"command":"htp_max/normal_tool/function/vertex_normal_tools.ms",
+		"command":"puzzle_max/normal_tool/function/vertex_normal_tools.ms",
 		"subItem":[]
 	},
 	{
 		"macro_text":"Exporter Tool",
-		"macro_name":"htp_exporter_tool",
+		"macro_name":"puzzle_exporter_tool",
 		"macro_tooltip":"This is an exporter tool",
-		"command":"import importlib;\nfrom htp_max.exporter.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
+		"command":"import importlib;\nfrom puzzle_max.exporter.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
 		"subItem":[]
 	},
 	{
 		"macro_text":"UV Tools",
-		"macro_name":"htp_uv_tool",
+		"macro_name":"puzzle_uv_tool",
 		"macro_tooltip":"This is a collection of uv tools",
 		"command":"",
 		"subItem":
 		[
 			{
 				"macro_text":"Texel Density",
-				"macro_name":"htp_texel_density_tool",
+				"macro_name":"puzzle_texel_density_tool",
 				"macro_tooltip":"This is a texel density tool",
-				"command":"htp_max/uv_tool/function/texel_density_tool.ms",
+				"command":"puzzle_max/uv_tool/texel_density/function/texel_density_tool.ms",
 				"subItem":[]
 			}
 		]
