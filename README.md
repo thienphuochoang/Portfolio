@@ -1,6 +1,4 @@
-# Portfolio
-This is my WIP Portfolio
-Software:
+# Portfolio <br>
 - Maya
 - 3DS Max
 - Houdini
