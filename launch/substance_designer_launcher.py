@@ -45,7 +45,7 @@ class LauncherFunction():
 		self.sdLibrary = "htp_substance_designer"
 		return (self.sdLibrary)
 
-	def getAllVersionInfo(self):
+	def main(self):
 		self.sdInformationDict = {}
 		installAndVersionDict = self.getInstalledLocationInRegistryEditor(winreg.HKEY_LOCAL_MACHINE, winreg.KEY_WOW64_64KEY)
 		if installAndVersionDict:

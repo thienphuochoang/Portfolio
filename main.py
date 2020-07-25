@@ -12,7 +12,6 @@ import shlex
 currentFilePath = os.path.dirname(os.path.abspath(__file__))
 currentFilePath = currentFilePath.replace("\\","/")
 sys.path.append(currentFilePath)
-
 import PySide2
 from PySide2 import QtWidgets, QtGui
 
@@ -47,16 +46,24 @@ class SystemTrayItem(QtWidgets.QAction):
 		self.exeFilePath = exeFilePath
 		self.library = library
 		self.commandLine = commandLine
-		print (self.commandLine)
+		#print (self.commandLine)
 		self.setText(self.itemName)
 		self.setIcon(QtGui.QIcon(self.icon))
 		self.triggered.connect(lambda: self.startSoftware())
 
 	def startSoftware(self):
-		try:
-			subprocess.Popen(self.commandLine)
-		except:
-			subprocess.Popen(self.exeFilePath)
+		if type(self.commandLine) is list:
+				#subprocess.call([r"D:\WIP_Portfolio\modules\Scripts\activate"])
+			for eachCommandLine in self.commandLine:
+				subprocess.call(eachCommandLine)
+			#except:
+				#for eachCommandLine in self.exeFilePath:
+					#subprocess.call(eachCommandLine)
+		else:
+			try:
+				subprocess.Popen(self.commandLine)
+			except:
+				subprocess.Popen(self.exeFilePath)
 
 class SystemTrayIcon(QtWidgets.QSystemTrayIcon):
 	"""
@@ -64,10 +71,13 @@ class SystemTrayIcon(QtWidgets.QSystemTrayIcon):
 	"""
 	def __init__(self, icon, parent=None):
 		QtWidgets.QSystemTrayIcon.__init__(self, icon, parent)
-		self.setToolTip(r'Graphic Software Management Tools')
+		self.setToolTip(r'PUZZLE Tool Collection')
 		self.menu = QtWidgets.QMenu(parent)
 
 		self.importAllSoftwareFunction()
+
+		#self.createWorkingItem()
+
 		self.exit = self.menu.addAction("Exit")
 		self.exit.triggered.connect(lambda: sys.exit())
 		self.exit.setIcon(QtGui.QIcon(iconInstanceClass.exitIcon))
@@ -80,7 +90,7 @@ class SystemTrayIcon(QtWidgets.QSystemTrayIcon):
 		for module in modulesList:
 			try:
 				moduleFunction = module.LauncherFunction()
-				moduleInformation = moduleFunction.getAllVersionInfo()
+				moduleInformation = moduleFunction.main()
 				if moduleInformation:
 					for itemName, info in moduleInformation.items():
 						newAction = SystemTrayItem(itemName , info[1], info[2], info[3], info[-1], self.menu)
@@ -88,7 +98,17 @@ class SystemTrayIcon(QtWidgets.QSystemTrayIcon):
 			except:
 				print (str(module) + "is not installed")
 		self.menu.addSeparator()
-	
+
+	# def createWorkingItem(self):
+	# 	modulesList = importModulesFromLaunchFolder()
+	# 	for module in modulesList:
+	# 		try:
+	# 			moduleFunction = module.LauncherFunction()
+	# 			moduleFunction.main()
+	# 		except:
+	# 			print (str(module) "cannot execute")
+	# 	self.menu.addSeparator()
+
 if __name__ == '__main__':
 	iconInstanceClass = GeneralIconManagement()
 	app = QtWidgets.QApplication(sys.argv)

@@ -52,7 +52,7 @@ class LauncherFunction():
 		#print (a)
 		return (self.openingCommandLine)
 
-	def getAllVersionInfo(self):
+	def main(self):
 		self.mayaInformationDict = {}
 		for mayaVersion in self.mayaVersionList:
 			mayaInstalledLocation = self.getInstalledLocationInRegistryEditor(winreg.HKEY_LOCAL_MACHINE, winreg.KEY_WOW64_64KEY, mayaVersion)

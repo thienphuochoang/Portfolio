@@ -53,7 +53,7 @@ class LauncherFunction():
 		#print (a)
 		return (self.openingCommandLine)
 
-	def getAllVersionInfo(self):
+	def main(self):
 		self.maxInformationDict = {}
 		for maxVersion, maxYearVersion in self.maxVersionDict.items():
 			maxInstalledLocation = self.getInstalledLocationInRegistryEditor(winreg.HKEY_LOCAL_MACHINE, winreg.KEY_WOW64_64KEY, maxVersion)

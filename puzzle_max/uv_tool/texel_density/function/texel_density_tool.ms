@@ -426,31 +426,65 @@ rollout rol_UVTexelDensity "Texel Density Tool"
 			checkerPath = checkerPath + "resource"
 			for i in selection do
 			(
-				if i.material.name != "Puzzle_Checker_Material" do
+				if i.material != undefined then
 				(
-					append checkMapBackupMat i.material
-					append checkMapBackupObj i
-				)
-				if checkerMapList[countChecker] != undefined then
-				(
-					checkerFullPath = checkerPath + "\\" + checkerMapList[countChecker]
-					checkerMat.diffuseMap = Bitmaptexture filename:checkerFullPath
-					checkerMat.diffuseMap.coords.U_Tiling = spn_TilingUV1.value
-					checkerMat.diffuseMap.coords.V_Tiling = spn_TilingUV2.value
-					chbCheckChecker.images = #(checkerFullPath, undefined, 1, 1, 1, 1, 1)
-					countChecker = countChecker + 1
-					i.material = checkerMat
+					if i.material.name != "Puzzle_Checker_Material" do
+					(
+						append checkMapBackupMat i.material
+						append checkMapBackupObj i
+					)
+					if checkerMapList[countChecker] != undefined then
+					(
+						checkerFullPath = checkerPath + "\\" + checkerMapList[countChecker]
+						checkerMat.diffuseMap = Bitmaptexture filename:checkerFullPath
+						checkerMat.diffuseMap.coords.U_Tiling = spn_TilingUV1.value
+						checkerMat.diffuseMap.coords.V_Tiling = spn_TilingUV2.value
+						chbCheckChecker.images = #(checkerFullPath, undefined, 1, 1, 1, 1, 1)
+						countChecker = countChecker + 1
+						i.material = checkerMat
+					)
+					else
+					(
+						countChecker = 1
+						checkerFullPath = CheckerPath + "\\" + checkerMapList[countChecker]
+						checkerMat.DiffuseMap = Bitmaptexture filename:checkerFullPath
+						checkerMat.diffuseMap.coords.U_Tiling = spn_TilingUV1.value
+						checkerMat.diffuseMap.coords.V_Tiling = spn_TilingUV2.value
+						chbCheckChecker.images = #(checkerFullPath, undefined, 1, 1, 1, 1, 1)
+						countChecker = countChecker + 1
+						i.material = checkerMat
+					)
 				)
 				else
 				(
-					countChecker = 1
-					checkerFullPath = CheckerPath + "\\" + checkerMapList[countChecker]
-					checkerMat.DiffuseMap = Bitmaptexture filename:checkerFullPath
-					checkerMat.diffuseMap.coords.U_Tiling = spn_TilingUV1.value
-					checkerMat.diffuseMap.coords.V_Tiling = spn_TilingUV2.value
-					chbCheckChecker.images = #(checkerFullPath, undefined, 1, 1, 1, 1, 1)
-					countChecker = countChecker + 1
-					i.material = checkerMat
+					tempMat = Standardmaterial()
+					i.material = tempMat
+					if i.material.name != "Puzzle_Checker_Material" do
+					(
+						append checkMapBackupMat i.material
+						append checkMapBackupObj i
+					)
+					if checkerMapList[countChecker] != undefined then
+					(
+						checkerFullPath = checkerPath + "\\" + checkerMapList[countChecker]
+						checkerMat.diffuseMap = Bitmaptexture filename:checkerFullPath
+						checkerMat.diffuseMap.coords.U_Tiling = spn_TilingUV1.value
+						checkerMat.diffuseMap.coords.V_Tiling = spn_TilingUV2.value
+						chbCheckChecker.images = #(checkerFullPath, undefined, 1, 1, 1, 1, 1)
+						countChecker = countChecker + 1
+						i.material = checkerMat
+					)
+					else
+					(
+						countChecker = 1
+						checkerFullPath = CheckerPath + "\\" + checkerMapList[countChecker]
+						checkerMat.DiffuseMap = Bitmaptexture filename:checkerFullPath
+						checkerMat.diffuseMap.coords.U_Tiling = spn_TilingUV1.value
+						checkerMat.diffuseMap.coords.V_Tiling = spn_TilingUV2.value
+						chbCheckChecker.images = #(checkerFullPath, undefined, 1, 1, 1, 1, 1)
+						countChecker = countChecker + 1
+						i.material = checkerMat
+					)
 				)
 			)
 		)

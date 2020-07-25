@@ -44,7 +44,7 @@ class LauncherFunction():
 		self.houdiniLibrary = "htp_houdini"
 		return (self.houdiniLibrary)
 
-	def getAllVersionInfo(self):
+	def main(self):
 		self.houdiniInformationDict = {}
 		installAndVersionDict = self.getInstalledLocationInRegistryEditor(winreg.HKEY_LOCAL_MACHINE, winreg.KEY_WOW64_64KEY)
 		if installAndVersionDict:
