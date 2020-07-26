@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'D:\Exporter_PySide2.ui',
-# licensing of 'D:\Exporter_PySide2.ui' applies.
+# Form implementation generated from reading ui file 'D:/WIP_Portfolio/lib/ui/Exporter_MainUI.ui',
+# licensing of 'D:/WIP_Portfolio/lib/ui/Exporter_MainUI.ui' applies.
 #
-# Created: Wed Sep 25 17:05:26 2019
-#      by: pyside2-uic  running on PySide2 5.13.0
+# Created: Mon Jul 27 01:17:30 2020
+#      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -13,6 +13,7 @@ from PySide2 import QtCore, QtGui, QtWidgets
 class Ui_MainWindowExporter(object):
     def setupUi(self, MainWindowExporter):
         MainWindowExporter.setObjectName("MainWindowExporter")
+        MainWindowExporter.resize(317, 184)
         self.centralwidget = QtWidgets.QWidget(MainWindowExporter)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.centralwidget)
@@ -264,14 +265,4 @@ class Ui_MainWindowExporter(object):
         self.cbKeepID.setToolTip(QtWidgets.QApplication.translate("MainWindowExporter", "<html><head/><body><p><span style=\" font-size:10pt;\">Nếu tick chọn sẽ thêm suffix ID* vào tên Material khi Export(Chỉ dùng cho Multisub Material trong 3dsmax)</span></p></body></html>", None, -1))
         self.cbKeepID.setText(QtWidgets.QApplication.translate("MainWindowExporter", "ID", None, -1))
         self.btnAddID.setText(QtWidgets.QApplication.translate("MainWindowExporter", "Add ID", None, -1))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindowExporter = QtWidgets.QMainWindow()
-    ui = Ui_MainWindowExporter()
-    ui.setupUi(MainWindowExporter)
-    MainWindowExporter.show()
-    sys.exit(app.exec_())
 

@@ -34,18 +34,17 @@ class LauncherFunction():
 
 		pyFile = "".join(pyFile)
 		uiFile = "".join(uiFile)
-		executeCommandLine = [self.pyside2uic, uiFile, ">", pyFile]
+		executeCommandLine = [self.pyside2uic.replace("\\","/"), uiFile.replace("\\","/"), "-o", pyFile.replace("\\","/")]
 		return executeCommandLine
 		#subprocess.call([self.pyside2uic, "-x" ,uiFile, "-o", pyFile])
 		#print(uiFile, "has been converted to", pyFile, "\n")
 
 	def convert(self):
-		#uis = self.searchFile(r"D:\WIP_Portfolio\puzzle_maya\uv_tool\texel_density\ui", self.fileType)
-		uis = [r"D:\WIP_Portfolio\puzzle_maya\uv_tool\texel_density\ui\texel_density_ui.ui"]
+		uis = self.searchFile(currentFilePath, self.fileType)
+		#uis = [r"D:\WIP_Portfolio\puzzle_maya\uv_tool\texel_density\ui\texel_density_ui.ui"]
 		listOfCommandLines = []
 		for ui in uis:
 			commandLine = self.ui2py(ui)
-			print (commandLine)
 			listOfCommandLines.append(commandLine)
 		return listOfCommandLines
 

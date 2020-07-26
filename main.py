@@ -26,9 +26,6 @@ def importModulesFromLaunchFolder():
 			except:
 				print (importModule + "is not installed")
 			
-			#try:
-				#importModuleList.append(importedModule)
-			#except:
 				
 	return importModuleList
 
@@ -52,13 +49,22 @@ class SystemTrayItem(QtWidgets.QAction):
 		self.triggered.connect(lambda: self.startSoftware())
 
 	def startSoftware(self):
-		if type(self.commandLine) is list:
-				#subprocess.call([r"D:\WIP_Portfolio\modules\Scripts\activate"])
-			for eachCommandLine in self.commandLine:
-				subprocess.call(eachCommandLine)
-			#except:
-				#for eachCommandLine in self.exeFilePath:
-					#subprocess.call(eachCommandLine)
+		if type(self.commandLine[0]) is list:
+			try:
+				for eachCommandLine in self.commandLine:
+					subprocess.call(eachCommandLine)
+				resultBox = QtWidgets.QMessageBox()
+				resultBox.setWindowTitle(self.itemName + " Result")
+				resultBox.setText(self.itemName + " progress is finished.")
+				resultBox.exec()
+
+			except:
+				for eachCommandLine in self.exeFilePath:
+					subprocess.call(eachCommandLine)
+				resultBox = QtWidgets.QMessageBox()
+				resultBox.setWindowTitle(self.itemName + " Result")
+				resultBox.setText(self.itemName + " progress is finished.")
+				resultBox.exec()
 		else:
 			try:
 				subprocess.Popen(self.commandLine)
@@ -75,8 +81,7 @@ class SystemTrayIcon(QtWidgets.QSystemTrayIcon):
 		self.menu = QtWidgets.QMenu(parent)
 
 		self.importAllSoftwareFunction()
-
-		#self.createWorkingItem()
+		self.menu.addSeparator()
 
 		self.exit = self.menu.addAction("Exit")
 		self.exit.triggered.connect(lambda: sys.exit())
@@ -98,16 +103,6 @@ class SystemTrayIcon(QtWidgets.QSystemTrayIcon):
 			except:
 				print (str(module) + "is not installed")
 		self.menu.addSeparator()
-
-	# def createWorkingItem(self):
-	# 	modulesList = importModulesFromLaunchFolder()
-	# 	for module in modulesList:
-	# 		try:
-	# 			moduleFunction = module.LauncherFunction()
-	# 			moduleFunction.main()
-	# 		except:
-	# 			print (str(module) "cannot execute")
-	# 	self.menu.addSeparator()
 
 if __name__ == '__main__':
 	iconInstanceClass = GeneralIconManagement()
