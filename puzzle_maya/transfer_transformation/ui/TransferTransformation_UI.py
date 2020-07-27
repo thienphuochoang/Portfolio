@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'D:/WIP_Portfolio/puzzle_maya/transfer_transformation/ui/TransferTransformation_UI.ui',
 # licensing of 'D:/WIP_Portfolio/puzzle_maya/transfer_transformation/ui/TransferTransformation_UI.ui' applies.
 #
-# Created: Mon Jul 27 01:17:31 2020
+# Created: Tue Jul 28 02:12:48 2020
 #      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
