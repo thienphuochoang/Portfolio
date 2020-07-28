@@ -3,18 +3,18 @@
 # Form implementation generated from reading ui file 'D:/WIP_Portfolio/puzzle_maya/uv_tool/texel_density/ui/texel_density_ui.ui',
 # licensing of 'D:/WIP_Portfolio/puzzle_maya/uv_tool/texel_density/ui/texel_density_ui.ui' applies.
 #
-# Created: Tue Jul 28 02:12:48 2020
+# Created: Wed Jul 29 01:01:26 2020
 #      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
 
 from PySide2 import QtCore, QtGui, QtWidgets
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(381, 176)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+class Ui_TexelDensityMainWindow(object):
+    def setupUi(self, TexelDensityMainWindow):
+        TexelDensityMainWindow.setObjectName("TexelDensityMainWindow")
+        TexelDensityMainWindow.resize(381, 176)
+        self.centralwidget = QtWidgets.QWidget(TexelDensityMainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName("gridLayout")
@@ -29,6 +29,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6.addWidget(self.btnGet)
         self.spnTexelDensity = QtWidgets.QDoubleSpinBox(self.frame)
         self.spnTexelDensity.setDecimals(4)
+        self.spnTexelDensity.setMaximum(100000.0)
         self.spnTexelDensity.setObjectName("spnTexelDensity")
         self.horizontalLayout_6.addWidget(self.spnTexelDensity)
         self.btnSet = QtWidgets.QPushButton(self.frame)
@@ -79,6 +80,7 @@ class Ui_MainWindow(object):
         self.label_4.setObjectName("label_4")
         self.horizontalLayout.addWidget(self.label_4)
         self.spnTilingU = QtWidgets.QDoubleSpinBox(self.frame_3)
+        self.spnTilingU.setMaximum(1000.0)
         self.spnTilingU.setProperty("value", 1.0)
         self.spnTilingU.setObjectName("spnTilingU")
         self.horizontalLayout.addWidget(self.spnTilingU)
@@ -86,6 +88,7 @@ class Ui_MainWindow(object):
         self.label_5.setObjectName("label_5")
         self.horizontalLayout.addWidget(self.label_5)
         self.spnTilingV = QtWidgets.QDoubleSpinBox(self.frame_3)
+        self.spnTilingV.setMaximum(1000.0)
         self.spnTilingV.setProperty("value", 1.0)
         self.spnTilingV.setObjectName("spnTilingV")
         self.horizontalLayout.addWidget(self.spnTilingV)
@@ -101,23 +104,23 @@ class Ui_MainWindow(object):
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.gridLayout.addWidget(self.label, 0, 0, 3, 1)
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        TexelDensityMainWindow.setCentralWidget(self.centralwidget)
+        self.statusbar = QtWidgets.QStatusBar(TexelDensityMainWindow)
         self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        TexelDensityMainWindow.setStatusBar(self.statusbar)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(TexelDensityMainWindow)
+        QtCore.QMetaObject.connectSlotsByName(TexelDensityMainWindow)
 
-    def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QtWidgets.QApplication.translate("MainWindow", "Texel Density Tool", None, -1))
-        self.btnGet.setText(QtWidgets.QApplication.translate("MainWindow", "Get", None, -1))
-        self.btnSet.setText(QtWidgets.QApplication.translate("MainWindow", "Set", None, -1))
-        self.label_2.setText(QtWidgets.QApplication.translate("MainWindow", "Width:", None, -1))
-        self.label_3.setText(QtWidgets.QApplication.translate("MainWindow", "Height:", None, -1))
-        self.cbConstraint.setToolTip(QtWidgets.QApplication.translate("MainWindow", "Constraints for Width and Height", None, -1))
-        self.label_4.setText(QtWidgets.QApplication.translate("MainWindow", "U", None, -1))
-        self.label_5.setText(QtWidgets.QApplication.translate("MainWindow", "V", None, -1))
-        self.label.setText(QtWidgets.QApplication.translate("MainWindow", "Texel Density\n"
+    def retranslateUi(self, TexelDensityMainWindow):
+        TexelDensityMainWindow.setWindowTitle(QtWidgets.QApplication.translate("TexelDensityMainWindow", "Texel Density Tool", None, -1))
+        self.btnGet.setText(QtWidgets.QApplication.translate("TexelDensityMainWindow", "Get", None, -1))
+        self.btnSet.setText(QtWidgets.QApplication.translate("TexelDensityMainWindow", "Set", None, -1))
+        self.label_2.setText(QtWidgets.QApplication.translate("TexelDensityMainWindow", "Width:", None, -1))
+        self.label_3.setText(QtWidgets.QApplication.translate("TexelDensityMainWindow", "Height:", None, -1))
+        self.cbConstraint.setToolTip(QtWidgets.QApplication.translate("TexelDensityMainWindow", "Constraints for Width and Height", None, -1))
+        self.label_4.setText(QtWidgets.QApplication.translate("TexelDensityMainWindow", "U", None, -1))
+        self.label_5.setText(QtWidgets.QApplication.translate("TexelDensityMainWindow", "V", None, -1))
+        self.label.setText(QtWidgets.QApplication.translate("TexelDensityMainWindow", "Texel Density\n"
 " (Px/Unit)", None, -1))
 

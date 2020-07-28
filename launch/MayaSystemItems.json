@@ -24,5 +24,19 @@
 				"subItem":[]
 			}
 		]
+	},
+	{
+		"name": "UV Tools",
+		"command":"",
+		"icon":"lib/icon/uv.png",
+		"subItem":
+		[
+			{
+				"name": "Texel Density + Checker",
+				"command":"import importlib;\nfrom puzzle_maya.uv_tool.texel_density.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
+				"icon":"lib/icon/checker_icon.jpg",
+				"subItem":[]
+			}
+		]
 	}
 ]

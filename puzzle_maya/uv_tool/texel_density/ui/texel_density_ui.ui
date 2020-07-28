@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>TexelDensityMainWindow</class>
+ <widget class="QMainWindow" name="TexelDensityMainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -35,6 +35,9 @@
         <widget class="QDoubleSpinBox" name="spnTexelDensity">
          <property name="decimals">
           <number>4</number>
+         </property>
+         <property name="maximum">
+          <double>100000.000000000000000</double>
          </property>
         </widget>
        </item>
@@ -138,6 +141,9 @@
        </item>
        <item>
         <widget class="QDoubleSpinBox" name="spnTilingU">
+         <property name="maximum">
+          <double>1000.000000000000000</double>
+         </property>
          <property name="value">
           <double>1.000000000000000</double>
          </property>
@@ -152,6 +158,9 @@
        </item>
        <item>
         <widget class="QDoubleSpinBox" name="spnTilingV">
+         <property name="maximum">
+          <double>1000.000000000000000</double>
+         </property>
          <property name="value">
           <double>1.000000000000000</double>
          </property>
