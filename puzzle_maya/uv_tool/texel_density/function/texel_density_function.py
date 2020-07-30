@@ -75,7 +75,7 @@ class TexelDensityFunction():
 			else:
 				cmds.select("{}_fileNode".format(shaderName))
 				file_node = cmds.ls(sl = True)[0]
-				
+
 			# Set checker map to file texture node
 			cmds.setAttr("{}_fileNode.fileTextureName".format(shaderName), file, type = "string")
 
@@ -125,6 +125,7 @@ class TexelDensityFunction():
 			# Assign shader to objects
 			cmds.sets(selectionList, e=True, forceElement="{}_sg".format(shaderName))
 			cmds.select(selectionList)
+			return True
 		else:
 			return False
 
