@@ -33,6 +33,9 @@ class MainTexelDensity(QtWidgets.QMainWindow, tdu.Ui_TexelDensityMainWindow):
 	def connectUI(self):
 		self.btnGet.clicked.connect(lambda: self.getTexelDensity(int(self.cbWidth.currentText()), int(self.cbHeight.currentText())))
 		self.btnSet.clicked.connect(lambda: self.setTexelDensity(float(self.spnTexelDensity.text()),int(self.cbWidth.currentText()), int(self.cbHeight.currentText())))
+		self.btnCycleCheckerMap.clicked.connect(lambda: self.cycleCheckerMap(cmds.ls(sl = True)))
+		self.spnTilingU.valueChanged.connect(lambda: self.tilingCheckerMap(self.spnTilingU.text(), self.spnTilingV.text()))
+		self.spnTilingV.valueChanged.connect(lambda: self.tilingCheckerMap(self.spnTilingU.text(), self.spnTilingV.text()))
 
 	def getTexelDensity(self, mapWidth, mapHeight):
 		texelDensity = self.texelDensityFunction.getTexelDensity(mapWidth, mapHeight)
@@ -51,6 +54,27 @@ class MainTexelDensity(QtWidgets.QMainWindow, tdu.Ui_TexelDensityMainWindow):
 			msgBox.setWindowTitle("Error")
 			msgBox.setText("Please select at least 1 faces")
 			msgBox.exec_()
+
+	def cycleCheckerMap(self, selectionList):
+		cycleCheckerMapResult = self.texelDensityFunction.cycleCheckerMap(selectionList)
+		if cycleCheckerMapResult == False:
+			msgBox = QtWidgets.QMessageBox()
+			msgBox.setWindowTitle("Error")
+			msgBox.setText("Please select at least 1 object")
+			msgBox.exec_()
+		else:
+			texturePath = self.texelDensityFunction.getCurrentCheckerMap()
+			if texturePath != None:
+				self.btnCycleCheckerMap.setIcon(QtGui.QIcon(texturePath))
+				#self.btnCycleCheckerMap.setIconSize(QtCore.QSize(16,16))
+
+
+
+	def tilingCheckerMap(self, tilingUValue, tilingVValue):
+		self.texelDensityFunction.tilingCheckerMap(float(tilingUValue), float(tilingVValue))
+		#self.btnCycleCheckerMap.setIcon(QtGui.QIcon('myImage.jpg'))
+        #self.button.setIconSize(QtCore.QSize(24,24))
+
 
 def check_exist_window(name_window):
 	if (cmds.window(name_window, exists=True)):
