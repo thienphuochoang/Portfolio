@@ -1,16 +1,22 @@
-#import maya.cmds as cmds
+import maya.cmds as cmds
 import math
 import os
+import PySide2
+from PySide2 import QtGui
 currentFilePath = os.path.dirname(os.path.abspath(__file__))
 currentFilePath = currentFilePath.replace("\\","/")
 rootDirectory = "/".join((currentFilePath.split("/")[:-4]))
+
 checkerMapResources = rootDirectory + "/" + "lib" + "/" + "resource"
+iconResources = rootDirectory + "/" + "lib" + "/" + "icon"
+
 checkerMapList = ["checker_map_256x256.png", "checker_map_512x512.png", "checker_map_1024x1024.png", "checker_map_2048x2048.png"]
 shaderName = "puzzle_checker"
 cycleCheckerCount = 0
+
 class TexelDensityFunction():
 	def __init__(self):
-		pass
+		self.MaterialObjOriginalDict = {}
 
 	def getTexelDensity(self, mapWidth, mapHeight):
 		if len(cmds.ls(sl = True)) > 0:
@@ -59,15 +65,29 @@ class TexelDensityFunction():
 		else:
 			return False
 
+	def rememberCurrentMaterial(self, obj):
+		theNodes = cmds.ls(obj, dag = True, s = True)
+		shadeEng = cmds.listConnections(theNodes, type = "shadingEngine")
+		materials = cmds.ls(cmds.listConnections(shadeEng), materials = True)
+		if materials[0] != "{}_material".format(shaderName):
+			return materials[0]
+		else:
+			return None
+
 	def cycleCheckerMap(self, selectionList):
 		if len(selectionList) > 0:
 			global cycleCheckerCount
 			try:
 				file = checkerMapResources + "/" + checkerMapList[cycleCheckerCount]
-				cycleCheckerCount = cycleCheckerCount + 1
 			except:
 				file = checkerMapResources + "/" + checkerMapList[0]
 				cycleCheckerCount = 0
+			cycleCheckerCount = cycleCheckerCount + 1
+
+			for obj in selectionList:
+				objMat = self.rememberCurrentMaterial(obj)
+				if objMat != None:
+					self.MaterialObjOriginalDict[obj] = objMat
 
 			if not cmds.objExists("{}_fileNode".format(shaderName)):
 				# Create a file texture node
@@ -129,6 +149,12 @@ class TexelDensityFunction():
 		else:
 			return False
 
+	def resetToOriginalMat(self):
+		if len(self.MaterialObjOriginalDict) > 0:
+			for obj, mat in self.MaterialObjOriginalDict.items():
+				cmds.select(obj)
+				cmds.hyperShade(assign = mat)
+
 	def tilingCheckerMap(self, tilingUValue, tilingVValue):
 		if cmds.objExists("{}_uvNode".format(shaderName)):
 			cmds.setAttr("{}_uvNode.repeatU".format(shaderName), tilingUValue)
@@ -140,3 +166,11 @@ class TexelDensityFunction():
 			return texturePath
 		else:
 			return None
+
+	def setDefaultComboBoxValue(self, comboBox):
+		comboBox.addItems(["128", "256", "512", "1024", "2048", "4096"])
+		comboBox.setCurrentText("512")
+
+	def setDefaultButtonIcon(self, btnCycleCheckerMap, btnReset):
+		btnCycleCheckerMap.setIcon(QtGui.QIcon(iconResources + "/checker_icon.jpg"))
+		btnReset.setIcon(QtGui.QIcon(iconResources + "/reset.jpg"))

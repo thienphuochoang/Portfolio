@@ -25,10 +25,9 @@ class MainTexelDensity(QtWidgets.QMainWindow, tdu.Ui_TexelDensityMainWindow):
 		self.connectUI()
 
 	def setupDefaultLayout(self):
-		self.cbWidth.addItems(["128", "256", "512", "1024", "2048", "4096"])
-		self.cbHeight.addItems(["128", "256", "512", "1024", "2048", "4096"])
-		self.cbWidth.setCurrentText("512")
-		self.cbHeight.setCurrentText("512")
+		self.texelDensityFunction.setDefaultComboBoxValue(self.cbWidth)
+		self.texelDensityFunction.setDefaultComboBoxValue(self.cbHeight)
+		self.texelDensityFunction.setDefaultButtonIcon(self.btnCycleCheckerMap, self.btnReset)
 
 	def connectUI(self):
 		self.btnGet.clicked.connect(lambda: self.getTexelDensity(int(self.cbWidth.currentText()), int(self.cbHeight.currentText())))
@@ -36,6 +35,7 @@ class MainTexelDensity(QtWidgets.QMainWindow, tdu.Ui_TexelDensityMainWindow):
 		self.btnCycleCheckerMap.clicked.connect(lambda: self.cycleCheckerMap(cmds.ls(sl = True)))
 		self.spnTilingU.valueChanged.connect(lambda: self.tilingCheckerMap(self.spnTilingU.text(), self.spnTilingV.text()))
 		self.spnTilingV.valueChanged.connect(lambda: self.tilingCheckerMap(self.spnTilingU.text(), self.spnTilingV.text()))
+		self.btnReset.clicked.connect(lambda: self.resetToOriginalMat())
 
 	def getTexelDensity(self, mapWidth, mapHeight):
 		texelDensity = self.texelDensityFunction.getTexelDensity(mapWidth, mapHeight)
@@ -54,6 +54,9 @@ class MainTexelDensity(QtWidgets.QMainWindow, tdu.Ui_TexelDensityMainWindow):
 			msgBox.setWindowTitle("Error")
 			msgBox.setText("Please select at least 1 faces")
 			msgBox.exec_()
+
+	def resetToOriginalMat(self):
+		self.texelDensityFunction.resetToOriginalMat()
 
 	def cycleCheckerMap(self, selectionList):
 		cycleCheckerMapResult = self.texelDensityFunction.cycleCheckerMap(selectionList)

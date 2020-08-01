@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'D:/WIP_Portfolio/puzzle_maya/uv_tool/texel_density/ui/texel_density_ui.ui',
 # licensing of 'D:/WIP_Portfolio/puzzle_maya/uv_tool/texel_density/ui/texel_density_ui.ui' applies.
 #
-# Created: Wed Jul 29 01:01:26 2020
+# Created: Sun Aug  2 01:58:20 2020
 #      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -13,16 +13,21 @@ from PySide2 import QtCore, QtGui, QtWidgets
 class Ui_TexelDensityMainWindow(object):
     def setupUi(self, TexelDensityMainWindow):
         TexelDensityMainWindow.setObjectName("TexelDensityMainWindow")
-        TexelDensityMainWindow.resize(381, 176)
+        TexelDensityMainWindow.resize(368, 98)
         self.centralwidget = QtWidgets.QWidget(TexelDensityMainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
+        self.gridLayout.setSpacing(1)
+        self.gridLayout.setContentsMargins(2, 2, 2, 2)
         self.gridLayout.setObjectName("gridLayout")
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setFrameShape(QtWidgets.QFrame.Box)
         self.frame.setFrameShadow(QtWidgets.QFrame.Plain)
         self.frame.setObjectName("frame")
         self.horizontalLayout_6 = QtWidgets.QHBoxLayout(self.frame)
+        self.horizontalLayout_6.setSpacing(6)
+        self.horizontalLayout_6.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
+        self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
         self.btnGet = QtWidgets.QPushButton(self.frame)
         self.btnGet.setObjectName("btnGet")
@@ -41,6 +46,7 @@ class Ui_TexelDensityMainWindow(object):
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Plain)
         self.frame_2.setObjectName("frame_2")
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.frame_2)
+        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.label_2 = QtWidgets.QLabel(self.frame_2)
         self.label_2.setObjectName("label_2")
@@ -65,15 +71,18 @@ class Ui_TexelDensityMainWindow(object):
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Plain)
         self.frame_3.setObjectName("frame_3")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.frame_3)
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout.setObjectName("horizontalLayout")
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem)
         self.btnAssignCheckerMaterial = QtWidgets.QPushButton(self.frame_3)
         self.btnAssignCheckerMaterial.setText("")
+        self.btnAssignCheckerMaterial.setIconSize(QtCore.QSize(22, 22))
         self.btnAssignCheckerMaterial.setObjectName("btnAssignCheckerMaterial")
         self.horizontalLayout.addWidget(self.btnAssignCheckerMaterial)
         self.btnCycleCheckerMap = QtWidgets.QPushButton(self.frame_3)
         self.btnCycleCheckerMap.setText("")
+        self.btnCycleCheckerMap.setIconSize(QtCore.QSize(22, 22))
         self.btnCycleCheckerMap.setObjectName("btnCycleCheckerMap")
         self.horizontalLayout.addWidget(self.btnCycleCheckerMap)
         self.label_4 = QtWidgets.QLabel(self.frame_3)
@@ -94,6 +103,7 @@ class Ui_TexelDensityMainWindow(object):
         self.horizontalLayout.addWidget(self.spnTilingV)
         self.btnReset = QtWidgets.QPushButton(self.frame_3)
         self.btnReset.setText("")
+        self.btnReset.setIconSize(QtCore.QSize(22, 22))
         self.btnReset.setObjectName("btnReset")
         self.horizontalLayout.addWidget(self.btnReset)
         self.gridLayout.addWidget(self.frame_3, 2, 1, 1, 1)
