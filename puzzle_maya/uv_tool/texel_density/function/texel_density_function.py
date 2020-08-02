@@ -171,6 +171,7 @@ class TexelDensityFunction():
 		comboBox.addItems(["128", "256", "512", "1024", "2048", "4096"])
 		comboBox.setCurrentText("512")
 
-	def setDefaultButtonIcon(self, btnCycleCheckerMap, btnReset):
+	def setDefaultButtonIcon(self, btnCycleCheckerMap, btnReset, btnAssignCheckerMaterial):
 		btnCycleCheckerMap.setIcon(QtGui.QIcon(iconResources + "/checker_icon.jpg"))
 		btnReset.setIcon(QtGui.QIcon(iconResources + "/reset.jpg"))
+		btnAssignCheckerMaterial.setIcon(QtGui.QIcon(iconResources + "/checker_material.jpg"))

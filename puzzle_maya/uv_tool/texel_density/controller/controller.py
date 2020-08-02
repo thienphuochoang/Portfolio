@@ -27,7 +27,7 @@ class MainTexelDensity(QtWidgets.QMainWindow, tdu.Ui_TexelDensityMainWindow):
 	def setupDefaultLayout(self):
 		self.texelDensityFunction.setDefaultComboBoxValue(self.cbWidth)
 		self.texelDensityFunction.setDefaultComboBoxValue(self.cbHeight)
-		self.texelDensityFunction.setDefaultButtonIcon(self.btnCycleCheckerMap, self.btnReset)
+		self.texelDensityFunction.setDefaultButtonIcon(self.btnCycleCheckerMap, self.btnReset, self.btnAssignCheckerMaterial)
 
 	def connectUI(self):
 		self.btnGet.clicked.connect(lambda: self.getTexelDensity(int(self.cbWidth.currentText()), int(self.cbHeight.currentText())))
