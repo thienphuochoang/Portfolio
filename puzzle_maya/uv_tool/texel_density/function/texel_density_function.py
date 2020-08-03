@@ -9,6 +9,7 @@ rootDirectory = "/".join((currentFilePath.split("/")[:-4]))
 
 checkerMapResources = rootDirectory + "/" + "lib" + "/" + "resource"
 iconResources = rootDirectory + "/" + "lib" + "/" + "icon"
+shaderLibrary = rootDirectory + "/" + "lib" + "/" + "shader_library"
 
 checkerMapList = ["checker_map_256x256.png", "checker_map_512x512.png", "checker_map_1024x1024.png", "checker_map_2048x2048.png"]
 shaderName = "puzzle_checker"
@@ -166,6 +167,40 @@ class TexelDensityFunction():
 			return texturePath
 		else:
 			return None
+
+	def checkDXPluginsAndViewport(self):
+		renderingEngine = cmds.optionVar(query = "vp2RenderingEngine")
+		if renderingEngine != "DirectX11":
+			return False
+		else:
+			cmds.loadPlugin("dx11Shader", quiet = True )
+			return True
+
+
+	def assignCheckerMaterial(self, selectionList):
+		if len(selectionList) > 0:
+			pluginAndViewportCheckResult = self.checkDXPluginsAndViewport()
+			if pluginAndViewportCheckResult == True:
+				if not cmds.objExists("{}_shader".format(shaderName)):
+					# Create a blinn material
+					sha = cmds.shadingNode('dx11Shader', asShader=True, name="{}_shader".format(shaderName))
+				if not cmds.objExists("{}_shader_sg".format(shaderName)):
+					# Create a shading group
+					sg = cmds.sets(empty=True, renderable=True, noSurfaceShader=True,  name="{}_shader_sg".format(shaderName))
+
+				cmds.connectAttr("{}_shader.outColor".format(shaderName), "{}_shader_sg.surfaceShader".format(shaderName), f=True)
+				texelDensityShaderPath = shaderLibrary + "/" + "Texel_Density.fx"
+				cmds.setAttr("{}_shader.shader".format(shaderName), texelDensityShaderPath.replace("/","\\"), type = "string")
+				cmds.sets(selectionList, e=True, forceElement="{}_shader_sg".format(shaderName))
+				cmds.select(selectionList)
+				return True
+			else:
+				return False
+		else:
+			return None
+
+
+				#return True
 
 	def setDefaultComboBoxValue(self, comboBox):
 		comboBox.addItems(["128", "256", "512", "1024", "2048", "4096"])

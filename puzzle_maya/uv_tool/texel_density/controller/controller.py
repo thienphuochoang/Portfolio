@@ -36,6 +36,7 @@ class MainTexelDensity(QtWidgets.QMainWindow, tdu.Ui_TexelDensityMainWindow):
 		self.spnTilingU.valueChanged.connect(lambda: self.tilingCheckerMap(self.spnTilingU.text(), self.spnTilingV.text()))
 		self.spnTilingV.valueChanged.connect(lambda: self.tilingCheckerMap(self.spnTilingU.text(), self.spnTilingV.text()))
 		self.btnReset.clicked.connect(lambda: self.resetToOriginalMat())
+		self.btnAssignCheckerMaterial.clicked.connect(lambda: self.assignCheckerMaterial(cmds.ls(sl = True)))
 
 	def getTexelDensity(self, mapWidth, mapHeight):
 		texelDensity = self.texelDensityFunction.getTexelDensity(mapWidth, mapHeight)
@@ -75,9 +76,19 @@ class MainTexelDensity(QtWidgets.QMainWindow, tdu.Ui_TexelDensityMainWindow):
 
 	def tilingCheckerMap(self, tilingUValue, tilingVValue):
 		self.texelDensityFunction.tilingCheckerMap(float(tilingUValue), float(tilingVValue))
-		#self.btnCycleCheckerMap.setIcon(QtGui.QIcon('myImage.jpg'))
-        #self.button.setIconSize(QtCore.QSize(24,24))
 
+	def assignCheckerMaterial(self, selectionList):
+		checkerMaterialResult = self.texelDensityFunction.assignCheckerMaterial(selectionList)
+		if checkerMaterialResult == None:
+			msgBox = QtWidgets.QMessageBox()
+			msgBox.setWindowTitle("Error")
+			msgBox.setText("Please select at least 1 object")
+			msgBox.exec_()
+		if checkerMaterialResult == False:
+			msgBox = QtWidgets.QMessageBox()
+			msgBox.setWindowTitle("Error")
+			msgBox.setText("Please set Rendering Engine to Direct X 11 then restart Maya")
+			msgBox.exec_()
 
 def check_exist_window(name_window):
 	if (cmds.window(name_window, exists=True)):
