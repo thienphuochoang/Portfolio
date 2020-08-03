@@ -1,33 +1,38 @@
-float4x4 WorldViewProjection : WorldViewProjection < string UIWidget="None"; >;
-float4x4 World : World < string UIWidget="None"; >;
-float4x4 View : View < string UIWidget="None"; >;
-float4x4 Projection : Projection < string UIWidget="None"; >;
-
-
+// cbuffer cbChangesEveryFrame
+// {
+matrix World : World;
+matrix View : View;
+matrix Projection : Projection;
+matrix WorldViewProjection : WorldViewProjection;
+// };
+// cbuffer cbUserChanges
+// {
 int Map_Resolution_Size_Width
 <
-    string UIName = "Map Resolution Width";
-    int UIMin = 256;
-    int UIMax = 4096;
-    int UIStep = 1;
+    string UIName = "Map Width";
+    float UIMin = 256.0f;
+    float UIMax = 4096.0f;
+    float UIStep = 1.0;
     string UIWidget = "slider";
 > = 512;
 int Map_Resolution_Size_Height
 <
-    string UIName = "Map Resolution Height";
-    int UIMin = 256;
-    int UIMax = 4096;
-    int UIStep = 1;
+    string UIName = "Map Height";
+    float UIMin = 256.0f;
+    float UIMax = 4096.0f;
+    float UIStep = 1.0;
     string UIWidget = "slider";
 > = 512;
-int Texel_Density
+float Texel_Density
 <
     string UIName = "Texel Density";
-    int UIMin = 0;
-    int UIMax = 4096;
-    int UIStep = 1;
+    float UIMin = 0.0f;
+    float UIMax = 4096.0f;
+    float UIStep = 1;
     string UIWidget = "slider";
-> = 0;
+> = 0.0f;
+// };
+
 
 struct VERTEX_INPUT 
 {
@@ -53,7 +58,7 @@ struct PIXEL_INPUT
 GEOMETRY_INPUT std_VS(VERTEX_INPUT input)
 {
     GEOMETRY_INPUT output = (GEOMETRY_INPUT)0;
-    output.Position = mul( float4(input.Position,1), WorldViewProjection );
+    output.Position = mul( float4(input.Position,1), World );
     output.Texcoord = float3(input.Texcoord, 0.0);
     return output;
 }
@@ -66,7 +71,7 @@ float findTriangleArea(float3 A, float3 B, float3 C)
     float lengthAB = length(vectorAB);
     float lengthAC = length(vectorAC);
     float lengthBC = length(vectorBC);
-    // Using Heron's formula to calculate area of triangle 
+    //Using Heron's formula to calculate area of triangle 
     float s = (lengthAB + lengthAC + lengthBC) / 2;
     float areaOfTriangle = sqrt(s * ((s - lengthAB) * (s - lengthAC) * (s - lengthBC)));
     return areaOfTriangle;
@@ -87,9 +92,9 @@ float3 TriLerp(float3 Color1, float3 Color2, float3 Color3, float MixValue, floa
     return finalColor;
 }
 
-float3 GetColorOfTriangle(float currentDensity)
+float3 GetColorOfTriangle(float wArea, float uvArea)
 {
-
+    float currentDensity = sqrt(uvArea / wArea);
     float value = clamp(currentDensity / Texel_Density, 0.5, 2.0);
 
     float3 correctColor = float3(0.0, 1.0, 0.0);
@@ -106,17 +111,16 @@ void std_GS(triangle GEOMETRY_INPUT input[3], inout TriangleStream<PIXEL_INPUT> 
 {
     PIXEL_INPUT output;
     float worldArea = findTriangleArea(input[0].Position, input[1].Position, input[2].Position);
-    float uvArea = findTriangleArea(input[0].Texcoord, input[1].Texcoord, input[2].Texcoord);
     float textureArea = float(Map_Resolution_Size_Width) * float(Map_Resolution_Size_Height);
-    float usedAreaPixels = uvArea * textureArea;
-    float texelDensity = sqrt(usedAreaPixels/worldArea)
-    float3 finalColor = GetColorOfTriangle(texelDensity);
+
+    float uvArea = findTriangleArea(input[0].Texcoord, input[1].Texcoord, input[2].Texcoord) * (float)textureArea;
+    
+    float3 finalColor = GetColorOfTriangle(worldArea, uvArea);
 
     for( int i=0; i<3; i++ )
     {
-        output.Position = input[i].Position;
+        output.Position = mul(mul(input[i].Position, View), Projection);
         output.Texcoord = finalColor;
-
         OutputStream.Append( output );
     }
     
