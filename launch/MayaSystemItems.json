@@ -1,7 +1,7 @@
 [
 	{
 		"name": "Validation",
-		"command":"",
+		"command":"import importlib;\nfrom puzzle_maya.validation.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
 		"icon":"lib/icon/validation.png",
 		"subItem":[]
 	},

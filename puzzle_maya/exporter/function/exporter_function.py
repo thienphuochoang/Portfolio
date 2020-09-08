@@ -1,18 +1,10 @@
 from functools import partial
 import os
 import sys
+import maya.OpenMayaUI as omui
+import maya.mel as mel
+import maya.cmds as cmds
 
-try:
-    import maya.OpenMayaUI as omui
-    import maya.mel as mel
-    import maya.cmds as cmds
-    application = "Maya"
-except ImportError:
-    import MaxPlus 
-    import MaxPlusExtend
-    import pymxs
-    rt = pymxs.runtime
-    application = "Max"
 
 
 exportImportPath = r"C:/Temp_Exporter/temp"

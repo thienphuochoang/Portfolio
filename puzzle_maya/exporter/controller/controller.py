@@ -15,22 +15,9 @@ except ImportError:
     from shiboken import wrapInstance
 
 
-try:
-    import maya.OpenMayaUI as omui
-    import maya.mel as mel
-    import maya.cmds as cmds
-    application = "Maya"
-except ImportError:
-    import MaxPlus 
-    import MaxPlusExtend
-    import pymxs
-    rt = pymxs.runtime
-    application = "Max"
-
-
-#import current_working_directory
-#reload(current_working_directory)
-#path_project, name_project = current_working_directory.get_cwd()
+import maya.OpenMayaUI as omui
+import maya.mel as mel
+import maya.cmds as cmds
 
 
 mayaMainWindowPtr = omui.MQtUtil.mainWindow() 
@@ -107,8 +94,6 @@ class MainExporter(QtWidgets.QMainWindow, exporter_mainUI.Ui_MainWindowExporter)
         
     def changeSelfRadioButtonText(self):
         self.rbSelf.setText("MA")
-        #self.cbKeepID.setText("")
-        # self.cbKeepID.setUpdatesEnabled = True
 
 
     def queryRadioButtonStatus(self):
@@ -163,9 +148,8 @@ class MainExporter(QtWidgets.QMainWindow, exporter_mainUI.Ui_MainWindowExporter)
             return "false"
 
 def check_exist_window(name_window):
-    if application == "Maya":
-        if (cmds.window(name_window, exists=True)):
-            cmds.deleteUI(name_window, wnd=True)
+    if (cmds.window(name_window, exists=True)):
+        cmds.deleteUI(name_window, wnd=True)
 
 
 #check_exist_window("ExporterAddID")
