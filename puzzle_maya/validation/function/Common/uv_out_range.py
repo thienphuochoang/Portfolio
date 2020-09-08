@@ -1,4 +1,4 @@
-functionDescription = "UV Out Range"
+functionDescription = " UV Out Range"
 toolTip = ""
 
 import maya.api.OpenMaya as om2
