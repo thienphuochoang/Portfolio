@@ -423,7 +423,7 @@ rollout rol_UVTexelDensity "Texel Density Tool"
 					checkerPath = checkerPath + tempArray[i] + "\\"
 				)
 			)
-			checkerPath = checkerPath + "resource"
+			checkerPath = checkerPath + "resource" + "\\" + "checkers"
 			for i in selection do
 			(
 				if i.material != undefined then

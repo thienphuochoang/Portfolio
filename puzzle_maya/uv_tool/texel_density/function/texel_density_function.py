@@ -7,7 +7,7 @@ currentFilePath = os.path.dirname(os.path.abspath(__file__))
 currentFilePath = currentFilePath.replace("\\","/")
 rootDirectory = "/".join((currentFilePath.split("/")[:-4]))
 
-checkerMapResources = rootDirectory + "/" + "lib" + "/" + "resource"
+checkerMapResources = rootDirectory + "/" + "lib" + "/" + "resource" + "/" + "checkers"
 iconResources = rootDirectory + "/" + "lib" + "/" + "icon"
 shaderLibrary = rootDirectory + "/" + "lib" + "/" + "shader_library"
 

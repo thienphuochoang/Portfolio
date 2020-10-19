@@ -1,5 +1,12 @@
 [	
 	{
+		"macro_text":"Validation Tool",
+		"macro_name":"puzzle_validation_tool",
+		"macro_tooltip":"This is a validation tool",
+		"command":"import importlib;\nfrom puzzle_max.validation.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
+		"subItem":[]
+	},
+	{
 		"macro_text":"Normal Tool",
 		"macro_name":"puzzle_normal_tool",
 		"macro_tooltip":"This is a normal tool",

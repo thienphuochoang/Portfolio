@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'D:/WIP_Portfolio/lib/ui/Validation_ItemCheck.ui',
 # licensing of 'D:/WIP_Portfolio/lib/ui/Validation_ItemCheck.ui' applies.
 #
-# Created: Mon Sep  7 22:57:09 2020
+# Created: Tue Oct 20 01:43:40 2020
 #      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!

@@ -8,11 +8,11 @@ except ImportError:
 
 currentFilePath = os.path.dirname(os.path.abspath(__file__))
 currentFilePath = currentFilePath.replace("\\","/")
-currentFilePath = ("/".join(currentFilePath.split("/")[:-1]))
-sys.path.append(currentFilePath)
+rootPath = ("/".join(currentFilePath.split("/")[:-1]))
+sys.path.append(rootPath)
 class LauncherFunction():
 	def __init__(self):
-		self.maxVersionDict =   {"15.0": "2013","16.0": "2014","17.0": "2015","18.0": "2016","19.0": "2017","20.0": "2018","21.0": "2019","22.0": "2020","23.0": "2021"}
+		self.maxVersionDict =   {"19.0": "2017","20.0": "2018","21.0": "2019","22.0": "2020","23.0": "2021"}
 
 	def getInstalledLocationInRegistryEditor(self, hive, flag, version):
 		aReg = winreg.ConnectRegistry(None, hive)
@@ -46,7 +46,7 @@ class LauncherFunction():
 		#self.openingCommandLine = "\"" + exeFilePath + "\" -c" + ' python(\""import sys; sys.path.append('""+currentFilePath+""'); from '+mayaLibrary+' import startup; startup.main()\"")'
 		#self.openingCommandLine = shlex.split(self.openingCommandLine)
 		#self.openingCommandLine = subprocess.Popen([exeFilePath, "-c", "python(\"import sys; sys.path.append('"+currentFilePath+"'); from "+mayaLibrary+" import startup; startup.main()\")"])
-		startupCommandLine = currentFilePath + "/" + self.maxLibrary + "/" + "startup.py"
+		startupCommandLine = rootPath + "/" + self.maxLibrary + "/" + "startup.py"
 		self.openingCommandLine = [exeFilePath, '-U', 'PythonHost', startupCommandLine]
 		#b = exeFilePath + " -u PythonHost " + "\"'"+startupCommandLine+"'\""
 		#a = shlex.split(b)

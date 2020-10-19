@@ -43,7 +43,7 @@ class SystemTrayItem(QtWidgets.QAction):
 		self.exeFilePath = exeFilePath
 		self.library = library
 		self.commandLine = commandLine
-		#print (self.commandLine)
+		print (self.commandLine)
 		self.setText(self.itemName)
 		self.setIcon(QtGui.QIcon(self.icon))
 		self.triggered.connect(lambda: self.startSoftware())
