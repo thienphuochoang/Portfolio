@@ -10,14 +10,14 @@ except ImportError:
 	import _winreg as winreg
 import shlex
 currentFilePath = os.path.dirname(os.path.abspath(__file__))
-currentFilePath = currentFilePath.replace("\\","/")
-sys.path.append(currentFilePath)
+rootPath = currentFilePath.replace("\\","/")
+sys.path.append(rootPath)
 import PySide2
 from PySide2 import QtWidgets, QtGui
 
 def importModulesFromLaunchFolder():
 	importModuleList = []
-	for file in os.listdir(currentFilePath + "/launch"):
+	for file in os.listdir(rootPath + "/launch"):
 		if file.endswith(".py") and "__init__" not in file:
 			importModule = file.replace(".py","")
 			try:
@@ -31,9 +31,9 @@ def importModulesFromLaunchFolder():
 
 class GeneralIconManagement():
 	def __init__(self):
-		self.mainIcon = currentFilePath + "/lib/icon/SystemTray.png"
-		self.exitIcon = currentFilePath + "/lib/icon/exit.jpg"
-		self.waveHandIcon = currentFilePath + "/lib/icon/welcome.jpg"
+		self.mainIcon = rootPath + "/lib/icon/SystemTray.png"
+		self.exitIcon = rootPath + "/lib/icon/exit.jpg"
+		self.waveHandIcon = rootPath + "/lib/icon/welcome.jpg"
 
 class SystemTrayItem(QtWidgets.QAction):
 	def __init__(self, itemName, icon, exeFilePath, library, commandLine, parent = None):

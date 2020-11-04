@@ -35,5 +35,28 @@
 				"subItem":[]
 			}
 		]
+	},
+	{
+		"macro_text":"Baking Tool",
+		"macro_name":"puzzle_baking_tool",
+		"macro_tooltip":"This is a collection of baking tools",
+		"command":"",
+		"subItem":
+		[
+			{
+				"macro_text":"Bake AO Tool(Faogen)",
+				"macro_name":"puzzle_bake_ao_tool",
+				"macro_tooltip":"This is an AO baking tool",
+				"command":"puzzle_max/baking_tool/function/faogen_vertex_ao.ms",
+				"subItem":[]
+			}
+		]
+	},
+	{
+		"macro_text":"Snap Decal Tool",
+		"macro_name":"puzzle_snap_decal_tool",
+		"macro_tooltip":"This is a snap decal tool",
+		"command":"import importlib;\nfrom puzzle_max.decal_tool.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
+		"subItem":[]
 	}
 ]

@@ -163,9 +163,4 @@ tool AlignToSurface
 		in coordsys local rotate SnapObj tempRot -- rotate locally
 	)
 )
-
-macroscript placeDecal category:"Playground" tooltip:"place decal"
-(
-	startTool AlignToSurface
-)
-
+startTool AlignToSurface

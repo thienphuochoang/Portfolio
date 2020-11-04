@@ -3,14 +3,16 @@ import json
 import sys
 currentFilePath = os.path.dirname(os.path.abspath(__file__))
 currentFilePath = currentFilePath.replace("\\","/")
-currentFilePath = "/".join(currentFilePath.split("/")[:-1])
-sys.path.append(currentFilePath)
-maxMenuItems = currentFilePath + "/launch/" + "MaxSystemItems.json"
+global puzzleRootPath
+puzzleRootPath = "/".join(currentFilePath.split("/")[:-1])
+sys.path.append(puzzleRootPath)
+maxMenuItems = puzzleRootPath + "/launch/" + "MaxSystemItems.json"
 mainMenuName = "PUZZLE_Tools"
 
 
 import pymxs
 rt = pymxs.runtime
+rt.puzzleRootPath = puzzleRootPath
 #defaultUserMacroFolder = r"C:\Users\PhuocHoang\AppData\Local\Autodesk\3dsMax\2021 - 64bit\ENU\usermacros"
 def setToOldUserMacroFolder():
 	maxEnuFolder = rt.getDir(rt.Name("maxData"))
@@ -94,7 +96,7 @@ class mainMenuUI():
 		'''
 		self.oldCurrentUserIconFolder = rt.getDir(rt.Name("usericons"))
 		self.newUserIconFolder = self.oldCurrentUserIconFolder.replace("\\","/")
-		self.newUserIconFolder = currentFilePath + "/" + "lib/icon"
+		self.newUserIconFolder = puzzleRootPath + "/" + "lib/icon"
 		if not os.path.isdir(self.newUserIconFolder):
 			os.mkdir(self.newUserIconFolder)
 		rt.setDir(rt.Name("usericons"), self.newUserIconFolder)
@@ -131,7 +133,7 @@ class subMenuAction():
 		if self.commandExecution:
 			checkMaxscriptFlag = self.commandExecution.endswith(".ms")
 			if checkMaxscriptFlag == True:
-				self.commandExecution = 'filein' + '("'+currentFilePath+ "/" + self.commandExecution + '")'
+				self.commandExecution = 'filein' + '("'+puzzleRootPath+ "/" + self.commandExecution + '")'
 			else:
 				self.commandExecution = repr(self.commandExecution)
 				self.commandExecution = self.commandExecution.replace("'","\"")
@@ -139,5 +141,6 @@ class subMenuAction():
 		
 def main():
 	menuCreation = mainMenuUI()
-	print ("Load Max Tools SUCCESSFULLY: " + currentFilePath)
+	print ("Load Max Tools SUCCESSFULLY: " + puzzleRootPath)
+	print ("Global root path variable: puzzleRootPath")
 main()
