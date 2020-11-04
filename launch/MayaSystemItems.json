@@ -1,42 +1,32 @@
 [
 	{
 		"name": "Validation",
+		"description": "Validate common and advanced errors",
 		"command":"import importlib;\nfrom puzzle_maya.validation.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
-		"icon":"lib/icon/validation.png",
-		"subItem":[]
+		"icon":"lib/icon/validation.png"
 	},
 	{
 		"name": "Exporter",
+		"description": "Export objects to multiples format to import to other 3D modeling software",
 		"command":"import importlib;\nfrom puzzle_maya.exporter.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
-		"icon":"lib/icon/exporter.png",
-		"subItem":[]
+		"icon":"lib/icon/exporter.png"
 	},
 	{
-		"name": "Animation",
-		"command":"",
-		"icon":"lib/icon/animation.png",
-		"subItem":
-		[
-			{
-				"name": "Transfer Transformation",
-				"command":"import importlib;\nfrom puzzle_maya.transfer_transformation.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
-				"icon":"lib/icon/socket.jpg",
-				"subItem":[]
-			}
-		]
+		"name": "Socket",
+		"description": "Transfer transformation between two opening Maya",
+		"command":"import importlib;\nfrom puzzle_maya.transfer_transformation.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
+		"icon":"lib/icon/socket.jpg"
 	},
 	{
-		"name": "UV Tools",
-		"command":"",
-		"icon":"lib/icon/uv.png",
-		"subItem":
-		[
-			{
-				"name": "Texel Density + Checker",
-				"command":"import importlib;\nfrom puzzle_maya.uv_tool.texel_density.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
-				"icon":"lib/icon/checker_icon.jpg",
-				"subItem":[]
-			}
-		]
+		"name": "Texel",
+		"description": "Texel density and checker tool",
+		"command":"import importlib;\nfrom puzzle_maya.uv_tool.texel_density.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
+		"icon":"lib/icon/checker_icon.jpg"
+	},
+	{
+		"name": "Ref",
+		"description": "Import Reference",
+		"command":"import importlib;\nfrom puzzle_maya.scaling_ref.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
+		"icon":"lib/icon/reference.png"
 	}
 ]

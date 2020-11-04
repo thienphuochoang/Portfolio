@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'D:/WIP_Portfolio/puzzle_maya/uv_tool/texel_density/ui/texel_density_ui.ui',
 # licensing of 'D:/WIP_Portfolio/puzzle_maya/uv_tool/texel_density/ui/texel_density_ui.ui' applies.
 #
-# Created: Tue Oct 20 01:43:42 2020
+# Created: Thu Nov  5 01:09:21 2020
 #      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!

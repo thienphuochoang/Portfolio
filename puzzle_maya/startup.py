@@ -1,68 +1,86 @@
 import os
 import json
 import sys
-try:
-	currentFilePath = os.path.dirname(os.path.abspath(__file__))
-except:
-	currentFilePath = os.path.dirname(os.path.abspath(sys.argv[0]).replace('app', ''))
 
+currentFilePath = os.path.dirname(os.path.abspath(__file__))
+# except:
+# 	currentFilePath = os.path.dirname(os.path.abspath(sys.argv[0]).replace('app', ''))
+global puzzleRootPath
 currentFilePath = currentFilePath.replace("\\","/")
+puzzleRootPath = "/".join(currentFilePath.split("/")[:-1])
 sys.path.append(currentFilePath)
-mayaMenuItems = "/".join(currentFilePath.split("/")[:-1]) + "/launch/" + "MayaSystemItems.json"
-#mayaMenuItems = currentFilePath + "/" + "MayaSystemItems.json"
+sys.path.append(puzzleRootPath)
+mayaMenuItems = puzzleRootPath + "/launch/" + "MayaSystemItems.json"
 mainMenuName = "PUZZLE_Tools"
-iconPath = "/".join((currentFilePath.split("/"))[:-1]) + "/"
+iconPath = puzzleRootPath + "/"
+
+
 
 import maya.cmds as cmds
 import maya.mel as mel
-class mainMenuUI():
-	def __init__(self):
-		"""
-		Create drop down menu in Maya
-		"""
-		mainWindow = mel.eval('global string $gMainWindow; $temp = $gMainWindow')
-		if cmds.menu(mainMenuName, q = True, exists = True):
-			cmds.deleteUI(mainMenuName, menu = True)
-		self.mainMenu = cmds.menu(mainMenuName, l = mainMenuName, parent = mainWindow, tearOff= True)
+
+class shelf_button():
+	def __init__(self, shelfName, label, icon, command, description):
+		self.shelfName = shelfName
+		self.label = label
+		self.icon = icon
+		self.command = command
+		self.labelBackground = (0, 0, 0, 0)
+		self.labelColour = (.9, .9, .9)
+		self.description = description
+
+		cmds.setParent(self.shelfName)
+		if self.icon != "":
+			cmds.shelfButton(width=37, height=37, image=self.icon, l=label, command=command, imageOverlayLabel=label, olb=self.labelBackground, olc=self.labelColour, annotation=self.description)
+		else:
+			self.icon = "commandButton.png"
+			cmds.shelfButton(width=37, height=37, image=self.icon, l=label, command=command, imageOverlayLabel=label, olb=self.labelBackground, olc=self.labelColour, annotation=self.description)
+
+class shelf():
+	'''A simple class to build shelves in maya. Since the build method is empty,
+	it should be extended by the derived class to build the necessary shelf elements.
+	By default it creates an empty shelf called "customShelf".'''
+
+	def __init__(self, name=mainMenuName):
+		self.name = name
+
+		self.cleanOldShelf()
+		cmds.setParent(self.name)
+		self.build()
+
+	def build(self):
+		'''This method should be overwritten in derived classes to actually build the shelf
+		elements. Otherwise, nothing is added to the shelf.'''
+		pass
+
+	def addButon(self, label, icon, command, description):
+		'''Adds a shelf button with the specified label, command and image.'''
+		shelfButton = shelf_button(self.name, label, icon, command, description)
+
+	def cleanOldShelf(self):
+		'''Checks if the shelf exists and empties it if it does or creates it if it does not.'''
+		if cmds.shelfLayout(self.name, ex=1):
+			if cmds.shelfLayout(self.name, q=1, ca=1):
+				for each in cmds.shelfLayout(self.name, q=1, ca=1):
+					cmds.deleteUI(each)
+		else:
+			cmds.shelfLayout(self.name, p="ShelfLayout")
+
+class puzzleShelf(shelf):
+	def build(self):
 		with open(mayaMenuItems) as menuItemDatabase:
 			self.data = json.load(menuItemDatabase)
 			for data in self.data:
-				#print (data)
-				imagePath = iconPath + data["icon"]
+				name = data["name"]
+				description = data["description"]
 				command = data["command"]
-				if data["subItem"]:
-					subMenuItem = mainMenuItem(self.mainMenu, data["name"], imagePath, command, True)
-					for eachSubItem in data["subItem"]:
-						#cmds.menuItem(label = "ahihi")
-						#print data["Name"]
-						#print (eachSubItem)
-						#cmds.menuItem(l = eachSubItem["name"], parent = subMenuItem, subMenu = False)
-						#print (eachSubItem["name"])
-						subitemImagePath = iconPath + eachSubItem["icon"]
-						subitem = mainMenuItem(subMenuItem, eachSubItem["name"], subitemImagePath, eachSubItem["command"], False)
-					cmds.setParent( '..', menu=True )
+				icon = iconPath + data["icon"]
+				if os.path.isfile(icon) == True:
+					self.addButon(label = name, icon = icon, command = command, description = description)
 				else:
-					item = mainMenuItem(self.mainMenu, data["name"], imagePath, command, False)
-		
-class mainMenuItem():
-	def __init__(self, mainMenu, menuItemName, imagePath, commandExecution, subMenuFlag):
-		#self.menuItem = cmds.menuItem
-		self.mainMenu = mainMenu
-		#print (self.mainMenu)
-		self.itemName = menuItemName
-		self.imagePath = imagePath
-		self.command = commandExecution
-		self.subMenuFlag = subMenuFlag
-		#print (self.command)
-		if subMenuFlag == False:
-			try:
-				self.item = cmds.menuItem(l = self.itemName, parent = self.mainMenu, image = self.imagePath, command = self.command, subMenu = self.subMenuFlag)
-			except:
-				self.item = cmds.menuItem(l = self.itemName, image = self.imagePath, command = self.command, subMenu = self.subMenuFlag)
-		else:
-			self.item = cmds.menuItem(l = self.itemName, image = self.imagePath, command = self.command, subMenu = self.subMenuFlag)
-		
-		
+					self.addButon(label = name, icon = "", command = command, description = description)
+
+
 def main():
-	menuCreation = mainMenuUI()
+	shelfCreation = puzzleShelf()
 	print ("Load Maya Tools SUCCESSFULLY: " + currentFilePath)
