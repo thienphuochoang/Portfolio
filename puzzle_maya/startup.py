@@ -8,7 +8,6 @@ currentFilePath = os.path.dirname(os.path.abspath(__file__))
 global puzzleRootPath
 currentFilePath = currentFilePath.replace("\\","/")
 puzzleRootPath = "/".join(currentFilePath.split("/")[:-1])
-sys.path.append(currentFilePath)
 sys.path.append(puzzleRootPath)
 mayaMenuItems = puzzleRootPath + "/launch/" + "MayaSystemItems.json"
 mainMenuName = "PUZZLE_Tools"

@@ -1,6 +1,6 @@
 import maya.cmds as cmds
 import maya.api.OpenMaya as OpenMaya
-from transfer_transformation.function import MayaProcessHook as mph
+from puzzle_maya.transfer_transformation.function import MayaProcessHook as mph
 class HookMainFunction():
 	def __init__(self):
 		pass

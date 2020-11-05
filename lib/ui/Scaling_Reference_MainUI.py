@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'D:/WIP_Portfolio/lib/ui/Scaling_Reference_MainUI.ui',
 # licensing of 'D:/WIP_Portfolio/lib/ui/Scaling_Reference_MainUI.ui' applies.
 #
-# Created: Thu Nov  5 01:09:19 2020
+# Created: Fri Nov  6 01:59:14 2020
 #      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -38,7 +38,7 @@ class Ui_Scaling_Reference_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(Scaling_Reference_MainWindow)
 
     def retranslateUi(self, Scaling_Reference_MainWindow):
-        Scaling_Reference_MainWindow.setWindowTitle(QtWidgets.QApplication.translate("Scaling_Reference_MainWindow", "MainWindow", None, -1))
+        Scaling_Reference_MainWindow.setWindowTitle(QtWidgets.QApplication.translate("Scaling_Reference_MainWindow", "Scaling Ref Main Window", None, -1))
         self.btnImportRef.setText(QtWidgets.QApplication.translate("Scaling_Reference_MainWindow", "Import Ref", None, -1))
         self.btnOpenRefFolder.setText(QtWidgets.QApplication.translate("Scaling_Reference_MainWindow", "Open Ref Folder", None, -1))
 

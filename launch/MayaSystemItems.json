@@ -28,5 +28,11 @@
 		"description": "Import Reference",
 		"command":"import importlib;\nfrom puzzle_maya.scaling_ref.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
 		"icon":"lib/icon/reference.png"
+	},
+	{
+		"name": "Pivot",
+		"description": "Setup Pivot",
+		"command":"import importlib;\nfrom puzzle_maya.pivot.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
+		"icon":"lib/icon/pivot.png"
 	}
 ]
