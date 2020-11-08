@@ -29,11 +29,14 @@ class shelf_button():
 		self.description = description
 
 		cmds.setParent(self.shelfName)
-		if self.icon != "":
+		if (self.icon != "") and os.path.isfile(self.icon) == True:
 			cmds.shelfButton(width=37, height=37, image=self.icon, l=label, command=command, imageOverlayLabel=label, olb=self.labelBackground, olc=self.labelColour, annotation=self.description)
 		else:
-			self.icon = "commandButton.png"
+			self.icon = iconPath + "lib" + "/" + "icon" + "/" + "default_script.png"
 			cmds.shelfButton(width=37, height=37, image=self.icon, l=label, command=command, imageOverlayLabel=label, olb=self.labelBackground, olc=self.labelColour, annotation=self.description)
+		#elif self.icon == "":
+			#self.icon = "commandButton.png"
+			#cmds.shelfButton(width=37, height=37, image=self.icon, l=label, command=command, imageOverlayLabel=label, olb=self.labelBackground, olc=self.labelColour, annotation=self.description)
 
 class shelf():
 	'''A simple class to build shelves in maya. Since the build method is empty,
