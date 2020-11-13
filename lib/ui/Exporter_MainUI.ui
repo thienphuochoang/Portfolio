@@ -289,7 +289,7 @@ color: rgb(0, 0, 0);</string>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="btnExportCurrentFolder">
           <property name="text">
            <string>Current Folder</string>
           </property>

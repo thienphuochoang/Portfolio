@@ -4,15 +4,48 @@ try:
 	import winreg
 except ImportError:
 	import _winreg as winreg
-#import shlex
+import ctypes
+from ctypes.wintypes import MAX_PATH
 
 currentFilePath = os.path.dirname(os.path.abspath(__file__))
 currentFilePath = currentFilePath.replace("\\","/")
-currentFilePath = ("/".join(currentFilePath.split("/")[:-1]))
-sys.path.append(currentFilePath)
+rootPath = ("/".join(currentFilePath.split("/")[:-1]))
+sys.path.append(rootPath)
 class LauncherFunction():
 	def __init__(self):
 		self.mayaVersionList =   ["2013","2014","2015","2016","2017","2018","2019","2020","2021"]
+
+	def saveRootPathToMayaEnvFile(self, mayaVersion):
+		currentUserDocumentPath = None
+		dll = ctypes.windll.shell32
+		buf = ctypes.create_unicode_buffer(MAX_PATH + 1)
+		if dll.SHGetSpecialFolderPathW(None, buf, 0x0005, False):
+			currentUserDocumentPath = buf.value
+			currentUserDocumentPath = currentUserDocumentPath.replace("\\","/")
+			mayaDocumentFolderPath = currentUserDocumentPath + "/" + "maya" + "/" + str(mayaVersion)
+			print (mayaDocumentFolderPath)
+			foundMayaEnvFileFlag = False
+			for file in os.listdir(mayaDocumentFolderPath):
+				if (file.lower()).endswith(".env"):
+					foundMayaEnvFileFlag = True
+					with open(mayaDocumentFolderPath + "/" + file, "a+") as f:
+						datafile = f.readlines()
+						foundPuzzleRootPathVar = False
+						for line in datafile:
+							if "PUZZLE_ROOT_PATH" in line:
+								foundPuzzleRootPathVar = True		
+
+						if foundPuzzleRootPathVar == False:
+							f.write("\nPUZZLE_ROOT_PATH = " + rootPath + "")
+							print ("Set PUZZLE_ROOT_PATH to Maya Environment File SUCCESSFULLY!!!")
+
+			if foundMayaEnvFileFlag == False:
+				with open(mayaDocumentFolderPath + "/" + file, "w") as f:
+					f.write("\nPUZZLE_ROOT_PATH = " + rootPath + "")
+					print ("Set PUZZLE_ROOT_PATH to Maya Environment File SUCCESSFULLY!!!")
+
+		else:
+			print ("Cannot find current computer user Documents folder")
 
 	def getInstalledLocationInRegistryEditor(self, hive, flag, version):
 		aReg = winreg.ConnectRegistry(None, hive)
@@ -46,7 +79,7 @@ class LauncherFunction():
 		#self.openingCommandLine = "\"" + exeFilePath + "\" -c" + ' python(\""import sys; sys.path.append('""+currentFilePath+""'); from '+mayaLibrary+' import startup; startup.main()\"")'
 		#self.openingCommandLine = shlex.split(self.openingCommandLine)
 		#self.openingCommandLine = subprocess.Popen([exeFilePath, "-c", "python(\"import sys; sys.path.append('"+currentFilePath+"'); from "+mayaLibrary+" import startup; startup.main()\")"])
-		self.openingCommandLine = [exeFilePath, "-c", "python(\"import sys; sys.path.append('"+currentFilePath+"'); from "+mayaLibrary+" import startup; startup.main()\")"]
+		self.openingCommandLine = [exeFilePath, "-c", "python(\"import sys; sys.path.append('"+rootPath+"'); from "+mayaLibrary+" import startup; startup.main()\")"]
 		#b = exeFilePath + " -c " + "python(\"import sys; sys.path.append('"+currentFilePath+"'); from "+mayaLibrary+" import startup; startup.main()\")"
 		#a = shlex.split(b)
 		#print (a)
@@ -57,6 +90,7 @@ class LauncherFunction():
 		for mayaVersion in self.mayaVersionList:
 			mayaInstalledLocation = self.getInstalledLocationInRegistryEditor(winreg.HKEY_LOCAL_MACHINE, winreg.KEY_WOW64_64KEY, mayaVersion)
 			if mayaInstalledLocation:
+				self.saveRootPathToMayaEnvFile(mayaVersion)
 				mayaDisplayedIcon = self.getDisplayIcon(mayaInstalledLocation)
 				mayaExeFilePath = self.getExeFilePath(mayaInstalledLocation)
 				mayaImportedLibrary = self.getLibrary()

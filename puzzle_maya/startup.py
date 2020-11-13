@@ -2,6 +2,7 @@ import os
 import json
 import sys
 
+
 currentFilePath = os.path.dirname(os.path.abspath(__file__))
 # except:
 # 	currentFilePath = os.path.dirname(os.path.abspath(sys.argv[0]).replace('app', ''))

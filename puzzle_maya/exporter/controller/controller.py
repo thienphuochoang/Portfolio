@@ -48,6 +48,7 @@ class MainExporter(QtWidgets.QMainWindow, exporter_mainUI.Ui_MainWindowExporter)
         self.setupUi(self)
         self.changeSelfRadioButtonText()
         self.connectUI()
+        self.disableWorkingFilesExportButtons()
 
 
     def connectUI(self):
@@ -90,6 +91,11 @@ class MainExporter(QtWidgets.QMainWindow, exporter_mainUI.Ui_MainWindowExporter)
             partial(exporter_func.deleteTempFolderContents))
         self.btnExportSP.clicked.connect(
             partial(exporter_func.exportToSubstancePainter))
+        self.btnExportCurrentFolder.clicked.connect(
+            lambda: exporter_func.exportFileToCurrentFolder(
+                self.queryRadioButtonStatus(), 
+                self.queryCheckboxBinaryStatus(), 
+                self.queryCheckboxInstanceStatus()))
 
         
     def changeSelfRadioButtonText(self):
@@ -146,6 +152,10 @@ class MainExporter(QtWidgets.QMainWindow, exporter_mainUI.Ui_MainWindowExporter)
             return "true"
         else:
             return "false"
+
+    def disableWorkingFilesExportButtons(self):
+        self.btnImportWorking.setEnabled(False)
+        self.btnExportWorking.setEnabled(False)
 
 def check_exist_window(name_window):
     if (cmds.window(name_window, exists=True)):

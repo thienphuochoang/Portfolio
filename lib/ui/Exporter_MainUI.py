@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'D:/WIP_Portfolio/lib/ui/Exporter_MainUI.ui',
 # licensing of 'D:/WIP_Portfolio/lib/ui/Exporter_MainUI.ui' applies.
 #
-# Created: Fri Nov  6 01:59:13 2020
+# Created: Sat Nov 14 01:51:42 2020
 #      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -115,11 +115,11 @@ class Ui_MainWindowExporter(object):
         self.btnExportSeparatePart.setDefault(True)
         self.btnExportSeparatePart.setObjectName("btnExportSeparatePart")
         self.horizontalLayout_3.addWidget(self.btnExportSeparatePart)
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setDefault(True)
-        self.pushButton.setFlat(False)
-        self.pushButton.setObjectName("pushButton")
-        self.horizontalLayout_3.addWidget(self.pushButton)
+        self.btnExportCurrentFolder = QtWidgets.QPushButton(self.centralwidget)
+        self.btnExportCurrentFolder.setDefault(True)
+        self.btnExportCurrentFolder.setFlat(False)
+        self.btnExportCurrentFolder.setObjectName("btnExportCurrentFolder")
+        self.horizontalLayout_3.addWidget(self.btnExportCurrentFolder)
         self.gridLayout.addLayout(self.horizontalLayout_3, 3, 0, 1, 1)
         self.horizontalLayout_6 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_6.setSpacing(2)
@@ -247,7 +247,7 @@ class Ui_MainWindowExporter(object):
         self.btnImport.setText(QtWidgets.QApplication.translate("MainWindowExporter", " Import", None, -1))
         self.btnExportSP.setText(QtWidgets.QApplication.translate("MainWindowExporter", "Export to Substance Painter", None, -1))
         self.btnExportSeparatePart.setText(QtWidgets.QApplication.translate("MainWindowExporter", "Separate", None, -1))
-        self.pushButton.setText(QtWidgets.QApplication.translate("MainWindowExporter", "Current Folder", None, -1))
+        self.btnExportCurrentFolder.setText(QtWidgets.QApplication.translate("MainWindowExporter", "Current Folder", None, -1))
         self.btnExportHigh.setText(QtWidgets.QApplication.translate("MainWindowExporter", "HIGH", None, -1))
         self.btnExportLow.setText(QtWidgets.QApplication.translate("MainWindowExporter", "LOW", None, -1))
         self.btnExportWorking.setToolTip(QtWidgets.QApplication.translate("MainWindowExporter", "<html><head/><body><p><span style=\" font-size:10pt;\">Export Working File</span></p></body></html>", None, -1))
