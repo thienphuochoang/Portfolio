@@ -34,5 +34,11 @@
 		"description": "Setup Pivot",
 		"command":"import importlib;\nfrom puzzle_maya.pivot.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
 		"icon":"lib/icon/pivot.png"
+	},
+	{
+		"name": "Flatten Combine",
+		"description": "Flatten Combine",
+		"command":"import importlib;\nfrom puzzle_maya.combination.controller import main;\ntry:\n\timportlib.reload(main);\nexcept:\n\treload(main);",
+		"icon":"lib/icon/combine.png"
 	}
 ]

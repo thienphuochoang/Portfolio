@@ -90,6 +90,12 @@ class SystemTrayIcon(QtWidgets.QSystemTrayIcon):
 		self.menu.addSeparator()
 		self.setContextMenu(self.menu)
 
+		self.activated.connect(self.showMenuOnTrigger)
+
+	def showMenuOnTrigger(self, reason):
+		if reason == QtWidgets.QSystemTrayIcon.Trigger:
+			self.contextMenu().popup(QtGui.QCursor.pos())
+
 	def importAllSoftwareFunction(self):
 		modulesList = importModulesFromLaunchFolder()
 		for module in modulesList:
