@@ -4,24 +4,27 @@ from PySide2 import QtGui, QtCore, QtWidgets
 from shiboken2 import wrapInstance
 import maya.OpenMayaUI as omui
 import maya.cmds as cmds
-
+import sys
 
 mayaMainWindowPtr = omui.MQtUtil.mainWindow() 
 mayaMainWindow = wrapInstance(long(mayaMainWindowPtr), QtWidgets.QWidget)  # create a maya Main window
 
 
-def import_file(str_module):
-	"""import a module from string"""
-	nameModule = importlib.import_module(str_module)
+moduleImporterPath = 'general.modules_importer.modules_importer_function'
+importerFunction = None
+
+if moduleImporterPath in sys.modules:
+	importerFunction = sys.modules[moduleImporterPath]
 	try:
-		reload(nameModule)
+		importlib.reload(importerFunction)
 	except:
-		importlib.reload(nameModule)
-	return nameModule
+		reload(importerFunction)
+else:
+	importerFunction = importlib.import_module(moduleImporterPath)
 	
 #import Function____________________
-pivot_function = import_file("puzzle_maya.pivot.function.pivot_function")
-pivot_mainUI = import_file("lib.ui.Pivot_MainUI")
+pivot_function = importerFunction.importModule("puzzle_maya.pivot.function.pivot_function")
+pivot_mainUI = importerFunction.importModule("lib.ui.Pivot_MainUI")
 
 class PivotMainWindow(QtWidgets.QMainWindow, pivot_mainUI.Ui_PivotMainWindow):
 	def __init__(self):

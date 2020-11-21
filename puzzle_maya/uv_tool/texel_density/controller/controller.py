@@ -11,10 +11,20 @@ from shiboken2 import wrapInstance
 mayaMainWindowPtr = omui.MQtUtil.mainWindow() 
 mayaMainWindow = wrapInstance(long(mayaMainWindowPtr), QtWidgets.QWidget)
 
-from puzzle_maya.uv_tool.texel_density.function import texel_density_function as tdf
-reload(tdf)
-from puzzle_maya.uv_tool.texel_density.ui import texel_density_ui as tdu
-reload(tdu)
+moduleImporterPath = 'general.modules_importer.modules_importer_function'
+importerFunction = None
+
+if moduleImporterPath in sys.modules:
+	importerFunction = sys.modules[moduleImporterPath]
+	try:
+		importlib.reload(importerFunction)
+	except:
+		reload(importerFunction)
+else:
+	importerFunction = importlib.import_module(moduleImporterPath)
+
+tdf = importerFunction.importModule('puzzle_maya.uv_tool.texel_density.function.texel_density_function')
+tdu = importerFunction.importModule('puzzle_maya.uv_tool.texel_density.ui.texel_density_ui')
 
 class MainTexelDensity(QtWidgets.QMainWindow, tdu.Ui_TexelDensityMainWindow):
 	def __init__(self):

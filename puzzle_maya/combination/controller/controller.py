@@ -1,15 +1,19 @@
 import importlib
-def import_file(str_module):
-	"""import a module from string"""
-	nameModule = importlib.import_module(str_module)
+import sys
+moduleImporterPath = 'general.modules_importer.modules_importer_function'
+importerFunction = None
+
+if moduleImporterPath in sys.modules:
+	importerFunction = sys.modules[moduleImporterPath]
 	try:
-		reload(nameModule)
+		importlib.reload(importerFunction)
 	except:
-		importlib.reload(nameModule)
-	return nameModule
-	
+		reload(importerFunction)
+else:
+	importerFunction = importlib.import_module(moduleImporterPath)
+
 #import Function____________________
-flatten_combine_function = import_file("puzzle_maya.combination.function.flatten_combine_function")
+flatten_combine_function = importerFunction.importModule('puzzle_maya.combination.function.flatten_combine_function')
 
 #execute function
 def main():

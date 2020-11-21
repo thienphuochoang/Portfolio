@@ -24,19 +24,22 @@ mayaMainWindowPtr = omui.MQtUtil.mainWindow()
 mayaMainWindow = wrapInstance(long(mayaMainWindowPtr), QtWidgets.QWidget)  # create a maya Main window
 
 
-def import_file(str_module):
-    """import a module from string"""
-    nameModule = importlib.import_module(str_module)
+moduleImporterPath = 'general.modules_importer.modules_importer_function'
+importerFunction = None
+
+if moduleImporterPath in sys.modules:
+    importerFunction = sys.modules[moduleImporterPath]
     try:
-        reload(nameModule)
+        importlib.reload(importerFunction)
     except:
-        importlib.reload(nameModule)
-    return nameModule
+        reload(importerFunction)
+else:
+    importerFunction = importlib.import_module(moduleImporterPath)
     
 #import Function____________________
-exporter_func = import_file(r"puzzle_maya.exporter.function.exporter_function")
+exporter_func = importerFunction.importModule(r"puzzle_maya.exporter.function.exporter_function")
 exporter_func.createTempFolder()
-exporter_mainUI = import_file(r"lib.ui.Exporter_MainUI")
+exporter_mainUI = importerFunction.importModule(r"lib.ui.Exporter_MainUI")
 
 def import_add_id_ui():
     pass

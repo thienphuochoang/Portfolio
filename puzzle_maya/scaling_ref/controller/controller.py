@@ -4,24 +4,27 @@ from PySide2 import QtGui, QtCore, QtWidgets
 from shiboken2 import wrapInstance
 import maya.OpenMayaUI as omui
 import maya.cmds as cmds
-
+import sys
 
 mayaMainWindowPtr = omui.MQtUtil.mainWindow() 
 mayaMainWindow = wrapInstance(long(mayaMainWindowPtr), QtWidgets.QWidget)  # create a maya Main window
 
 
-def import_file(str_module):
-	"""import a module from string"""
-	nameModule = importlib.import_module(str_module)
+moduleImporterPath = 'general.modules_importer.modules_importer_function'
+importerFunction = None
+
+if moduleImporterPath in sys.modules:
+	importerFunction = sys.modules[moduleImporterPath]
 	try:
-		reload(nameModule)
+		importlib.reload(importerFunction)
 	except:
-		importlib.reload(nameModule)
-	return nameModule
+		reload(importerFunction)
+else:
+	importerFunction = importlib.import_module(moduleImporterPath)
 	
 #import Function____________________
-scaling_ref_function = import_file(r"puzzle_maya.scaling_ref.function.scaling_ref_function")
-scaling_ref_mainUI = import_file(r"lib.ui.Scaling_Reference_MainUI")
+scaling_ref_function = importerFunction.importModule(r"puzzle_maya.scaling_ref.function.scaling_ref_function")
+scaling_ref_mainUI = importerFunction.importModule(r"lib.ui.Scaling_Reference_MainUI")
 
 class MainScalingRef(QtWidgets.QMainWindow, scaling_ref_mainUI.Ui_Scaling_Reference_MainWindow):
 	def __init__(self):
