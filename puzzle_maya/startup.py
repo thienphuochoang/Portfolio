@@ -31,10 +31,10 @@ class shelf_button():
 
 		cmds.setParent(self.shelfName)
 		if (self.icon != "") and os.path.isfile(self.icon) == True:
-			cmds.shelfButton(width=37, height=37, image=self.icon, l=label, command=command, imageOverlayLabel=label, olb=self.labelBackground, olc=self.labelColour, annotation=self.description)
+			cmds.shelfButton(width=34, height=34, image=self.icon, l=label, command=command, imageOverlayLabel=label, olb=self.labelBackground, olc=self.labelColour, annotation=self.description, style = "iconOnly")
 		else:
 			self.icon = iconPath + "lib" + "/" + "icon" + "/" + "default_script.png"
-			cmds.shelfButton(width=37, height=37, image=self.icon, l=label, command=command, imageOverlayLabel=label, olb=self.labelBackground, olc=self.labelColour, annotation=self.description)
+			cmds.shelfButton(width=34, height=34, image=self.icon, l=label, command=command, imageOverlayLabel=label, olb=self.labelBackground, olc=self.labelColour, annotation=self.description, style = "iconOnly")
 		#elif self.icon == "":
 			#self.icon = "commandButton.png"
 			#cmds.shelfButton(width=37, height=37, image=self.icon, l=label, command=command, imageOverlayLabel=label, olb=self.labelBackground, olc=self.labelColour, annotation=self.description)

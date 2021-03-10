@@ -40,5 +40,17 @@
 		"description": "Flatten Combine",
 		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\nreload(importerFunction)\nimporterFunction.importModule('puzzle_maya.combination.controller.main')",
 		"icon":"lib/icon/combine.png"
+	},
+	{
+		"name": "Merge Vertex",
+		"description": "Merge Vertex In Distance Automatically",
+		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\nreload(importerFunction)\nimporterFunction.importModule('puzzle_maya.vertex_snaping.controller.main')",
+		"icon":"lib/icon/vertex_snaping_icon.png"
+	},
+	{
+		"name": "Edge Length",
+		"description": "Get And Set Edge Tool",
+		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\nreload(importerFunction)\nimporterFunction.importModule('puzzle_maya.edge_length.controller.main')",
+		"icon":"lib/icon/edge_length_icon.jpg"
 	}
 ]
