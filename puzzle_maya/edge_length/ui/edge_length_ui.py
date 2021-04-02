@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'D:/WIP_Portfolio/puzzle_maya/edge_length/ui/edge_length_ui.ui',
 # licensing of 'D:/WIP_Portfolio/puzzle_maya/edge_length/ui/edge_length_ui.ui' applies.
 #
-# Created: Wed Mar 10 21:58:58 2021
+# Created: Wed Mar 10 23:32:31 2021
 #      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -29,6 +29,7 @@ class Ui_EdgeLengthMainWindow(object):
         self.btnSelectEdge.setObjectName("btnSelectEdge")
         self.gridLayout.addWidget(self.btnSelectEdge, 0, 0, 1, 1)
         self.spnSelectedLength = QtWidgets.QDoubleSpinBox(self.frame)
+        self.spnSelectedLength.setMaximum(10000000.0)
         self.spnSelectedLength.setObjectName("spnSelectedLength")
         self.gridLayout.addWidget(self.spnSelectedLength, 0, 1, 1, 1)
         self.gridLayout_2.addWidget(self.frame, 0, 0, 1, 3)
@@ -42,6 +43,7 @@ class Ui_EdgeLengthMainWindow(object):
         self.btnSetLength.setObjectName("btnSetLength")
         self.gridLayout_3.addWidget(self.btnSetLength, 0, 2, 1, 1)
         self.spnEdgeLength = QtWidgets.QDoubleSpinBox(self.frame_2)
+        self.spnEdgeLength.setMaximum(10000000.0)
         self.spnEdgeLength.setObjectName("spnEdgeLength")
         self.gridLayout_3.addWidget(self.spnEdgeLength, 0, 1, 1, 1)
         self.btnGetLength = QtWidgets.QPushButton(self.frame_2)

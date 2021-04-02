@@ -52,5 +52,11 @@
 		"description": "Get And Set Edge Tool",
 		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\nreload(importerFunction)\nimporterFunction.importModule('puzzle_maya.edge_length.controller.main')",
 		"icon":"lib/icon/edge_length_icon.jpg"
+	},
+	{
+		"name": "Unbevel",
+		"description": "Unbevel",
+		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\nreload(importerFunction)\nimporterFunction.importModule('puzzle_maya.unbevel.controller.main')",
+		"icon":"lib/icon/unbevel.png"
 	}
 ]

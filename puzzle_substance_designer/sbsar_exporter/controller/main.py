@@ -1,5 +1,13 @@
 import importlib
 import sys
+import os
+
+# Have to append root path because of running outside Python
+currentFilePath = os.path.dirname(os.path.abspath(__file__))
+currentFilePath = currentFilePath.replace("\\","/")
+puzzleRootPath = "/".join(currentFilePath.split("/")[:-3])
+sys.path.append(puzzleRootPath)
+
 moduleImporterPath = 'general.modules_importer.modules_importer_function' # Don't change this
 importerFunction = None
 
@@ -12,4 +20,4 @@ if moduleImporterPath in sys.modules:
 else:
 	importerFunction = importlib.import_module(moduleImporterPath)
 
-importerFunction.importModule('puzzle_maya.unbevel.controller.controller')
+importerFunction.importModule('puzzle_substance_designer.sbsar_exporter.controller.controller')

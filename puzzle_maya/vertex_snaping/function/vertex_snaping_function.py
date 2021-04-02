@@ -76,7 +76,7 @@ class VertexSnapingFunction():
 					pickedVt = eachVTSrc
 					count = count + 1
 				else:
-					if ((length > 0) and (length < shortestLength)):
+					if length < shortestLength:
 						shortestLength = length
 						pickedVt = eachVTSrc
 					
@@ -96,6 +96,8 @@ class VertexSnapingFunction():
 			vtxIndx1 = self.getVertexIndexBasedOnPosition(selectedObj, vtSelPos, 1)
 
 			vtxIndx2 = self.getVertexIndexBasedOnPosition(selectedObj, vtDesPos, 2)
+			print vtxIndx1
+			print vtxIndx2
 			
 			cmds.select(cl = True)
 			cmds.select(selectedObj + ".vtx[" + str(vtxIndx1) + "]")
