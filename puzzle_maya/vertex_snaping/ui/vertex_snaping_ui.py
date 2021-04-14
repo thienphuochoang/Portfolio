@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'D:/WIP_Portfolio/puzzle_maya/vertex_snaping/ui/vertex_snaping_ui.ui',
 # licensing of 'D:/WIP_Portfolio/puzzle_maya/vertex_snaping/ui/vertex_snaping_ui.ui' applies.
 #
-# Created: Wed Mar 10 23:32:32 2021
+# Created: Wed Apr 14 20:23:02 2021
 #      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!

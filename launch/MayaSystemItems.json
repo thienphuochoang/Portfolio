@@ -58,5 +58,11 @@
 		"description": "Unbevel",
 		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\nreload(importerFunction)\nimporterFunction.importModule('puzzle_maya.unbevel.controller.main')",
 		"icon":"lib/icon/unbevel.png"
+	},
+	{
+		"name": "SBS Mat",
+		"description": "Bake model information and create SBS materials",
+		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\nreload(importerFunction)\nimporterFunction.importModule('puzzle_maya.sbsar_mat_creation.controller.main')",
+		"icon":"lib/icon/substance_automation_icon.jpg"
 	}
 ]

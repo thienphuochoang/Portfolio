@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'D:/WIP_Portfolio/lib/ui/Exporter_MainUI.ui',
 # licensing of 'D:/WIP_Portfolio/lib/ui/Exporter_MainUI.ui' applies.
 #
-# Created: Wed Mar 10 23:32:29 2021
+# Created: Wed Apr 14 20:22:58 2021
 #      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
