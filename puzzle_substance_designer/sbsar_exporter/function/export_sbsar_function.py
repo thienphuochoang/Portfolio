@@ -22,8 +22,7 @@ class SDExportSbsarFunction():
 
 		return sbsFileList
 
-	def exportSBSAR(self):
-		sbsFileList = self.getMaterialList()
+	def exportSBSAR(self, sbsFileList):
 		inputCommandLineList = []
 		for file in sbsFileList:
 			fileNameWithoutSuffix = (file.split("/")[-1]).split(".")[0]
@@ -31,6 +30,11 @@ class SDExportSbsarFunction():
 			executeCommandLine = ["--inputs", file, "--output-name", fileNameWithoutSuffix, "--output-path", outputPath]
 			inputCommandLineList.append(executeCommandLine)
 
+		return inputCommandLineList
+
+	def getMaterialListAndExportSBSAR(self):
+		sbsFileList = self.getMaterialList()
+		inputCommandLineList = self.exportSBSAR(sbsFileList)
 		return inputCommandLineList
 # SDExportSbsarFunctionInstance = SDExportSbsarFunction()
 # inputCommandLineList = SDExportSbsarFunctionInstance.exportSBSAR()

@@ -14,6 +14,7 @@ sys.path.append(rootPath)
 class LauncherFunction():
 	def __init__(self):
 		self.mayaVersionList =   ["2013","2014","2015","2016","2017","2018","2019","2020","2021"]
+		self.externalModules = rootPath + "/" + "modules" + "/" + "Lib" + "/" + "site-packages"
 
 	def saveRootPathToMayaEnvFile(self, mayaVersion):
 		currentUserDocumentPath = None
@@ -79,7 +80,7 @@ class LauncherFunction():
 		#self.openingCommandLine = "\"" + exeFilePath + "\" -c" + ' python(\""import sys; sys.path.append('""+currentFilePath+""'); from '+mayaLibrary+' import startup; startup.main()\"")'
 		#self.openingCommandLine = shlex.split(self.openingCommandLine)
 		#self.openingCommandLine = subprocess.Popen([exeFilePath, "-c", "python(\"import sys; sys.path.append('"+currentFilePath+"'); from "+mayaLibrary+" import startup; startup.main()\")"])
-		self.openingCommandLine = [exeFilePath, "-c", "python(\"import sys; sys.path.append('"+rootPath+"'); from "+mayaLibrary+" import startup; startup.main()\")"]
+		self.openingCommandLine = [exeFilePath, "-c", "python(\"import sys; sys.path.append('"+rootPath+"'); sys.path.append('"+self.externalModules+"'); from "+mayaLibrary+" import startup; startup.main()\")"]
 		#b = exeFilePath + " -c " + "python(\"import sys; sys.path.append('"+currentFilePath+"'); from "+mayaLibrary+" import startup; startup.main()\")"
 		#a = shlex.split(b)
 		#print (a)

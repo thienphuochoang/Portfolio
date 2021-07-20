@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'D:/WIP_Portfolio/lib/ui/DecalSnapUI.ui',
 # licensing of 'D:/WIP_Portfolio/lib/ui/DecalSnapUI.ui' applies.
 #
-# Created: Wed Apr 14 20:22:57 2021
+# Created: Thu Jun 17 00:36:01 2021
 #      by: pyside2-uic  running on PySide2 5.13.2
 #
 # WARNING! All changes made in this file will be lost!

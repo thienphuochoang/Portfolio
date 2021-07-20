@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>743</width>
-    <height>530</height>
+    <width>828</width>
+    <height>810</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,22 +22,12 @@
    </property>
    <property name="maximumSize">
     <size>
-     <width>743</width>
-     <height>530</height>
+     <width>16777215</width>
+     <height>16777215</height>
     </size>
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
-    <item row="5" column="1" colspan="5">
-     <widget class="QListWidget" name="lwThumbnailMatShowing">
-      <property name="resizeMode">
-       <enum>QListView::Adjust</enum>
-      </property>
-      <property name="viewMode">
-       <enum>QListView::IconMode</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0" colspan="6">
+    <item row="0" column="0" colspan="2">
      <widget class="QLabel" name="lbBakingSettings">
       <property name="font">
        <font>
@@ -55,376 +45,682 @@ color: rgb(85, 0, 0);</string>
        <enum>QFrame::Raised</enum>
       </property>
       <property name="text">
-       <string>Baking Settings</string>
+       <string>Substance Automation Tools</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </item>
-    <item row="5" column="0">
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="1">
-       <widget class="QGroupBox" name="gbMatLibrary">
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="title">
-         <string>SUBSTANCE MATERIAL LIBRARY</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_3">
-         <item row="3" column="0">
-          <spacer name="verticalSpacer">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item row="2" column="0">
-          <widget class="QPushButton" name="btnCreateMat">
-           <property name="minimumSize">
-            <size>
-             <width>50</width>
-             <height>50</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Click to Create</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QComboBox" name="cbbMaterials"/>
-         </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="lbMaterials">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>9</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(0, 170, 127);
-color: rgb(255, 255, 255);</string>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::Box</enum>
-           </property>
-           <property name="frameShadow">
-            <enum>QFrame::Raised</enum>
-           </property>
-           <property name="text">
-            <string>Materials</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="1" column="0" rowspan="2" colspan="6">
-     <layout class="QGridLayout" name="gridLayout_6">
-      <property name="spacing">
-       <number>6</number>
+    <item row="1" column="0" colspan="2">
+     <widget class="QTabWidget" name="twSwitchingTab">
+      <property name="currentIndex">
+       <number>1</number>
       </property>
-      <item row="7" column="0" colspan="4">
-       <layout class="QHBoxLayout" name="horizontalLayout_8">
-        <item>
-         <widget class="QCheckBox" name="cbbBakeAO">
-          <property name="text">
-           <string>Bake AO</string>
-          </property>
-         </widget>
+      <widget class="QWidget" name="bakingTab">
+       <attribute name="title">
+        <string>Mesh Baking</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_6">
+        <item row="1" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QLabel" name="lbAntiAlias">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Anti-Alias</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cbbAntiAlias">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lbUvSet">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>UV Set</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cbbUvSet"/>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </item>
-        <item>
-         <widget class="QCheckBox" name="cbbBakeCurvature">
-          <property name="text">
-           <string>Bake Curvature</string>
-          </property>
-         </widget>
+        <item row="9" column="0">
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="1" column="0">
+           <widget class="QLabel" name="lbInputPath">
+            <property name="text">
+             <string>Input Path</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="leInputPath"/>
+          </item>
+          <item row="0" column="0" colspan="2">
+           <widget class="QCheckBox" name="cbbUseUpperSettings">
+            <property name="text">
+             <string>Use Upper Settings ?</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="lbInputName">
+            <property name="text">
+             <string>Input Name</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="leInputName"/>
+          </item>
+         </layout>
         </item>
-        <item>
-         <widget class="QCheckBox" name="cbbBakeWorldSpaceNormal">
-          <property name="text">
-           <string>Bake World Space Normal</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QCheckBox" name="cbbBakePosition">
-          <property name="text">
-           <string>Bake Position</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QCheckBox" name="cbbBakeColorID">
-          <property name="text">
-           <string>Bake Color ID</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="6" column="0" colspan="4">
-       <layout class="QHBoxLayout" name="horizontalLayout_7">
-        <item>
-         <widget class="QLabel" name="lbOutputPath">
-          <property name="text">
-           <string>Output Path</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="leOutputPath"/>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btnBrowse">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="text">
-           <string>Browse</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="4" column="0" colspan="4">
-       <layout class="QHBoxLayout" name="horizontalLayout_4">
-        <item>
-         <widget class="QLabel" name="lbAntiAlias">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Anti-Alias</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="cbbAntiAlias">
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>16777215</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="lbUvSet">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>UV Set</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="cbbUvSet"/>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_2">
+        <item row="11" column="0">
+         <spacer name="verticalSpacer_2">
           <property name="orientation">
-           <enum>Qt::Horizontal</enum>
+           <enum>Qt::Vertical</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>40</width>
-            <height>20</height>
+            <width>20</width>
+            <height>446</height>
            </size>
           </property>
          </spacer>
         </item>
-       </layout>
-      </item>
-      <item row="5" column="0" colspan="4">
-       <layout class="QHBoxLayout" name="horizontalLayout_5">
-        <item>
-         <widget class="QLineEdit" name="leNormalMap">
-          <property name="placeholderText">
-           <string>Load Normal Map</string>
-          </property>
-         </widget>
+        <item row="0" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QLabel" name="lbWidth">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Width</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cbbWidth">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lbHeight">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Height</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cbbHeight">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lbFormat">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Format</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cbbFormat"/>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </item>
-        <item>
-         <widget class="QPushButton" name="btnBrowseNormalMap">
+        <item row="2" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayout_9">
+          <item>
+           <widget class="QLineEdit" name="leNormalMap">
+            <property name="placeholderText">
+             <string>Load Normal Map</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnBrowseNormalMap">
+            <property name="text">
+             <string>Browse</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="cbUseLowAsHigh">
+            <property name="text">
+             <string>Use Low As High?</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="7" column="0">
+         <widget class="QPushButton" name="btnBakeMeshMaps">
           <property name="text">
-           <string>Browse</string>
+           <string>CLICK TO BAKE SELECTION!!!</string>
           </property>
          </widget>
         </item>
-        <item>
-         <widget class="QCheckBox" name="cbUseLowAsHigh">
+        <item row="10" column="0">
+         <widget class="QPushButton" name="btnCreateFileSBS">
           <property name="text">
-           <string>Use Low As High?</string>
+           <string>CREATE FILE SBS !!!</string>
           </property>
          </widget>
         </item>
-       </layout>
-      </item>
-      <item row="2" column="0" colspan="4">
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
-        <item>
-         <widget class="QLabel" name="lbWidth">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Width</string>
-          </property>
-         </widget>
+        <item row="3" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <item>
+           <widget class="QLabel" name="lbOutputPath">
+            <property name="text">
+             <string>Output Path</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="leOutputPath"/>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnBrowse">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Browse</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
-        <item>
-         <widget class="QComboBox" name="cbbWidth">
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>16777215</height>
-           </size>
-          </property>
-         </widget>
+        <item row="4" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <widget class="QLabel" name="lbOutputName">
+            <property name="text">
+             <string>Output Name</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="leOutputName"/>
+          </item>
+         </layout>
         </item>
-        <item>
-         <widget class="QLabel" name="lbHeight">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Height</string>
-          </property>
-         </widget>
+        <item row="5" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <item>
+           <widget class="QGroupBox" name="gbPreBake">
+            <property name="title">
+             <string>Pre-Baking</string>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_7">
+             <item row="0" column="0" colspan="2">
+              <widget class="QLabel" name="lbNote">
+               <property name="text">
+                <string>If you have a low and high poly. Please select bake normal. High poly meshes should be put in HighPoly group
+low poly meshes should be put in LowPoly group</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
         </item>
-        <item>
-         <widget class="QComboBox" name="cbbHeight">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>16777215</height>
-           </size>
-          </property>
-         </widget>
+        <item row="6" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayout_8">
+          <item>
+           <widget class="QCheckBox" name="cbbBakeAO">
+            <property name="text">
+             <string>Bake AO</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="cbbBakeCurvature">
+            <property name="text">
+             <string>Bake Curvature</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="cbbBakeWorldSpaceNormal">
+            <property name="text">
+             <string>Bake World Space Normal</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="cbbBakePosition">
+            <property name="text">
+             <string>Bake Position</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="cbbBakeColorID">
+            <property name="text">
+             <string>Bake Color ID</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
-        <item>
-         <widget class="QLabel" name="lbFormat">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>0</height>
-           </size>
+        <item row="8" column="0">
+         <widget class="Line" name="line">
+          <property name="frameShadow">
+           <enum>QFrame::Sunken</enum>
           </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>16777215</height>
-           </size>
+          <property name="lineWidth">
+           <number>1</number>
           </property>
-          <property name="text">
-           <string>Format</string>
+          <property name="midLineWidth">
+           <number>2</number>
           </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="cbbFormat"/>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_3">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
+         </widget>
         </item>
        </layout>
-      </item>
-      <item row="8" column="0" colspan="4">
-       <widget class="QPushButton" name="btnBakeMeshMaps">
-        <property name="text">
-         <string>CLICK TO BAKE SELECTION!!!</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="6" column="0" colspan="6">
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <widget class="QListWidget" name="lwSceneSBSARMatList"/>
-      </item>
-     </layout>
+      </widget>
+      <widget class="QWidget" name="materialCreationTab">
+       <attribute name="title">
+        <string>Material Creation</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="2" column="0" colspan="2">
+         <layout class="QGridLayout" name="gridLayout_8">
+          <item row="1" column="1">
+           <widget class="QPushButton" name="btnRefresh">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Refresh</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QListWidget" name="lwObjectSBSARMatList">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="dragDropMode">
+             <enum>QAbstractItemView::NoDragDrop</enum>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>128</width>
+              <height>128</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QListWidget" name="lwObjectSBSARWeatherEffectList">
+            <property name="dragDropMode">
+             <enum>QAbstractItemView::NoDragDrop</enum>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>128</width>
+              <height>128</height>
+             </size>
+            </property>
+            <property name="movement">
+             <enum>QListView::Static</enum>
+            </property>
+            <property name="flow">
+             <enum>QListView::TopToBottom</enum>
+            </property>
+            <property name="isWrapping" stdset="0">
+             <bool>false</bool>
+            </property>
+            <property name="resizeMode">
+             <enum>QListView::Fixed</enum>
+            </property>
+            <property name="viewMode">
+             <enum>QListView::ListMode</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="lbAssignedMaterials">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(85, 170, 127);
+color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Plain</enum>
+            </property>
+            <property name="text">
+             <string>Assigned Materials</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLabel" name="lbAssignedWeatherEffects">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(170, 85, 0);
+color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="text">
+             <string>Assigned Weather Effects</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="0" column="0">
+         <widget class="QGroupBox" name="gbMatLibrary">
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="title">
+           <string>SUBSTANCE MATERIAL LIBRARY</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="5" column="0">
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="3" column="0">
+            <widget class="QGroupBox" name="gbMaterials">
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="title">
+              <string>Materials</string>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
+             </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_2">
+              <item>
+               <widget class="QComboBox" name="cbbMaterials"/>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnCreateMat">
+                <property name="minimumSize">
+                 <size>
+                  <width>50</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Click to Create and
+ Assign To Selection</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QGroupBox" name="gbWeatherEffects">
+             <property name="title">
+              <string>Weather Effects</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout">
+              <item row="1" column="0">
+               <widget class="QPushButton" name="btnAssignWeatherEffects">
+                <property name="minimumSize">
+                 <size>
+                  <width>50</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Click to Add</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QComboBox" name="cbbWeatherEffects"/>
+              </item>
+              <item row="2" column="0">
+               <widget class="QPushButton" name="btnRemoveWeatherEffects">
+                <property name="minimumSize">
+                 <size>
+                  <width>50</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Click to Remove
+From Selection</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QListWidget" name="lwThumbnailMatShowing">
+          <property name="dragDropMode">
+           <enum>QAbstractItemView::DragDrop</enum>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>128</width>
+            <height>128</height>
+           </size>
+          </property>
+          <property name="resizeMode">
+           <enum>QListView::Adjust</enum>
+          </property>
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="viewMode">
+           <enum>QListView::IconMode</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="2">
+         <widget class="QLabel" name="lbAddedMaterials">
+          <property name="font">
+           <font>
+            <pointsize>15</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(170, 85, 127);
+color: rgb(255, 255, 255);</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::Box</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <property name="lineWidth">
+           <number>2</number>
+          </property>
+          <property name="text">
+           <string>Substance Materials Of Selected Objects</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
     </item>
    </layout>
   </widget>

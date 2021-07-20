@@ -43,7 +43,7 @@ class LauncherFunction():
 		return displayIconFullPath
 
 	def getSBSCommandLineInputList(self):
-		inputSBSCommandLineList = self.exportSBSARFunctionInstance.exportSBSAR()
+		inputSBSCommandLineList = self.exportSBSARFunctionInstance.getMaterialListAndExportSBSAR()
 		return inputSBSCommandLineList
 
 	def getExecuteCommandLine(self, sbscookerEXEPath):
