@@ -21,7 +21,7 @@ def importModulesFromLaunchFolder():
 		if file.endswith(".py") and "__init__" not in file:
 			importModule = file.replace(".py","")
 			try:
-				importedModule = importlib.import_module("launch." + importModule)
+				importedModule = importlib.import_module("launch."  + importModule)
 				importModuleList.append(importedModule)
 			except:
 				print (importModule + "is not installed")
