@@ -295,9 +295,6 @@ GameObject:
   - component: {fileID: 6832624233864827382}
   - component: {fileID: 9134287186471688748}
   - component: {fileID: 6832624233864827383}
-  - component: {fileID: 8765049153043836601}
-  - component: {fileID: 1201698325075782227}
-  - component: {fileID: -4119519213876368990}
   m_Layer: 0
   m_Name: FirstPersonCharacterController
   m_TagString: Controller
@@ -455,67 +452,6 @@ MonoBehaviour:
   autoRefillObject: {fileID: -927199367670048503, guid: c26749735a9b42d47a860672c99330ba, type: 3}
   rightHandObj: {fileID: 6832624233403832373}
   instanceAutoRefillObject: {fileID: 0}
---- !u!114 &8765049153043836601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3029009012160077403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneId: 0
-  serverOnly: 0
-  visible: 0
-  m_AssetId: 385072010d840034e833315aec6eb1a4
-  hasSpawned: 0
---- !u!114 &1201698325075782227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3029009012160077403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f14b8da3ffd3a8d4a9c5528b8f8e0a0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  displayName: Missing name
---- !u!114 &-4119519213876368990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3029009012160077403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  clientAuthority: 0
-  sendInterval: 0.05
-  syncPosition: 1
-  syncRotation: 1
-  syncScale: 0
-  interpolatePosition: 1
-  interpolateRotation: 1
-  interpolateScale: 1
-  bufferTimeMultiplier: 3
-  bufferSizeLimit: 64
-  catchupThreshold: 6
-  catchupMultiplier: 0.1
-  showGizmos: 0
-  showOverlay: 0
-  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
 --- !u!1 &3259622752186250981
 GameObject:
   m_ObjectHideFlags: 0

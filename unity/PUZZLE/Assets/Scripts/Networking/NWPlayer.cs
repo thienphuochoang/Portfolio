@@ -20,14 +20,16 @@ public class NWPlayer : NetworkBehaviour
     private float downwardVelocity = 0.0f;
     private float upwardVelocity = 0.0f;
     private float jumpStrength = 12f;
+    [SerializeField]
     private Animator anim;
     private Vector3 moveDirection;
     private bool canDoubleJump = false;
     private bool isFlying = false;
     private Vector3 hitPoint = Vector3.zero;
-    private SwingToDestination SwingToDestinationClass;
+    private NWSwingToDestination SwingToDestinationClass;
     private float swingSpeed = 2f;
     private float minimumSwingVectorLength = 3f;
+    [SerializeField]
     private GameObject instanceAnchorObject;
     private bool doesAnchorCollide = false;
     private Transform cameraSpawnPoint;
@@ -40,10 +42,8 @@ public class NWPlayer : NetworkBehaviour
     #region Client
 
 
-    public override void OnStartClient()
+    public override void OnStartAuthority()
     {
-        //SwingToDestinationClass = this.GetComponent<SwingToDestination>();
-        //instanceAnchorObject = SwingToDestinationClass.instanceAnchorObj;
         /*
         for (int i = 0; i < this.transform.childCount; i++)
         {
@@ -77,15 +77,82 @@ public class NWPlayer : NetworkBehaviour
         }
 
         //Cursor.lockState = CursorLockMode.Locked;
-        //anim = GetComponentInChildren<Animator>();
+        SwingToDestinationClass = this.GetComponent<NWSwingToDestination>();
+        instanceAnchorObject = SwingToDestinationClass.instanceAnchorObj;
+        anim = GetComponentInChildren<Animator>();
         cameraCharacter.transform.rotation = Quaternion.Euler(0, 0, 0);
 
     }
 
     void Update()
     {
-        UpdateViewLook();
-        UpdateMovement();
+        if (!hasAuthority)
+        {
+            return;
+        }
+        if (isFlying == false)
+        {
+            UpdateViewLook();
+            UpdateMovement();
+        }
+        //UpdateSwingMovement();
+        if (moveDirection == Vector3.zero)
+            IdleAnimation();
+        else
+            RunningAnimation();
+
+    }
+    void UpdateSwingMovement()
+    {
+        // Swing To Destination
+        float currentCameraXRotation = cameraCharacter.transform.localEulerAngles.x;
+
+        if (currentCameraXRotation > 180f && currentCameraXRotation < 360f)
+        {
+            if (isFlying == true && hitPoint != Vector3.zero)
+            {
+                instanceAnchorObject.SetActive(true);
+                upwardVelocity = 0;
+                downwardVelocity = 0;
+                Vector3 characterAndHitPointDir = hitPoint - this.transform.position;
+                Vector3 anchorAndHitPointDir = hitPoint - instanceAnchorObject.transform.position;
+                SwingToDestinationClass.MoveAnchorToHitPoint(instanceAnchorObject, hitPoint);
+
+                // Anchor go first, hit the wall then character move
+                bool checkAnchorHitFlag;
+                checkAnchorHitFlag = MakeRoundPosition(anchorAndHitPointDir.magnitude, instanceAnchorObject, hitPoint);
+                SwingToDestinationClass.ScaleAnchorBasedOnTime();
+                if (checkAnchorHitFlag == true)
+                    doesAnchorCollide = true;
+
+                if (doesAnchorCollide == true)
+                {
+                    instanceAnchorObject.transform.position = hitPoint;
+                    this.controller.Move(characterAndHitPointDir * Time.deltaTime * swingSpeed);
+                    bool checkCharacterHitFlag;
+                    checkCharacterHitFlag = MakeRoundPosition(characterAndHitPointDir.magnitude, this.transform.gameObject, hitPoint);
+                    if (checkCharacterHitFlag == true)
+                    {
+                        SwingToDestinationClass.EndSwingAnimationAndBackToIdle();
+                        Destroy(instanceAnchorObject);
+                        isFlying = false;
+                        doesAnchorCollide = false;
+                        SwingToDestinationClass.CmdCreateAnchorInstance();
+                        instanceAnchorObject = SwingToDestinationClass.instanceAnchorObj;
+                    }
+                }
+
+            }
+            if (Input.GetMouseButtonDown(1))
+            {
+                hitPoint = SwingToDestinationClass.GetHitPointFromRaycast();
+                if (hitPoint != Vector3.zero)
+                {
+                    isFlying = true;
+                    SwingToDestinationClass.SwingAnimation();
+                }
+            }
+        }
     }
 
     private void UpdateMovement()
@@ -139,6 +206,26 @@ public class NWPlayer : NetworkBehaviour
 
         cameraCharacter.localEulerAngles = Vector3.right * cameraPitch * mouseSensitivity;
         this.transform.Rotate(Vector3.up * smoothMouseX * mouseSensitivity);
+    }
+    void IdleAnimation()
+    {
+        anim.SetFloat("Speed", 0);
+    }
+
+    void RunningAnimation()
+    {
+        anim.SetFloat("Speed", 1, 0.1f, Time.deltaTime);
+    }
+
+    private bool MakeRoundPosition(float vectorMagnitude, GameObject o, Vector3 hitPosition)
+    {
+        if (vectorMagnitude < minimumSwingVectorLength)
+        {
+            o.transform.position = hitPosition;
+            return true;
+        }
+        else
+            return false;
     }
     #endregion
 }

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 755779920960622620}
+  - component: {fileID: 6655242906793326838}
   m_Layer: 0
   m_Name: Crosshair
   m_TagString: Untagged
@@ -30,6 +31,20 @@ Transform:
   m_Father: {fileID: 755779921046098132}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6655242906793326838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755779920960622595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30444943bc04ea04a8d4c5fbb1294eda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crosshairImage: {fileID: 2800000, guid: 93d01bc95aacfd347a47b5d3c0bcf3bf, type: 3}
+  characterCamera: {fileID: 0}
 --- !u!1 &755779921046098139
 GameObject:
   m_ObjectHideFlags: 0
