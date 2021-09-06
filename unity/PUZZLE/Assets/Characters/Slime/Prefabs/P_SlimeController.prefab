@@ -79,13 +79,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 0
-  m_Radius: 0.73
+  m_Height: 0.11
+  m_Radius: 0.32
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.76, z: -0.16}
+  m_Center: {x: 0, y: 0.34, z: -0.16}
 --- !u!114 &6146535001754315089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 0.05
-  cameraCharacter: {fileID: 0}
   runningSpeed: 3
   camAnchor: {fileID: 6146535001447356331}
+  isUsingFreeLookCamera: 0
   yOffset: 0
   cam: {fileID: 0}
 --- !u!114 &6146535001754315088
@@ -145,6 +145,18 @@ PrefabInstance:
     - target: {fileID: 7577391747456452861, guid: 43393a3e37e8c154e9e837ec907b5cf8, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7577391747456452861, guid: 43393a3e37e8c154e9e837ec907b5cf8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7577391747456452861, guid: 43393a3e37e8c154e9e837ec907b5cf8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7577391747456452861, guid: 43393a3e37e8c154e9e837ec907b5cf8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7577391747456452861, guid: 43393a3e37e8c154e9e837ec907b5cf8, type: 3}
       propertyPath: m_LocalPosition.x

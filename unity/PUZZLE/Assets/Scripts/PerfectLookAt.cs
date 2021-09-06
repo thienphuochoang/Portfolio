@@ -7,8 +7,12 @@ using UnityEngine;
 
 public class PerfectLookAt : MonoBehaviour
 {
+    [Range(0, 360)]
+    public float angle;
+    public LayerMask targetMask;
+    private List<GameObject> hitObjList = new List<GameObject>();
     private float startDelay;
-    private float radius = 4f;
+    private float radius = 10f;
     private Vector3 m_gameObjectScale;
     public GameObject m_TargetObject;
     public Vector3 m_UpVector = Vector3.up;
@@ -296,29 +300,77 @@ public class PerfectLookAt : MonoBehaviour
         }
     }
 
+    private List<GameObject> FindObjsInRange()
+    {
+        List<GameObject> hitObjList = new List<GameObject>();
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius, targetMask);
+        if (hitColliders.Length != 0)
+        {
+            foreach (var hitCollider in hitColliders)
+            {
+                Vector3 directionToTarget = (hitCollider.transform.position - transform.position).normalized;
+                if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
+                {
+                    float distanceToTarget = Vector3.Distance(transform.position, hitCollider.transform.position);
+                    if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget))
+                    {
+                        hitObjList.Add(hitCollider.gameObject);
+                    }
+                }
+            }
+        }
+        return hitObjList;
+    }
+
     /*************************************************************************/
-    private void FindObjsInRangeWithinAmountOfTime()
+    private void LookObjInListWithinAmountOfTime()
     {
         float spawnInterval = Random.Range(20f, 30f);
-        List<GameObject> hitObjList = new List<GameObject>();
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
-        foreach (var hitCollider in hitColliders)
+        if (hitObjList.Count > 0)
         {
-            hitObjList.Add(hitCollider.gameObject);
+            m_TargetObject = hitObjList[0];
+            Vector3 directionToTarget = (m_TargetObject.transform.position - transform.position).normalized;
+            if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
+            {
+                float distanceToTarget = Vector3.Distance(transform.position, m_TargetObject.transform.position);
+                if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget))
+                {
+                    m_TargetObject = hitObjList[0];
+                }
+                else
+                {
+                    hitObjList = FindObjsInRange();
+                }
+            }
         }
-        int randomNumber = Random.Range(0, hitObjList.Count);
-        m_TargetObject = hitObjList[randomNumber];
-        Invoke(nameof(FindObjsInRangeWithinAmountOfTime), spawnInterval);
+        
+        /*
+        Vector3 directionToTarget = (m_TargetObject.transform.position - transform.position).normalized;
+        if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
+        {
+            float distanceToTarget = Vector3.Distance(transform.position, m_TargetObject.transform.position);
+            if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget))
+            {
+                Debug.Log(m_TargetObject);
+            }
+            else
+            {
+                hitObjList = FindObjsInRange();
+                m_TargetObject = hitObjList[randomNumber];
+            }
+        }
+        */
+        //Invoke(nameof(LookObjInListWithinAmountOfTime), spawnInterval);
     }
 
     /*************************************************************************/
     private void Awake()
     {
-        startDelay = Random.Range(0.1f, 50f);
+        startDelay = Random.Range(1f, 50f);
     }
     void Start ()
     {
-        Invoke(nameof(FindObjsInRangeWithinAmountOfTime), startDelay);
+        //Invoke(nameof(LookObjInListWithinAmountOfTime), startDelay);
         m_gameObjectScale = gameObject.transform.localScale;
         m_BlendedRotations = new Quaternion[ m_LookAtBones.Length ];
         m_LastFrameRotations = new Quaternion[ m_LookAtBones.Length ];
@@ -350,6 +402,8 @@ public class PerfectLookAt : MonoBehaviour
     /*************************************************************************/
     void Update()
     {
+        hitObjList = FindObjsInRange();
+
         if ( m_LookAtBones.Length > 0 )
         {
             if ( m_DrawDebugLookAtLines )
@@ -391,11 +445,13 @@ public class PerfectLookAt : MonoBehaviour
     /*************************************************************************/
     void LateUpdate ()
     {
+        LookObjInListWithinAmountOfTime();
         //if ( m_TargetObject == null )
         //{
         //    Debug.LogWarning( "No target object set for the component. Component won't work without a target object", this );
         //    return;
         //}
+
 
         if ( !m_IsValid )
         {

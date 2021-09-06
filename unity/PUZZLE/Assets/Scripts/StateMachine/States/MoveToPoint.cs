@@ -65,7 +65,7 @@ public class MoveToPoint : IState
 
     void WalkingAnimation()
     {
-        _anim.SetFloat("Speed", 1);
+        _anim.SetFloat("Speed", 0.5f);
     }
 }
 /*

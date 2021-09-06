@@ -9,6 +9,7 @@ public class Talk : IState
     private float randomTime = Random.Range(8f, 10f);
     private float timer;
     private Vector3 lastAgentVelocity;
+    private int numberOfTalkingAnimation = 4;
     public Talk(NPC npc, Animator anim)
     {
         _npc = npc;
@@ -18,6 +19,7 @@ public class Talk : IState
     {
         _npc.GetComponent<NavMeshAgent>().enabled = false;
         _npc.GetComponent<NavMeshObstacle>().enabled = true;
+        _npc.GetComponent<FindMonstersInRange>().enabled = false;
         TalkingAnimation();
         Pause();
         _npc.beAbleToTalk = false;
@@ -46,16 +48,18 @@ public class Talk : IState
     {
         _npc.GetComponent<NavMeshObstacle>().enabled = false;
         _npc.GetComponent<NavMeshAgent>().enabled = true;
+        _npc.GetComponent<FindMonstersInRange>().enabled = true;
         _npc.isTalking = false;
         _npc.beAbleToTalk = true;
         _npc.doesStepOnIdlePoint = false;
         _npc.targetTalkingNPC = null;
-        _anim.SetTrigger("IdleWalkTrigger");
+        _anim.SetTrigger("IdleWalkRunTrigger");
         Resume();
 
     }
     void TalkingAnimation()
     {
+        int talkingAnimationNumber = Random.Range(1, numberOfTalkingAnimation);
         _anim.SetTrigger("Talking1Trigger");
     }
     void Pause()
