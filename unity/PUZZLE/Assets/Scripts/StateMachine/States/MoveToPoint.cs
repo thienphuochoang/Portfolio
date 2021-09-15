@@ -10,6 +10,9 @@ public class MoveToPoint : IState
     private Animator _anim;
     private NPC _npc;
     private Vector3 lastPosition;
+    private Vector3 _desVelocity;
+    public float _speed = 1;
+    public float _turnSpeed = 2;
 
     public MoveToPoint(List<Transform> pointList, Animator anim, NPC npc)
     {
@@ -21,9 +24,36 @@ public class MoveToPoint : IState
     {
         if (!_npc.GetComponent<NavMeshAgent>().pathPending && _npc.GetComponent<NavMeshAgent>().remainingDistance < 0.5f)
             GotoNextPoint();
+
     }
     void GotoNextPoint()
     {
+        /*
+        if (_pointList.Count == 0)
+            return;
+        WalkingAnimation();
+        Vector3 lookPos;
+        Quaternion targetRot;
+
+        _npc.GetComponent<NavMeshAgent>().destination = _pointList[destPoint].position;
+        _desVelocity = _npc.GetComponent<NavMeshAgent>().desiredVelocity;
+
+        _npc.GetComponent<NavMeshAgent>().updatePosition = false;
+        _npc.GetComponent<NavMeshAgent>().updateRotation = false;
+
+        lookPos = _pointList[destPoint].position - _npc.transform.position;
+        lookPos.y = 0;
+        targetRot = Quaternion.LookRotation(lookPos);
+        _npc.transform.rotation = Quaternion.Slerp(_npc.transform.rotation, targetRot, Time.deltaTime * _turnSpeed);
+
+        _npc.GetComponent<CharacterController>().Move(_desVelocity.normalized * _speed * Time.deltaTime);
+
+        _npc.GetComponent<NavMeshAgent>().velocity = _npc.GetComponent<CharacterController>().velocity;
+
+        if (Vector3.Distance(_pointList[destPoint].position, _npc.transform.position) < 0.5f)
+            destPoint = (destPoint + 1) % _pointList.Count;
+        */
+        
         // Returns if no points have been set up
         if (_pointList.Count == 0)
             return;
@@ -31,7 +61,7 @@ public class MoveToPoint : IState
 
         // Set the agent to go to the currently selected destination.
         _npc.GetComponent<NavMeshAgent>().destination = _pointList[destPoint].position;
-
+        
         // Calculate the orientation based on the velocity of the agent
         Vector3 orientation = _npc.GetComponent<NavMeshAgent>().transform.position - lastPosition;
         // Check if the agent has some minimal velocity
@@ -47,13 +77,15 @@ public class MoveToPoint : IState
             // If the agent is stationary we tell him to assume the proxy's rotation
             _npc.GetComponent<NavMeshAgent>().transform.rotation = Quaternion.Lerp(_npc.GetComponent<NavMeshAgent>().transform.rotation, Quaternion.LookRotation(_npc.GetComponent<NavMeshAgent>().transform.forward), Time.deltaTime * 8);
         }
+        
         // This is needed to calculate the orientation in the next frame
         lastPosition = _npc.GetComponent<NavMeshAgent>().transform.position;
-
+        
         // Choose the next point in the array as the destination,
         // cycling to the start if necessary.
         if (Vector3.Distance(_pointList[destPoint].position, _npc.transform.position) < 0.5f)
             destPoint = (destPoint + 1) % _pointList.Count;
+        
     }
 
     public void OnEnter()

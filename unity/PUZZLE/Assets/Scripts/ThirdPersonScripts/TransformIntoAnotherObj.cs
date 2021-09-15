@@ -12,16 +12,19 @@ public class TransformIntoAnotherObj : MonoBehaviour
     private GameObject meshObj;
     [SerializeField]
     private Camera cameraCharacter;
+    public GameObject gameManager;
     private GeneralParticleFeatures GeneralParticleFeaturesClass;
     private string objectTag = "Transformable";
     private string playerTag = "Player";
     private string crosshairName = "P_Crosshair";
     private string cameraTag = "PlayerCamera";
+    private PlayerAttributes playerAttributes;
     
     // Start is called before the first frame update
     void Start()
     {
-        GeneralParticleFeaturesClass = this.GetComponent<GeneralParticleFeatures>();
+        playerAttributes = GetComponent<PlayerAttributes>();
+        GeneralParticleFeaturesClass = gameManager.GetComponent<GeneralParticleFeatures>();
 
         crosshairTransform = RecursiveFindChild(this.transform, crosshairName, "name");
 
@@ -39,37 +42,39 @@ public class TransformIntoAnotherObj : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            GameObject rayCastedObj = null;
-            rayCastedObj = GetObjectFromRaycast();
-            Debug.Log(rayCastedObj.name);
-            if (rayCastedObj != null)
+            if (playerAttributes.attributes.IsManaAvailable() == true)
             {
-                string getObjTag = rayCastedObj.tag;
-                if (getObjTag.Contains(objectTag))
+                GameObject rayCastedObj = null;
+                rayCastedObj = GetObjectFromRaycast();
+                if (rayCastedObj != null)
                 {
-                    GameObject oldMainCharacter = meshObj;
-                    GameObject loadedPrefab = GeneralParticleFeaturesClass.loadParticleFromPrefab("FX/Cartoon FX/CFX Prefabs/Misc/" + "CFX_MagicPoof");
-                    GameObject particle = GeneralParticleFeaturesClass.spawnParticle(loadedPrefab, oldMainCharacter.transform.position, Quaternion.Euler(0, 0, 0));
+                    string getObjTag = rayCastedObj.tag;
+                    if (getObjTag.Contains(objectTag))
+                    {
+                        GameObject oldMainCharacter = meshObj;
+                        GameObject loadedPrefab = GeneralParticleFeaturesClass.loadParticleFromPrefab("FX/Cartoon FX/CFX Prefabs/Misc/" + "CFX_MagicPoof");
+                        GameObject particle = GeneralParticleFeaturesClass.spawnParticle(loadedPrefab, oldMainCharacter.transform.position, Quaternion.Euler(0, 0, 0));
 
-                    GameObject newMainCharacter = null;
-                    newMainCharacter = Instantiate(rayCastedObj, oldMainCharacter.transform.position, oldMainCharacter.transform.rotation, oldMainCharacter.transform.parent);
-                    newMainCharacter.name = "MainCharacter";
-                    newMainCharacter.tag = "Player";
-                    newMainCharacter.layer = 2;
-                    //if (newMainCharacter.GetComponent<Rigidbody>())
-                    //{
+                        GameObject newMainCharacter = null;
+                        newMainCharacter = Instantiate(rayCastedObj, oldMainCharacter.transform.position, oldMainCharacter.transform.rotation, oldMainCharacter.transform.parent);
+                        newMainCharacter.name = "MainCharacter";
+                        newMainCharacter.tag = "Player";
+                        newMainCharacter.layer = 2;
+                        //if (newMainCharacter.GetComponent<Rigidbody>())
+                        //{
                         //newMainCharacter.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
                         //    Destroy(newMainCharacter.GetComponent<Rigidbody>());
 
-                    //}
-                    newMainCharacter.transform.rotation = Quaternion.Euler(0, 0, 0);
+                        //}
+                        newMainCharacter.transform.rotation = Quaternion.Euler(0, 0, 0);
 
-                    Destroy(oldMainCharacter);
-                    meshObj = newMainCharacter;
+                        Destroy(oldMainCharacter);
+                        meshObj = newMainCharacter;
+                        playerAttributes.attributes._mana -= 1;
+                    }
                 }
             }
         }
-
     }
 
     private GameObject GetObjectFromRaycast()

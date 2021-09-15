@@ -20,6 +20,7 @@ public class ThirdPersonController : MonoBehaviour
     private float currentXRotation;
     public Transform camAnchor;
     private float rotationSpeed = 2.0f;
+    public LayerMask unseenThroughObjectsLayer;
 
     // This value will be controlled by GameManagerFeatures.cs
     public bool isUsingFreeLookCamera = false;
@@ -106,7 +107,7 @@ public class ThirdPersonController : MonoBehaviour
         //Linecast is an alternative to Raycast, using it to cast a ray between the CameraCenter 
         //  and a point directly behind the camera (to smooth things, that's why there's an "obj"
         //   GameObject, that is directly behind cam)	 
-        if (Physics.Linecast(camAnchor.transform.position, obj.transform.position, out camHit))
+        if (Physics.Linecast(camAnchor.transform.position, obj.transform.position, out camHit, unseenThroughObjectsLayer))
         {
             //This gets executed if there's any collider in the way
             cam.transform.position = Vector3.Slerp(cam.transform.position, camHit.point, 1f);
@@ -117,5 +118,9 @@ public class ThirdPersonController : MonoBehaviour
         Destroy(obj);
         //crosshair.LookHeight(smoothMouseY * rotationSpeed);
         
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.gameObject.name);
     }
 }

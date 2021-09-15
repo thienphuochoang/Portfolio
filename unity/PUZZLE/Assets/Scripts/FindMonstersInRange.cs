@@ -19,12 +19,9 @@ public class FindMonstersInRange : MonoBehaviour
     public GameObject alertIcon;
     public Sprite yellowAlertSprite;
     public Sprite redAlertSprite;
-    public Transform eyesTransform;
     public bool redAlertPlayerTrigger = false;
-    public GameObject targetPlayer;
     public Vector3 lastKnownLocation;
     private float redAlertMaximumTime = 5f;
-    public string alertCurrentState = "";
 
     // Start is called before the first frame update
     void Start()

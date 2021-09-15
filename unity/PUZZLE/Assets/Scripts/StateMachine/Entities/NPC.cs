@@ -7,22 +7,22 @@ using System;
 public class NPC : MonoBehaviour
 {
     private StateMachine stateMachine;
+    public enum OnlyOneStateAssigned { NOT_AVAILABLE, IDLE, WANDER }
+    public OnlyOneStateAssigned onlyOneStateAssigned;
     [Header("Wander Settings")]
-    public bool isNPCsAssignedForWandering = false;
     public float wanderRadius = 15f;
     public float wanderTimer = 10f;
     [Header("Global Settings")]
     public List<AvailableStates> assignedOptionalStates = new List<AvailableStates>();
-    public enum AvailableStates { CHASE }
+    public enum AvailableStates { CHASE, HAVE_WEAPON }
     private AvailableStates availableStates;
     [Header("Walking Path Settings")]
     public List<Transform> pointList = new List<Transform>();
     [Header("Idle Settings")]
     public bool doesStepOnIdlePoint = false;
-    [SerializeField]
     private float startDelay;
     [Header("Find-NPCs-to-talk settings")]
-    public float findNPCRadius = 1.5f;
+    public float findNPCRadius = 2f;
     public bool beAbleToTalk = false;
     public bool isTalking = false;
     public GameObject targetTalkingNPC;
@@ -31,6 +31,8 @@ public class NPC : MonoBehaviour
     public bool doesReceiveHelp = false;
     public float receiveHelpFromOtherNPCsRange = 5f;
     public bool doesStartChasing = false;
+    [Header("Attack Settings")]
+    public float attackRange = 2f;
 
     private void Awake()
     {
@@ -42,7 +44,6 @@ public class NPC : MonoBehaviour
                 chaseStateAvailable = true;
             }
         }
-        startDelay = UnityEngine.Random.Range(0.1f, 5f);
         var navMeshAgent = GetComponent<NavMeshAgent>();
         var anim = GetComponentInChildren<Animator>();
         stateMachine = new StateMachine();
@@ -53,6 +54,7 @@ public class NPC : MonoBehaviour
         IState alert = new Alert(this, anim);
         IState chase = new Chase(this, anim);
         IState wander = new Wander(this, anim, wanderRadius, wanderTimer);
+        IState attack = new Attack(this, anim);
 
         void At(IState to, IState from, Func<bool> condition) => stateMachine.AddTransition(to, from, condition);
 
@@ -60,6 +62,7 @@ public class NPC : MonoBehaviour
         At(idle, moveToPoint, ContinueWalking());
         At(idle, talk, BeginToTalk());
         At(talk, moveToPoint, ContinueWalking());
+        
 
         Func<bool> StepOnIdlePoint() => () => doesStepOnIdlePoint == true;
         Func<bool> ContinueWalking() => () => doesStepOnIdlePoint == false && isTalking == false;
@@ -80,10 +83,10 @@ public class NPC : MonoBehaviour
                 return false;
         };
 
-        Func<bool> BeginToChase() => () =>
+        Func<bool> BeginToAttack() => () =>
         {
-            bool doesReceiveHelpFromOtherNPCs = GetNPCsForHelpInRange();
-            if ((GetComponent<FindMonstersInRange>().redAlertPlayerTrigger == true && GetComponent<FindMonstersInRange>().canSeePlayer == true) || doesReceiveHelp == true)
+            bool doesPlayerInAttackRange = DoesPlayerInAttackRange();
+            if (GetComponent<FindMonstersInRange>().redAlertPlayerTrigger == true && doesPlayerInAttackRange == true)
             {
                 return true;
             }
@@ -91,25 +94,41 @@ public class NPC : MonoBehaviour
                 return false;
         };
 
+        Func<bool> BeginToChase() => () =>
+        {
+            bool doesReceiveHelpFromOtherNPCs = GetNPCsForHelpInRange();
+            bool doesPlayerInAttackRange = DoesPlayerInAttackRange();
+            if ((GetComponent<FindMonstersInRange>().redAlertPlayerTrigger == true && GetComponent<FindMonstersInRange>().canSeePlayer == true && !(stateMachine.CurrentState is Chase)) && doesPlayerInAttackRange == false || doesReceiveHelp == true)
+            {
+                return true;
+            }
+            else
+                return false;
+        };
+        
         if (chaseStateAvailable == true)
         {
             GetComponent<FindMonstersInRange>().enabled = true;
             stateMachine.AddAnyTransition(chase, BeginToChase());
             At(chase, idle, StepOnIdlePoint());
+            At(chase, attack, BeginToAttack());
+            At(attack, idle, StepOnIdlePoint());
+            //stateMachine.AddAnyTransition(attack, BeginToAttack());
         }
-        else
+        else if (chaseStateAvailable == false)
         {
             GetComponent<FindMonstersInRange>().enabled = false;
         }
+
         
-        
-        if (isNPCsAssignedForWandering == true)
+        if (onlyOneStateAssigned == OnlyOneStateAssigned.WANDER)
         {
             stateMachine.SetState(wander);
         }
-        else
+        else if (onlyOneStateAssigned == OnlyOneStateAssigned.NOT_AVAILABLE || onlyOneStateAssigned == OnlyOneStateAssigned.IDLE)
         {
             stateMachine.SetState(idle);
+            doesStepOnIdlePoint = true;
         }
         
         /*
@@ -166,11 +185,13 @@ public class NPC : MonoBehaviour
     void Update()
     {
         stateMachine.Tick();
+        //Debug.Log(stateMachine.CurrentState);
     }
     private void Start()
     {
-        if (isNPCsAssignedForWandering == false)
+        if (onlyOneStateAssigned == OnlyOneStateAssigned.NOT_AVAILABLE)
         {
+            startDelay = UnityEngine.Random.Range(0.1f, 5f);
             Invoke(nameof(IdleRandomly), startDelay);
         }
     }
@@ -211,5 +232,34 @@ public class NPC : MonoBehaviour
             }
         }
         return false;
+    }
+    public bool DoesPlayerInAttackRange()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRange);
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.gameObject.tag.Contains("Controller"))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public GameObject GetPlayerInAttackRange()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRange);
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.gameObject.tag.Contains("Controller"))
+            {
+                return hitCollider.gameObject;
+            }
+        }
+        return null;
+    }
+    public void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.gameObject.name);
+        //AddHitEffect(collision.GetContact(0).point, characterCamera.transform.rotation);
     }
 }

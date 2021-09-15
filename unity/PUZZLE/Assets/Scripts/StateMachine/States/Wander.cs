@@ -41,6 +41,8 @@ public class Wander : IState
             bool canReach = CanReachPosition(newPos, _npc.GetComponent<NavMeshAgent>());
             if (canReach == true)
                 _npc.GetComponent<NavMeshAgent>().SetDestination(newPos);
+            else
+                newPos = RandomNavSphere(_npc.transform.position, _wanderRadius, -1);
             timer = 0;
         }
         else if (currentDistance < 0.1f)

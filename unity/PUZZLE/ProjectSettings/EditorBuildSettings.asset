@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Fantastic Village Pack/scenes/main_menu.unity
+    guid: 73ea456dcef011749a5d358630683795
+  - enabled: 1
+    path: Assets/Fantastic Village Pack/scenes/demoscene_village_day.unity
+    guid: bd65a1548188fa848a1e8683a948263d
   m_configObjects: {}
