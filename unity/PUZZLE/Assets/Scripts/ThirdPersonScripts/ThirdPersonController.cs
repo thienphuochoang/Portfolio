@@ -52,6 +52,10 @@ public class ThirdPersonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if (Input.GetKeyDown(KeyCode.Z))
+        //{
+        //    Time.timeScale = 0.5f;
+        //}
         if (isUsingFreeLookCamera == false)
         {
             UpdateMovement();
@@ -79,7 +83,8 @@ public class ThirdPersonController : MonoBehaviour
         }
 
         Vector3 velocity = (this.transform.forward * verticalInput + this.transform.right * horizontalInput) * runningSpeed + Vector3.down * downwardVelocity + Vector3.up * upwardVelocity;
-        this.controller.Move(velocity * Time.deltaTime); ;
+        //this.controller.Move(velocity * Time.deltaTime); ;
+        this.controller.Move(velocity * Time.deltaTime);
     }
     void UpdateViewLook()
     {

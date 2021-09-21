@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using UnityEngine.Events;
 public class PlayerAttributes : MonoBehaviour
 {
     public Attributes attributes;
     private GenerateGemsRandomly generateGemsRandomly;
+    public UnityEvent assignSkillEvent = new UnityEvent();
     public class Attributes
     {
         public int _health;
@@ -34,13 +36,21 @@ public class PlayerAttributes : MonoBehaviour
             }
             return false;
         }
+        public bool IsOutOfHp()
+        {
+            if (_health == 0)
+                return true;
+            return false;
+        }
     }
 
     // Start is called before the first frame update
     public void Start()
     {
         generateGemsRandomly = FindObjectOfType<GenerateGemsRandomly>();
-        attributes = new Attributes(9, 9, 0, generateGemsRandomly.maximumSpawningGems);
+        int defaultHP = 5;
+        int defaultMana = 5;
+        attributes = new Attributes(defaultHP, defaultMana, 0, generateGemsRandomly.maximumSpawningGems);
     }
 
     // Update is called once per frame

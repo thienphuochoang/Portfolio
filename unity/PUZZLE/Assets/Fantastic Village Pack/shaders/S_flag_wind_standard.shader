@@ -9,6 +9,8 @@ Shader "Fantastic/S_flag_wind_standard"
 		_Cutoff( "Mask Clip Value", Float ) = 0.5
 		_WindMovement("Wind Movement", Vector) = (6,0,0,0)
 		_WindDensity("Wind Density", Float) = 0.4
+		_GlowColor("Glow Color", Color) = (1,1,1,1)
+		_GlowIntensity("Glow Intensity", Range(0, 3)) = 1
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
 		[HideInInspector] __dirty( "", Int ) = 1
 	}
@@ -34,6 +36,8 @@ Shader "Fantastic/S_flag_wind_standard"
 		uniform sampler2D _BaseColorTexture;
 		uniform float4 _BaseColorTexture_ST;
 		uniform float _Cutoff = 0.5;
+		uniform float4 _GlowColor;
+		uniform float _GlowIntensity;
 
 
 		float3 mod2D289( float3 x ) { return x - floor( x * ( 1.0 / 289.0 ) ) * 289.0; }
@@ -88,6 +92,8 @@ Shader "Fantastic/S_flag_wind_standard"
 			o.Normal = switchResult57;
 			float2 uv_BaseColorTexture = i.uv_texcoord * _BaseColorTexture_ST.xy + _BaseColorTexture_ST.zw;
 			float4 tex2DNode4 = tex2D( _BaseColorTexture, uv_BaseColorTexture );
+			tex2DNode4 *= _GlowColor;
+			tex2DNode4 *= _GlowIntensity;
 			o.Albedo = tex2DNode4.rgb;
 			o.Alpha = 1;
 			clip( tex2DNode4.a - _Cutoff );
