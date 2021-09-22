@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 public class StoreGlobalData : MonoBehaviour
 {
     public Dictionary<string, List<string>> assignedSkillsDict = new Dictionary<string, List<string>>();
@@ -15,8 +15,6 @@ public class StoreGlobalData : MonoBehaviour
     {
         skillsSelectionActions = FindObjectOfType<SkillsSelectionActions>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         assignedSkillsDict = skillsSelectionActions.assignedSkillsDict;

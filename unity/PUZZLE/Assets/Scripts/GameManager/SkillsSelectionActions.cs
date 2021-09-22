@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.IO;
+using UnityEngine.Events;
 using System.Linq;
 public class SkillsSelectionActions : MonoBehaviour
 {
@@ -18,7 +18,7 @@ public class SkillsSelectionActions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        skillDataDict = GetComponent<GetSkillFromDatabase>().skillDataDict;
+        skillDataDict = GetSkillFromDatabase.CollectDataSkill();
         if (skillDataDict.Count > 0)
         {
             for (int i = 0; i < skillSlotList.Count; i++)
@@ -38,13 +38,10 @@ public class SkillsSelectionActions : MonoBehaviour
         {
             if (!assignedSkillsDict.ContainsKey(skillSelected.name))
             {
-                List<string> valueList = new List<string>();
-                for (int i = 0; i < skillDataDict[skillSelected.name].Count; i++)
-                {
-                    valueList.Insert(i, skillDataDict[skillSelected.name][i].ToString());
-                }
-                assignedSkillsDict.Add(skillSelected.name, valueList);
+                List<string> skillAttributeList = skillDataDict[skillSelected.name];
+                assignedSkillsDict.Add(skillSelected.name, skillAttributeList);
             }
+           
         }
         else
         {
@@ -53,20 +50,6 @@ public class SkillsSelectionActions : MonoBehaviour
                 assignedSkillsDict.Remove(skillSelected.name);
             }
         }
-        /*
-        foreach (KeyValuePair<string, List<string>> ahihi in assignedSkillsDict)
-        {
-            Debug.Log(ahihi.Key);
-            foreach (var ahoho in ahihi.Value)
-            {
-                Debug.Log(ahoho[0]);
-                Debug.Log(ahoho[1]);
-                Debug.Log(ahoho[2]);
-                Debug.Log(ahoho[3]);
-                Debug.Log(ahoho[4]);
-            }
-        }
-        */
     }
     public void BackToMainMenu(GameObject selectSkillUI)
     {

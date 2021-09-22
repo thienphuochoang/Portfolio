@@ -3785,7 +3785,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7056401338111336227}
   - component: {fileID: 7056401338111336226}
-  - component: {fileID: 4475990287614330493}
   m_Layer: 0
   m_Name: SelectSkillsUIManager
   m_TagString: Untagged
@@ -3834,18 +3833,6 @@ MonoBehaviour:
   - {fileID: 9150394647524142718}
   - {fileID: 5856497527034800518}
   textObject: {fileID: 800555665576000276}
---- !u!114 &4475990287614330493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7056401338111336225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56fa8e2c1e1591f4c9796315f9ed787a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9150394647524142718
 GameObject:
   m_ObjectHideFlags: 0

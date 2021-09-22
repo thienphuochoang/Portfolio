@@ -5,12 +5,7 @@ using UnityEngine;
 public class AddFourHP : Skill
 {
     private string functionName = "AddFourHP";
-    private bool didFindDataFromSkillDatabase = false;
-    private void OnEnable()
-    {
-        AssignSkillAttributesFromDatabase();
-    }
-    public override void AssignSkillAttributesFromDatabase()
+    public override bool AssignSkillAttributesFromDatabase()
     {
         if (skillDict.ContainsKey(functionName))
         {
@@ -21,14 +16,16 @@ public class AddFourHP : Skill
             else
                 isPassive = false;
             activeTime = float.Parse(skillDict[functionName][4]);
-            didFindDataFromSkillDatabase = true;
+            return true;
         }
+        return false;
     }
-    public override void Activate()
+    public override void Activate(GameObject currentPlayer)
     {
-        if (didFindDataFromSkillDatabase == true)
+        bool IsFoundData = AssignSkillAttributesFromDatabase();
+        if (IsFoundData == true)
         {
-            Debug.Log("ahihi");
+            currentPlayer.GetComponent<PlayerAttributes>().defaultHP = 9;
         }
     }
 }

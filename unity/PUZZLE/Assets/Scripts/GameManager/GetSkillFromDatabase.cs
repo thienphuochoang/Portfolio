@@ -2,21 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-public class GetSkillFromDatabase : MonoBehaviour
+public class GetSkillFromDatabase
 {
-    public Dictionary<string, List<string>> skillDataDict = new Dictionary<string, List<string>>();
-    // Start is called before the first frame update
-    void Awake()
-    {
-        skillDataDict = CollectDataSkill();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    private Dictionary<string, List<string>> CollectDataSkill()
+    public static Dictionary<string, List<string>> CollectDataSkill()
     {
         Dictionary<string, List<string>> skillDataDict = new Dictionary<string, List<string>>();
         StreamReader strReader = new StreamReader(Application.dataPath + "/StreamingAssets" + "/SkillData.csv");

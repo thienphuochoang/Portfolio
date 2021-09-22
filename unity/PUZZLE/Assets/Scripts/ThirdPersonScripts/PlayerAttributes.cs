@@ -5,9 +5,10 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 public class PlayerAttributes : MonoBehaviour
 {
+    public int defaultHP = 5;
+    public int defaultMana = 5;
     public Attributes attributes;
     private GenerateGemsRandomly generateGemsRandomly;
-    public UnityEvent assignSkillEvent = new UnityEvent();
     public class Attributes
     {
         public int _health;
@@ -48,8 +49,6 @@ public class PlayerAttributes : MonoBehaviour
     public void Start()
     {
         generateGemsRandomly = FindObjectOfType<GenerateGemsRandomly>();
-        int defaultHP = 5;
-        int defaultMana = 5;
         attributes = new Attributes(defaultHP, defaultMana, 0, generateGemsRandomly.maximumSpawningGems);
     }
 

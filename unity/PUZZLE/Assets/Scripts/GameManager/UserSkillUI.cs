@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class UserSkillUI : MonoBehaviour
 {
     public GameObject thirdPersonController;
-    private SkillAttributes skillAttributes;
     public List<GameObject> skillButtonList = new List<GameObject>();
     private Dictionary<int, KeyCode> convertedKeyCodeDict = new Dictionary<int, KeyCode>();
+
     private void Awake()
     {
         convertedKeyCodeDict.Add(0, KeyCode.Alpha1);
