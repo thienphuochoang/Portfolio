@@ -5,7 +5,7 @@ using System.IO;
 using Sirenix.OdinInspector;
 public class Skill : ScriptableObject
 {
-    public enum SkillState { READY, ACTIVE, COOLDOWN, NOTAVAILABLE }
+    public enum SkillState { READY, ACTIVE, COOLDOWN, NOTAVAILABLE };
     public SkillState state = SkillState.READY;
     public string skillName;
     public string spritePath;
@@ -20,13 +20,5 @@ public class Skill : ScriptableObject
     public virtual void Activate(GameObject currentPlayer)
     {
 
-    }
-    private void OnEnable()
-    {
-        skillDict = GetSkillFromDatabase.CollectDataSkill();
-    }
-    public virtual bool AssignSkillAttributesFromDatabase()
-    {
-        return true;
     }
 }
