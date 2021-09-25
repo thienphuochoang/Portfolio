@@ -58,14 +58,18 @@ public class ThirdPersonController : MonoBehaviour
         //}
         if (isUsingFreeLookCamera == false)
         {
+            //Time.timeScale += (1f / 3) * Time.unscaledDeltaTime;
+            //Time.timeScale = Mathf.Clamp(Time.timeScale, 0f, 1f);
             UpdateMovement();
             UpdateViewLook();
         }
     }
     void UpdateMovement()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        //float horizontalInput = Input.GetAxis("Horizontal");
+        //float verticalInput = Input.GetAxis("Vertical");
+        float horizontalInput = Input.GetKey(KeyCode.A) ? -1 : Input.GetKey(KeyCode.D) ? 1: 0;
+        float verticalInput = Input.GetKey(KeyCode.S) ? -1 : Input.GetKey(KeyCode.W) ? 1 : 0;
 
         if (this.controller.isGrounded == true)
         {
@@ -78,25 +82,29 @@ public class ThirdPersonController : MonoBehaviour
         }
         else
         {
-            upwardVelocity = upwardVelocity - gravity * Time.deltaTime;
-            downwardVelocity = downwardVelocity + gravity * Time.deltaTime;
+            //upwardVelocity = upwardVelocity - gravity * Time.deltaTime;
+            //downwardVelocity = downwardVelocity + gravity * Time.deltaTime;
+            upwardVelocity = upwardVelocity - gravity * Time.deltaTime * (1 / Time.timeScale);
+            downwardVelocity = downwardVelocity + gravity * Time.deltaTime * (1 / Time.timeScale);
         }
 
         Vector3 velocity = (this.transform.forward * verticalInput + this.transform.right * horizontalInput) * runningSpeed + Vector3.down * downwardVelocity + Vector3.up * upwardVelocity;
-        //this.controller.Move(velocity * Time.deltaTime); ;
-        this.controller.Move(velocity * Time.deltaTime);
+        //this.controller.Move(velocity * Time.deltaTime);
+        this.controller.Move(velocity * Time.deltaTime * (1 / Time.timeScale));
     }
     void UpdateViewLook()
     {
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = Input.GetAxis("Mouse Y");
+        //float mouseX = Input.GetAxis("Mouse X");
+        //float mouseY = Input.GetAxis("Mouse Y");
+        float mouseX = Input.GetAxisRaw("Mouse X");
+        float mouseY = Input.GetAxisRaw("Mouse Y");
+
 
         smoothMouseY = Mathf.SmoothDamp(smoothMouseY, mouseY, ref currentVelocity, lookSmoothTime);
         smoothMouseX = Mathf.SmoothDamp(smoothMouseX, mouseX, ref currentVelocity, lookSmoothTime);
 
-
-        this.transform.Rotate(Vector3.up * smoothMouseX * rotationSpeed);
-        currentXRotation = currentXRotation + smoothMouseY * rotationSpeed;
+        this.transform.Rotate(Vector3.up * mouseX * rotationSpeed);
+        currentXRotation = currentXRotation + mouseY * rotationSpeed;
         currentXRotation = Mathf.Clamp(currentXRotation, minXLook, maxXLook);
 
         Vector3 clampedAngle = camAnchor.eulerAngles;

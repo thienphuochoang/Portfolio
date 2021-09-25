@@ -1,13 +1,13 @@
-Skill,Description,Sprite Path,IsPassive,AvailableTime
-AddFourHP,Add more 4 extra hp,Tiny Fantasy Icons/Potions/Potion_Large_Red,Yes,0
-AddFourMana,Add more 4 extra mana,Tiny Fantasy Icons/Potions/Potion_Large_Blue,Yes,0
-SlowFourSeconds,Slow time for 4 seconds,Tiny Fantasy Icons/Time/Clock_A,No,4
-ParalyzeEnemy,Paralyze surrounded NPCs,Tiny Fantasy Icons/Explosives/Boom_A,No,2
-Test1,Test Description 1,Tiny Fantasy Icons/Bones/Bones_A,Yes,0
-Test2,Test Description 2,Tiny Fantasy Icons/Bones/Bones_B,Yes,0
-Test3,Test Description 3,Tiny Fantasy Icons/Bones/Bones_C,Yes,0
-Test4,Test Description 4,Tiny Fantasy Icons/Books/Book_A_Close,Yes,0
-Test5,Test Description 5,Tiny Fantasy Icons/Books/Book_B_Close,Yes,0
-Test6,Test Description 6,Tiny Fantasy Icons/Books/Book_C_Close,Yes,0
-Test7,Test Description 7,Tiny Fantasy Icons/Books/Book_D_Close,Yes,0
-Test8,Test Description 8,Tiny Fantasy Icons/Chests/ChestA,Yes,0
+Skill,Description,Sprite Path,IsPassive,ActiveTime,AvailableTimes,CooldownTime,CameraEffect
+AddFourHP,Add more 4 extra hp,Tiny Fantasy Icons/Potions/Potion_Large_Red,Yes,0,0,0,
+AddFourMana,Add more 4 extra mana,Tiny Fantasy Icons/Potions/Potion_Large_Blue,Yes,0,0,0,
+SlowFourSeconds,Slow time for 4 seconds,Tiny Fantasy Icons/Time/Clock_A,No,0.5,2,5,CameraFilterPack_Blur_Focus
+ParalyzeEnemy,Paralyze surrounded NPCs,Tiny Fantasy Icons/Explosives/Boom_A,No,3,2,5,
+Test1,Test Description 1,Tiny Fantasy Icons/Bones/Bones_A,Yes,0,0,0,
+Test2,Test Description 2,Tiny Fantasy Icons/Bones/Bones_B,Yes,0,0,0,
+Test3,Test Description 3,Tiny Fantasy Icons/Bones/Bones_C,Yes,0,0,0,
+Test4,Test Description 4,Tiny Fantasy Icons/Books/Book_A_Close,Yes,0,0,0,
+Test5,Test Description 5,Tiny Fantasy Icons/Books/Book_B_Close,Yes,0,0,0,
+Test6,Test Description 6,Tiny Fantasy Icons/Books/Book_C_Close,Yes,0,0,0,
+Test7,Test Description 7,Tiny Fantasy Icons/Books/Book_D_Close,Yes,0,0,0,
+Test8,Test Description 8,Tiny Fantasy Icons/Chests/ChestA,Yes,0,0,0,
