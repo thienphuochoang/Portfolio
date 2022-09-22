@@ -41,7 +41,6 @@ def check_type_shaders():
     type_shaders_error = []
     shaders_to_check = get_dag_objects_to_check()
     for shader in shaders_to_check:
-        print shader
         type_shader = cmds.nodeType(shader)
         if type_shader != "lambert":
             type_shaders_error.append(shader)
@@ -50,7 +49,6 @@ def check_type_shaders():
 #______________________________________________________________#___________________________________
 def result():
     """function requird"""
-    print "bbbbbbbbbbbbbbbbbbbbb"
     result_error_list = check_type_shaders()
     error_dict = {}
     non_error_dict = {}

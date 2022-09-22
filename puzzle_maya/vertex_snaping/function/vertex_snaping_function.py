@@ -62,11 +62,11 @@ class VertexSnapingFunction():
 		neededToMergeVertexDict = {}
 		
 
-		for eachVTSel, eachVTSelPos in vtSelDict.iteritems():
+		for eachVTSel, eachVTSelPos in vtSelDict.items():
 			shortestLength = 0
 			pickedVt = None
 			count = 0
-			for eachVTSrc, eachVTSrcPos in vtSrcDict.iteritems():
+			for eachVTSrc, eachVTSrcPos in vtSrcDict.items():
 				# Calculate length between 2 vertex (selected vertex and other object's vertex)
 				length = self.calculateLengthBetweenTwoVertexes(eachVTSelPos, eachVTSrcPos)
 
@@ -91,13 +91,11 @@ class VertexSnapingFunction():
 	def mergeVertexToCenter(self, eps):
 		neededToMergeVertexDict, selectedObj = self.findTwoClosestVertex(eps)
 		# Depend on position, get object vertex and merge the closest one 
-		for vtSelPos, vtDesPos in neededToMergeVertexDict.iteritems():
+		for vtSelPos, vtDesPos in neededToMergeVertexDict.items():
 
 			vtxIndx1 = self.getVertexIndexBasedOnPosition(selectedObj, vtSelPos, 1)
 
 			vtxIndx2 = self.getVertexIndexBasedOnPosition(selectedObj, vtDesPos, 2)
-			print vtxIndx1
-			print vtxIndx2
 			
 			cmds.select(cl = True)
 			cmds.select(selectedObj + ".vtx[" + str(vtxIndx1) + "]")
@@ -108,7 +106,7 @@ class VertexSnapingFunction():
 	def snapSelectedVertexToClosestOne(self, eps):
 		neededToMergeVertexDict, selectedObj = self.findTwoClosestVertex(eps)
 		# Depend on position, get object vertex and merge the closest one 
-		for vtSelPos, vtDesPos in neededToMergeVertexDict.iteritems():
+		for vtSelPos, vtDesPos in neededToMergeVertexDict.items():
 
 			vtxIndx1 = self.getVertexIndexBasedOnPosition(selectedObj, vtSelPos, 1)
 

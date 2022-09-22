@@ -70,10 +70,8 @@ def result():
 
 def fix(lst):
     scene_camera = get_camera_user()
-    print scene_camera
     for cam in scene_camera:
         if cam not in camera_default:
-            # print cam
             cmds.camera(cam, edit=True, startupCamera=False)
             cam_tranform = cmds.listRelatives(cam, allParents=True)
             try:

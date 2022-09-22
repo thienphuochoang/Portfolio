@@ -1,35 +1,46 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'D:/WIP_Portfolio/puzzle_maya/sbsar_mat_creation/ui/assigned_sbsar_mat_object_ui.ui',
-# licensing of 'D:/WIP_Portfolio/puzzle_maya/sbsar_mat_creation/ui/assigned_sbsar_mat_object_ui.ui' applies.
-#
-# Created: Thu Jun 17 00:36:04 2021
-#      by: pyside2-uic  running on PySide2 5.13.2
-#
-# WARNING! All changes made in this file will be lost!
+################################################################################
+## Form generated from reading UI file 'assigned_sbsar_mat_object_ui.ui'
+##
+## Created by: Qt User Interface Compiler version 5.15.2
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
 
-from PySide2 import QtCore, QtGui, QtWidgets
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
+
 
 class Ui_widgetAssignedMat(object):
     def setupUi(self, widgetAssignedMat):
-        widgetAssignedMat.setObjectName("widgetAssignedMat")
+        if not widgetAssignedMat.objectName():
+            widgetAssignedMat.setObjectName(u"widgetAssignedMat")
         widgetAssignedMat.resize(308, 91)
-        self.horizontalLayout = QtWidgets.QHBoxLayout(widgetAssignedMat)
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        self.lbObjectName = QtWidgets.QLabel(widgetAssignedMat)
-        self.lbObjectName.setObjectName("lbObjectName")
+        self.horizontalLayout = QHBoxLayout(widgetAssignedMat)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.lbObjectName = QLabel(widgetAssignedMat)
+        self.lbObjectName.setObjectName(u"lbObjectName")
+
         self.horizontalLayout.addWidget(self.lbObjectName)
-        self.lwAssignedSBSARMat = QtWidgets.QListWidget(widgetAssignedMat)
-        self.lwAssignedSBSARMat.setIconSize(QtCore.QSize(64, 64))
-        self.lwAssignedSBSARMat.setResizeMode(QtWidgets.QListView.Adjust)
-        self.lwAssignedSBSARMat.setViewMode(QtWidgets.QListView.IconMode)
-        self.lwAssignedSBSARMat.setObjectName("lwAssignedSBSARMat")
+
+        self.lwAssignedSBSARMat = QListWidget(widgetAssignedMat)
+        self.lwAssignedSBSARMat.setObjectName(u"lwAssignedSBSARMat")
+        self.lwAssignedSBSARMat.setIconSize(QSize(64, 64))
+        self.lwAssignedSBSARMat.setResizeMode(QListView.Adjust)
+        self.lwAssignedSBSARMat.setViewMode(QListView.IconMode)
+
         self.horizontalLayout.addWidget(self.lwAssignedSBSARMat)
 
+
         self.retranslateUi(widgetAssignedMat)
-        QtCore.QMetaObject.connectSlotsByName(widgetAssignedMat)
+
+        QMetaObject.connectSlotsByName(widgetAssignedMat)
+    # setupUi
 
     def retranslateUi(self, widgetAssignedMat):
-        widgetAssignedMat.setWindowTitle(QtWidgets.QApplication.translate("widgetAssignedMat", "Form", None, -1))
-        self.lbObjectName.setText(QtWidgets.QApplication.translate("widgetAssignedMat", "Asset Name", None, -1))
+        widgetAssignedMat.setWindowTitle(QCoreApplication.translate("widgetAssignedMat", u"Form", None))
+        self.lbObjectName.setText(QCoreApplication.translate("widgetAssignedMat", u"Asset Name", None))
+    # retranslateUi
 

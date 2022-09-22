@@ -21,7 +21,7 @@ import maya.cmds as cmds
 
 
 mayaMainWindowPtr = omui.MQtUtil.mainWindow() 
-mayaMainWindow = wrapInstance(long(mayaMainWindowPtr), QtWidgets.QWidget)  # create a maya Main window
+mayaMainWindow = wrapInstance(int(mayaMainWindowPtr), QtWidgets.QWidget)  # create a maya Main window
 
 
 moduleImporterPath = 'general.modules_importer.modules_importer_function'
@@ -37,9 +37,9 @@ else:
     importerFunction = importlib.import_module(moduleImporterPath)
     
 #import Function____________________
-exporter_func = importerFunction.importModule(r"puzzle_maya.exporter.function.exporter_function")
+exporter_func = importerFunction.importModule("puzzle_maya.exporter.function.exporter_function")
 exporter_func.createTempFolder()
-exporter_mainUI = importerFunction.importModule(r"lib.ui.Exporter_MainUI")
+exporter_mainUI = importerFunction.importModule("lib.ui.Exporter_MainUI")
 
 def import_add_id_ui():
     pass
@@ -169,10 +169,3 @@ def check_exist_window(name_window):
 check_exist_window("MainWindowExporter")
 winExporter = MainExporter()
 winExporter.show()
-
-
-
-
-
-
-

@@ -41,10 +41,8 @@ def get_mesh_had_history():
     default_history = ['mesh', 'groupId', 'shadingEngine']
     meshes = get_dag_objects_to_check()
     for obj in meshes:
-        print obj
         list_history = cmds.listHistory(obj)
         for h in list_history:
-            print h
             type_history = cmds.nodeType(h)
             if type_history not in default_history:
                 bad_list.append(obj)

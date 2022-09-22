@@ -13,7 +13,7 @@ rootPath = ("/".join(currentFilePath.split("/")[:-1]))
 sys.path.append(rootPath)
 class LauncherFunction():
 	def __init__(self):
-		self.mayaVersionList =   ["2013","2014","2015","2016","2017","2018","2019","2020","2021"]
+		self.mayaVersionList =   ["2013","2014","2015","2016","2017","2018","2019","2020","2021","2022"]
 		self.externalModules = rootPath + "/" + "modules" + "/" + "Lib" + "/" + "site-packages"
 
 	def saveRootPathToMayaEnvFile(self, mayaVersion):

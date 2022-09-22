@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>409</width>
-    <height>864</height>
+    <height>862</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -117,7 +117,7 @@
            <x>0</x>
            <y>0</y>
            <width>401</width>
-           <height>713</height>
+           <height>676</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
@@ -267,8 +267,8 @@ Uncheck</string>
        <widget class="QPushButton" name="btnValidate">
         <property name="minimumSize">
          <size>
-          <width>100</width>
-          <height>35</height>
+          <width>0</width>
+          <height>45</height>
          </size>
         </property>
         <property name="toolTip">
@@ -344,7 +344,7 @@ Uncollapse</string>
      <x>0</x>
      <y>0</y>
      <width>409</width>
-     <height>21</height>
+     <height>29</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

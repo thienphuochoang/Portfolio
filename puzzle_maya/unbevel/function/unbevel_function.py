@@ -166,7 +166,7 @@ class UnbevelFunction():
 
 
 	def smartCollapsing(self, *arg):          
-		print '--execute ---'
+		print ('--execute ---')
 		currentEdgeSel = cmds.ls(sl = True, fl = True)
 		#Check Selection is edge
 		currentEdgeSel =  cmds.filterExpand(sm=32)
@@ -282,7 +282,7 @@ class UnbevelFunction():
 								listLengthToEndVertsAndMidVerts = [(i - pm.pointPosition(endVerts[0])).length() + (i - pm.pointPosition(endVerts[1])).length() for i in allIntersectPoint]
 								minLength = min(listLengthToEndVertsAndMidVerts)
 								threshold = 7*(pm.pointPosition(endVerts[1]) - pm.pointPosition(endVerts[0])).length()
-								print minLength, threshold
+								print (minLength, threshold)
 								if minLength < threshold:
 									indexIPoint = listLengthToEndVertsAndMidVerts.index(minLength)
 									intersectPoint = allIntersectPoint[indexIPoint]                

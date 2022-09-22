@@ -77,7 +77,7 @@ def moveToOriginalGroup():
 		if not cmds.objExists(originalGroup):
 			parentGroup = "|".join(originalGroup.split("|")[:-1])
 			nonExistingOriginalGroupList[obj] = parentGroup
-	for tempGroup, originalGroup in nonExistingOriginalGroupList.iteritems():
+	for tempGroup, originalGroup in nonExistingOriginalGroupList.items():
 		if originalGroup == "":
 			cmds.select(tempGroup)
 			cmds.parent(tempGroup, world = True)
@@ -167,7 +167,7 @@ def exportFBX(filePath, createTempGroup, sg="false", sm="false", ins="false", tr
 			mel.eval('FBXExport -file "{}.fbx" -s ;'.format(filePath) )
 			
 			# revert current scene unit
-			print currentSceneUnit
+			print (currentSceneUnit)
 			cmds.currentUnit(linear = currentSceneUnit )
 			
 			#cmds.select(currentSel)
@@ -213,7 +213,7 @@ def exportFBX(filePath, createTempGroup, sg="false", sm="false", ins="false", tr
 			mel.eval('FBXExport -file "{}.fbx" -s ;'.format(filePath) )
 			
 			# revert current scene unit
-			print currentSceneUnit
+			print (currentSceneUnit)
 			cmds.currentUnit(linear = currentSceneUnit )
 			
 			#cmds.select(currentSel)
@@ -513,10 +513,10 @@ def assignMaterialToSelectedMesh(materialSelected, *arg):
 			cmds.hyperShade(assign=materialSelected[0])
 			cmds.sets(renderable=True, noSurfaceShader=True, empty=True, name=materialSelected[0]+'SG')
 			shadingEngine=cmds.listConnections(materialSelected,type='shadingEngine')[0]
-			print 'Create shading group: ' + shadingEngine
+			print ('Create shading group: ' + shadingEngine)
 			cmds.sets(e=True, forceElement=shadingEngine)           
 	else:
-		print 'Choose one material'
+		print ('Choose one material')
 
 
 
@@ -537,7 +537,7 @@ def renameMeshandMaterialsImported(namespace, keepGroup):
 		importedRootTransform =[]
 		for g in cmds.ls(tr = True, l = True):
 			if not cmds.listRelatives(g, p = True) and namespace in g:
-				print g
+				print (g)
 				importedRootTransform.append(g)
 
 		for g in importedRootTransform:

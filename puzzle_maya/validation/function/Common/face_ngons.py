@@ -44,6 +44,7 @@ def do_check(objs):
 
 
 def result():
+    print ("ahihi")
     objs = get_objects()
     list_error = do_check(objs)
     error_dict = {}
@@ -59,24 +60,9 @@ def result():
 
 def fix(lst):
     poly_nsided_to_quad()
-	
+    
 def selectSimilarity():
-	print "test Select Similarity"
-
-def doc():
-	pass
-    # print lst
-    # cmds.select(lst, add=True)
-    # mel.eval('polyTriangulate -ch 1 ;')
-    # mel.eval('polyQuad  -a 30 -kgb 1 -ktb 1 -khe 1 -ws 1 -ch 0;')
-    # try:
-    #     mel.eval('maintainActiveChangeSelectMode {} 0'.format(obj))
-    #     #cmds.select(obj.split(".f")[0], replace=True)
-    #     cmds.DeleteHistory()
-    #     cmds.select(clear=True)
-    # except:
-    #     cmds.warning("Mesh can't not delete history")
-
+    print ("test Select Similarity")
 
 # def selectCustom(lst):
 #     cmds.select(clear=True)

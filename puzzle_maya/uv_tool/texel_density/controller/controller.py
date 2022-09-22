@@ -9,7 +9,7 @@ from shiboken2 import wrapInstance
 
 # Create a maya Main window
 mayaMainWindowPtr = omui.MQtUtil.mainWindow() 
-mayaMainWindow = wrapInstance(long(mayaMainWindowPtr), QtWidgets.QWidget)
+mayaMainWindow = wrapInstance(int(mayaMainWindowPtr), QtWidgets.QWidget)
 
 moduleImporterPath = 'general.modules_importer.modules_importer_function'
 importerFunction = None

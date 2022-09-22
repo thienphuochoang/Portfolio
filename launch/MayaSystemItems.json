@@ -2,67 +2,67 @@
 	{
 		"name": "Validation",
 		"description": "Validate common and advanced errors",
-		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\nreload(importerFunction)\nimporterFunction.importModule('puzzle_maya.validation.controller.main')",
+		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\ntry:\n\timportlib.reload(importerFunction)\nexcept:\n\treload(importerFunction)\nimporterFunction.importModule('puzzle_maya.validation.controller.main')",
 		"icon":"lib/icon/validation.png"
 	},
 	{
 		"name": "Exporter",
 		"description": "Export objects to multiples format to import to other 3D modeling software",
-		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\nreload(importerFunction)\nimporterFunction.importModule('puzzle_maya.exporter.controller.main')",
+		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\ntry:\n\timportlib.reload(importerFunction)\nexcept:\n\treload(importerFunction)\nimporterFunction.importModule('puzzle_maya.exporter.controller.main')",
 		"icon":"lib/icon/exporter.png"
 	},
 	{
 		"name": "Socket",
 		"description": "Transfer transformation between two opening Maya",
-		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\nreload(importerFunction)\nimporterFunction.importModule('puzzle_maya.transfer_transformation.controller.main')",
+		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\ntry:\n\timportlib.reload(importerFunction)\nexcept:\n\treload(importerFunction)\nimporterFunction.importModule('puzzle_maya.transfer_transformation.controller.main')",
 		"icon":"lib/icon/socket.jpg"
 	},
 	{
 		"name": "Texel",
 		"description": "Texel density and checker tool",
-		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\nreload(importerFunction)\nimporterFunction.importModule('puzzle_maya.uv_tool.texel_density.controller.main')",
+		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\ntry:\n\timportlib.reload(importerFunction)\nexcept:\n\treload(importerFunction)\nimporterFunction.importModule('puzzle_maya.uv_tool.texel_density.controller.main')",
 		"icon":"lib/icon/checker_icon.jpg"
 	},
 	{
 		"name": "Ref",
 		"description": "Import Reference",
-		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\nreload(importerFunction)\nimporterFunction.importModule('puzzle_maya.scaling_ref.controller.main')",
+		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\ntry:\n\timportlib.reload(importerFunction)\nexcept:\n\treload(importerFunction)\nimporterFunction.importModule('puzzle_maya.scaling_ref.controller.main')",
 		"icon":"lib/icon/reference.png"
 	},
 	{
 		"name": "Pivot",
 		"description": "Setup Pivot",
-		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\nreload(importerFunction)\nimporterFunction.importModule('puzzle_maya.pivot.controller.main')",
+		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\ntry:\n\timportlib.reload(importerFunction)\nexcept:\n\treload(importerFunction)\nimporterFunction.importModule('puzzle_maya.pivot.controller.main')",
 		"icon":"lib/icon/pivot.png"
 	},
 	{
 		"name": "Flatten Combine",
 		"description": "Flatten Combine",
-		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\nreload(importerFunction)\nimporterFunction.importModule('puzzle_maya.combination.controller.main')",
+		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\ntry:\n\timportlib.reload(importerFunction)\nexcept:\n\treload(importerFunction)\nimporterFunction.importModule('puzzle_maya.combination.controller.main')",
 		"icon":"lib/icon/combine.png"
 	},
 	{
 		"name": "Merge Vertex",
 		"description": "Merge Vertex In Distance Automatically",
-		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\nreload(importerFunction)\nimporterFunction.importModule('puzzle_maya.vertex_snaping.controller.main')",
+		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\ntry:\n\timportlib.reload(importerFunction)\nexcept:\n\treload(importerFunction)\nimporterFunction.importModule('puzzle_maya.vertex_snaping.controller.main')",
 		"icon":"lib/icon/vertex_snaping_icon.png"
 	},
 	{
 		"name": "Edge Length",
 		"description": "Get And Set Edge Tool",
-		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\nreload(importerFunction)\nimporterFunction.importModule('puzzle_maya.edge_length.controller.main')",
+		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\ntry:\n\timportlib.reload(importerFunction)\nexcept:\n\treload(importerFunction)\nimporterFunction.importModule('puzzle_maya.edge_length.controller.main')",
 		"icon":"lib/icon/edge_length_icon.jpg"
 	},
 	{
 		"name": "Unbevel",
 		"description": "Unbevel",
-		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\nreload(importerFunction)\nimporterFunction.importModule('puzzle_maya.unbevel.controller.main')",
+		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\ntry:\n\timportlib.reload(importerFunction)\nexcept:\n\treload(importerFunction)\nimporterFunction.importModule('puzzle_maya.unbevel.controller.main')",
 		"icon":"lib/icon/unbevel.png"
 	},
 	{
 		"name": "SBS Mat",
 		"description": "Bake model information and create SBS materials",
-		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\nreload(importerFunction)\nimporterFunction.importModule('puzzle_maya.sbsar_mat_creation.controller.main')",
+		"command":"import importlib\nimporterFunction = importlib.import_module('general.modules_importer.modules_importer_function')\ntry:\n\timportlib.reload(importerFunction)\nexcept:\n\treload(importerFunction)\nimporterFunction.importModule('puzzle_maya.sbsar_mat_creation.controller.main')",
 		"icon":"lib/icon/substance_automation_icon.jpg"
 	}
 ]

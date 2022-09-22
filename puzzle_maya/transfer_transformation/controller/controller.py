@@ -1,5 +1,6 @@
 import sys
 import os
+import importlib
 try:
 	import maya.cmds as cmds
 	from PySide2 import QtGui, QtCore, QtWidgets
@@ -10,7 +11,7 @@ except:
 	pass
 	
 mayaMainWindowPtr = omui.MQtUtil.mainWindow() 
-mayaMainWindow = wrapInstance(long(mayaMainWindowPtr), QtWidgets.QWidget)
+mayaMainWindow = wrapInstance(int(mayaMainWindowPtr), QtWidgets.QWidget)
 
 class GlobalMainVariables:
 	def __init__(self):
@@ -26,11 +27,11 @@ sys.path.append(GlobalMainVariables.mainPath)
 from puzzle_maya.transfer_transformation.function import Transfer_Transformation_Data as ttd
 
 from puzzle_maya.transfer_transformation.function import MayaProcessHook as mph2
-reload(mph2)
+importlib.reload(mph2)
 from puzzle_maya.transfer_transformation.function import socket_startup as ss
-reload(ss)
+importlib.reload(ss)
 from puzzle_maya.transfer_transformation.ui import TransferTransformation_UI as tt_ui
-reload(tt_ui)
+importlib.reload(tt_ui)
 
 class MainTransferTransform(QtWidgets.QMainWindow, tt_ui.Ui_MainWindow):
 	def __init__(self):

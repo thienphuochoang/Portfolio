@@ -86,12 +86,7 @@ def fix(lst):
 
     while len(namespaces) > 0:
         for namespace in namespaces:
-            print namespace
             cmds.namespace(force=True, removeNamespace=namespace,
                mergeNamespaceWithRoot=True)
         namespaces = [ns for ns in cmds.namespaceInfo(
             lon=True, an=True, ) if ns not in defaults]
-
-        
-
-

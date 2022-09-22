@@ -49,7 +49,6 @@ def get_mesh_extra_attribute():
 
 def remove_extra_attribute(lst):
     for obj in lst:
-        print obj
         # Get attribulate User Defined
         attr_user = cmds.listAttr(obj, userDefined=True)  
         if attr_user:
@@ -83,7 +82,6 @@ def result():
     return error_dict, non_error_dict
 
 def fix(lst, *args):
-    print lst
     objects_selected_to_check = get_dag_objects_to_check()
     remove_extra_attribute(objects_selected_to_check)
 

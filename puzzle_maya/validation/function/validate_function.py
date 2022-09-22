@@ -42,7 +42,7 @@ class MenuActionFunction():
 		self.MainWindowFunction.resetToDefault(wrapperDict, iconPath)
 		data = self.readFileJson(action, presetPath)
 		for filePython in data:
-			for item, wrapper in wrapperDict.iteritems():
+			for item, wrapper in wrapperDict.items():
 				if filePython == item:
 					if data[filePython] == True:
 						try:
@@ -65,7 +65,7 @@ class MenuActionFunction():
 		fileName, filterName = QFileDialog.getSaveFileName(parent = None, caption = 'Create Or Save File', dir = presetPath)
 		if fileName and ".json" in fileName.lower():
 			presetFilePath = fileName
-			for item, wrapper in wrapperDict.iteritems():
+			for item, wrapper in wrapperDict.items():
 				data[item] = wrapper.newItemCheckWidget.btnStatus.isChecked()
 			with open (presetFilePath, "w") as write_file:
 				json.dump(data, write_file)
@@ -74,7 +74,7 @@ class MenuActionFunction():
 			messageBox.exec_()
 		elif fileName and ".json" not in fileName.lower():
 			presetFilePath = fileName + ".json"
-			for item, wrapper in wrapperDict.iteritems():
+			for item, wrapper in wrapperDict.items():
 				data[item] = wrapper.newItemCheckWidget.btnStatus.isChecked()
 			with open (presetFilePath, "w") as write_file:
 				json.dump(data, write_file)
@@ -139,17 +139,12 @@ class ItemCheckAndAddonsWrapperFunction():
 				for i in os.listdir(collapsiblePath + "/" + projectName):
 					functionPath = collapsiblePath + "/" + projectName
 					if os.path.exists(functionPath + "/" + item + ".py"):
-						try:
-							importedModulePath = r"puzzle_maya.validation.function.{}.{}".format(projectName, item)
-							nameModule = importlib.import_module(importedModulePath)
-							try:
-								reload(nameModule)
-							except:
-								importlib.reload(nameModule)
-							moduleCheck = nameModule
-							return moduleCheck
-						except:
-							pass
+						importedModulePath = r"puzzle_maya.validation.function.{}.{}".format(projectName, item)
+						print (importedModulePath)
+						nameModule = importlib.import_module(importedModulePath)
+						importlib.reload(nameModule)
+						moduleCheck = nameModule
+						return moduleCheck
 					else:
 						pass
 
@@ -163,7 +158,7 @@ class ItemCheckAndAddonsWrapperFunction():
 
 		try:
 			for selectedItem in listWidget.selectedItems():
-				for key, value in sorted(errorDict.iteritems()):
+				for key, value in sorted(errorDict.items()):
 					if key + value == selectedItem.text():
 						try:
 							self.inputList.append(key)
@@ -178,7 +173,7 @@ class ItemCheckAndAddonsWrapperFunction():
 
 		try:
 			for selectedItem in listWidget.selectedItems():
-				for key, value in sorted(nonErrorDict.iteritems()):
+				for key, value in sorted(nonErrorDict.items()):
 					if key + value == selectedItem.text():
 						try:
 							self.inputList.append(key)
@@ -212,7 +207,7 @@ class ItemCheckAndAddonsWrapperFunction():
 		listWidget.clear()
 		if errorDict:
 			try:
-				for key, value in errorDict.iteritems():
+				for key, value in errorDict.items():
 					item = QtWidgets.QListWidgetItem(key + value)
 					item.setIcon(QIcon(iconPath + "/wrongIcon.png"))
 					listWidget.addItem(item)
@@ -225,7 +220,7 @@ class ItemCheckAndAddonsWrapperFunction():
 		listWidget.clear()
 		if nonErrorDict:
 			try:
-				for key, value in nonErrorDict.iteritems():
+				for key, value in nonErrorDict.items():
 					item = QtWidgets.QListWidgetItem(key + value)
 					item.setIcon(QIcon(iconPath + "/correctIcon.png"))
 					listWidget.addItem(item)
@@ -239,7 +234,7 @@ class ItemCheckAndAddonsWrapperFunction():
 		try:
 			if listWidget.selectedItems():
 				for selectedItem in listWidget.selectedItems():
-					for key, value in sorted(errorDict.iteritems()):
+					for key, value in sorted(errorDict.items()):
 						if key + value == selectedItem.text():
 							try:
 								self.fixList.append(key)
@@ -259,7 +254,7 @@ class ItemCheckAndAddonsWrapperFunction():
 					pass
 
 			else:
-				for key, value in sorted(errorDict.iteritems()):
+				for key, value in sorted(errorDict.items()):
 					try:
 						self.fixList.append(key)
 						#listWidget.takeItem(listWidget.row(selectedItem))
@@ -284,7 +279,7 @@ class ItemCheckAndAddonsWrapperFunction():
 		errorDict, nonErrorDict = moduleCheck.result()
 		listWidget.clear()
 		if errorDict and not nonErrorDict:
-			for key, value in errorDict.iteritems():
+			for key, value in errorDict.items():
 				content = QtWidgets.QListWidgetItem(key + value)
 				content.setIcon(QIcon(iconPath + "/wrongIcon.png"))
 				listWidget.addItem(content)
@@ -292,7 +287,7 @@ class ItemCheckAndAddonsWrapperFunction():
 				btnResult.setStyleSheet('QPushButton {background-color: red; border: 0px;}')
 			return errorDict, nonErrorDict
 		elif nonErrorDict and not errorDict:
-			for key, value in nonErrorDict.iteritems():
+			for key, value in nonErrorDict.items():
 				content = QtWidgets.QListWidgetItem(key + value)
 				content.setIcon(QIcon(iconPath + "/correctIcon.png"))
 				listWidget.addItem(content)
@@ -300,7 +295,7 @@ class ItemCheckAndAddonsWrapperFunction():
 				btnResult.setStyleSheet('QPushButton {background-color: rgb(85,255,0); border: 0px;}')
 			return errorDict, nonErrorDict
 		elif nonErrorDict and errorDict:
-			for key, value in errorDict.iteritems():
+			for key, value in errorDict.items():
 				content = QtWidgets.QListWidgetItem(key + value)
 				content.setIcon(QIcon(iconPath + "/wrongIcon.png"))
 				listWidget.addItem(content)
@@ -310,7 +305,7 @@ class ItemCheckAndAddonsWrapperFunction():
 
 	def maximizeWindow(self, currentNewAddonsWindowWidget, currentNewItemCheckWidget, wrapperDict, iconPath):
 		if currentNewItemCheckWidget.btnMaximize.isChecked():
-			for item, wrapper in sorted(wrapperDict.iteritems()):
+			for item, wrapper in sorted(wrapperDict.items()):
 				if currentNewAddonsWindowWidget == wrapper.newAddonsWindowWidget:
 					currentNewItemCheckWidget.btnCollapse.setChecked(True)
 					currentNewItemCheckWidget.btnCollapse.setIcon(QIcon(iconPath + "/arrow-down.png"))
@@ -322,7 +317,7 @@ class ItemCheckAndAddonsWrapperFunction():
 					wrapper.newItemCheckWidget.centralwidget.setVisible(False)
 			
 		else:
-			for item, wrapper in sorted(wrapperDict.iteritems()):
+			for item, wrapper in sorted(wrapperDict.items()):
 				wrapper.newItemCheckWidget.centralwidget.setVisible(True)
 				wrapper.newItemCheckWidget.btnCollapse.setChecked(False)
 				wrapper.newItemCheckWidget.btnCollapse.setIcon(QIcon(iconPath + "/arrow-left.png"))
@@ -348,7 +343,7 @@ class MainWindowFunction():
 		self.resetToDefault(wrapperDict, iconPath)
 
 	def resetToDefault(self, wrapperDict, iconPath):
-		for item, wrapper in sorted(wrapperDict.iteritems()):
+		for item, wrapper in sorted(wrapperDict.items()):
 			#wrapper.newItemCheckWidget.btnStatus.setChecked(True)
 			#wrapper.newItemCheckWidget.btnStatus.setIcon(QIcon(iconPath + "/checkIconOn.png"))
 			wrapper.newAddonsWindowWidget.centralwidget.setVisible(False)
@@ -371,13 +366,13 @@ class MainWindowFunction():
 		
 
 		itemList = []
-		for item, wrapper in sorted(wrapperDict.iteritems()):
+		for item, wrapper in sorted(wrapperDict.items()):
 			if wrapper.newItemCheckWidget.centralwidget.isVisible():
 				if wrapper.newItemCheckWidget.btnStatus.isChecked():
 					itemList.append(wrapper)
 		progressBar.setMaximum(len(itemList))
 
-		for item, wrapper in sorted(wrapperDict.iteritems()):
+		for item, wrapper in sorted(wrapperDict.items()):
 			if wrapper.newItemCheckWidget.centralwidget.isVisible():
 				if wrapper.newItemCheckWidget.btnStatus.isChecked():
 					if wrapper.newItemCheckWidget.btnCollapse.isChecked():
@@ -433,23 +428,23 @@ class MainWindowFunction():
 			checkedFlag = False
 
 		if checkedFlag == True:
-			for item, wrapper in sorted(wrapperDict.iteritems()):
+			for item, wrapper in sorted(wrapperDict.items()):
 				wrapper.newItemCheckWidget.btnStatus.setChecked(False)
 				wrapper.newItemCheckWidget.btnStatus.setIcon(QIcon(iconPath + "/checkIconOff.png"))
 		else:
-			for item, wrapper in sorted(wrapperDict.iteritems()):
+			for item, wrapper in sorted(wrapperDict.items()):
 				wrapper.newItemCheckWidget.btnStatus.setChecked(True)
 				wrapper.newItemCheckWidget.btnStatus.setIcon(QIcon(iconPath + "/checkIconOn.png"))
 
 	def showError(self, wrapperDict, iconPath):
 		checkFlag = False
 		self.tempList = []
-		for item, wrapper in sorted(wrapperDict.iteritems()):
+		for item, wrapper in sorted(wrapperDict.items()):
 			if wrapper.newItemCheckWidget.centralwidget.isVisible() == False:
 				checkFlag = True
 				break
 		if checkFlag == True:
-			for item, wrapper in sorted(wrapperDict.iteritems()):
+			for item, wrapper in sorted(wrapperDict.items()):
 				wrapper.newItemCheckWidget.centralwidget.setVisible(True)
 				wrapper.newItemCheckWidget.btnCollapse.setChecked(False)
 				wrapper.newItemCheckWidget.btnCollapse.setIcon(QIcon(iconPath + "/arrow-left.png"))
@@ -459,7 +454,7 @@ class MainWindowFunction():
 				wrapper.newItemCheckWidget.btnMaximize.setIcon(QIcon(iconPath + "/minimizedIcon.png"))
 		else:
 			self.remainingErrorList = []
-			for item, wrapper in sorted(wrapperDict.iteritems()):
+			for item, wrapper in sorted(wrapperDict.items()):
 				if wrapper.errorDict:
 					self.remainingErrorList.append(wrapper)
 				else:
@@ -478,7 +473,7 @@ class MainWindowFunction():
 	def collapseUncollapseAllWidget(self, wrapperDict, iconPath):
 		self.tempDict = {}
 		#if wrapperDict[next(iter(wrapperDict))].newItemCheckWidget.btnCollapse.isChecked():
-		for item, wrapper in sorted(wrapperDict.iteritems()):
+		for item, wrapper in sorted(wrapperDict.items()):
 			if wrapper.newItemCheckWidget.centralwidget.isVisible():
 				self.tempDict[item] = wrapper
 
@@ -489,12 +484,12 @@ class MainWindowFunction():
 			checkedFlag = False
 
 		if checkedFlag == True:
-			for item, wrapper in sorted(self.tempDict.iteritems()):
+			for item, wrapper in sorted(self.tempDict.items()):
 				wrapper.newItemCheckWidget.btnCollapse.setChecked(False)
 				wrapper.newItemCheckWidget.btnCollapse.setIcon(QIcon(iconPath + "/arrow-left.png"))
 				wrapper.newAddonsWindowWidget.centralwidget.setVisible(False)
 		else:
-			for item, wrapper in sorted(self.tempDict.iteritems()):
+			for item, wrapper in sorted(self.tempDict.items()):
 				wrapper.newItemCheckWidget.btnCollapse.setChecked(True)
 				wrapper.newItemCheckWidget.btnCollapse.setIcon(QIcon(iconPath + "/arrow-down.png"))
 				wrapper.newAddonsWindowWidget.centralwidget.setVisible(True)

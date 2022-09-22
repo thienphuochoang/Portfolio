@@ -12,7 +12,7 @@ rootPath = ("/".join(currentFilePath.split("/")[:-1]))
 sys.path.append(rootPath)
 class LauncherFunction():
 	def __init__(self):
-		self.maxVersionDict =   {"19.0": "2017","20.0": "2018","21.0": "2019","22.0": "2020","23.0": "2021"}
+		self.maxVersionDict =   {"19.0": "2017","20.0": "2018","21.0": "2019","22.0": "2020","23.0": "2021", "24.0": "2022"}
 
 	def getInstalledLocationInRegistryEditor(self, hive, flag, version):
 		aReg = winreg.ConnectRegistry(None, hive)

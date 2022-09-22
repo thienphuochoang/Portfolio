@@ -7,7 +7,7 @@ import maya.cmds as cmds
 import sys
 
 mayaMainWindowPtr = omui.MQtUtil.mainWindow() 
-mayaMainWindow = wrapInstance(long(mayaMainWindowPtr), QtWidgets.QWidget)  # create a maya Main window
+mayaMainWindow = wrapInstance(int(mayaMainWindowPtr), QtWidgets.QWidget)  # create a maya Main window
 
 moduleImporterPath = 'general.modules_importer.modules_importer_function'
 importerFunction = None

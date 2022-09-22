@@ -1,0 +1,2491 @@
+SFX_WUC
+Version=28
+GroupVersion=-1.0
+Advanced=0
+HelpID=0
+ParentMaterial=0
+NumberOfNodes=121
+#NT=10100 1 Hw Material Base-Hw Shader Nodes-Core
+	PC=35
+	name=1 v=5000 _Material
+	version=1 v=2003 1.842
+	posx=1 v=2003 3285.0
+	posy=1 v=2003 90.5
+	classname=1 v=5000 Hw Material Base
+	submenuname=1 v=5000 Core
+	bitmapnodeindex=1 v=2002 10
+	isadvanced=1 v=2001 1
+	advanceddelete=1 v=2001 1
+	helpid=1 v=2002 73
+	grpnodecolor=1 v=5012 4
+	grpPosX=1 v=2003 -1129.38
+	grpPosY=1 v=2003 -143.923
+	disableconsolidation_HwShader=2 e=1 v=2001 0
+	value_ClampDynamicLights=2 e=1 v=2002 99
+	value_MaxNumberLights=2 e=1 v=2002 1
+	value_Gamma=2 e=2 v=2001 0
+	value_Wireframe=2 e=3 v=2001 0
+	value_DepthTest=2 e=4 v=2001 1
+	value_DepthWrite=2 e=4 v=2001 1
+	value_CastShadow=2 e=5 v=2001 1
+	value_SurfaceMaskCutoff=2 e=6 v=2003 0.0
+	value_SSAO=2 e=7 v=2001 1
+	options_Tessellation=2 e=900 v=5012 0
+	value_FlatTessellationBlend=2 e=901 v=2003 0.0
+	value_BoundingBoxMultiplier=2 e=902 v=2003 1.0
+	value_ClippingBiasAdd=2 e=902 v=2003 5.0
+	options_Displacement=2 e=1000 v=5012 1
+	options_VDM_CoordSys=2 e=1001 v=5012 1
+	value_DisplacementMultiplier=2 e=1002 v=2003 1.0
+	value_DisplacementOffset=2 e=1003 v=2003 0.0
+	cgfxprofile_HwShader=2 e=1999 v=5012 0
+	config_HwShader=2 e=2000 v=5012 1
+	shadername_HwShader=2 e=2001 v=5000 
+	saveshadertodisk_HwShader=2 e=2002 v=5015 
+	group=-1
+	ISC=9
+		SVT=2002 2002 0 0 0 _NumberOfLights
+		SVT=5001 3002 0 0 0 _ObjectVertexPosition
+		SVT=5001 2003 0 0 0 
+		SVT=5001 3002 0 0 0 _Displacement
+		SVT=5001 5018 0 0 0 _SurfaceShader
+		SVT=5001 2003 0 0 0 _SurfaceMask
+		SVT=5001 2003 0 0 0 _SurfaceMaskCutoff
+		SVT=2001 2001 0 0 0 _Gamma
+		SVT=1001 1002 0 0 0 
+	OSC=0
+#NT=10100 0
+	PC=25
+	name=1 v=5000 TraditionalGameSurfaceShader
+	version=1 v=2003 1.481
+	posx=1 v=2003 2920.0
+	posy=1 v=2003 16.5
+	classname=1 v=5000 Traditional Game Surface Shader
+	submenuname=1 v=5000 Surface Shaders
+	bitmapnodeindex=1 v=2002 10
+	isadvanced=1 v=2001 1
+	advanceddelete=1 v=2001 1
+	helpid=1 v=2002 74
+	grpnodecolor=1 v=5012 4
+	grpPosX=1 v=2003 -990.608
+	grpPosY=1 v=2003 169.65
+	options_Diffuse=2 e=1 v=5012 0
+	options_Specular=2 e=1 v=5012 0
+	value_FlipBackFaces=2 e=1 v=2001 1
+	value_TranslucencyDistortion=2 e=1100 v=2003 0.2
+	value_TranslucencyPower=2 e=1101 v=2003 3.0
+	value_TranslucencyMinimum=2 e=1102 v=2003 0.0
+	color_TranslucencyOuter=2 e=1104 v=3003 1.0,0.64,0.25,1.0
+	color_TranslucencyMedium=2 e=1105 v=3003 1.0,0.21,0.14,1.0
+	color_TranslucencyInner=2 e=1106 v=3003 0.25,0.05,0.02,1.0
+	value_UseStreamLightData=2 e=1500 v=2001 0
+	value_BakedLightColorSet=2 e=1502 v=5000 BakedLightColorSet
+	value_BakedLightColorSetUnshared=2 e=1503 v=2001 1
+	group=-1
+	ISC=17
+		SVT=5001 2003 0 0 0 _Opacity
+		SVT=5001 3002 0 0 0 _Emissive
+		SVT=5001 2003 0 0 0 _AmbientOcclusion
+		SVT=5001 3002 0 0 0 _DiffuseColor
+		SVT=5001 2003 0 0 0 _SpecularPower
+		SVT=5001 3002 0 0 0 _SpecularColor
+		SVT=5001 3002 0 0 0 _Reflection
+		SVT=5001 2003 0 0 0 _ReflectionIntensity
+		SVT=5001 3002 0 0 0 _Normal
+		SVT=5001 3002 0 0 0 _ObjectThickness
+		SVT=5001 2003 0 0 0 _BlendedNormal
+		SVT=5001 2003 0 0 0 _BlendedNormalMask
+		SVT=5001 3002 0 0 0 _AnisotropicDirection
+		SVT=5001 3001 0 0 0 _AnisotropicSpread
+		SVT=5001 3002 0 0 0 _IBL
+		SVT=5001 2003 0 0 0 _Weight
+		SVT=1001 1002 0 0 0 
+	OSC=17
+		SVT=5001 2003 0 _Opacity
+		CC=2
+			C=1 0 0 4 1 2 0
+			CPC=3
+			cx=-1511.72
+			cy=630.338
+			cm=1
+			C=1 0 0 90 0 1 0
+			CPC=3
+			cx=-750.298
+			cy=742.863
+			cm=1
+		SVT=5001 3002 0 _Emissive
+		CC=1
+			C=1 1 0 68 0 0 0
+			CPC=0
+		SVT=5001 2003 0 _AmbientOcclusion
+		CC=2
+			C=1 2 0 20 0 0 0
+			CPC=0
+			C=1 2 0 3 0 2 5
+			CPC=3
+			cx=-178.646
+			cy=3.27743
+			cm=1
+		SVT=5001 3002 0 _DiffuseColor
+		CC=1
+			C=1 3 0 6 2 0 0
+			CPC=3
+			cx=-1752.68
+			cy=431.798
+			cm=1
+		SVT=5001 2003 0 _SpecularPower
+		CC=2
+			C=1 4 0 3 0 2 1
+			CPC=3
+			cx=-55.6416
+			cy=43.0013
+			cm=1
+			C=1 4 0 20 2 0 0
+			CPC=0
+		SVT=5001 3002 0 _SpecularColor
+		CC=3
+			C=1 5 0 3 0 2 2
+			CPC=3
+			cx=-25.6602
+			cy=28.3817
+			cm=1
+			C=1 5 0 20 3 0 0
+			CPC=0
+			C=1 5 0 20 10 0 0
+			CPC=0
+		SVT=5001 3002 0 _Reflection
+		CC=1
+			C=1 6 0 6 0 0 0
+			CPC=3
+			cx=-1784.33
+			cy=400.599
+			cm=1
+		SVT=5001 2003 0 _ReflectionIntensity
+		CC=1
+			C=1 7 0 6 1 0 0
+			CPC=3
+			cx=-1776.55
+			cy=415.599
+			cm=1
+		SVT=5001 3002 0 _Normal
+		CC=1
+			C=1 8 0 79 0 0 0
+			CPC=0
+		SVT=5001 3002 0 _ObjectThickness
+		CC=2
+			C=1 9 0 20 4 0 0
+			CPC=0
+			C=1 9 0 3 0 2 6
+			CPC=3
+			cx=-197.785
+			cy=-14.8853
+			cm=1
+		SVT=5001 2003 0 _BlendedNormal
+		CC=1
+			C=1 10 0 20 7 0 0
+			CPC=0
+		SVT=5001 2003 0 _BlendedNormalMask
+		CC=1
+			C=1 11 0 20 8 0 0
+			CPC=0
+		SVT=5001 3002 0 _AnisotropicDirection
+		CC=1
+			C=1 12 0 20 9 0 0
+			CPC=0
+		SVT=5001 3001 0 _AnisotropicSpread
+		CC=1
+			C=1 13 0 20 11 0 0
+			CPC=0
+		SVT=5001 3002 0 _IBL
+		CC=1
+			C=1 14 0 68 4 0 0
+			CPC=3
+			cx=-362.098
+			cy=524.019
+			cm=1
+		SVT=5001 2003 0 _Weight
+		CC=1
+			C=1 15 0 20 12 0 0
+			CPC=0
+		SVT=1001 1002 0 
+		CC=0
+#NT=10101 0
+	PC=2
+	posx=1 v=2003 1103.3
+	posy=1 v=2003 127.576
+	group=1
+	ISC=2
+		SVT=5001 5018 0 0 0 _SurfaceShader
+		SVT=1001 1002 0 0 0 
+	OSC=2
+		SVT=5001 5018 0 _SurfaceShader
+		CC=1
+			C=2 0 0 0 4 0 0
+			CPC=0
+		SVT=1001 1002 0 
+		CC=0
+#NT=20165 0
+	PC=3
+	note=1 v=5000 Combine light loop steps into one socket for ease of use
+	posx=1 v=2003 797.715
+	posy=1 v=2003 98.2672
+	group=1
+	ISC=4
+		SVT=5001 1002 2 0 0 
+		SVT=5001 3003 3 0 0 
+		SVT=5001 3003 4 0 0 
+		SVT=2001 2001 5 0 0 
+	OSC=1
+		SVT=5001 5018 1 
+		CC=1
+			C=3 0 1 2 0 0 0
+			CPC=0
+#NT=20109 0
+	PC=3
+	name=1 v=5000 IsOpacitySupplied
+	posx=1 v=2003 -587.787
+	posy=1 v=2003 547.458
+	group=1
+	ISC=2
+		SVT=5001 2003 1 0 0 
+		SVT=5001 2003 2 0 0 
+	OSC=1
+		SVT=5001 2003 3 
+		CC=1
+			C=4 0 3 88 0 1 0
+			CPC=0
+#NT=20017 0
+	PC=4
+	name=1 v=5000 DefaultOpacity
+	posx=1 v=2003 -772.261
+	posy=1 v=2003 558.773
+	collapsed=1 v=2001 1
+	group=1
+	ISC=0
+	OSC=1
+		SVT=5001 2003 1 
+		CC=1
+			C=5 0 1 4 0 1 0
+			CPC=0
+#NT=10100 0
+	PC=6
+	name=1 v=5000 Reflection
+	posx=1 v=2003 -400.182
+	posy=1 v=2003 334.371
+	bitmapnodeindex=1 v=2002 2
+	grpPosX=1 v=2003 -1107.05
+	grpPosY=1 v=2003 -158.73
+	group=1
+	ISC=4
+		SVT=5001 3002 0 0 0 Reflection
+		SVT=5001 2003 0 0 0 Reflection Intensity
+		SVT=5001 3002 0 0 0 _AlbedoColor
+		SVT=1001 1002 0 0 0 Opacity Used
+	OSC=4
+		SVT=5001 3002 0 Reflection
+		CC=1
+			C=6 0 0 17 1 2 0
+			CPC=0
+		SVT=5001 2003 0 Reflection Intensity
+		CC=1
+			C=6 1 0 15 1 2 0
+			CPC=3
+			cx=-790.208
+			cy=-306.154
+			cm=1
+		SVT=5001 3002 0 _AlbedoColor
+		CC=1
+			C=6 2 0 18 1 2 0
+			CPC=3
+			cx=-760.656
+			cy=193.161
+			cm=1
+		SVT=1001 1002 0 Opacity Used
+		CC=0
+#NT=20016 0
+	PC=4
+	name=1 v=5000 ReflectXmask
+	note=1 v=5000 Reflect * Mask
+	posx=1 v=2003 -269.8
+	posy=1 v=2003 -370.56
+	group=6
+	ISC=2
+		SVT=5001 2003 1 0 0 
+		SVT=5001 3002 2 0 0 
+	OSC=1
+		SVT=5001 3002 3 
+		CC=2
+			C=7 0 3 8 0 0 0
+			CPC=0
+			C=7 0 3 14 0 0 0
+			CPC=0
+#NT=10101 0
+	PC=2
+	posx=1 v=2003 487.404
+	posy=1 v=2003 -153.497
+	group=6
+	ISC=4
+		SVT=5001 3002 0 0 0 Reflection
+		SVT=5001 2003 0 0 0 Desaturated Reflection
+		SVT=5001 3002 0 0 0 _AlbedoColor
+		SVT=1001 1002 0 0 0 
+	OSC=4
+		SVT=5001 3002 0 Reflection
+		CC=1
+			C=8 0 0 68 2 0 0
+			CPC=0
+		SVT=5001 2003 0 Desaturated Reflection
+		CC=1
+			C=8 1 0 68 3 0 0
+			CPC=0
+		SVT=5001 3002 0 _AlbedoColor
+		CC=3
+			C=8 2 0 3 0 2 0
+			CPC=3
+			cx=266.377
+			cy=645.555
+			cm=1
+			C=8 2 0 20 5 0 0
+			CPC=0
+			C=8 2 0 92 1 0 0
+			CPC=0
+		SVT=1001 1002 0 
+		CC=0
+#NT=20016 0
+	PC=4
+	name=1 v=5000 ReplaceDiffuseWithReflection
+	note=1 v=5000 make reflections replace diffuse instead of add on top
+	posx=1 v=2003 140.367
+	posy=1 v=2003 108.528
+	group=6
+	ISC=2
+		SVT=5001 2003 1 0 0 
+		SVT=5001 3002 2 0 0 
+	OSC=1
+		SVT=5001 3002 3 
+		CC=1
+			C=9 0 3 8 2 0 0
+			CPC=0
+#NT=20023 0
+	PC=3
+	name=1 v=5000 SatReflectMask
+	posx=1 v=2003 -319.686
+	posy=1 v=2003 72.1844
+	group=6
+	ISC=1
+		SVT=5001 2003 1 0 0 
+	OSC=1
+		SVT=5001 2003 2 
+		CC=1
+			C=10 0 2 11 1 2 0
+			CPC=0
+#NT=20022 0
+	PC=4
+	name=1 v=5000 InvertSatMask
+	note=1 v=5000 1 - saturate(reflectcolor)
+	posx=1 v=2003 -99.0933
+	posy=1 v=2003 44.7113
+	group=6
+	ISC=2
+		SVT=5001 2003 1 0 0 
+		SVT=5001 2003 2 0 0 
+	OSC=1
+		SVT=5001 2003 3 
+		CC=1
+			C=11 0 3 9 0 1 0
+			CPC=0
+#NT=20017 0
+	PC=3
+	posx=1 v=2003 -322.374
+	posy=1 v=2003 -6.15975
+	collapsed=1 v=2001 1
+	group=6
+	ISC=0
+	OSC=1
+		SVT=5001 2003 1 
+		CC=1
+			C=12 0 1 11 0 1 0
+			CPC=0
+#NT=20011 0
+	PC=5
+	name=1 v=5000 NoReflection
+	posx=1 v=2003 -797.865
+	posy=1 v=2003 -226.912
+	collapsed=1 v=2001 1
+	color=2 e=0 v=3003 0.0,0.0,0.0,0.0
+	group=6
+	ISC=0
+	OSC=6
+		SVT=5001 3003 1 
+		CC=0
+		SVT=5001 3002 2 
+		CC=1
+			C=13 1 2 17 0 1 0
+			CPC=0
+		SVT=5001 2003 3 
+		CC=0
+		SVT=5001 2003 4 
+		CC=0
+		SVT=5001 2003 5 
+		CC=0
+		SVT=5001 2003 6 
+		CC=0
+#NT=10100 1 Desaturate Color-Hw Shader Nodes-Lighting
+	PC=11
+	name=1 v=5000 _DesaturateColor
+	version=1 v=2003 1.66
+	posx=1 v=2003 8.58708
+	posy=1 v=2003 -163.32
+	classname=1 v=5000 Desaturate Color
+	submenuname=1 v=5000 Lighting
+	bitmapnodeindex=1 v=2002 2
+	helpid=1 v=2002 7
+	grpnodecolor=1 v=5012 7
+	grpPosX=1 v=2003 -478.425
+	grpPosY=1 v=2003 -90.3726
+	group=6
+	ISC=2
+		SVT=5001 3002 0 0 0 _Color
+		SVT=5001 1002 0 0 0 
+	OSC=2
+		SVT=5001 2003 0 _DesaturateColor
+		CC=1
+			C=14 0 0 8 1 0 0
+			CPC=0
+		SVT=5001 1002 0 
+		CC=0
+#NT=20109 0
+	PC=2
+	posx=1 v=2003 -541.114
+	posy=1 v=2003 -423.465
+	group=6
+	ISC=2
+		SVT=5001 2003 1 0 0 
+		SVT=5001 2003 2 0 0 
+	OSC=1
+		SVT=5001 2003 3 
+		CC=2
+			C=15 0 3 7 0 1 0
+			CPC=0
+			C=15 0 3 10 0 1 0
+			CPC=0
+#NT=20017 0
+	PC=5
+	name=1 v=5000 DefaultReflectionMask
+	posx=1 v=2003 -797.395
+	posy=1 v=2003 -384.263
+	collapsed=1 v=2001 1
+	value=2 e=0 v=2003 0.0
+	group=6
+	ISC=0
+	OSC=1
+		SVT=5001 2003 1 
+		CC=1
+			C=16 0 1 15 0 1 0
+			CPC=0
+#NT=20109 0
+	PC=2
+	posx=1 v=2003 -548.472
+	posy=1 v=2003 -230.89
+	group=6
+	ISC=2
+		SVT=5001 3002 1 0 0 
+		SVT=5001 3002 2 0 0 
+	OSC=1
+		SVT=5001 3002 3 
+		CC=1
+			C=17 0 3 7 1 2 0
+			CPC=0
+#NT=20109 0
+	PC=2
+	posx=1 v=2003 -562.585
+	posy=1 v=2003 120.649
+	group=6
+	ISC=2
+		SVT=5001 3002 1 0 0 
+		SVT=5001 3002 2 0 0 
+	OSC=1
+		SVT=5001 3002 3 
+		CC=1
+			C=18 0 3 9 1 2 0
+			CPC=0
+#NT=20011 0
+	PC=5
+	name=1 v=5000 NoAlbedo
+	posx=1 v=2003 -774.004
+	posy=1 v=2003 118.456
+	collapsed=1 v=2001 1
+	color=2 e=0 v=3003 0.0,0.0,0.0,1.0
+	group=6
+	ISC=0
+	OSC=6
+		SVT=5001 3003 1 
+		CC=0
+		SVT=5001 3002 2 
+		CC=1
+			C=19 1 2 18 0 1 0
+			CPC=0
+		SVT=5001 2003 3 
+		CC=0
+		SVT=5001 2003 4 
+		CC=0
+		SVT=5001 2003 5 
+		CC=0
+		SVT=5001 2003 6 
+		CC=0
+#NT=10100 0
+	PC=13
+	name=1 v=5000 InsideLightLoop
+	posx=1 v=2003 59.6747
+	posy=1 v=2003 62.2499
+	grpPosX=1 v=2003 -1473.0
+	grpPosY=1 v=2003 115.5
+	options_Specular=2 e=1 v=5012 0
+	options_Diffuse=2 e=1 v=5012 0
+	value_TranslucencyDistortion=2 e=1100 v=2003 0.2
+	value_TranslucencyPower=2 e=1101 v=2003 3.0
+	value_TranslucencyMinimum=2 e=1102 v=2003 0.0
+	color_TranslucencyOuter=2 e=1104 v=3003 1.0,0.64,0.25,1.0
+	color_TranslucencyMedium=2 e=1105 v=3003 1.0,0.21,0.14,1.0
+	color_TranslucencyInner=2 e=1106 v=3003 0.25,0.05,0.02,1.0
+	group=1
+	ISC=14
+		SVT=5001 2003 0 0 0 _AmbientOcclusion
+		SVT=5001 3002 0 0 0 Normal
+		SVT=5001 2003 0 0 0 _SpecularPower
+		SVT=5001 3002 0 0 0 _SpecularColor
+		SVT=5001 3002 0 0 0 _ObjectThickness
+		SVT=5001 3002 0 0 0 _AlbedoColor
+		SVT=5001 2003 0 0 0 Opacity
+		SVT=5001 2003 0 0 0 _BlendedNormal
+		SVT=5001 2003 0 0 0 _BlendedNormalMask
+		SVT=5001 3002 0 0 0 _AnisotropicDirection
+		SVT=5001 3002 0 0 0 _AnisotropicColor
+		SVT=5001 3001 0 0 0 _AnisotropicSpread
+		SVT=5001 2003 0 0 0 _Weight
+		SVT=1001 1002 0 0 0 
+	OSC=14
+		SVT=5001 2003 0 _AmbientOcclusion
+		CC=1
+			C=20 0 0 65 1 2 0
+			CPC=3
+			cx=-885.985
+			cy=-268.039
+			cm=1
+		SVT=5001 3002 0 Normal
+		CC=3
+			C=20 1 0 35 0 0 0
+			CPC=0
+			C=20 1 0 50 1 0 0
+			CPC=0
+			C=20 1 0 57 0 0 0
+			CPC=0
+		SVT=5001 2003 0 _SpecularPower
+		CC=1
+			C=20 2 0 57 1 0 0
+			CPC=0
+		SVT=5001 3002 0 _SpecularColor
+		CC=1
+			C=20 3 0 57 2 0 0
+			CPC=0
+		SVT=5001 3002 0 _ObjectThickness
+		CC=1
+			C=20 4 0 35 2 0 0
+			CPC=0
+		SVT=5001 3002 0 _AlbedoColor
+		CC=3
+			C=20 5 0 24 0 0 0
+			CPC=3
+			cx=-639.46
+			cy=-86.4927
+			cm=1
+			C=20 5 0 35 3 0 0
+			CPC=0
+			C=20 5 0 50 0 0 0
+			CPC=0
+		SVT=5001 2003 0 Opacity
+		CC=2
+			C=20 6 0 34 1 2 0
+			CPC=0
+			C=20 6 0 67 1 2 0
+			CPC=0
+		SVT=5001 2003 0 _BlendedNormal
+		CC=1
+			C=20 7 0 50 2 0 0
+			CPC=0
+		SVT=5001 2003 0 _BlendedNormalMask
+		CC=1
+			C=20 8 0 50 3 0 0
+			CPC=0
+		SVT=5001 3002 0 _AnisotropicDirection
+		CC=1
+			C=20 9 0 57 3 0 0
+			CPC=0
+		SVT=5001 3002 0 _AnisotropicColor
+		CC=1
+			C=20 10 0 57 5 0 0
+			CPC=0
+		SVT=5001 3001 0 _AnisotropicSpread
+		CC=1
+			C=20 11 0 57 4 0 0
+			CPC=0
+		SVT=5001 2003 0 _Weight
+		CC=1
+			C=20 12 0 27 1 2 0
+			CPC=3
+			cx=-118.746
+			cy=648.923
+			cm=1
+		SVT=1001 1002 0 
+		CC=0
+#NT=20016 0
+	PC=3
+	name=1 v=5000 DiffuseLightIntensity
+	posx=1 v=2003 -712.163
+	posy=1 v=2003 59.9346
+	group=20
+	ISC=2
+		SVT=5001 3002 1 0 0 
+		SVT=5001 3002 2 0 0 
+	OSC=1
+		SVT=5001 3002 3 
+		CC=1
+			C=21 0 3 29 1 2 0
+			CPC=0
+#NT=10100 1 IsAmbientLight-Hw Shader Nodes-Lighting
+	PC=11
+	name=1 v=5000 _IsAmbientLight
+	version=1 v=2003 1.03
+	posx=1 v=2003 403.549
+	posy=1 v=2003 -217.798
+	classname=1 v=5000 IsAmbientLight
+	submenuname=1 v=5000 Lighting
+	isadvanced=1 v=2001 1
+	helpid=1 v=2002 60
+	grpnodecolor=1 v=5012 10
+	grpPosX=1 v=2003 -711.0
+	grpPosY=1 v=2003 -67.5
+	group=20
+	ISC=2
+		SVT=5001 2002 0 0 0 _LightType
+		SVT=5001 1002 0 0 0 
+	OSC=2
+		SVT=5001 2001 0 _IsAmbientLight
+		CC=1
+			C=22 0 0 23 0 1 0
+			CPC=0
+		SVT=5001 1002 0 
+		CC=0
+#NT=20163 0
+	PC=3
+	name=1 v=5000 IfAmbientLight
+	posx=1 v=2003 684.21
+	posy=1 v=2003 -117.013
+	group=20
+	ISC=4
+		SVT=5001 2001 1 0 0 
+		SVT=5001 3003 2 0 0 
+		SVT=5001 3003 3 0 0 
+		SVT=5001 1003 5 0 0 
+	OSC=1
+		SVT=5001 3003 4 
+		CC=1
+			C=23 0 4 27 0 1 0
+			CPC=0
+#NT=10100 1 LightAmbient-Hw Shader Nodes-Lighting
+	PC=12
+	name=1 v=5000 LightAmbient
+	version=1 v=2003 1.01
+	posx=1 v=2003 -385.066
+	posy=1 v=2003 -151.264
+	classname=1 v=5000 LightAmbient
+	submenuname=1 v=5000 Lighting
+	bitmapnodeindex=1 v=2002 6
+	isadvanced=1 v=2001 1
+	helpid=1 v=2002 70
+	grpnodecolor=1 v=5012 10
+	grpPosX=1 v=2003 -816.621
+	grpPosY=1 v=2003 -268.095
+	group=20
+	ISC=2
+		SVT=5001 3002 0 0 0 _AlbedoColor
+		SVT=5001 1002 0 0 0 
+	OSC=2
+		SVT=5001 3002 0 _LightColor
+		CC=1
+			C=24 0 0 64 1 2 0
+			CPC=0
+		SVT=5001 1002 0 
+		CC=0
+#NT=20026 0
+	PC=3
+	name=1 v=5000 Diffuse_Spec
+	posx=1 v=2003 80.4814
+	posy=1 v=2003 227.926
+	group=20
+	ISC=2
+		SVT=5001 3002 1 0 0 
+		SVT=5001 3002 2 0 0 
+	OSC=1
+		SVT=5001 3002 3 
+		CC=1
+			C=25 0 3 32 4 5 0
+			CPC=0
+#NT=20016 0
+	PC=3
+	name=1 v=5000 SpecLightIntensity
+	posx=1 v=2003 -701.83
+	posy=1 v=2003 452.472
+	group=20
+	ISC=2
+		SVT=5001 3002 1 0 0 
+		SVT=5001 3002 2 0 0 
+	OSC=1
+		SVT=5001 3002 3 
+		CC=2
+			C=26 0 3 25 1 2 0
+			CPC=0
+			C=26 0 3 31 0 0 0
+			CPC=0
+#NT=20164 0
+	PC=3
+	name=1 v=5000 ApplyWeight
+	posx=1 v=2003 949.7
+	posy=1 v=2003 74.1307
+	group=20
+	ISC=2
+		SVT=5001 3003 1 0 0 
+		SVT=5001 2003 2 0 0 
+	OSC=1
+		SVT=5001 3003 3 
+		CC=1
+			C=27 0 3 49 0 0 0
+			CPC=0
+#NT=10100 1 LightContribution-Hw Shader Nodes-Lighting
+	PC=12
+	name=1 v=5000 LightContribution
+	version=1 v=2003 1.03
+	posx=1 v=2003 -1049.61
+	posy=1 v=2003 312.35
+	classname=1 v=5000 LightContribution
+	submenuname=1 v=5000 Lighting
+	bitmapnodeindex=1 v=2002 6
+	isadvanced=1 v=2001 1
+	helpid=1 v=2002 54
+	grpnodecolor=1 v=5012 10
+	grpPosX=1 v=2003 -840.697
+	grpPosY=1 v=2003 14.3023
+	group=20
+	ISC=3
+		SVT=5001 3002 0 0 0 _VertexWorldPosition
+		SVT=5001 3002 0 0 0 _LightVectorUN
+		SVT=1001 1002 0 0 0 
+	OSC=2
+		SVT=5001 3002 0 _Light
+		CC=2
+			C=28 0 0 26 0 1 0
+			CPC=0
+			C=28 0 0 21 1 2 0
+			CPC=0
+		SVT=1001 1002 0 
+		CC=0
+#NT=20026 0
+	PC=3
+	name=1 v=5000 AddTranslucency
+	posx=1 v=2003 -387.661
+	posy=1 v=2003 47.8866
+	group=20
+	ISC=2
+		SVT=5001 3002 1 0 0 
+		SVT=5001 3002 2 0 0 
+	OSC=1
+		SVT=5001 3002 3 
+		CC=1
+			C=29 0 3 34 0 1 0
+			CPC=0
+#NT=20133 0
+	PC=4
+	posx=1 v=2003 -1242.27
+	posy=1 v=2003 -189.416
+	collapsed=1 v=2001 1
+	lightindex=2 e=0 v=2002 2
+	group=20
+	ISC=1
+		SVT=2002 2002 1 0 0 
+	OSC=1
+		SVT=5001 2003 2 
+		CC=1
+			C=30 0 2 35 1 0 0
+			CPC=0
+#NT=10100 1 Desaturate Color-Hw Shader Nodes-Lighting
+	PC=11
+	name=1 v=5000 _DesaturateColor
+	version=1 v=2003 1.66
+	posx=1 v=2003 -181.45
+	posy=1 v=2003 458.398
+	classname=1 v=5000 Desaturate Color
+	submenuname=1 v=5000 Lighting
+	bitmapnodeindex=1 v=2002 2
+	helpid=1 v=2002 7
+	grpnodecolor=1 v=5012 7
+	grpPosX=1 v=2003 -478.425
+	grpPosY=1 v=2003 -90.3726
+	group=20
+	ISC=2
+		SVT=5001 3002 0 0 0 _Color
+		SVT=5001 1002 0 0 0 
+	OSC=2
+		SVT=5001 2003 0 _DesaturateColor
+		CC=1
+			C=31 0 0 32 5 6 0
+			CPC=0
+		SVT=5001 1002 0 
+		CC=0
+#NT=20020 0
+	PC=3
+	name=1 v=5000 Color_Alpha
+	posx=1 v=2003 395.757
+	posy=1 v=2003 183.744
+	group=20
+	ISC=6
+		SVT=5001 2003 1 0 0 
+		SVT=5001 2003 2 0 0 
+		SVT=5001 3001 3 0 0 
+		SVT=5001 2003 4 0 0 
+		SVT=5001 3002 5 0 0 
+		SVT=5001 2003 6 0 0 
+	OSC=3
+		SVT=5001 3001 7 
+		CC=0
+		SVT=5001 3002 8 
+		CC=0
+		SVT=5001 3003 9 
+		CC=1
+			C=32 2 9 23 2 3 0
+			CPC=0
+#NT=20020 0
+	PC=4
+	posx=1 v=2003 402.418
+	posy=1 v=2003 -88.4741
+	collapsed=1 v=2001 1
+	w=1 v=2003 0.0
+	group=20
+	ISC=6
+		SVT=5001 2003 1 0 0 
+		SVT=5001 2003 2 0 0 
+		SVT=5001 3001 3 0 0 
+		SVT=5001 2003 4 0 0 
+		SVT=5001 3002 5 0 0 
+		SVT=5001 2003 6 0 0 
+	OSC=3
+		SVT=5001 3001 7 
+		CC=0
+		SVT=5001 3002 8 
+		CC=0
+		SVT=5001 3003 9 
+		CC=1
+			C=33 2 9 23 1 2 0
+			CPC=0
+#NT=20016 0
+	PC=3
+	name=1 v=5000 PreMultipliedAlpha
+	posx=1 v=2003 -147.232
+	posy=1 v=2003 190.641
+	group=20
+	ISC=2
+		SVT=5001 3002 1 0 0 
+		SVT=5001 2003 2 0 0 
+	OSC=1
+		SVT=5001 3002 3 
+		CC=1
+			C=34 0 3 25 0 1 0
+			CPC=0
+#NT=10100 0
+	PC=11
+	name=1 v=5000 Translucency
+	posx=1 v=2003 -1008.17
+	posy=1 v=2003 -239.715
+	grpPosX=1 v=2003 -684.899
+	grpPosY=1 v=2003 -217.613
+	value_TranslucencyDistortion=2 e=1100 v=2003 0.2
+	value_TranslucencyPower=2 e=1101 v=2003 3.0
+	value_TranslucencyMinimum=2 e=1102 v=2003 0.0
+	color_TranslucencyOuter=2 e=1104 v=3003 1.0,0.64,0.25,1.0
+	color_TranslucencyMedium=2 e=1105 v=3003 1.0,0.21,0.14,1.0
+	color_TranslucencyInner=2 e=1106 v=3003 0.25,0.05,0.02,1.0
+	group=20
+	ISC=5
+		SVT=5001 3002 0 0 0 Normal
+		SVT=5001 2003 0 0 0 _LightScale
+		SVT=5001 3002 0 0 0 _ObjectThickness
+		SVT=5001 3002 0 0 0 _AlbedoColor
+		SVT=1001 1002 0 0 0 
+	OSC=5
+		SVT=5001 3002 0 Normal
+		CC=1
+			C=35 0 0 36 0 0 0
+			CPC=3
+			cx=-322.416
+			cy=-357.544
+			cm=1
+		SVT=5001 2003 0 _LightScale
+		CC=1
+			C=35 1 0 36 4 0 0
+			CPC=0
+		SVT=5001 3002 0 _ObjectThickness
+		CC=2
+			C=35 2 0 36 6 0 0
+			CPC=3
+			cx=-315.956
+			cy=-14.1804
+			cm=1
+			C=35 2 0 47 0 1 0
+			CPC=3
+			cx=-96.3333
+			cy=-396.333
+			cm=1
+		SVT=5001 3002 0 _AlbedoColor
+		CC=1
+			C=35 3 0 36 7 0 0
+			CPC=3
+			cx=-326.292
+			cy=21.1996
+			cm=1
+		SVT=1001 1002 0 
+		CC=0
+#NT=10100 1 Translucency-Hw Shader Nodes-Lighting
+	PC=12
+	name=1 v=5000 _Translucency
+	version=1 v=2003 1.77
+	posx=1 v=2003 -113.337
+	posy=1 v=2003 -289.395
+	classname=1 v=5000 Translucency
+	submenuname=1 v=5000 Lighting
+	bitmapnodeindex=1 v=2002 6
+	isadvanced=1 v=2001 1
+	helpid=1 v=2002 20
+	grpnodecolor=1 v=5012 10
+	grpPosX=1 v=2003 -844.088
+	grpPosY=1 v=2003 34.9463
+	group=35
+	ISC=10
+		SVT=5001 3002 0 0 0 _Normal
+		SVT=5001 3002 0 0 0 _LightVector
+		SVT=5001 2003 0 0 0 _Distortion
+		SVT=5001 2003 0 0 0 _Power
+		SVT=5001 2003 0 0 0 _LightScale
+		SVT=5001 2003 0 0 0 _Minimum
+		SVT=5001 3002 0 0 0 _ObjectThickness
+		SVT=5001 3002 0 0 0 _AlbedoColor
+		SVT=5001 3002 0 0 0 _CameraVector
+		SVT=5001 1002 0 0 0 
+	OSC=2
+		SVT=5001 3002 0 _Translucency
+		CC=1
+			C=36 0 0 45 0 1 0
+			CPC=0
+		SVT=1001 1002 0 
+		CC=0
+#NT=20017 0
+	PC=6
+	name=1 v=5000 TranslucencyDistortion
+	posx=1 v=2003 -381.537
+	posy=1 v=2003 -318.421
+	collapsed=1 v=2001 1
+	value=2 e=1100 v=2003 0.2
+	defineinheader=2 e=0 v=2001 1
+	group=35
+	ISC=0
+	OSC=1
+		SVT=5001 2003 1 
+		CC=1
+			C=37 0 1 36 2 0 0
+			CPC=0
+#NT=20017 0
+	PC=6
+	name=1 v=5000 TranslucencyPower
+	posx=1 v=2003 -383.436
+	posy=1 v=2003 -233.952
+	collapsed=1 v=2001 1
+	value=2 e=1101 v=2003 3.0
+	defineinheader=2 e=0 v=2001 1
+	group=35
+	ISC=0
+	OSC=1
+		SVT=5001 2003 1 
+		CC=1
+			C=38 0 1 36 3 0 0
+			CPC=0
+#NT=20017 0
+	PC=6
+	name=1 v=5000 TranslucencyMinimum
+	posx=1 v=2003 -375.225
+	posy=1 v=2003 -107.771
+	collapsed=1 v=2001 1
+	value=2 e=1102 v=2003 0.0
+	defineinheader=2 e=0 v=2001 1
+	group=35
+	ISC=0
+	OSC=1
+		SVT=5001 2003 1 
+		CC=1
+			C=39 0 1 36 5 0 0
+			CPC=0
+#NT=20011 0
+	PC=6
+	name=1 v=5000 TranslucencyOuter
+	posx=1 v=2003 117.137
+	posy=1 v=2003 -118.787
+	collapsed=1 v=2001 1
+	color=2 e=1104 v=3003 1.0,0.64,0.25,1.0
+	defineinheader=2 e=0 v=2001 1
+	group=35
+	ISC=0
+	OSC=6
+		SVT=5001 3003 1 
+		CC=0
+		SVT=5001 3002 2 
+		CC=1
+			C=40 1 2 44 1 0 0
+			CPC=0
+		SVT=5001 2003 3 
+		CC=0
+		SVT=5001 2003 4 
+		CC=0
+		SVT=5001 2003 5 
+		CC=0
+		SVT=5001 2003 6 
+		CC=0
+#NT=20011 0
+	PC=6
+	name=1 v=5000 TranslucencyMedium
+	posx=1 v=2003 116.904
+	posy=1 v=2003 -36.6022
+	collapsed=1 v=2001 1
+	color=2 e=1105 v=3003 1.0,0.21,0.14,1.0
+	defineinheader=2 e=0 v=2001 1
+	group=35
+	ISC=0
+	OSC=6
+		SVT=5001 3003 1 
+		CC=0
+		SVT=5001 3002 2 
+		CC=1
+			C=41 1 2 44 2 0 0
+			CPC=0
+		SVT=5001 2003 3 
+		CC=0
+		SVT=5001 2003 4 
+		CC=0
+		SVT=5001 2003 5 
+		CC=0
+		SVT=5001 2003 6 
+		CC=0
+#NT=20011 0
+	PC=6
+	name=1 v=5000 TranslucencyInner
+	posx=1 v=2003 120.088
+	posy=1 v=2003 42.4591
+	collapsed=1 v=2001 1
+	color=2 e=1106 v=3003 0.25,0.05,0.02,1.0
+	defineinheader=2 e=0 v=2001 1
+	group=35
+	ISC=0
+	OSC=6
+		SVT=5001 3003 1 
+		CC=0
+		SVT=5001 3002 2 
+		CC=1
+			C=42 1 2 44 3 0 0
+			CPC=0
+		SVT=5001 2003 3 
+		CC=0
+		SVT=5001 2003 4 
+		CC=0
+		SVT=5001 2003 5 
+		CC=0
+		SVT=5001 2003 6 
+		CC=0
+#NT=10101 0
+	PC=2
+	posx=1 v=2003 850.849
+	posy=1 v=2003 -208.537
+	group=35
+	ISC=2
+		SVT=5001 3002 0 0 0 _Translucency
+		SVT=1001 1002 0 0 0 
+	OSC=2
+		SVT=5001 3002 0 _Translucency
+		CC=1
+			C=43 0 0 29 0 1 0
+			CPC=0
+		SVT=1001 1002 0 
+		CC=0
+#NT=10100 1 Skin Depth Color-Hw Shader Nodes-Lighting
+	PC=11
+	name=1 v=5000 _SkinDepthRamp
+	version=1 v=2003 1.22
+	posx=1 v=2003 367.195
+	posy=1 v=2003 -278.608
+	classname=1 v=5000 Skin Depth Color
+	submenuname=1 v=5000 Lighting
+	isadvanced=1 v=2001 1
+	helpid=1 v=2002 37
+	grpnodecolor=1 v=5012 7
+	grpPosX=1 v=2003 -723.141
+	grpPosY=1 v=2003 -38.7102
+	group=35
+	ISC=5
+		SVT=5001 2003 0 0 0 _Translucency
+		SVT=5001 3002 0 0 0 _OuterColor
+		SVT=5001 3002 0 0 0 _MediumColor
+		SVT=5001 3002 0 0 0 _InnerColor
+		SVT=5001 1002 0 0 0 
+	OSC=2
+		SVT=5001 3002 0 _Color
+		CC=1
+			C=44 0 0 46 1 2 0
+			CPC=0
+		SVT=5001 1002 0 
+		CC=0
+#NT=20108 0
+	PC=3
+	posx=1 v=2003 99.1552
+	posy=1 v=2003 -244.407
+	collapsed=1 v=2001 1
+	group=35
+	ISC=1
+		SVT=5001 3002 1 0 0 
+	OSC=6
+		SVT=5001 2003 2 
+		CC=1
+			C=45 0 2 44 0 0 0
+			CPC=0
+		SVT=5001 2003 3 
+		CC=0
+		SVT=5001 3001 4 
+		CC=0
+		SVT=5001 2003 5 
+		CC=0
+		SVT=5001 3002 6 
+		CC=0
+		SVT=5001 2003 7 
+		CC=0
+#NT=20093 0
+	PC=2
+	posx=1 v=2003 630.0
+	posy=1 v=2003 -221.667
+	group=35
+	ISC=3
+		SVT=2001 2001 1 0 0 
+		SVT=5001 3002 2 0 0 
+		SVT=5001 3002 3 0 0 
+	OSC=1
+		SVT=5001 3002 4 
+		CC=1
+			C=46 0 4 43 0 0 0
+			CPC=0
+#NT=20113 0
+	PC=2
+	posx=1 v=2003 340.0
+	posy=1 v=2003 -463.333
+	group=35
+	ISC=1
+		SVT=5001 3002 1 0 0 
+	OSC=2
+		SVT=2001 2001 2 
+		CC=1
+			C=47 0 2 46 0 1 0
+			CPC=0
+		SVT=2001 2001 3 
+		CC=0
+#NT=20011 0
+	PC=5
+	name=1 v=5000 NoTranslucency
+	posx=1 v=2003 370.0
+	posy=1 v=2003 -100.0
+	collapsed=1 v=2001 1
+	color=2 e=0 v=3003 0.0,0.0,0.0,1.0
+	group=35
+	ISC=0
+	OSC=6
+		SVT=5001 3003 1 
+		CC=0
+		SVT=5001 3002 2 
+		CC=1
+			C=48 1 2 46 2 3 0
+			CPC=0
+		SVT=5001 2003 3 
+		CC=0
+		SVT=5001 2003 4 
+		CC=0
+		SVT=5001 2003 5 
+		CC=0
+		SVT=5001 2003 6 
+		CC=0
+#NT=10101 0
+	PC=2
+	posx=1 v=2003 1147.48
+	posy=1 v=2003 90.677
+	group=20
+	ISC=2
+		SVT=5001 3003 0 0 0 
+		SVT=1001 1002 0 0 0 
+	OSC=2
+		SVT=5001 3003 0 
+		CC=1
+			C=49 0 0 3 1 3 0
+			CPC=0
+		SVT=1001 1002 0 
+		CC=0
+#NT=10100 0
+	PC=6
+	name=1 v=5000 DiffuseMethod
+	posx=1 v=2003 -1052.08
+	posy=1 v=2003 27.0
+	grpPosX=1 v=2003 -404.105
+	grpPosY=1 v=2003 -75.3709
+	options_Diffuse=2 e=1 v=5012 0
+	group=20
+	ISC=5
+		SVT=5001 3002 0 0 0 _AlbedoColor
+		SVT=5001 3002 0 0 0 Normal
+		SVT=5001 2003 0 0 0 _BlendedNormal
+		SVT=5001 2003 0 0 0 _BlendedNormalMask
+		SVT=1001 1002 0 0 0 
+	OSC=5
+		SVT=5001 3002 0 _AlbedoColor
+		CC=2
+			C=50 0 0 51 0 0 0
+			CPC=0
+			C=50 0 0 53 0 0 0
+			CPC=0
+		SVT=5001 3002 0 Normal
+		CC=2
+			C=50 1 0 51 1 0 0
+			CPC=0
+			C=50 1 0 53 5 0 0
+			CPC=0
+		SVT=5001 2003 0 _BlendedNormal
+		CC=1
+			C=50 2 0 53 1 0 0
+			CPC=0
+		SVT=5001 2003 0 _BlendedNormalMask
+		CC=1
+			C=50 3 0 53 2 0 0
+			CPC=0
+		SVT=1001 1002 0 
+		CC=0
+#NT=10100 1 Lambert Diffuse-Hw Shader Nodes-Lighting
+	PC=12
+	name=1 v=5000 _LambertDiffuse
+	version=1 v=2003 1.27
+	posx=1 v=2003 -75.9884
+	posy=1 v=2003 -171.376
+	classname=1 v=5000 Lambert Diffuse
+	submenuname=1 v=5000 Lighting
+	bitmapnodeindex=1 v=2002 6
+	isadvanced=1 v=2001 1
+	helpid=1 v=2002 12
+	grpnodecolor=1 v=5012 10
+	grpPosX=1 v=2003 -558.425
+	grpPosY=1 v=2003 -32.4652
+	group=50
+	ISC=4
+		SVT=5001 3002 0 0 0 _AlbedoColor
+		SVT=5001 3002 0 0 0 _Normal
+		SVT=5001 3002 0 0 0 _LightVector
+		SVT=5001 1002 0 0 0 
+	OSC=2
+		SVT=5001 3002 0 _Color
+		CC=1
+			C=51 0 0 54 0 1 0
+			CPC=0
+		SVT=5001 1002 0 
+		CC=0
+#NT=10101 0
+	PC=2
+	posx=1 v=2003 450.091
+	posy=1 v=2003 9.62693
+	group=50
+	ISC=2
+		SVT=5001 3002 0 0 0 
+		SVT=1001 1002 0 0 0 
+	OSC=2
+		SVT=5001 3002 0 
+		CC=1
+			C=52 0 0 21 0 1 0
+			CPC=0
+		SVT=1001 1002 0 
+		CC=0
+#NT=10100 1 Blended Normal Diffuse-Hw Shader Nodes-Lighting
+	PC=12
+	name=1 v=5000 _BlendedNormalDiffuse
+	version=1 v=2003 1.33
+	posx=1 v=2003 -70.4414
+	posy=1 v=2003 47.0606
+	classname=1 v=5000 Blended Normal Diffuse
+	submenuname=1 v=5000 Lighting
+	bitmapnodeindex=1 v=2002 6
+	isadvanced=1 v=2001 1
+	helpid=1 v=2002 31
+	grpnodecolor=1 v=5012 10
+	grpPosX=1 v=2003 -603.029
+	grpPosY=1 v=2003 -112.457
+	group=50
+	ISC=7
+		SVT=5001 3002 0 0 0 _AlbedoColor
+		SVT=5001 2003 0 0 0 _BlendedNormal
+		SVT=5001 2003 0 0 0 _BlendedNormalMask
+		SVT=5001 3002 0 0 0 _GeometryNormal
+		SVT=5001 3002 0 0 0 _LightVector
+		SVT=5001 3002 0 0 0 _WorldNormalMap
+		SVT=5001 1002 0 0 0 
+	OSC=2
+		SVT=5001 3002 0 _Color
+		CC=1
+			C=53 0 0 54 0 1 1
+			CPC=0
+		SVT=1001 1002 0 
+		CC=0
+#NT=20128 0
+	PC=4
+	name=1 v=5000 Diffuse
+	posx=1 v=2003 184.666
+	posy=1 v=2003 -1.13395
+	exposesetting=1 v=2001 1
+	group=50
+	ISC=3
+		SVT=5001 3002 1 0 0 
+		SVT=5000 5000 4 0 0 
+		SVT=2002 2002 2 0 0 
+	OSC=1
+		SVT=5001 3002 3 
+		CC=1
+			C=54 0 3 52 0 0 0
+			CPC=0
+#NT=20167 0
+	PC=5
+	name=1 v=5000 Lambert
+	posx=1 v=2003 -68.0347
+	posy=1 v=2003 261.34
+	collapsed=1 v=2001 1
+	value=2 e=0 v=5000 Lambert
+	group=50
+	ISC=0
+	OSC=1
+		SVT=5000 5000 1 
+		CC=1
+			C=55 0 1 54 1 4 0
+			CPC=0
+#NT=20167 0
+	PC=5
+	name=1 v=5000 BlendedNormal
+	posx=1 v=2003 -71.2331
+	posy=1 v=2003 345.207
+	collapsed=1 v=2001 1
+	value=2 e=0 v=5000 BlendedNormal
+	group=50
+	ISC=0
+	OSC=1
+		SVT=5000 5000 1 
+		CC=1
+			C=56 0 1 54 1 4 1
+			CPC=0
+#NT=10100 0
+	PC=6
+	name=1 v=5000 SpecularMethod
+	posx=1 v=2003 -1051.25
+	posy=1 v=2003 465.0
+	grpPosX=1 v=2003 -549.5
+	grpPosY=1 v=2003 -80.25
+	options_Specular=2 e=1 v=5012 0
+	group=20
+	ISC=7
+		SVT=5001 3002 0 0 0 Normal
+		SVT=5001 2003 0 0 0 _SpecularPower
+		SVT=5001 3002 0 0 0 _SpecularColor
+		SVT=5001 3002 0 0 0 _AnisotropicDirection
+		SVT=5001 3001 0 0 0 _AnisotropicSpread
+		SVT=5001 3002 0 0 0 _AnisotropicColor
+		SVT=1001 1002 0 0 0 
+	OSC=7
+		SVT=5001 3002 0 Normal
+		CC=2
+			C=57 0 0 58 1 0 0
+			CPC=0
+			C=57 0 0 59 0 0 0
+			CPC=0
+		SVT=5001 2003 0 _SpecularPower
+		CC=1
+			C=57 1 0 58 3 0 0
+			CPC=0
+		SVT=5001 3002 0 _SpecularColor
+		CC=1
+			C=57 2 0 58 4 0 0
+			CPC=0
+		SVT=5001 3002 0 _AnisotropicDirection
+		CC=1
+			C=57 3 0 59 3 0 0
+			CPC=0
+		SVT=5001 3001 0 _AnisotropicSpread
+		CC=1
+			C=57 4 0 59 4 0 0
+			CPC=0
+		SVT=5001 3002 0 _AnisotropicColor
+		CC=1
+			C=57 5 0 59 5 0 0
+			CPC=0
+		SVT=1001 1002 0 
+		CC=0
+#NT=10100 1 Blinn Specular-Hw Shader Nodes-Lighting
+	PC=12
+	name=1 v=5000 _BlinnSpecular
+	version=1 v=2003 1.3
+	posx=1 v=2003 -78.86
+	posy=1 v=2003 -190.238
+	classname=1 v=5000 Blinn Specular
+	submenuname=1 v=5000 Lighting
+	bitmapnodeindex=1 v=2002 2
+	isadvanced=1 v=2001 1
+	helpid=1 v=2002 35
+	grpnodecolor=1 v=5012 10
+	grpPosX=1 v=2003 -500.529
+	grpPosY=1 v=2003 -177.385
+	group=57
+	ISC=6
+		SVT=5001 3002 0 0 0 _LightVector
+		SVT=5001 3002 0 0 0 _Normal
+		SVT=5001 3002 0 0 0 _CameraVector
+		SVT=5001 2003 0 0 0 _SpecularPower
+		SVT=5001 3002 0 0 0 _SpecularColor
+		SVT=5001 1002 0 0 0 
+	OSC=2
+		SVT=5001 3002 0 _SpecularColor
+		CC=1
+			C=58 0 0 61 0 1 0
+			CPC=0
+		SVT=5001 1002 0 
+		CC=0
+#NT=10100 1 Ward Anisotropic-Hw Shader Nodes-Lighting
+	PC=11
+	name=1 v=5000 WardAnisotropic
+	version=1 v=2003 1.02
+	posx=1 v=2003 -78.75
+	posy=1 v=2003 58.4999
+	classname=1 v=5000 Ward Anisotropic
+	submenuname=1 v=5000 Lighting
+	isadvanced=1 v=2001 1
+	helpid=1 v=2002 71
+	grpnodecolor=1 v=5012 10
+	grpPosX=1 v=2003 -672.54
+	grpPosY=1 v=2003 -162.04
+	group=57
+	ISC=7
+		SVT=5001 3002 0 0 0 Normal
+		SVT=5001 3002 0 0 0 CameraVector
+		SVT=5001 3002 0 0 0 LightVector
+		SVT=5001 3002 0 0 0 _AnisotropicDirection
+		SVT=5001 3001 0 0 0 _AnisotropicRoughness
+		SVT=5001 3002 0 0 0 _AnisotropicColor
+		SVT=1001 1002 0 0 0 
+	OSC=2
+		SVT=5001 3002 0 Specular Color
+		CC=1
+			C=59 0 0 61 0 1 1
+			CPC=0
+		SVT=1001 1002 0 
+		CC=0
+#NT=10101 0
+	PC=2
+	posx=1 v=2003 710.25
+	posy=1 v=2003 -66.5
+	group=57
+	ISC=2
+		SVT=5001 3002 0 0 0 Specular Color
+		SVT=1001 1002 0 0 0 
+	OSC=2
+		SVT=5001 3002 0 Specular Color
+		CC=1
+			C=60 0 0 26 1 2 0
+			CPC=0
+		SVT=1001 1002 0 
+		CC=0
+#NT=20128 0
+	PC=4
+	name=1 v=5000 Specular
+	posx=1 v=2003 351.25
+	posy=1 v=2003 38.8662
+	exposesetting=1 v=2001 1
+	group=57
+	ISC=3
+		SVT=5001 3002 1 0 0 
+		SVT=5000 5000 4 0 0 
+		SVT=2002 2002 2 0 0 
+	OSC=1
+		SVT=5001 3002 3 
+		CC=1
+			C=61 0 3 60 0 0 0
+			CPC=0
+#NT=20167 0
+	PC=5
+	name=1 v=5000 Blinn
+	posx=1 v=2003 -42.5
+	posy=1 v=2003 266.25
+	collapsed=1 v=2001 1
+	value=2 e=0 v=5000 Blinn
+	group=57
+	ISC=0
+	OSC=1
+		SVT=5000 5000 1 
+		CC=1
+			C=62 0 1 61 1 4 0
+			CPC=0
+#NT=20167 0
+	PC=5
+	name=1 v=5000 Anisotropic
+	posx=1 v=2003 -38.75
+	posy=1 v=2003 343.75
+	collapsed=1 v=2001 1
+	value=2 e=0 v=5000 Anisotropic
+	group=57
+	ISC=0
+	OSC=1
+		SVT=5000 5000 1 
+		CC=1
+			C=63 0 1 61 1 4 1
+			CPC=0
+#NT=20016 0
+	PC=3
+	name=1 v=5000 AmbientLightAndAO
+	posx=1 v=2003 -37.4396
+	posy=1 v=2003 -189.614
+	group=20
+	ISC=2
+		SVT=5001 2003 1 0 0 
+		SVT=5001 3002 2 0 0 
+	OSC=1
+		SVT=5001 3002 3 
+		CC=1
+			C=64 0 3 67 0 1 0
+			CPC=0
+#NT=20109 0
+	PC=3
+	name=1 v=5000 UserSuppliedAO
+	posx=1 v=2003 -388.889
+	posy=1 v=2003 -285.024
+	group=20
+	ISC=2
+		SVT=5001 2003 1 0 0 
+		SVT=5001 2003 2 0 0 
+	OSC=1
+		SVT=5001 2003 3 
+		CC=1
+			C=65 0 3 64 0 1 0
+			CPC=0
+#NT=20017 0
+	PC=4
+	name=1 v=5000 DefaultAO
+	posx=1 v=2003 -591.788
+	posy=1 v=2003 -335.749
+	collapsed=1 v=2001 1
+	group=20
+	ISC=0
+	OSC=1
+		SVT=5001 2003 1 
+		CC=1
+			C=66 0 1 65 0 1 0
+			CPC=0
+#NT=20016 0
+	PC=3
+	name=1 v=5000 PreMulAlphaAmbient
+	posx=1 v=2003 159.762
+	posy=1 v=2003 -133.81
+	group=20
+	ISC=2
+		SVT=5001 3002 1 0 0 
+		SVT=5001 2003 2 0 0 
+	OSC=1
+		SVT=5001 3002 3 
+		CC=1
+			C=67 0 3 33 4 5 0
+			CPC=0
+#NT=10100 0
+	PC=5
+	name=1 v=5000 AfterLoop
+	posx=1 v=2003 58.4616
+	posy=1 v=2003 395.139
+	grpPosX=1 v=2003 -870.711
+	grpPosY=1 v=2003 -66.1579
+	group=1
+	ISC=6
+		SVT=5001 3002 0 0 0 _Emissive
+		SVT=5001 2003 0 0 0 Opacity
+		SVT=5001 3002 0 0 0 Reflection
+		SVT=5001 2003 0 0 0 Desaturated Reflection
+		SVT=5001 3002 0 0 0 _IBL
+		SVT=1001 1002 0 0 0 
+	OSC=6
+		SVT=5001 3002 0 _Emissive
+		CC=1
+			C=68 0 0 71 1 2 0
+			CPC=0
+		SVT=5001 2003 0 Opacity
+		CC=2
+			C=68 1 0 70 1 2 0
+			CPC=3
+			cx=-275.243
+			cy=13.7096
+			cm=1
+			C=68 1 0 73 0 1 0
+			CPC=0
+		SVT=5001 3002 0 Reflection
+		CC=1
+			C=68 2 0 78 0 1 0
+			CPC=3
+			cx=-298.599
+			cy=-292.17
+			cm=1
+		SVT=5001 2003 0 Desaturated Reflection
+		CC=1
+			C=68 3 0 73 1 2 0
+			CPC=0
+		SVT=5001 3002 0 _IBL
+		CC=1
+			C=68 4 0 76 1 2 0
+			CPC=0
+		SVT=1001 1002 0 
+		CC=0
+#NT=20020 0
+	PC=6
+	name=1 v=5000 TotalAmbientAndOpacity
+	posx=1 v=2003 678.947
+	posy=1 v=2003 -151.036
+	x=1 v=2003 0.0
+	y=1 v=2003 0.0
+	z=1 v=2003 0.0
+	group=68
+	ISC=6
+		SVT=5001 2003 1 0 0 
+		SVT=5001 2003 2 0 0 
+		SVT=5001 3001 3 0 0 
+		SVT=5001 2003 4 0 0 
+		SVT=5001 3002 5 0 0 
+		SVT=5001 2003 6 0 0 
+	OSC=3
+		SVT=5001 3001 7 
+		CC=0
+		SVT=5001 3002 8 
+		CC=0
+		SVT=5001 3003 9 
+		CC=1
+			C=69 2 9 74 0 0 0
+			CPC=0
+#NT=20016 0
+	PC=3
+	name=1 v=5000 PreMultipliedAlpha
+	posx=1 v=2003 185.308
+	posy=1 v=2003 -128.597
+	group=68
+	ISC=2
+		SVT=5001 3002 1 0 0 
+		SVT=5001 2003 2 0 0 
+	OSC=1
+		SVT=5001 3002 3 
+		CC=1
+			C=70 0 3 78 1 2 0
+			CPC=0
+#NT=20109 0
+	PC=3
+	name=1 v=5000 IsEmissiveSupplied
+	posx=1 v=2003 -315.109
+	posy=1 v=2003 -251.217
+	group=68
+	ISC=2
+		SVT=5001 3002 1 0 0 
+		SVT=5001 3002 2 0 0 
+	OSC=1
+		SVT=5001 3002 3 
+		CC=1
+			C=71 0 3 75 0 1 0
+			CPC=0
+#NT=20011 0
+	PC=5
+	name=1 v=5000 DefaultEmissiveColor
+	posx=1 v=2003 -543.52
+	posy=1 v=2003 -244.061
+	collapsed=1 v=2001 1
+	color=2 e=0 v=3003 0.0,0.0,0.0,1.0
+	group=68
+	ISC=0
+	OSC=6
+		SVT=5001 3003 1 
+		CC=0
+		SVT=5001 3002 2 
+		CC=1
+			C=72 1 2 71 0 1 0
+			CPC=0
+		SVT=5001 2003 3 
+		CC=0
+		SVT=5001 2003 4 
+		CC=0
+		SVT=5001 2003 5 
+		CC=0
+		SVT=5001 2003 6 
+		CC=0
+#NT=20026 0
+	PC=3
+	name=1 v=5000 OpacityAndReflection
+	posx=1 v=2003 181.143
+	posy=1 v=2003 8.5755
+	group=68
+	ISC=2
+		SVT=5001 2003 1 0 0 
+		SVT=5001 2003 2 0 0 
+	OSC=1
+		SVT=5001 2003 3 
+		CC=1
+			C=73 0 3 69 5 6 0
+			CPC=0
+#NT=10101 0
+	PC=2
+	posx=1 v=2003 915.952
+	posy=1 v=2003 -23.3264
+	group=68
+	ISC=2
+		SVT=5001 3003 0 0 0 
+		SVT=1001 1002 0 0 0 
+	OSC=2
+		SVT=5001 3003 0 
+		CC=1
+			C=74 0 0 92 0 0 0
+			CPC=0
+		SVT=1001 1002 0 
+		CC=0
+#NT=20026 0
+	PC=3
+	name=1 v=5000 AddIBL
+	posx=1 v=2003 -99.4807
+	posy=1 v=2003 -158.904
+	group=68
+	ISC=2
+		SVT=5001 3002 1 0 0 
+		SVT=5001 3002 2 0 0 
+	OSC=1
+		SVT=5001 3002 3 
+		CC=1
+			C=75 0 3 70 0 1 0
+			CPC=0
+#NT=20109 0
+	PC=2
+	posx=1 v=2003 -320.401
+	posy=1 v=2003 -102.135
+	group=68
+	ISC=2
+		SVT=5001 3002 1 0 0 
+		SVT=5001 3002 2 0 0 
+	OSC=1
+		SVT=5001 3002 3 
+		CC=1
+			C=76 0 3 75 1 2 0
+			CPC=0
+#NT=20011 0
+	PC=5
+	name=1 v=5000 DefaultIBLColor
+	posx=1 v=2003 -550.479
+	posy=1 v=2003 -65.2171
+	collapsed=1 v=2001 1
+	color=2 e=0 v=3003 0.0,0.0,0.0,1.0
+	group=68
+	ISC=0
+	OSC=6
+		SVT=5001 3003 1 
+		CC=0
+		SVT=5001 3002 2 
+		CC=1
+			C=77 1 2 76 0 1 0
+			CPC=0
+		SVT=5001 2003 3 
+		CC=0
+		SVT=5001 2003 4 
+		CC=0
+		SVT=5001 2003 5 
+		CC=0
+		SVT=5001 2003 6 
+		CC=0
+#NT=20026 0
+	PC=3
+	name=1 v=5000 AddReflection
+	posx=1 v=2003 426.29
+	posy=1 v=2003 -235.872
+	group=68
+	ISC=2
+		SVT=5001 3002 1 0 0 
+		SVT=5001 3002 2 0 0 
+	OSC=1
+		SVT=5001 3002 3 
+		CC=1
+			C=78 0 3 69 4 5 0
+			CPC=0
+#NT=10100 0
+	PC=6
+	name=1 v=5000 Normal
+	posx=1 v=2003 -472.067
+	posy=1 v=2003 60.7013
+	grpPosX=1 v=2003 -788.114
+	grpPosY=1 v=2003 3.88739
+	value_FlipBackFaces=2 e=1 v=2001 1
+	group=1
+	ISC=2
+		SVT=5001 3002 0 0 0 _Normal
+		SVT=1001 1002 0 0 0 
+	OSC=2
+		SVT=5001 3002 0 _Normal
+		CC=1
+			C=79 0 0 86 1 2 0
+			CPC=0
+		SVT=1001 1002 0 
+		CC=0
+#NT=10101 0
+	PC=2
+	posx=1 v=2003 606.609
+	posy=1 v=2003 36.782
+	group=79
+	ISC=2
+		SVT=5001 3002 0 0 0 Normal
+		SVT=1001 1002 0 0 0 
+	OSC=2
+		SVT=5001 3002 0 Normal
+		CC=2
+			C=80 0 0 20 1 0 0
+			CPC=0
+			C=80 0 0 3 0 2 3
+			CPC=3
+			cx=92.509
+			cy=16.2882
+			cm=1
+		SVT=1001 1002 0 
+		CC=0
+#NT=20116 0
+	PC=5
+	name=1 v=5000 FlipBackFaces
+	posx=1 v=2003 105.521
+	posy=1 v=2003 -128.87
+	collapsed=1 v=2001 1
+	exposesetting=1 v=2001 1
+	group=79
+	ISC=0
+	OSC=2
+		SVT=2001 2001 1 
+		CC=1
+			C=81 0 1 85 0 1 0
+			CPC=0
+		SVT=2001 2001 2 
+		CC=0
+#NT=20146 0
+	PC=3
+	posx=1 v=2003 -96.9326
+	posy=1 v=2003 96.4904
+	collapsed=1 v=2001 1
+	group=79
+	ISC=0
+	OSC=1
+		SVT=5001 2001 1 
+		CC=1
+			C=82 0 1 83 2 3 0
+			CPC=0
+#NT=20031 0
+	PC=3
+	name=1 v=5000 FlippedNormals
+	posx=1 v=2003 108.685
+	posy=1 v=2003 -32.5059
+	group=79
+	ISC=3
+		SVT=5001 3002 1 0 0 
+		SVT=5001 3002 2 0 0 
+		SVT=5001 2001 3 0 0 
+	OSC=1
+		SVT=5001 3002 4 
+		CC=1
+			C=83 0 4 85 1 2 0
+			CPC=0
+#NT=20112 0
+	PC=3
+	posx=1 v=2003 -97.8936
+	posy=1 v=2003 -76.3527
+	collapsed=1 v=2001 1
+	group=79
+	ISC=1
+		SVT=5001 3002 1 0 0 
+	OSC=1
+		SVT=5001 3002 2 
+		CC=1
+			C=84 0 2 83 0 1 0
+			CPC=0
+#NT=20093 0
+	PC=3
+	note=1 v=5000 flip backfacing normals for nicer double sided lighting
+	posx=1 v=2003 335.191
+	posy=1 v=2003 -3.93538
+	group=79
+	ISC=3
+		SVT=2001 2001 1 0 0 
+		SVT=5001 3002 2 0 0 
+		SVT=5001 3002 3 0 0 
+	OSC=1
+		SVT=5001 3002 4 
+		CC=1
+			C=85 0 4 80 0 0 0
+			CPC=0
+#NT=20109 0
+	PC=2
+	posx=1 v=2003 -378.968
+	posy=1 v=2003 -50.3973
+	group=79
+	ISC=2
+		SVT=5001 3002 1 0 0 
+		SVT=5001 3002 2 0 0 
+	OSC=1
+		SVT=5001 3002 3 
+		CC=3
+			C=86 0 3 84 0 1 0
+			CPC=0
+			C=86 0 3 83 1 2 0
+			CPC=0
+			C=86 0 3 85 2 3 0
+			CPC=0
+#NT=10100 1 Vertex World Normal-Hw Shader Nodes-Inputs Common
+	PC=11
+	name=1 v=5000 _WorldNormal
+	version=1 v=2003 1.66
+	posx=1 v=2003 -590.179
+	posy=1 v=2003 -70.3916
+	classname=1 v=5000 Vertex World Normal
+	submenuname=1 v=5000 Inputs Common
+	bitmapnodeindex=1 v=2002 60
+	helpid=1 v=2002 26
+	grpnodecolor=1 v=5012 5
+	grpPosX=1 v=2003 -947.761
+	grpPosY=1 v=2003 -80.2239
+	group=79
+	ISC=0
+	OSC=3
+		SVT=5001 3002 0 _WorldNormal
+		CC=1
+			C=87 0 0 86 0 1 0
+			CPC=0
+		SVT=5001 3003 0 _WorldNormalVertShader
+		CC=0
+		SVT=5001 1002 0 
+		CC=0
+#NT=20023 0
+	PC=3
+	name=1 v=5000 ClampOpacity
+	posx=1 v=2003 -380.0
+	posy=1 v=2003 582.035
+	group=1
+	ISC=1
+		SVT=5001 2003 1 0 0 
+	OSC=1
+		SVT=5001 2003 2 
+		CC=3
+			C=88 0 2 20 6 0 0
+			CPC=0
+			C=88 0 2 68 1 0 0
+			CPC=0
+			C=88 0 2 3 0 2 4
+			CPC=3
+			cx=231.294
+			cy=662.744
+			cm=1
+#NT=10100 1 Camera Vector-Hw Shader Nodes-Inputs Common
+	PC=11
+	name=1 v=5000 _CameraVec
+	version=1 v=2003 1.66
+	posx=1 v=2003 53.8976
+	posy=1 v=2003 -140.214
+	classname=1 v=5000 Camera Vector
+	submenuname=1 v=5000 Inputs Common
+	bitmapnodeindex=1 v=2002 67
+	helpid=1 v=2002 2
+	grpnodecolor=1 v=5012 5
+	grpPosX=1 v=2003 -753.732
+	grpPosY=1 v=2003 -123.134
+	group=1
+	ISC=0
+	OSC=3
+		SVT=5001 3002 0 _CameraVector
+		CC=0
+		SVT=5001 3002 0 _Normalized
+		CC=1
+			C=89 1 0 3 0 2 7
+			CPC=0
+		SVT=5001 1002 0 
+		CC=0
+#NT=20113 0
+	PC=3
+	posx=1 v=2003 -591.102
+	posy=1 v=2003 710.727
+	collapsed=1 v=2001 1
+	group=1
+	ISC=1
+		SVT=5001 2003 1 0 0 
+	OSC=2
+		SVT=2001 2001 2 
+		CC=1
+			C=90 0 2 3 3 5 0
+			CPC=3
+			cx=190.423
+			cy=743.101
+			cm=1
+		SVT=2001 2001 3 
+		CC=0
+#NT=20175 0
+	PC=3
+	posx=1 v=2003 -123.2
+	posy=1 v=2003 547.15
+	text=1 v=5000 closure color GetTGSSClosure(color Emissive, color DiffuseColor, color SpecularColor, float SpecularPower, int SpecularModel, color AnisotropicSpread, color Opacity, color Normal)\n{\n    N = vector(Normal);\n    color white = 1;\n\n    closure color specularClosure = 0;\n    if(SpecularModel == 0) { \n        if(SpecularPower > 1000)\n            specularClosure = reflection(N);\n        else\n            specularClosure = phong(N, SpecularPower);\n    } else {\n        specularClosure = ward(N, normalize(dPdu), AnisotropicSpread[0], AnisotropicSpread[1]);\n    }\n\n    closure color tgssClosure = (emission() * Emissive * M_PI) + (diffuse(N) * DiffuseColor * clamp(Opacity, 0, 1)) + (specularClosure * SpecularColor) + (transparent() * clamp(white - Opacity, 0, 1));\n    \n    return tgssClosure;\n}\n\nCi =GetTGSSClosure( [[ INPUT = Emissive ? color(0) ]], [[ INPUT = DiffuseColor ? color(0.5) ]], [[ INPUT = SpecularColor ? color(1) ]], [[ INPUT = SpecularPower ? 100 ]], [[ PROP = options_Specular ]], [[ INPUT = AnisotropicSpread ? color(1) ]], color([[ INPUT = Opacity ? 1 ]]), [[ INPUT = Normal ? color(N) ]] )\n
+	group=1
+	ISC=0
+	OSC=0
+#NT=10100 1 Beast Lighting-Hw Shader Nodes-Lighting
+	PC=14
+	name=1 v=5000 StreamLightData
+	version=1 v=2003 1.02
+	posx=1 v=2003 335.98
+	posy=1 v=2003 508.061
+	classname=1 v=5000 Beast Lighting
+	submenuname=1 v=5000 Lighting
+	isadvanced=1 v=2001 1
+	helpid=1 v=2002 83
+	grpnodecolor=1 v=5012 10
+	grpPosX=1 v=2003 -2017.72
+	grpPosY=1 v=2003 -183.221
+	value_UseStreamLightData=2 e=1500 v=2001 0
+	value_BakedLightColorSet=2 e=1502 v=5000 BakedLightColorSet
+	value_BakedLightColorSetUnshared=2 e=1503 v=2001 1
+	group=1
+	ISC=3
+		SVT=5001 3003 0 0 0 AfterLoop
+		SVT=5001 3002 0 0 0 _AlbedoColor
+		SVT=1001 1002 0 0 0 
+	OSC=2
+		SVT=5001 3003 0 
+		CC=1
+			C=92 0 0 3 2 4 0
+			CPC=0
+		SVT=1001 1002 0 
+		CC=0
+#NT=20011 0
+	PC=5
+	name=1 v=5000 BaseColor
+	posx=1 v=2003 1973.79
+	posy=1 v=2003 304.786
+	color=2 e=0 v=3003 0.0,0.42069,1.0,1.0
+	defineinheader=2 e=0 v=2001 1
+	group=-1
+	ISC=0
+	OSC=6
+		SVT=5001 3003 1 
+		CC=0
+		SVT=5001 3002 2 
+		CC=1
+			C=93 1 2 118 0 1 0
+			CPC=0
+		SVT=5001 2003 3 
+		CC=0
+		SVT=5001 2003 4 
+		CC=0
+		SVT=5001 2003 5 
+		CC=0
+		SVT=5001 2003 6 
+		CC=0
+#NT=10100 1 Vertex World Normal-Hw Shader Nodes-Inputs Common
+	PC=11
+	name=1 v=5000 _WorldNormal
+	version=1 v=2003 1.66
+	posx=1 v=2003 -1072.57
+	posy=1 v=2003 261.31
+	classname=1 v=5000 Vertex World Normal
+	submenuname=1 v=5000 Inputs Common
+	bitmapnodeindex=1 v=2002 60
+	helpid=1 v=2002 26
+	grpnodecolor=1 v=5012 5
+	grpPosX=1 v=2003 -947.761
+	grpPosY=1 v=2003 -80.2239
+	group=-1
+	ISC=0
+	OSC=3
+		SVT=5001 3002 0 _WorldNormal
+		CC=1
+			C=94 0 0 95 0 1 0
+			CPC=0
+		SVT=5001 3003 0 _WorldNormalVertShader
+		CC=0
+		SVT=5001 1002 0 
+		CC=0
+#NT=20021 0
+	PC=2
+	posx=1 v=2003 -872.0
+	posy=1 v=2003 273.0
+	group=-1
+	ISC=1
+		SVT=5001 3002 1 0 0 
+	OSC=1
+		SVT=5001 3002 2 
+		CC=1
+			C=95 0 2 96 0 1 0
+			CPC=0
+#NT=20018 0
+	PC=2
+	posx=1 v=2003 -429.0
+	posy=1 v=2003 436.75
+	group=-1
+	ISC=2
+		SVT=5001 3002 1 0 0 
+		SVT=5001 3002 2 0 0 
+	OSC=1
+		SVT=5001 2003 3 
+		CC=1
+			C=96 0 3 99 0 1 0
+			CPC=0
+#NT=20017 0
+	PC=5
+	name=1 v=5000 Fresnel
+	posx=1 v=2003 514.571
+	posy=1 v=2003 470.476
+	value=2 e=0 v=2003 0.859
+	defineinheader=2 e=0 v=2001 1
+	group=-1
+	ISC=0
+	OSC=1
+		SVT=5001 2003 1 
+		CC=1
+			C=97 0 1 103 0 1 0
+			CPC=0
+#NT=10100 1 Camera Vector-Hw Shader Nodes-Inputs Common
+	PC=11
+	name=1 v=5000 _CameraVec
+	version=1 v=2003 1.66
+	posx=1 v=2003 -1038.64
+	posy=1 v=2003 508.997
+	classname=1 v=5000 Camera Vector
+	submenuname=1 v=5000 Inputs Common
+	bitmapnodeindex=1 v=2002 67
+	helpid=1 v=2002 2
+	grpnodecolor=1 v=5012 5
+	grpPosX=1 v=2003 -753.732
+	grpPosY=1 v=2003 -123.134
+	group=-1
+	ISC=0
+	OSC=3
+		SVT=5001 3002 0 _CameraVector
+		CC=0
+		SVT=5001 3002 0 _Normalized
+		CC=1
+			C=98 1 0 96 1 2 0
+			CPC=0
+		SVT=5001 1002 0 
+		CC=0
+#NT=20052 0
+	PC=2
+	posx=1 v=2003 -75.8889
+	posy=1 v=2003 504.556
+	group=-1
+	ISC=2
+		SVT=5001 2003 1 0 0 
+		SVT=5001 2003 2 0 0 
+	OSC=1
+		SVT=5001 2003 3 
+		CC=1
+			C=99 0 3 102 1 2 0
+			CPC=0
+#NT=20017 0
+	PC=3
+	posx=1 v=2003 -439.0
+	posy=1 v=2003 760.0
+	value=2 e=0 v=2003 0.0
+	group=-1
+	ISC=0
+	OSC=1
+		SVT=5001 2003 1 
+		CC=1
+			C=100 0 1 99 1 2 0
+			CPC=0
+#NT=20017 0
+	PC=2
+	posx=1 v=2003 -101.111
+	posy=1 v=2003 855.556
+	group=-1
+	ISC=0
+	OSC=1
+		SVT=5001 2003 1 
+		CC=1
+			C=101 0 1 102 0 1 0
+			CPC=0
+#NT=20022 0
+	PC=2
+	posx=1 v=2003 225.556
+	posy=1 v=2003 617.778
+	group=-1
+	ISC=2
+		SVT=5001 2003 1 0 0 
+		SVT=5001 2003 2 0 0 
+	OSC=1
+		SVT=5001 2003 3 
+		CC=1
+			C=102 0 3 107 0 1 0
+			CPC=0
+#NT=20016 0
+	PC=2
+	posx=1 v=2003 788.857
+	posy=1 v=2003 648.714
+	group=-1
+	ISC=2
+		SVT=5001 2003 1 0 0 
+		SVT=5001 2003 2 0 0 
+	OSC=1
+		SVT=5001 2003 3 
+		CC=1
+			C=103 0 3 105 0 1 0
+			CPC=0
+#NT=20017 0
+	PC=3
+	posx=1 v=2003 544.0
+	posy=1 v=2003 879.0
+	value=2 e=0 v=2003 -6.0
+	group=-1
+	ISC=0
+	OSC=1
+		SVT=5001 2003 1 
+		CC=1
+			C=104 0 1 103 1 2 0
+			CPC=0
+#NT=20026 0
+	PC=2
+	posx=1 v=2003 1097.22
+	posy=1 v=2003 657.778
+	group=-1
+	ISC=2
+		SVT=5001 2003 1 0 0 
+		SVT=5001 2003 2 0 0 
+	OSC=1
+		SVT=5001 2003 3 
+		CC=1
+			C=105 0 3 107 1 2 0
+			CPC=0
+#NT=20017 0
+	PC=3
+	posx=1 v=2003 873.333
+	posy=1 v=2003 887.778
+	value=2 e=0 v=2003 6.0
+	group=-1
+	ISC=0
+	OSC=1
+		SVT=5001 2003 1 
+		CC=1
+			C=106 0 1 105 1 2 0
+			CPC=0
+#NT=20055 0
+	PC=2
+	posx=1 v=2003 1392.22
+	posy=1 v=2003 550.0
+	group=-1
+	ISC=2
+		SVT=5001 2003 1 0 0 
+		SVT=5001 2003 2 0 0 
+	OSC=1
+		SVT=5001 2003 3 
+		CC=2
+			C=107 0 3 115 0 1 0
+			CPC=0
+			C=107 0 3 116 0 1 0
+			CPC=0
+#NT=20017 0
+	PC=5
+	name=1 v=5000 GlowPower
+	posx=1 v=2003 616.25
+	posy=1 v=2003 1245.5
+	value=2 e=0 v=2003 0.563
+	defineinheader=2 e=0 v=2001 1
+	group=-1
+	ISC=0
+	OSC=1
+		SVT=5001 2003 1 
+		CC=1
+			C=108 0 1 109 0 1 0
+			CPC=0
+#NT=20016 0
+	PC=2
+	posx=1 v=2003 888.774
+	posy=1 v=2003 1289.88
+	group=-1
+	ISC=2
+		SVT=5001 2003 1 0 0 
+		SVT=5001 2003 2 0 0 
+	OSC=1
+		SVT=5001 2003 3 
+		CC=1
+			C=109 0 3 111 0 1 0
+			CPC=0
+#NT=20017 0
+	PC=3
+	posx=1 v=2003 552.917
+	posy=1 v=2003 1374.17
+	value=2 e=0 v=2003 2.0
+	group=-1
+	ISC=0
+	OSC=1
+		SVT=5001 2003 1 
+		CC=1
+			C=110 0 1 109 1 2 0
+			CPC=0
+#NT=20026 0
+	PC=2
+	posx=1 v=2003 1163.97
+	posy=1 v=2003 1377.03
+	group=-1
+	ISC=2
+		SVT=5001 2003 1 0 0 
+		SVT=5001 2003 2 0 0 
+	OSC=1
+		SVT=5001 2003 3 
+		CC=1
+			C=111 0 3 114 1 2 0
+			CPC=0
+#NT=20017 0
+	PC=2
+	posx=1 v=2003 904.42
+	posy=1 v=2003 1558.42
+	group=-1
+	ISC=0
+	OSC=1
+		SVT=5001 2003 1 
+		CC=1
+			C=112 0 1 111 1 2 0
+			CPC=0
+#NT=20011 0
+	PC=5
+	name=1 v=5000 GlowColor
+	posx=1 v=2003 566.667
+	posy=1 v=2003 1765.0
+	color=2 e=0 v=3003 0.301471,0.56643,1.0,1.0
+	defineinheader=2 e=0 v=2001 1
+	group=-1
+	ISC=0
+	OSC=6
+		SVT=5001 3003 1 
+		CC=0
+		SVT=5001 3002 2 
+		CC=1
+			C=113 1 2 114 0 1 0
+			CPC=0
+		SVT=5001 2003 3 
+		CC=0
+		SVT=5001 2003 4 
+		CC=0
+		SVT=5001 2003 5 
+		CC=0
+		SVT=5001 2003 6 
+		CC=0
+#NT=20016 0
+	PC=2
+	posx=1 v=2003 1526.11
+	posy=1 v=2003 1666.11
+	group=-1
+	ISC=2
+		SVT=5001 3002 1 0 0 
+		SVT=5001 2003 2 0 0 
+	OSC=1
+		SVT=5001 3002 3 
+		CC=1
+			C=114 0 3 118 1 2 0
+			CPC=0
+#NT=20031 0
+	PC=2
+	posx=1 v=2003 2007.5
+	posy=1 v=2003 566.25
+	group=-1
+	ISC=3
+		SVT=5001 2003 1 0 0 
+		SVT=5001 2003 2 0 0 
+		SVT=5001 2001 3 0 0 
+	OSC=1
+		SVT=5001 2003 4 
+		CC=1
+			C=115 0 4 118 2 3 0
+			CPC=0
+#NT=20123 0
+	PC=2
+	posx=1 v=2003 1672.5
+	posy=1 v=2003 753.75
+	group=-1
+	ISC=1
+		SVT=5001 2003 1 0 0 
+	OSC=1
+		SVT=5001 2003 2 
+		CC=1
+			C=116 0 2 115 1 2 0
+			CPC=0
+#NT=20088 0
+	PC=5
+	name=1 v=5000 Invert
+	posx=1 v=2003 1620.0
+	posy=1 v=2003 1008.75
+	value=2 e=0 v=2001 0
+	defineinheader=2 e=0 v=2001 1
+	group=-1
+	ISC=0
+	OSC=1
+		SVT=5001 2001 1 
+		CC=1
+			C=117 0 1 115 2 3 0
+			CPC=0
+#NT=20031 0
+	PC=2
+	posx=1 v=2003 2438.29
+	posy=1 v=2003 632.857
+	group=-1
+	ISC=3
+		SVT=5001 3002 1 0 0 
+		SVT=5001 3002 2 0 0 
+		SVT=5001 2003 3 0 0 
+	OSC=1
+		SVT=5001 3002 4 
+		CC=1
+			C=118 0 4 1 3 0 0
+			CPC=0
+#NT=20017 0
+	PC=3
+	posx=1 v=2003 2655.71
+	posy=1 v=2003 14.6032
+	value=2 e=0 v=2003 0.0
+	group=-1
+	ISC=0
+	OSC=1
+		SVT=5001 2003 1 
+		CC=1
+			C=119 0 1 1 4 0 0
+			CPC=0
+#NT=20011 0
+	PC=3
+	posx=1 v=2003 2561.11
+	posy=1 v=2003 166.667
+	color=2 e=0 v=3003 0.0,0.0,0.0,1.0
+	group=-1
+	ISC=0
+	OSC=6
+		SVT=5001 3003 1 
+		CC=0
+		SVT=5001 3002 2 
+		CC=1
+			C=120 1 2 1 5 0 0
+			CPC=0
+		SVT=5001 2003 3 
+		CC=0
+		SVT=5001 2003 4 
+		CC=0
+		SVT=5001 2003 5 
+		CC=0
+		SVT=5001 2003 6 
+		CC=0

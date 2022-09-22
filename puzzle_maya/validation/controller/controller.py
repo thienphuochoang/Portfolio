@@ -15,7 +15,7 @@ import maya.mel as mel
 import maya.cmds as cmds
 
 mayaMainWindowPtr = omui.MQtUtil.mainWindow() 
-mayaMainWindow = wrapInstance(long(mayaMainWindowPtr), QtWidgets.QWidget)  # create a maya Main window
+mayaMainWindow = wrapInstance(int(mayaMainWindowPtr), QtWidgets.QWidget)  # create a maya Main window
 	
 def import_file(str_module):
 	"""import a module from string"""
@@ -399,12 +399,7 @@ class MainValidationWindow(QtWidgets.QMainWindow, ui_file.Ui_MainWindowValidatio
 		self.MainWindowFunction.resetAllToDefault(wrapperDict, iconPath, self.progressBar, self.lbValidationResult)
 '''
 
-ui_file = r"{}\{}\Lib\ui\Validation_UI.ui".format(path_project, name_project)
-itemCheck_uiFile = r"{}\{}\Lib\ui\Validation_ItemCheck_UI.ui".format(path_project, name_project)
-addons_uiFile = r"{}\{}\Lib\ui\Validation_Addons_UI.ui".format(path_project, name_project)
-iconPath = r"{}\{}\Lib\icon".format(path_project, name_project)
-presetPath = r"{}\{}\{}\validation\app\src\preset".format(path_project, name_project, application)
-collapsiblePath = r"{}\{}\{}\validation\app\res".format(path_project, name_project, application)
+
 	
 #import module function
 fmPath = r"{}.{}.validation.app.res.controller".format(name_project, application)

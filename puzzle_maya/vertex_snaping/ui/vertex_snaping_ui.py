@@ -1,46 +1,61 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'D:/WIP_Portfolio/puzzle_maya/vertex_snaping/ui/vertex_snaping_ui.ui',
-# licensing of 'D:/WIP_Portfolio/puzzle_maya/vertex_snaping/ui/vertex_snaping_ui.ui' applies.
-#
-# Created: Thu Jun 17 00:36:05 2021
-#      by: pyside2-uic  running on PySide2 5.13.2
-#
-# WARNING! All changes made in this file will be lost!
+################################################################################
+## Form generated from reading UI file 'vertex_snaping_ui.ui'
+##
+## Created by: Qt User Interface Compiler version 5.15.2
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
 
-from PySide2 import QtCore, QtGui, QtWidgets
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
+
 
 class Ui_VertexSnapingMainWindow(object):
     def setupUi(self, VertexSnapingMainWindow):
-        VertexSnapingMainWindow.setObjectName("VertexSnapingMainWindow")
+        if not VertexSnapingMainWindow.objectName():
+            VertexSnapingMainWindow.setObjectName(u"VertexSnapingMainWindow")
         VertexSnapingMainWindow.resize(206, 74)
-        self.centralwidget = QtWidgets.QWidget(VertexSnapingMainWindow)
-        self.centralwidget.setObjectName("centralwidget")
-        self.gridLayout_2 = QtWidgets.QGridLayout(self.centralwidget)
-        self.gridLayout_2.setObjectName("gridLayout_2")
-        self.spnThreshold = QtWidgets.QDoubleSpinBox(self.centralwidget)
-        self.spnThreshold.setMaximum(100000000.0)
-        self.spnThreshold.setProperty("value", 1.0)
-        self.spnThreshold.setObjectName("spnThreshold")
+        self.centralwidget = QWidget(VertexSnapingMainWindow)
+        self.centralwidget.setObjectName(u"centralwidget")
+        self.gridLayout_2 = QGridLayout(self.centralwidget)
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.spnThreshold = QDoubleSpinBox(self.centralwidget)
+        self.spnThreshold.setObjectName(u"spnThreshold")
+        self.spnThreshold.setMaximum(100000000.000000000000000)
+        self.spnThreshold.setValue(1.000000000000000)
+
         self.gridLayout_2.addWidget(self.spnThreshold, 0, 1, 1, 1)
-        self.thresholdLabel = QtWidgets.QLabel(self.centralwidget)
-        self.thresholdLabel.setFrameShape(QtWidgets.QFrame.NoFrame)
-        self.thresholdLabel.setObjectName("thresholdLabel")
+
+        self.thresholdLabel = QLabel(self.centralwidget)
+        self.thresholdLabel.setObjectName(u"thresholdLabel")
+        self.thresholdLabel.setFrameShape(QFrame.NoFrame)
+
         self.gridLayout_2.addWidget(self.thresholdLabel, 0, 0, 1, 1)
-        self.btnMergeToCenter = QtWidgets.QPushButton(self.centralwidget)
-        self.btnMergeToCenter.setObjectName("btnMergeToCenter")
+
+        self.btnMergeToCenter = QPushButton(self.centralwidget)
+        self.btnMergeToCenter.setObjectName(u"btnMergeToCenter")
+
         self.gridLayout_2.addWidget(self.btnMergeToCenter, 1, 1, 1, 1)
-        self.btnSnapToClosestVertex = QtWidgets.QPushButton(self.centralwidget)
-        self.btnSnapToClosestVertex.setObjectName("btnSnapToClosestVertex")
+
+        self.btnSnapToClosestVertex = QPushButton(self.centralwidget)
+        self.btnSnapToClosestVertex.setObjectName(u"btnSnapToClosestVertex")
+
         self.gridLayout_2.addWidget(self.btnSnapToClosestVertex, 1, 0, 1, 1)
+
         VertexSnapingMainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(VertexSnapingMainWindow)
-        QtCore.QMetaObject.connectSlotsByName(VertexSnapingMainWindow)
+
+        QMetaObject.connectSlotsByName(VertexSnapingMainWindow)
+    # setupUi
 
     def retranslateUi(self, VertexSnapingMainWindow):
-        VertexSnapingMainWindow.setWindowTitle(QtWidgets.QApplication.translate("VertexSnapingMainWindow", "Vertex Snaping Main Window", None, -1))
-        self.thresholdLabel.setText(QtWidgets.QApplication.translate("VertexSnapingMainWindow", "Threshold", None, -1))
-        self.btnMergeToCenter.setText(QtWidgets.QApplication.translate("VertexSnapingMainWindow", "Merge To Center", None, -1))
-        self.btnSnapToClosestVertex.setText(QtWidgets.QApplication.translate("VertexSnapingMainWindow", "Snap To Closest", None, -1))
+        VertexSnapingMainWindow.setWindowTitle(QCoreApplication.translate("VertexSnapingMainWindow", u"Vertex Snaping Main Window", None))
+        self.thresholdLabel.setText(QCoreApplication.translate("VertexSnapingMainWindow", u"Threshold", None))
+        self.btnMergeToCenter.setText(QCoreApplication.translate("VertexSnapingMainWindow", u"Merge To Center", None))
+        self.btnSnapToClosestVertex.setText(QCoreApplication.translate("VertexSnapingMainWindow", u"Snap To Closest", None))
+    # retranslateUi
 

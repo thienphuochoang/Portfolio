@@ -47,7 +47,7 @@ class ProcessHook():
 		self.hookSocket.connect(('localhost', pid))
 
 	def send_command(self, command):
-		print self.hookSocket.send(command)
+		self.hookSocket.send(str.encode(command))
 
 	def close(self):
 		self.hookSocket.close()
@@ -63,7 +63,7 @@ class ProcessMessageSender():
 		pass
 
 	def get_str_command(self, arg):
-		return 'Print "Ahihi"'
+		return ""
 
 	def message_callable(self, *args):
 		pass
@@ -90,7 +90,7 @@ class TransformMessageSender(ProcessMessageSender):
 		try:
 			selectionList.add(self.object_name)
 		except:
-			print self.object_name + 'not exists'
+			print (self.object_name + 'not exists')
 		node = selectionList.getDependNode(0)
 		self.callback_index = OpenMaya.MNodeMessage.addNodeDirtyPlugCallback(node, self.message_callable)
 
