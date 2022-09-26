@@ -13,6 +13,11 @@ currentFilePath = os.path.dirname(os.path.abspath(__file__))
 rootPath = currentFilePath.replace("\\","/")
 rootPath = "/".join(rootPath.split("/")[:-3])
 
+# -------------------------------------------------------------------------------------
+# Need to fix the asynchronous of the stingray PBS
+
+
+
 class MatCreationFunction():
 	def __init__(self):
 		pass
@@ -107,6 +112,10 @@ class MatCreationFunction():
 
 		SGS = py.sets(renderable = True, name = materialName + '_SG')
 		py.connectAttr(PBRShader + '.outColor', SGS + '.surfaceShader', force = True)
+		# cmds.select(materialName)
+		# confirmButton = cmds.confirmDialog(title='Confirm', message='Please press OK to continue.')
+		# if (confirmButton == "Confirm"):
+		# 	cmds.select(materialName)
 		return PBRShader, SGS
 
 	def createSubstanceNode(self, substanceName , sbsarFile, fileFormat, width, height):
@@ -179,7 +188,7 @@ class MatCreationFunction():
 			cmds.connectAttr(fileNode + ".outColor", pbrShader + ".TEX_color_map")
 			cmds.setAttr(pbrShader + ".use_color_map", 1)
 
-		elif outputType == 'normal':
+		if outputType == 'normal':
 			cmds.connectAttr(fileNode + ".outColor", pbrShader + ".TEX_normal_map")
 			cmds.setAttr(pbrShader + ".use_normal_map", 1)
 
@@ -225,12 +234,14 @@ class MatCreationFunction():
 		substanceNodeName = fileNameWithoutSuffix + "_substance"
 		stingrayMatName = "MAT_" + fileNameWithoutSuffix
 		mel.eval('HypershadeWindow;')
-		pbrShader, sgGroup = self.createStingrayPBRShader(stingrayMatName, shaderFXPath)
-		substanceNode = self.createSubstanceNode(substanceNodeName, sbsarFile, fileFormat, width, height)
-
-		self.createTexture2DSubstance(substanceNode, pbrShader)
-		self.assignMatToSelection(self.correctSelection, pbrShader)
 		
+		self.substanceNode = self.createSubstanceNode(substanceNodeName, sbsarFile, fileFormat, width, height)
+		self.pbrShader, sgGroup = self.createStingrayPBRShader(stingrayMatName, shaderFXPath)
+
+
+	def connectNodeAndMat(self):
+		self.createTexture2DSubstance(self.substanceNode, self.pbrShader)
+		self.assignMatToSelection(self.correctSelection, self.pbrShader)
 
 	def createLambertForColorIDBaking(self, matName):
 		rndH = random.uniform(0.0, 1.0)
@@ -267,20 +278,17 @@ class MatCreationFunction():
 
 	def getSDShadersFromMesh(self, mesh = None): 
 		# get shader from nodes
-		try:
-			shapeNode = cmds.listRelatives(mesh, c = True, f = True)[0]
-			shadingGroup = cmds.listConnections(shapeNode, t = 'shadingEngine')
-			if not shadingGroup:
-				return
-			shaders = list()
-			for sg in shadingGroup:
-				if cmds.connectionInfo(sg + '.surfaceShader', sfd = True):
-					shader = cmds.connectionInfo(sg + '.surfaceShader', sfd = True).split('.')[0]
-					if "sd_" in shader.lower():
-						shaders.append(shader)
-			return list(set(shaders))
-		except TypeError:
-			return None
+		shapeNode = cmds.listRelatives(mesh, c = True, f = True)[0]
+		shadingGroup = cmds.listConnections(shapeNode, t = 'shadingEngine')
+		if not shadingGroup:
+			return
+		shaders = list()
+		for sg in shadingGroup:
+			if cmds.connectionInfo(sg + '.surfaceShader', sfd = True):
+				shader = cmds.connectionInfo(sg + '.surfaceShader', sfd = True).split('.')[0]
+				#if "sd_" in shader.lower():
+				shaders.append(shader)
+		return list(set(shaders))
 
 	def getColorFromMat(self, matName):
 		matColor = cmds.getAttr(matName + ".color")
@@ -320,7 +328,7 @@ class MatCreationFunction():
 	def refreshMatInListWidget(self, lwObjectSBSARMatList, AssignedSBSARMatObjectClass):
 		shaderAndMeshDataDict, thumbnailAndMeshDict = self.getShaderAndMeshDataDict()
 		if shaderAndMeshDataDict:
-			for mesh, thumbnail in thumbnailAndMeshDict.iteritems():
+			for mesh, thumbnail in thumbnailAndMeshDict.items():
 				item = QtWidgets.QListWidgetItem()
 				widget = AssignedSBSARMatObjectClass()
 				widget.changeAssetName(mesh.split("|")[-1])
@@ -332,7 +340,7 @@ class MatCreationFunction():
 	def refreshWeatherMatInListWidget(self, lwObjectSBSARWeatherEffectList, AssignedSBSARMatObjectClass):
 		meshAndWeatherThumbnailDict = self.getWeatherEffectThumbnailFromMaterialDirectory()
 		if meshAndWeatherThumbnailDict:
-			for mesh, thumbnail in meshAndWeatherThumbnailDict.iteritems():
+			for mesh, thumbnail in meshAndWeatherThumbnailDict.items():
 				item = QtWidgets.QListWidgetItem()
 				widget = AssignedSBSARMatObjectClass()
 				widget.changeAssetName(mesh.split("|")[-1])
@@ -415,6 +423,21 @@ class MatCreationFunction():
 					if sel:
 						newCreatedMat= self.createLambertForColorIDBaking(matName)
 						self.assignMatToSelection(sel, newCreatedMat)
+
+						# mel.eval('HypershadeWindow;')
+						# shaderFXPath = self.getShaderFXPath()
+						# sbsarFile = sbsFile.replace(".sbs", ".sbsar")
+						# fileNameWithoutSuffix = (sbsarFile.split("\\")[-1]).split(".")[0]
+						# substanceNodeName = fileNameWithoutSuffix + "_substance"
+						# stingrayMatName = "MAT_" + fileNameWithoutSuffix
+						
+						# self.pbrShader, sgGroup = self.createStingrayPBRShader(stingrayMatName, shaderFXPath)
+
+
+
+
+
+
 					else:
 						cmds.confirmDialog(title='Missing Selection', message='Please select at least 1 object or faces', icon="critical")
 					#self.createStingrayPBRShader("MAT_" + matName, None)
@@ -424,6 +447,7 @@ class MatCreationFunction():
 		matAndColorIDDict = {}
 		selectedMesh = self.getTransformGroupInScene()
 		assignedShaderList = self.getSDShadersFromMesh(mesh = selectedMesh)
+		print (assignedShaderList)
 		for mat in assignedShaderList:
 			matColor = self.getColorFromMat(mat)
 			matAndColorIDDict[mat] = matColor
@@ -456,7 +480,7 @@ class MatCreationFunction():
 	def getWeatherEffectThumbnailFromMaterialDirectory(self):
 		meshAndWeatherThumbnailDict = {}
 		meshAndAssignedWeatherEffectsDict = self.getAllAssignedWeatherEffectsFromScene()
-		for mesh, weatherEffectFullPathList in meshAndAssignedWeatherEffectsDict.iteritems():
+		for mesh, weatherEffectFullPathList in meshAndAssignedWeatherEffectsDict.items():
 			weatherThumbnailList = []
 			for eachWeather in weatherEffectFullPathList:
 				if "_weather_effects" in eachWeather.lower():

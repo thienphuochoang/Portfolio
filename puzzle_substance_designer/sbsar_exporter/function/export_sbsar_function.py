@@ -1,6 +1,6 @@
 import os
 import pysbs
-from pysbs.batchtools import thumbnail
+# from pysbs.batchtools import thumbnail
 currentFilePath = os.path.dirname(os.path.abspath(__file__))
 currentFilePath = currentFilePath.replace("\\","/")
 rootDirectory = "/".join((currentFilePath.split("/")[:-3]))

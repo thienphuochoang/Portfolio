@@ -115,6 +115,7 @@ class sbsarMatCreationMainWindow(QtWidgets.QMainWindow, mat_creation_mainUI.Ui_S
 
 		self.btnRemoveWeatherEffects.clicked.connect(lambda: self.removeWeatherEffectFromMesh(self.cbbWeatherEffects, self.lwObjectSBSARWeatherEffectList, AssignedSBSARMatObjectMainWindow))
 
+		self.btnConnectSubstanceNodeAndMaterial.clicked.connect(lambda: self.connectNodeAndMat())
 
 	def getFullOutputPath(self):
 		fullOutputPath = self.sbsbakerBakingFunctionInstance.getFullOutputPath()
@@ -195,6 +196,9 @@ class sbsarMatCreationMainWindow(QtWidgets.QMainWindow, mat_creation_mainUI.Ui_S
 	def createMat(self, currentSelectedMaterial):
 		self.matCreationFunctionInstance.createMat(currentSelectedMaterial)
 		self.refreshMatInListWidget(self.lwObjectSBSARMatList, AssignedSBSARMatObjectMainWindow)
+
+	def connectNodeAndMat(self):
+		self.matCreationFunctionInstance.connectNodeAndMat()
 
 	def refreshMatInListWidget(self, lwObjectSBSARMatList, sbsarMatObjectClass):
 		self.lwObjectSBSARMatList.clear()

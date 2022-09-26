@@ -43,6 +43,64 @@ class Ui_SBSARMatCreationMainWindow(object):
         self.bakingTab.setObjectName(u"bakingTab")
         self.gridLayout_6 = QGridLayout(self.bakingTab)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
+        self.gridLayout_4 = QGridLayout()
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.lbInputPath = QLabel(self.bakingTab)
+        self.lbInputPath.setObjectName(u"lbInputPath")
+
+        self.gridLayout_4.addWidget(self.lbInputPath, 1, 0, 1, 1)
+
+        self.leInputPath = QLineEdit(self.bakingTab)
+        self.leInputPath.setObjectName(u"leInputPath")
+
+        self.gridLayout_4.addWidget(self.leInputPath, 1, 1, 1, 1)
+
+        self.cbbUseUpperSettings = QCheckBox(self.bakingTab)
+        self.cbbUseUpperSettings.setObjectName(u"cbbUseUpperSettings")
+
+        self.gridLayout_4.addWidget(self.cbbUseUpperSettings, 0, 0, 1, 2)
+
+        self.lbInputName = QLabel(self.bakingTab)
+        self.lbInputName.setObjectName(u"lbInputName")
+
+        self.gridLayout_4.addWidget(self.lbInputName, 2, 0, 1, 1)
+
+        self.leInputName = QLineEdit(self.bakingTab)
+        self.leInputName.setObjectName(u"leInputName")
+
+        self.gridLayout_4.addWidget(self.leInputName, 2, 1, 1, 1)
+
+
+        self.gridLayout_6.addLayout(self.gridLayout_4, 9, 0, 1, 1)
+
+        self.horizontalLayout_6 = QHBoxLayout()
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.gbPreBake = QGroupBox(self.bakingTab)
+        self.gbPreBake.setObjectName(u"gbPreBake")
+        self.gbPreBake.setFlat(False)
+        self.gridLayout_7 = QGridLayout(self.gbPreBake)
+        self.gridLayout_7.setObjectName(u"gridLayout_7")
+        self.lbNote = QLabel(self.gbPreBake)
+        self.lbNote.setObjectName(u"lbNote")
+
+        self.gridLayout_7.addWidget(self.lbNote, 0, 0, 1, 2)
+
+
+        self.horizontalLayout_6.addWidget(self.gbPreBake)
+
+
+        self.gridLayout_6.addLayout(self.horizontalLayout_6, 5, 0, 1, 1)
+
+        self.btnBakeMeshMaps = QPushButton(self.bakingTab)
+        self.btnBakeMeshMaps.setObjectName(u"btnBakeMeshMaps")
+
+        self.gridLayout_6.addWidget(self.btnBakeMeshMaps, 7, 0, 1, 1)
+
+        self.btnCreateFileSBS = QPushButton(self.bakingTab)
+        self.btnCreateFileSBS.setObjectName(u"btnCreateFileSBS")
+
+        self.gridLayout_6.addWidget(self.btnCreateFileSBS, 10, 0, 1, 1)
+
         self.horizontalLayout_4 = QHBoxLayout()
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.lbAntiAlias = QLabel(self.bakingTab)
@@ -77,39 +135,54 @@ class Ui_SBSARMatCreationMainWindow(object):
 
         self.gridLayout_6.addLayout(self.horizontalLayout_4, 1, 0, 1, 1)
 
-        self.gridLayout_4 = QGridLayout()
-        self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.lbInputPath = QLabel(self.bakingTab)
-        self.lbInputPath.setObjectName(u"lbInputPath")
+        self.line = QFrame(self.bakingTab)
+        self.line.setObjectName(u"line")
+        self.line.setFrameShadow(QFrame.Sunken)
+        self.line.setLineWidth(1)
+        self.line.setMidLineWidth(2)
+        self.line.setFrameShape(QFrame.HLine)
 
-        self.gridLayout_4.addWidget(self.lbInputPath, 1, 0, 1, 1)
+        self.gridLayout_6.addWidget(self.line, 8, 0, 1, 1)
 
-        self.leInputPath = QLineEdit(self.bakingTab)
-        self.leInputPath.setObjectName(u"leInputPath")
+        self.horizontalLayout_5 = QHBoxLayout()
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.lbOutputName = QLabel(self.bakingTab)
+        self.lbOutputName.setObjectName(u"lbOutputName")
 
-        self.gridLayout_4.addWidget(self.leInputPath, 1, 1, 1, 1)
+        self.horizontalLayout_5.addWidget(self.lbOutputName)
 
-        self.cbbUseUpperSettings = QCheckBox(self.bakingTab)
-        self.cbbUseUpperSettings.setObjectName(u"cbbUseUpperSettings")
+        self.leOutputName = QLineEdit(self.bakingTab)
+        self.leOutputName.setObjectName(u"leOutputName")
 
-        self.gridLayout_4.addWidget(self.cbbUseUpperSettings, 0, 0, 1, 2)
-
-        self.lbInputName = QLabel(self.bakingTab)
-        self.lbInputName.setObjectName(u"lbInputName")
-
-        self.gridLayout_4.addWidget(self.lbInputName, 2, 0, 1, 1)
-
-        self.leInputName = QLineEdit(self.bakingTab)
-        self.leInputName.setObjectName(u"leInputName")
-
-        self.gridLayout_4.addWidget(self.leInputName, 2, 1, 1, 1)
+        self.horizontalLayout_5.addWidget(self.leOutputName)
 
 
-        self.gridLayout_6.addLayout(self.gridLayout_4, 9, 0, 1, 1)
+        self.gridLayout_6.addLayout(self.horizontalLayout_5, 4, 0, 1, 1)
 
         self.verticalSpacer_2 = QSpacerItem(20, 446, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout_6.addItem(self.verticalSpacer_2, 11, 0, 1, 1)
+        self.gridLayout_6.addItem(self.verticalSpacer_2, 12, 0, 1, 1)
+
+        self.horizontalLayout_9 = QHBoxLayout()
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.leNormalMap = QLineEdit(self.bakingTab)
+        self.leNormalMap.setObjectName(u"leNormalMap")
+
+        self.horizontalLayout_9.addWidget(self.leNormalMap)
+
+        self.btnBrowseNormalMap = QPushButton(self.bakingTab)
+        self.btnBrowseNormalMap.setObjectName(u"btnBrowseNormalMap")
+
+        self.horizontalLayout_9.addWidget(self.btnBrowseNormalMap)
+
+        self.cbUseLowAsHigh = QCheckBox(self.bakingTab)
+        self.cbUseLowAsHigh.setObjectName(u"cbUseLowAsHigh")
+        self.cbUseLowAsHigh.setChecked(True)
+
+        self.horizontalLayout_9.addWidget(self.cbUseLowAsHigh)
+
+
+        self.gridLayout_6.addLayout(self.horizontalLayout_9, 2, 0, 1, 1)
 
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
@@ -159,37 +232,6 @@ class Ui_SBSARMatCreationMainWindow(object):
 
         self.gridLayout_6.addLayout(self.horizontalLayout_3, 0, 0, 1, 1)
 
-        self.horizontalLayout_9 = QHBoxLayout()
-        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
-        self.leNormalMap = QLineEdit(self.bakingTab)
-        self.leNormalMap.setObjectName(u"leNormalMap")
-
-        self.horizontalLayout_9.addWidget(self.leNormalMap)
-
-        self.btnBrowseNormalMap = QPushButton(self.bakingTab)
-        self.btnBrowseNormalMap.setObjectName(u"btnBrowseNormalMap")
-
-        self.horizontalLayout_9.addWidget(self.btnBrowseNormalMap)
-
-        self.cbUseLowAsHigh = QCheckBox(self.bakingTab)
-        self.cbUseLowAsHigh.setObjectName(u"cbUseLowAsHigh")
-        self.cbUseLowAsHigh.setChecked(True)
-
-        self.horizontalLayout_9.addWidget(self.cbUseLowAsHigh)
-
-
-        self.gridLayout_6.addLayout(self.horizontalLayout_9, 2, 0, 1, 1)
-
-        self.btnBakeMeshMaps = QPushButton(self.bakingTab)
-        self.btnBakeMeshMaps.setObjectName(u"btnBakeMeshMaps")
-
-        self.gridLayout_6.addWidget(self.btnBakeMeshMaps, 7, 0, 1, 1)
-
-        self.btnCreateFileSBS = QPushButton(self.bakingTab)
-        self.btnCreateFileSBS.setObjectName(u"btnCreateFileSBS")
-
-        self.gridLayout_6.addWidget(self.btnCreateFileSBS, 10, 0, 1, 1)
-
         self.horizontalLayout_7 = QHBoxLayout()
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.lbOutputPath = QLabel(self.bakingTab)
@@ -214,39 +256,6 @@ class Ui_SBSARMatCreationMainWindow(object):
 
 
         self.gridLayout_6.addLayout(self.horizontalLayout_7, 3, 0, 1, 1)
-
-        self.horizontalLayout_5 = QHBoxLayout()
-        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
-        self.lbOutputName = QLabel(self.bakingTab)
-        self.lbOutputName.setObjectName(u"lbOutputName")
-
-        self.horizontalLayout_5.addWidget(self.lbOutputName)
-
-        self.leOutputName = QLineEdit(self.bakingTab)
-        self.leOutputName.setObjectName(u"leOutputName")
-
-        self.horizontalLayout_5.addWidget(self.leOutputName)
-
-
-        self.gridLayout_6.addLayout(self.horizontalLayout_5, 4, 0, 1, 1)
-
-        self.horizontalLayout_6 = QHBoxLayout()
-        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.gbPreBake = QGroupBox(self.bakingTab)
-        self.gbPreBake.setObjectName(u"gbPreBake")
-        self.gbPreBake.setFlat(False)
-        self.gridLayout_7 = QGridLayout(self.gbPreBake)
-        self.gridLayout_7.setObjectName(u"gridLayout_7")
-        self.lbNote = QLabel(self.gbPreBake)
-        self.lbNote.setObjectName(u"lbNote")
-
-        self.gridLayout_7.addWidget(self.lbNote, 0, 0, 1, 2)
-
-
-        self.horizontalLayout_6.addWidget(self.gbPreBake)
-
-
-        self.gridLayout_6.addLayout(self.horizontalLayout_6, 5, 0, 1, 1)
 
         self.horizontalLayout_8 = QHBoxLayout()
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
@@ -278,14 +287,10 @@ class Ui_SBSARMatCreationMainWindow(object):
 
         self.gridLayout_6.addLayout(self.horizontalLayout_8, 6, 0, 1, 1)
 
-        self.line = QFrame(self.bakingTab)
-        self.line.setObjectName(u"line")
-        self.line.setFrameShadow(QFrame.Sunken)
-        self.line.setLineWidth(1)
-        self.line.setMidLineWidth(2)
-        self.line.setFrameShape(QFrame.HLine)
+        self.btnConnectSubstanceNodeAndMaterial = QPushButton(self.bakingTab)
+        self.btnConnectSubstanceNodeAndMaterial.setObjectName(u"btnConnectSubstanceNodeAndMaterial")
 
-        self.gridLayout_6.addWidget(self.line, 8, 0, 1, 1)
+        self.gridLayout_6.addWidget(self.btnConnectSubstanceNodeAndMaterial, 11, 0, 1, 1)
 
         self.twSwitchingTab.addTab(self.bakingTab, "")
         self.materialCreationTab = QWidget()
@@ -439,7 +444,7 @@ class Ui_SBSARMatCreationMainWindow(object):
 
         self.retranslateUi(SBSARMatCreationMainWindow)
 
-        self.twSwitchingTab.setCurrentIndex(1)
+        self.twSwitchingTab.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(SBSARMatCreationMainWindow)
@@ -448,30 +453,31 @@ class Ui_SBSARMatCreationMainWindow(object):
     def retranslateUi(self, SBSARMatCreationMainWindow):
         SBSARMatCreationMainWindow.setWindowTitle(QCoreApplication.translate("SBSARMatCreationMainWindow", u"SBS Material Main Window", None))
         self.lbBakingSettings.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Substance Automation Tools", None))
-        self.lbAntiAlias.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Anti-Alias", None))
-        self.lbUvSet.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"UV Set", None))
         self.lbInputPath.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Input Path", None))
         self.cbbUseUpperSettings.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Use Upper Settings ?", None))
         self.lbInputName.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Input Name", None))
-        self.lbWidth.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Width", None))
-        self.lbHeight.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Height", None))
-        self.lbFormat.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Format", None))
-        self.leNormalMap.setPlaceholderText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Load Normal Map", None))
-        self.btnBrowseNormalMap.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Browse", None))
-        self.cbUseLowAsHigh.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Use Low As High?", None))
-        self.btnBakeMeshMaps.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"CLICK TO BAKE SELECTION!!!", None))
-        self.btnCreateFileSBS.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"CREATE FILE SBS !!!", None))
-        self.lbOutputPath.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Output Path", None))
-        self.btnBrowse.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Browse", None))
-        self.lbOutputName.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Output Name", None))
         self.gbPreBake.setTitle(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Pre-Baking", None))
         self.lbNote.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"If you have a low and high poly. Please select bake normal. High poly meshes should be put in HighPoly group\n"
 "low poly meshes should be put in LowPoly group", None))
+        self.btnBakeMeshMaps.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"CLICK TO BAKE SELECTION!!!", None))
+        self.btnCreateFileSBS.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"CREATE FILE SBS !!!", None))
+        self.lbAntiAlias.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Anti-Alias", None))
+        self.lbUvSet.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"UV Set", None))
+        self.lbOutputName.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Output Name", None))
+        self.leNormalMap.setPlaceholderText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Load Normal Map", None))
+        self.btnBrowseNormalMap.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Browse", None))
+        self.cbUseLowAsHigh.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Use Low As High?", None))
+        self.lbWidth.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Width", None))
+        self.lbHeight.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Height", None))
+        self.lbFormat.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Format", None))
+        self.lbOutputPath.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Output Path", None))
+        self.btnBrowse.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Browse", None))
         self.cbbBakeAO.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Bake AO", None))
         self.cbbBakeCurvature.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Bake Curvature", None))
         self.cbbBakeWorldSpaceNormal.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Bake World Space Normal", None))
         self.cbbBakePosition.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Bake Position", None))
         self.cbbBakeColorID.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Bake Color ID", None))
+        self.btnConnectSubstanceNodeAndMaterial.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"CONNECT SUBSTANCE NODE TO MATERIAL", None))
         self.twSwitchingTab.setTabText(self.twSwitchingTab.indexOf(self.bakingTab), QCoreApplication.translate("SBSARMatCreationMainWindow", u"Mesh Baking", None))
         self.btnRefresh.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Refresh", None))
         self.lbAssignedMaterials.setText(QCoreApplication.translate("SBSARMatCreationMainWindow", u"Assigned Materials", None))

@@ -1,0 +1,141 @@
+{
+    "ambient_occlusion": {
+        "baker": "ambient-occlusion-from-mesh",
+        "parameters": {
+            "antialiasing": 3,
+            "attenuation": 2,
+            "average-normals": true,
+            "enable-ground-plane": false,
+            "ground-offset": 0,
+            "ignore-backface-secondary": 0,
+            "max-dist": 1,
+            "max-dist-relative-scale": true,
+            "min-dist": 9.999999747378752e-06,
+            "nb-second-rays": 64,
+            "normal": "",
+            "normal-format": 0,
+            "normal-world-space": false,
+            "output-format": "png",
+            "output-size": {
+                "height": 10,
+                "width": 10
+            },
+            "ray-distrib": 1,
+            "self-occlusion": 0,
+            "spread-angle": 180,
+            "udim": "1001",
+            "uv-set": 0
+        },
+        "sbsindex": 0
+    },
+    "color_id": {
+        "baker": "color-from-mesh",
+        "parameters": {
+            "antialiasing": 3,
+            "average-normals": true,
+            "color-generator": 1,
+            "color-source": 1,
+            "output-format": "png",
+            "output-size": {
+                "height": 10,
+                "width": 10
+            },
+            "udim": "1001",
+            "uv-set": 0,
+            "use-lowdef-as-highdef": true
+        },
+        "sbsindex": 3
+    },
+    "curvature": {
+        "baker": "curvature-from-mesh-v2",
+        "parameters": {
+            "antialiasing": 3,
+            "auto-minmax": true,
+            "average-normals": true,
+            "max-dist-relative-scale": true,
+            "nb-second-rays": 32,
+            "normal": "",
+            "normal-format": 1,
+            "normal-world-space": false,
+            "output-format": "png",
+            "output-size": {
+                "height": 10,
+                "width": 10
+            },
+            "sampling-radius": 0.0010000000474974513,
+            "self-occlusion": 0,
+            "tonemapping-max": 1,
+            "tonemapping-min": -1,
+            "udim": "1001",
+            "uv-set": 0,
+            "dilation-width": 4,
+            "details": 0.25
+        },
+        "sbsindex": 1
+    },
+    "position": {
+        "baker": "position-from-mesh",
+        "parameters": {
+            "antialiasing": 3,
+            "average-normals": true,
+            "axis": 0,
+            "mode": 0,
+            "normalization": 1,
+            "normalization-scale": 1,
+            "output-format": "png",
+            "output-size": {
+                "height": 10,
+                "width": 10
+            },
+            "udim": "1001",
+            "uv-set": 0,
+            "use-lowdef-as-highdef": true,
+            "dilation-width": 4
+        },
+        "sbsindex": 4
+    },
+    "world_space_normals": {
+        "baker": "normal-world-space",
+        "parameters": {
+            "normal": "",
+            "normal-format": 1,
+            "normal-type": 0,
+            "output-format": "png",
+            "output-size": {
+                "height": 10,
+                "width": 10
+            },
+            "udim": "1001",
+            "uv-set": 0,
+            "dilation-width": 4
+        },
+        "sbsindex": 2
+    },
+    "apply-diffusion": true,
+    "average-normals": true,
+    "cage-mesh": "",
+    "dilation-width": 4,
+    "distance-with": 0,
+    "ignore-backface": true,
+    "inputs": "D:/Portfolio/Portfolio/lib/substance_designer_library/abc.fbx",
+    "invert-skew": false,
+    "match": 0,
+    "max-frontal": 0.009999999776482582,
+    "max-rear": 0.009999999776482582,
+    "output-format": "png",
+    "output-name": "{mesh}_{bakername}",
+    "output-path": "D:/Portfolio/Portfolio/lib/substance_designer_library",
+    "output-size": {
+        "height": 10,
+        "width": 10
+    },
+    "relative-to-bbox": true,
+    "sbsoutput-place-into-specific-folder": false,
+    "sbsoutput-resource-method": 1,
+    "skew-correction": false,
+    "skew-map": "",
+    "subsampling": 3,
+    "use-lowdef-as-highdef": true,
+    "uv-set": 0,
+    "uvTiles": ""
+}

@@ -5,7 +5,7 @@ from pysbs import context
 from pysbs import sbsenum
 from pysbs import sbsgenerator
 import subprocess
-
+import importlib
 currentFilePath = os.path.dirname(os.path.abspath(__file__))
 rootPath = currentFilePath.replace("\\","/")
 rootPath = "/".join(rootPath.split("/")[:-3])
@@ -87,10 +87,7 @@ class InputNodeFunction():
 
 	def connectMaterialNodeToMultiMaterialBlendNode(self, multiMatBlendNode, materialNode, index):
 		# Connect material node to multi material blend
-		try:
-			self.aGraph.connectNodes(aLeftNode = materialNode, aRightNode = multiMatBlendNode, aLeftNodeOutput = "output_base_color", aRightNodeInput = "material"+str(index)+"_basecolor")
-		except:
-			pass
+		self.aGraph.connectNodes(aLeftNode = materialNode, aRightNode = multiMatBlendNode, aLeftNodeOutput = "output_base_color", aRightNodeInput = "material"+str(index)+"_basecolor")
 
 		try:
 			self.aGraph.connectNodes(aLeftNode = materialNode, aRightNode = multiMatBlendNode, aLeftNodeOutput = "output_normal", aRightNodeInput = "material"+str(index)+"_normal")
@@ -201,7 +198,7 @@ class InputNodeFunction():
 				self.aGraph.connectNodes(aLeftNode = latestWeatherNode, aRightNode = outputNode, aLeftNodeOutput = aIdentifier)
 
 	def connectLevelNodeToWeatherEffectNode(self, weatherEffectNode, multiMatBlendNode, inputNodeDict):
-		for pattern, value in inputNodeDict.iteritems():
+		for pattern, value in inputNodeDict.items():
 			if pattern == "ambient_occlusion":
 				try:
 					self.aGraph.connectNodes(aLeftNode = multiMatBlendNode, aRightNode = weatherEffectNode, aLeftNodeOutput = "AmbientOcclusion", aRightNodeInput = rightNodeInput)
@@ -281,7 +278,7 @@ class InputNodeFunction():
 
 	def exposeImportedMaterialParameterToMainParameter(self, node, matName):
 		nodeParameterDict = self.getExposedMaterialParameter(node)
-		for importedNode, parameterDict in nodeParameterDict.iteritems():
+		for importedNode, parameterDict in nodeParameterDict.items():
 			pkgPath = importedNode.getCompInstance().mPath
 			uniqueIdentifier = (pkgPath.split("pkg:///")[-1]).split("?")[0]
 			for key, value in parameterDict.items():
@@ -430,7 +427,7 @@ class PYSBSCreationWorkflowFunction():
 
 		# Create Input Node
 		inputNodePosCount = 0
-		for nodePath, existChecked in self.checkInputNodeDict.iteritems():
+		for nodePath, existChecked in self.checkInputNodeDict.items():
 			if existChecked == True:
 				outputNameAndPattern = (nodePath.split(".")[0]).split("\\")[-1]
 				if ((self.inputName + "_" + self.ambientOcclusionKeyword) == outputNameAndPattern) or ((self.inputName + "_" + self.curvatureKeyword) == outputNameAndPattern):
@@ -464,6 +461,7 @@ class PYSBSCreationWorkflowFunction():
 
 		# Get Material color ID
 		matAndColorIDDict = self.getMatAndColorIDFromDict()
+		print (matAndColorIDDict)
 		# Create multi-material blend node
 		multiMaterialPath = self.sbsDependencyLibraryPath + "/multi_material_blend.sbs/multi_material_blend"
 		inputNode = InputNodeFunction(sbsDoc, aGraph, multiMaterialPath, startPosX + 800, startPosY, startPosZ)
@@ -473,7 +471,7 @@ class PYSBSCreationWorkflowFunction():
 		matPosCount = 200
 		if len(matAndColorIDDict) > 0:
 			index = 1
-			for matName, colorVal in matAndColorIDDict.iteritems():
+			for matName, colorVal in matAndColorIDDict.items():
 				originalMatName = "_".join((matName.split("_")[:-1]))
 				fullOriginalMatPath = self.sbsMaterialLibraryPath + "\\" + originalMatName + ".sbs"
 				inputNode = InputNodeFunction(sbsDoc, aGraph, fullOriginalMatPath, startPosX + 500, startPosY + matPosCount, startPosZ)
@@ -486,7 +484,7 @@ class PYSBSCreationWorkflowFunction():
 				# Set color ID for multi material blend node
 				inputNode.setColorIDForMultiMaterialBlendNode(index, colorVal, multiMatBlendNode)
 				
-				for pattern, value in inputNodeDict.iteritems():
+				for pattern, value in inputNodeDict.items():
 					if pattern != "color_id":
 						levelNodeOfBitmap = value[1]
 
@@ -504,7 +502,7 @@ class PYSBSCreationWorkflowFunction():
 		if len(self.meshAndAssignedWeatherEffectsDict) > 0:
 			index = 0
 			previousWeatherNode = None
-			for mesh, weatherEffectFullPathList in self.meshAndAssignedWeatherEffectsDict.iteritems():
+			for mesh, weatherEffectFullPathList in self.meshAndAssignedWeatherEffectsDict.items():
 				for eachWeather in weatherEffectFullPathList:
 					inputNode = InputNodeFunction(sbsDoc, aGraph, eachWeather, startPosX + 1200, startPosY + matPosCount, startPosZ)
 					importedWeatherEffectNode = inputNode.importMaterialNode()

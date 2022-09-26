@@ -8,6 +8,7 @@ import PySide2
 from PySide2 import QtWidgets, QtGui
 import json
 import pysbs
+import importlib
 from pysbs import context, substance, sbsenum, batchtools, sbsbakers
 currentFilePath = os.path.dirname(os.path.abspath(__file__))
 rootPath = currentFilePath.replace("\\","/")
@@ -39,6 +40,7 @@ class SBSBakerBakingFunction():
 
 	def getSATLocation(self):
 		SATLocation = rootPath + "/" + "modules" + "/" + "Lib" + "/" + "site-packages" + "/" + "substance_automation_toolkit"
+		#SATLocation = "D:/Substance_Designer/Adobe Substance 3D Designer"
 		if os.path.exists(SATLocation):
 			return SATLocation
 		else:
