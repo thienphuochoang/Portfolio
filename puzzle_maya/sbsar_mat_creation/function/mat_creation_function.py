@@ -9,9 +9,24 @@ from PySide2 import QtWidgets, QtGui
 import random
 import colorsys
 import re
+import importlib
 currentFilePath = os.path.dirname(os.path.abspath(__file__))
 rootPath = currentFilePath.replace("\\","/")
 rootPath = "/".join(rootPath.split("/")[:-3])
+
+moduleImporterPath = 'general.modules_importer.modules_importer_function'
+importerFunction = None
+
+if moduleImporterPath in sys.modules:
+	importerFunction = sys.modules[moduleImporterPath]
+	try:
+		importlib.reload(importerFunction)
+	except:
+		reload(importerFunction)
+else:
+	importerFunction = importlib.import_module(moduleImporterPath)
+
+exporter_function = importerFunction.importModule("puzzle_maya.exporter.function.exporter_function")
 
 # -------------------------------------------------------------------------------------
 # Need to fix the asynchronous of the stingray PBS
@@ -31,7 +46,7 @@ class MatCreationFunction():
 			return None
 
 	def getShaderFXPath(self):
-		shaderFXPath = rootPath + "/" + "lib" + "/" + "shader_library" + "/" + "PBR_Metallic_Roughness" + "/" + "Stingray_Standard.sfx"
+		shaderFXPath = rootPath + "/" + "lib" + "/" + "shader_library" + "/" + "puzzle_standard_opaque_shader.sfx"
 		return shaderFXPath
 
 	def updateItemsInListWidgets(self, currentSelectedMaterialType):
@@ -99,12 +114,14 @@ class MatCreationFunction():
 
 
 	def createStingrayPBRShader(self, materialName, shaderFXPath):
-
-		
+		#loadedStingrayPBRShaderName = "MAT_puzzle_standard_opaque"
 		if cmds.objExists('restoreTechniqueNode_' + materialName):
 			cmds.scriptNode('restoreTechniqueNode_' + materialName, ea = True)
 			cmds.delete('restoreTechniqueNode_' + materialName)
 
+		#shaderMayaFilePath = rootPath + "/" + "lib" + "/" + "resource" + "/" + "shader_file" + "/" + "maya_shaders_file"
+		#exporter_function.importMA(shaderMayaFilePath, "false")
+		#PBRShader = cmds.select(loadedStingrayPBRShaderName)
 		PBRShader = py.shadingNode('StingrayPBS', asShader = True, name = materialName)
 		if shaderFXPath:
 			py.shaderfx(sfxnode = PBRShader, loadGraph = shaderFXPath)
@@ -151,6 +168,7 @@ class MatCreationFunction():
 		'''
 		cmds.connectAttr(utility + '.outUV', substance + '.uvCoord')
 		cmds.connectAttr(utility + '.outUvFilterSize', substance + '.uvFilterSize')
+		cmds.select(substance)
 		return substance
 
 	def createTexture2DSubstance(self, substanceNode, pbrShader):
@@ -185,23 +203,23 @@ class MatCreationFunction():
 		fileNodeList = cmds.listConnections(outputNode, type = 'file')
 		fileNode = fileNodeList[0]
 		if outputType == 'baseColor':
-			cmds.connectAttr(fileNode + ".outColor", pbrShader + ".TEX_color_map")
+			cmds.connectAttr(fileNode + ".outColor", pbrShader + ".TEX_BaseColor_Map")
 			cmds.setAttr(pbrShader + ".use_color_map", 1)
 
 		if outputType == 'normal':
-			cmds.connectAttr(fileNode + ".outColor", pbrShader + ".TEX_normal_map")
+			cmds.connectAttr(fileNode + ".outColor", pbrShader + ".TEX_Normal_Map")
 			cmds.setAttr(pbrShader + ".use_normal_map", 1)
 
 		if outputType == 'metallic':
-			cmds.connectAttr(fileNode + ".outColor", pbrShader + ".TEX_metallic_map")
+			cmds.connectAttr(fileNode + ".outColor", pbrShader + ".TEX_Metallic_Map")
 			cmds.setAttr(pbrShader + ".use_metallic_map", 1)
 
 		if outputType == 'roughness':
-			cmds.connectAttr(fileNode + ".outColor", pbrShader + ".TEX_roughness_map")
+			cmds.connectAttr(fileNode + ".outColor", pbrShader + ".TEX_Roughness_Map")
 			cmds.setAttr(pbrShader + ".use_roughness_map", 1)
 
 		if outputType == 'ambientOcclusion':
-			cmds.connectAttr(fileNode + ".outColor", pbrShader + ".TEX_ao_map")
+			cmds.connectAttr(fileNode + ".outColor", pbrShader + ".TEX_AO_Map")
 			cmds.setAttr(pbrShader + ".use_ao_map", 1)
 
 
@@ -237,6 +255,8 @@ class MatCreationFunction():
 		
 		self.substanceNode = self.createSubstanceNode(substanceNodeName, sbsarFile, fileFormat, width, height)
 		self.pbrShader, sgGroup = self.createStingrayPBRShader(stingrayMatName, shaderFXPath)
+		self.createTexture2DSubstance(self.substanceNode, self.pbrShader)
+		self.assignMatToSelection(self.correctSelection, self.pbrShader)
 
 
 	def connectNodeAndMat(self):

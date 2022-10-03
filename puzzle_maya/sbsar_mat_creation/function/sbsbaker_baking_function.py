@@ -180,6 +180,7 @@ class SBSBakerBakingFunction():
 
 
 					self.bakeFromFilePreset(latestPresetFilePath)
+					self.renameBakedMaps(latestPresetFilePath)
 			else:
 				cmds.confirmDialog(title='Missing selection', message='Please select mesh to export', icon="critical")
 
@@ -190,6 +191,63 @@ class SBSBakerBakingFunction():
 		else:
 			cmds.confirmDialog(title='Missing default baking preset', message='Default baking preset is missing. Please check again.', icon="critical")
 			return None
+
+	def renameBakedMaps(self, latestPresetFilePath):
+		fbxFileName = ""
+		outputPath = ""
+		outputFormat = ""
+		with open(latestPresetFilePath, "r") as f:
+			data = json.load(f)
+			fbxPath = data["inputs"]
+			fbxFileName = (fbxPath.split("/")[-1]).split(".")[0]
+			outputPath = data["output-path"]
+			outputFormat = data["output-format"]
+
+		aoPath = outputPath + "/" + fbxFileName + "_ambient-occlusion-from-mesh" + "." + outputFormat
+		newAoPath = outputPath + "/" + fbxFileName + "_ambient_occlusion" + "." + outputFormat
+		if (os.path.exists(aoPath)):
+			try:
+				os.remove(newAoPath)
+			except:
+				print ("Remove old file: " + aoPath)
+				os.rename(aoPath, newAoPath)
+
+		colorIDPath = outputPath + "/" + fbxFileName + "_color-from-mesh" + "." + outputFormat
+		newColorIDPath = outputPath + "/" + fbxFileName + "_color_id" + "." + outputFormat
+		if (os.path.exists(colorIDPath)):
+			try:
+				os.remove(newColorIDPath)
+			except:
+				print ("Remove old file: " + newColorIDPath)
+			os.rename(colorIDPath, newColorIDPath)
+
+		curvaturePath = outputPath + "/" + fbxFileName + "_curvature-from-mesh-v2" + "." + outputFormat
+		newCurvaturePath = outputPath + "/" + fbxFileName + "_curvature" + "." + outputFormat
+		if (os.path.exists(curvaturePath)):
+			try:
+				os.remove(newCurvaturePath)
+			except:
+				print ("Remove old file: " + newCurvaturePath)
+			os.rename(curvaturePath, newCurvaturePath)
+
+		normalWorldSpacePath = outputPath + "/" + fbxFileName + "_normal-world-space" + "." + outputFormat
+		newNormalWorldSpacePath = outputPath + "/" + fbxFileName + "_world_space_normals" + "." + outputFormat
+		if (os.path.exists(normalWorldSpacePath)):
+			try:
+				os.remove(newNormalWorldSpacePath)
+			except:
+				print ("Remove old file: " + newNormalWorldSpacePath)
+			os.rename(normalWorldSpacePath, newNormalWorldSpacePath)
+
+		positionPath = outputPath + "/" + fbxFileName + "_position-from-mesh" + "." + outputFormat
+		newPositionPath = outputPath + "/" + fbxFileName + "_position" + "." + outputFormat
+		if (os.path.exists(positionPath)):
+			try:
+				os.remove(newPositionPath)
+			except:
+				print ("Remove old file: " + newPositionPath)
+			os.rename(positionPath, newPositionPath)
+
 
 	def removeBakerFromFileJson(self, statusList, defaultBakingPresetPath):
 		latestPresetFilePath = rootPath + "/" + "lib" + "/" + "substance_designer_library" + "/" + "presets" + "/" + "latest_baking_preset.json"

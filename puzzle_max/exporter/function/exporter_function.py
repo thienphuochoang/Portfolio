@@ -91,29 +91,32 @@ def exportIgnoreScale(Status, keepVertexNormalStatus, exportBinaryStatus, keepIn
 	#MaxPlus.Core.EvalMAXScript("units.SystemType = #"+currentUnitSetup+"")
 	
 def exportCurrentFolder():
-	currentUnitSetup = str(rt.units.SystemType)
-	exportConvertToCmScaleFactor = exportConvertToCmDict[currentUnitSetup]
-	rt.units.SystemType = rt.Name("centimeters")
-	#MaxPlus.Core.EvalMAXScript("units.SystemType = #centimeters")
-	
-	filename = rt.maxfilename.replace(".max",".fbx")
-	destination = rt.maxfilepath + filename
-	destination = destination.replace("\\","/")
-	#print destination
-	rt.FBXExporterSetParam("SmoothingGroups",True)
-	rt.FBXExporterSetParam("PreserveEdgeOrientation",False)
-	rt.FBXExporterSetParam("Animation",False)
-	rt.FBXExporterSetParam("ShowWarnings",True)
-	rt.FBXExporterSetParam("UpAxis","Y")
-	rt.FBXExporterSetParam("ConvertUnit", "cm")
-	#MaxPlus.Core.EvalMAXScript("FBXExporterSetParam "ConvertUnit" "cm'")
-	rt.FBXExporterSetParam("ScaleFactor", exportConvertToCmScaleFactor)
-	rt.FBXExporterSetParam("ASCII", True)
-	rt.FBXExporterSetParam("FileVersion","FBX201400")
-	rt.exportFile(destination, rt.Name("noPrompt"), selectedOnly = True, using = rt.FBXEXP)
-	#MaxPlus.Core.EvalMAXScript("exportfile \"" + destination.replace("\\","/") + "\" #noPrompt selectedOnly:True using:FBXEXP")
-	rt.units.SystemType = rt.Name(currentUnitSetup)
-	#MaxPlus.Core.EvalMAXScript("units.SystemType = #"+currentUnitSetup+"")
+	if (rt.maxfilename != "" and rt.maxfilepath != ""):
+		currentUnitSetup = str(rt.units.SystemType)
+		exportConvertToCmScaleFactor = exportConvertToCmDict[currentUnitSetup]
+		rt.units.SystemType = rt.Name("centimeters")
+		#MaxPlus.Core.EvalMAXScript("units.SystemType = #centimeters")
+		
+		filename = rt.maxfilename.replace(".max",".fbx")
+		destination = rt.maxfilepath + filename
+		destination = destination.replace("\\","/")
+		#print destination
+		rt.FBXExporterSetParam("SmoothingGroups",True)
+		rt.FBXExporterSetParam("PreserveEdgeOrientation",False)
+		rt.FBXExporterSetParam("Animation",False)
+		rt.FBXExporterSetParam("ShowWarnings",True)
+		rt.FBXExporterSetParam("UpAxis","Y")
+		rt.FBXExporterSetParam("ConvertUnit", "cm")
+		#MaxPlus.Core.EvalMAXScript("FBXExporterSetParam "ConvertUnit" "cm'")
+		rt.FBXExporterSetParam("ScaleFactor", exportConvertToCmScaleFactor)
+		rt.FBXExporterSetParam("ASCII", True)
+		rt.FBXExporterSetParam("FileVersion","FBX201400")
+		rt.exportFile(destination, rt.Name("noPrompt"), selectedOnly = True, using = rt.FBXEXP)
+		#MaxPlus.Core.EvalMAXScript("exportfile \"" + destination.replace("\\","/") + "\" #noPrompt selectedOnly:True using:FBXEXP")
+		rt.units.SystemType = rt.Name(currentUnitSetup)
+		#MaxPlus.Core.EvalMAXScript("units.SystemType = #"+currentUnitSetup+"")
+	else:
+		rt.messageBox("Please save your file first before exporting")
 	
 def exportFile(Status, keepVertexNormalStatus, exportBinaryStatus, keepInstanceStatus):
 	if keepVertexNormalStatus == "Off":
@@ -359,6 +362,10 @@ def fixID():
 				#MaxPlus.Core.EvalMAXScript("meditMaterials[8].materialIDList[{}] = {}".format(numMat,position))
 				numMat = numMat + 1
 	#removeIDSuffix()
+
+def exportToUnity():
+	exportCurrentFolder()
+
 				
 def exportWorkingFiles(Status, keepVertexNormalStatus, exportBinaryStatus, keepInstanceStatus):
 	if keepVertexNormalStatus == "Off":

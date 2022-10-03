@@ -8,6 +8,7 @@ import maya.cmds as cmds
 
 
 exportImportPath = r"C:/Temp_Exporter/temp"
+exportImportUnityPath = "C:/Temp_Exporter/temp_unity"
 exportImportWorkingPath = r"//glassegg.com/GROUPS/SHARE/PhuocHoang/EnvWorkingFiles/temp"
 exportSubstancePainterPath = r"C:/Temp_Exporter/temp_SubstancePainter"
 exportImportHighPath = r"C:/Temp_Exporter/temp_highpoly"
@@ -303,6 +304,10 @@ def exportFile(Status, cbBinary, cbKeepInstance):
 
 	elif Status == "Self":
 		exportMA(exportImportPath)
+
+def exportToUnity():
+	exportFBX(exportImportUnityPath, createTempGroup = False, sg="true", sm="true", 
+			ins="false", tri="false", tan="false", ascii="true")
 
 def exportFileToCurrentFolder(Status, cbBinary, cbKeepInstance):
 	filepath = cmds.file(q=True, sn=True)

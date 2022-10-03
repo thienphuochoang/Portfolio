@@ -57,7 +57,9 @@ class MainWindow(QMainWindow):
 		self.window.btnDeleteFolder.clicked.connect(partial(eif.deleteTempFolderContents))
 		self.window.btnExportSP.clicked.connect(lambda: eif.exportToSubstancePainter(self.queryKeepVertexNormalStatus()))
 		self.window.btnAddID.clicked.connect(lambda: eif.exportIgnoreScale(self.queryRadioButtonStatus(), self.queryKeepVertexNormalStatus(), self.queryExportBinaryStatus(), self.queryKeepInstanceStatus()))
-		
+		self.window.btnExportCurrentFolder.clicked.connect(lambda: eif.exportCurrentFolder())
+		self.window.btnExportToUnity.clicked.connect(lambda: eif.exportToUnity())
+
 	def changeSelfRadioButtonText(self):
 		if rt.getFileVersion("$max/3dsmax.exe") != "":
 			self.window.rbSelf.setText("Max")

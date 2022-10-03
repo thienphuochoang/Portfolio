@@ -28,10 +28,13 @@
         },
         "sbsindex": 0
     },
+    "apply-diffusion": true,
+    "average-normals": true,
+    "cage-mesh": "",
     "color_id": {
         "baker": "color-from-mesh",
         "parameters": {
-            "antialiasing": 0,
+            "antialiasing": 3,
             "average-normals": true,
             "color-generator": 1,
             "color-source": 1,
@@ -70,6 +73,21 @@
         },
         "sbsindex": 1
     },
+    "dilation-width": 4,
+    "distance-with": 0,
+    "ignore-backface": true,
+    "inputs": "D:/Portfolio/Portfolio/lib/substance_designer_library/abc.fbx",
+    "invert-skew": false,
+    "match": 0,
+    "max-frontal": 0.009999999776482582,
+    "max-rear": 0.009999999776482582,
+    "output-format": "png",
+    "output-name": "{mesh}_{bakername}",
+    "output-path": "D:/Portfolio/Portfolio/lib/substance_designer_library",
+    "output-size": {
+        "height": 10,
+        "width": 10
+    },
     "position": {
         "baker": "position-from-mesh",
         "parameters": {
@@ -89,6 +107,15 @@
         },
         "sbsindex": 4
     },
+    "relative-to-bbox": true,
+    "sbsoutput-place-into-specific-folder": false,
+    "sbsoutput-resource-method": 1,
+    "skew-correction": false,
+    "skew-map": "",
+    "subsampling": 3,
+    "use-lowdef-as-highdef": true,
+    "uv-set": 0,
+    "uvTiles": "",
     "world_space_normals": {
         "baker": "normal-world-space",
         "parameters": {
@@ -104,32 +131,5 @@
             "uv-set": 0
         },
         "sbsindex": 2
-    },
-    "apply-diffusion": true,
-    "average-normals": true,
-    "cage-mesh": "",
-    "dilation-width": 4,
-    "distance-with": 0,
-    "ignore-backface": true,
-    "inputs": "C:/Temp_Exporter/temp.fbx",
-    "invert-skew": false,
-    "match": 0,
-    "max-frontal": 0.009999999776482582,
-    "max-rear": 0.009999999776482582,
-    "output-format": "png",
-    "output-name": "{mesh}_{bakername}",
-    "output-path": "D:/Download/Substance_Library/SBS/bricks_woodcreek_mossy",
-    "output-size": {
-        "height": 10,
-        "width": 10
-    },
-    "relative-to-bbox": true,
-    "sbsoutput-place-into-specific-folder": false,
-    "sbsoutput-resource-method": 1,
-    "skew-correction": false,
-    "skew-map": "",
-    "subsampling": 3,
-    "use-lowdef-as-highdef": true,
-    "uv-set": 0,
-    "uvTiles": ""
+    }
 }

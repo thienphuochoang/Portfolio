@@ -1,20 +1,20 @@
-SFB_WUC = {  /*
+SFB_WIN = {  /*
 Version=28
-GroupVersion=-1.0
+GroupVersion=-1.000000
 Advanced=0
 HelpID=0
 ParentMaterial=0
-NumberOfNodes=36
+NumberOfNodes=42
 #NT=20189 0
 	PC=3
 	name=1 v=5000 Metallic_Map_Switch
-	posx=1 v=2003 1020.0
-	posy=1 v=2003 240.0
+	posx=1 v=2003 1020.000000
+	posy=1 v=2003 240.000000
 	group=-1
 	ISC=4
 		SVT=5022 2003 1 0 0 
 		SVT=5022 2003 2 1 0 
-		SDV=1.0
+		SDV=1.000000
 		SVT=5022 2003 3 0 1 
 		SCS=r
 		SVT=5022 2003 4 0 0 
@@ -26,17 +26,17 @@ NumberOfNodes=36
 #NT=20189 0
 	PC=3
 	name=1 v=5000 Emissive_Map_Switch
-	posx=1 v=2003 792.167
-	posy=1 v=2003 816.666
+	posx=1 v=2003 792.166992
+	posy=1 v=2003 816.666016
 	group=-1
 	ISC=4
 		SVT=5022 2003 1 0 0 
 		SVT=5022 2003 2 1 0 
-		SDV=1.0
+		SDV=1.000000
 		SVT=5022 3002 3 0 1 
 		SCS=rgb
 		SVT=5022 3002 4 1 0 
-		SDV=1.0
+		SDV=1.000000
 	OSC=1
 		SVT=5022 3002 5 
 		CC=1
@@ -45,13 +45,13 @@ NumberOfNodes=36
 #NT=20189 0
 	PC=3
 	name=1 v=5000 Color_Map_Switch
-	posx=1 v=2003 1178.0
-	posy=1 v=2003 -534.0
+	posx=1 v=2003 1178.000000
+	posy=1 v=2003 -534.000000
 	group=-1
 	ISC=4
 		SVT=5022 2003 1 0 0 
 		SVT=5022 2003 2 1 0 
-		SDV=1.0
+		SDV=1.000000
 		SVT=5022 3002 3 0 1 
 		SCS=rgb
 		SVT=5022 3002 4 0 0 
@@ -63,13 +63,13 @@ NumberOfNodes=36
 #NT=20189 0
 	PC=3
 	name=1 v=5000 Normal_Map_Switch
-	posx=1 v=2003 1150.0
-	posy=1 v=2003 -94.4445
+	posx=1 v=2003 1145.727173
+	posy=1 v=2003 -80.808182
 	group=-1
 	ISC=4
 		SVT=5022 2003 1 0 0 
 		SVT=5022 2003 2 1 0 
-		SDV=1.0
+		SDV=1.000000
 		SVT=5022 3002 3 0 0 
 		SVT=5022 3002 4 0 0 
 	OSC=1
@@ -80,13 +80,13 @@ NumberOfNodes=36
 #NT=20189 0
 	PC=3
 	name=1 v=5000 Roughness_Map_Switch
-	posx=1 v=2003 1020.0
-	posy=1 v=2003 540.0
+	posx=1 v=2003 1020.000000
+	posy=1 v=2003 540.000000
 	group=-1
 	ISC=4
 		SVT=5022 2003 1 0 0 
 		SVT=5022 2003 2 1 0 
-		SDV=1.0
+		SDV=1.000000
 		SVT=5022 2003 3 0 1 
 		SCS=r
 		SVT=5022 2003 4 0 0 
@@ -97,37 +97,40 @@ NumberOfNodes=36
 			CPC=0
 #NT=20176 0
 	PC=3
-	posx=1 v=2003 1430.0
-	posy=1 v=2003 202.5
+	posx=1 v=2003 1564.602173
+	posy=1 v=2003 239.849304
 	normalspace=2 e=0 v=5012 1
 	group=-1
-	ISC=11
+	ISC=13
 		SVT=5022 3002 1 0 0 
 		SVT=5022 3002 2 0 0 
 		SVT=5022 2003 3 0 0 
 		SVT=5022 2003 4 0 0 
-		SVT=5022 3002 5 0 0 
+		SVT=5022 3002 5 0 1 
+		SCS=xyz
 		SVT=5022 2003 6 0 0 
 		SVT=5022 2003 7 0 0 
 		SVT=5022 3002 8 0 0 
 		SVT=5022 2003 9 0 0 
 		SVT=5022 2003 10 0 0 
 		SVT=5022 2003 11 0 0 
+		SVT=5022 2003 14 0 0 
+		SVT=5022 2003 15 0 0 
 	OSC=0
 #NT=20189 0
 	PC=3
 	name=1 v=5000 Ao_Map_Swtich
-	posx=1 v=2003 1180.91
-	posy=1 v=2003 1139.09
+	posx=1 v=2003 1180.910034
+	posy=1 v=2003 1139.089966
 	group=-1
 	ISC=4
 		SVT=5022 2003 1 0 0 
 		SVT=5022 2003 2 1 0 
-		SDV=1.0
+		SDV=1.000000
 		SVT=5022 2003 3 0 1 
 		SCS=r
 		SVT=5022 2003 4 1 0 
-		SDV=1.0
+		SDV=1.000000
 	OSC=1
 		SVT=5022 2003 5 
 		CC=1
@@ -135,36 +138,20 @@ NumberOfNodes=36
 			CPC=0
 #NT=20178 0
 	PC=2
-	posx=1 v=2003 -260.0
-	posy=1 v=2003 420.0
+	posx=1 v=2003 -260.000000
+	posy=1 v=2003 420.000000
 	group=-1
 	ISC=0
 	OSC=1
 		SVT=5022 3001 1 
 		CC=1
-			C=7 0 1 25 1 2 0
-			CPC=0
-#NT=20177 0
-	PC=5
-	name=1 v=5000 Roughness_Map
-	posx=1 v=2003 693.75
-	posy=1 v=2003 508.028
-	encoding=2 e=0 v=5012 0
-	uiorder=2 e=0 v=2002 4
-	group=-1
-	ISC=2
-		SVT=5022 3001 1 0 0 
-		SVT=5022 2003 2 0 0 
-	OSC=1
-		SVT=5022 3003 3 
-		CC=1
-			C=8 0 3 4 2 3 0
+			C=7 0 1 20 1 2 0
 			CPC=0
 #NT=20185 0
 	PC=6
 	name=1 v=5000 use_color_map
-	posx=1 v=2003 696.0
-	posy=1 v=2003 -707.0
+	posx=1 v=2003 696.000000
+	posy=1 v=2003 -707.000000
 	type=2 e=0 v=5012 0
 	uitype=2 e=0 v=5012 1
 	uiorder=2 e=0 v=2002 10
@@ -173,48 +160,31 @@ NumberOfNodes=36
 	OSC=1
 		SVT=5022 2003 1 
 		CC=1
-			C=9 0 1 2 0 1 0
-			CPC=0
-#NT=20177 0
-	PC=6
-	name=1 v=5000 BaseColor_Map
-	posx=1 v=2003 491.0
-	posy=1 v=2003 -564.111
-	previewswatch=1 v=2002 1
-	texturepath=2 e=1 v=5000 C:/Users/htphu/OneDrive/Desktop\thecrew_2.jpg
-	uiorder=2 e=0 v=2002 1
-	group=-1
-	ISC=2
-		SVT=5022 3001 1 0 0 
-		SVT=5022 2003 2 0 0 
-	OSC=1
-		SVT=5022 3003 3 
-		CC=1
-			C=10 0 3 29 0 1 0
+			C=8 0 1 2 0 1 0
 			CPC=0
 #NT=20185 0
 	PC=7
 	name=1 v=5000 BaseColor
-	posx=1 v=2003 493.0
-	posy=1 v=2003 -321.0
+	posx=1 v=2003 493.000000
+	posy=1 v=2003 -321.000000
 	type=2 e=0 v=5012 2
-	defaultvecthree=2 e=0 v=3002 1.0,1.0,1.0
-	defaultvector=2 e=0 v=3003 0.5,0.5,0.5,0.0
+	defaultvecthree=2 e=0 v=3002 1.000000,1.000000,1.000000
+	defaultvector=2 e=0 v=3003 0.500000,0.500000,0.500000,0.000000
 	uiorder=2 e=0 v=2002 20
 	group=-1
 	ISC=0
 	OSC=1
 		SVT=5022 3002 1 
 		CC=2
-			C=11 0 1 2 3 4 0
+			C=9 0 1 2 3 4 0
 			CPC=0
-			C=11 0 1 29 1 2 0
+			C=9 0 1 24 1 2 0
 			CPC=0
 #NT=20185 0
 	PC=6
 	name=1 v=5000 use_normal_map
-	posx=1 v=2003 700.0
-	posy=1 v=2003 -212.111
+	posx=1 v=2003 700.000000
+	posy=1 v=2003 -212.110992
 	type=2 e=0 v=5012 0
 	uitype=2 e=0 v=5012 1
 	uiorder=2 e=0 v=2002 11
@@ -223,37 +193,407 @@ NumberOfNodes=36
 	OSC=1
 		SVT=5022 2003 1 
 		CC=1
-			C=12 0 1 3 0 1 0
+			C=10 0 1 3 0 1 0
 			CPC=0
 #NT=20194 0
 	PC=2
-	posx=1 v=2003 449.222
-	posy=1 v=2003 132.444
+	posx=1 v=2003 467.971985
+	posy=1 v=2003 76.194000
 	group=-1
 	ISC=0
 	OSC=1
 		SVT=5022 3002 1 
 		CC=1
-			C=13 0 1 3 3 4 0
+			C=11 0 1 3 3 4 0
 			CPC=0
 #NT=20195 0
 	PC=2
-	posx=1 v=2003 652.545
-	posy=1 v=2003 -104.374
+	posx=1 v=2003 -448.367706
+	posy=1 v=2003 -650.195312
 	group=-1
 	ISC=1
 		SVT=5022 3002 1 0 1 
 		SCS=rgb
 	OSC=1
 		SVT=5022 3002 2 
+		CC=2
+			C=12 0 2 30 1 2 0
+			CPC=0
+			C=12 0 2 32 0 1 0
+			CPC=0
+#NT=20185 0
+	PC=6
+	name=1 v=5000 use_metallic_map
+	posx=1 v=2003 700.000000
+	posy=1 v=2003 178.889008
+	type=2 e=0 v=5012 0
+	uitype=2 e=0 v=5012 1
+	uiorder=2 e=0 v=2002 12
+	group=-1
+	ISC=0
+	OSC=1
+		SVT=5022 2003 1 
 		CC=1
-			C=14 0 2 30 0 1 0
+			C=13 0 1 0 0 1 0
+			CPC=0
+#NT=20185 0
+	PC=6
+	name=1 v=5000 Metallic
+	posx=1 v=2003 520.000061
+	posy=1 v=2003 386.249847
+	type=2 e=0 v=5012 0
+	defaultscalar=2 e=0 v=2003 1.000000
+	uiorder=2 e=0 v=2002 21
+	group=-1
+	ISC=0
+	OSC=1
+		SVT=5022 2003 1 
+		CC=1
+			C=14 0 1 0 3 4 0
+			CPC=0
+#NT=20185 0
+	PC=6
+	name=1 v=5000 use_roughness_map
+	posx=1 v=2003 694.658997
+	posy=1 v=2003 452.524994
+	type=2 e=0 v=5012 0
+	uitype=2 e=0 v=5012 1
+	uiorder=2 e=0 v=2002 13
+	group=-1
+	ISC=0
+	OSC=1
+		SVT=5022 2003 1 
+		CC=1
+			C=15 0 1 4 0 1 0
+			CPC=0
+#NT=20185 0
+	PC=6
+	name=1 v=5000 Roughness
+	posx=1 v=2003 700.000000
+	posy=1 v=2003 640.000000
+	type=2 e=0 v=5012 0
+	defaultscalar=2 e=0 v=2003 1.000000
+	uiorder=2 e=0 v=2002 22
+	group=-1
+	ISC=0
+	OSC=1
+		SVT=5022 2003 1 
+		CC=1
+			C=16 0 1 4 3 4 0
+			CPC=0
+#NT=20185 0
+	PC=5
+	name=1 v=5000 Emissive
+	posx=1 v=2003 144.000031
+	posy=1 v=2003 927.616089
+	type=2 e=0 v=5012 2
+	uiorder=2 e=0 v=2002 23
+	group=-1
+	ISC=0
+	OSC=1
+		SVT=5022 3002 1 
+		CC=2
+			C=17 0 1 26 1 2 0
+			CPC=0
+			C=17 0 1 1 3 4 0
+			CPC=0
+#NT=20185 0
+	PC=6
+	name=1 v=5000 use_emissive_map
+	posx=1 v=2003 473.750000
+	posy=1 v=2003 695.250000
+	type=2 e=0 v=5012 0
+	uitype=2 e=0 v=5012 1
+	uiorder=2 e=0 v=2002 14
+	group=-1
+	ISC=0
+	OSC=1
+		SVT=5022 2003 1 
+		CC=1
+			C=18 0 1 1 0 1 0
+			CPC=0
+#NT=20185 0
+	PC=6
+	name=1 v=5000 use_ao_map
+	posx=1 v=2003 701.666992
+	posy=1 v=2003 1017.500000
+	type=2 e=0 v=5012 0
+	uitype=2 e=0 v=5012 1
+	uiorder=2 e=0 v=2002 15
+	group=-1
+	ISC=0
+	OSC=1
+		SVT=5022 2003 1 
+		CC=1
+			C=19 0 1 6 0 1 0
+			CPC=0
+#NT=20186 0
+	PC=2
+	posx=1 v=2003 -60.000000
+	posy=1 v=2003 400.000000
+	group=-1
+	ISC=2
+		SVT=5022 3001 1 0 0 
+		SVT=5022 3001 2 0 0 
+	OSC=1
+		SVT=5022 3001 3 
+		CC=1
+			C=20 0 3 21 1 2 0
+			CPC=0
+#NT=20187 0
+	PC=2
+	posx=1 v=2003 120.000000
+	posy=1 v=2003 400.000000
+	group=-1
+	ISC=2
+		SVT=5022 3001 1 0 0 
+		SVT=5022 3001 2 0 0 
+	OSC=1
+		SVT=5022 3001 3 
+		CC=6
+			C=21 0 3 29 0 1 0
+			CPC=0
+			C=21 0 3 37 0 1 0
+			CPC=0
+			C=21 0 3 38 0 1 0
+			CPC=0
+			C=21 0 3 39 0 1 0
+			CPC=0
+			C=21 0 3 40 0 1 0
+			CPC=0
+			C=21 0 3 41 0 1 0
+			CPC=0
+#NT=20185 0
+	PC=8
+	name=1 v=5000 uv_offset
+	posx=1 v=2003 -68.181801
+	posy=1 v=2003 302.726990
+	type=2 e=0 v=5012 1
+	defaultvectwo=2 e=0 v=3001 10.000000,10.000000
+	minrange=2 e=0 v=2003 -100001.000000
+	maxrange=2 e=0 v=2003 100001.000000
+	uiorder=2 e=0 v=2002 60
+	group=-1
+	ISC=0
+	OSC=1
+		SVT=5022 3001 1 
+		CC=1
+			C=22 0 1 21 0 1 0
+			CPC=0
+#NT=20185 0
+	PC=9
+	name=1 v=5000 uv_scale
+	posx=1 v=2003 -255.455002
+	posy=1 v=2003 315.454987
+	type=2 e=0 v=5012 1
+	defaultvectwo=2 e=0 v=3001 4.000000,4.000000
+	defaultvector=2 e=0 v=3003 1.000000,1.000000,0.000000,0.000000
+	minrange=2 e=0 v=2003 -100001.000000
+	maxrange=2 e=0 v=2003 100001.000000
+	uiorder=2 e=0 v=2002 61
+	group=-1
+	ISC=0
+	OSC=1
+		SVT=5022 3001 1 
+		CC=1
+			C=23 0 1 20 0 1 0
+			CPC=0
+#NT=20186 0
+	PC=2
+	posx=1 v=2003 766.666992
+	posy=1 v=2003 -511.110992
+	group=-1
+	ISC=2
+		SVT=5022 3002 1 0 1 
+		SCS=rgb
+		SVT=5022 3002 2 0 0 
+	OSC=1
+		SVT=5022 3002 3 
+		CC=1
+			C=24 0 3 2 2 3 0
+			CPC=0
+#NT=20185 0
+	PC=6
+	name=1 v=5000 Normal_Intensity
+	posx=1 v=2003 -1296.087402
+	posy=1 v=2003 -465.527679
+	type=2 e=0 v=5012 0
+	defaultscalar=2 e=0 v=2003 1.000000
+	uiorder=2 e=0 v=2002 21
+	group=-1
+	ISC=0
+	OSC=1
+		SVT=5022 2003 1 
+		CC=2
+			C=25 0 1 34 0 1 0
+			CPC=0
+			C=25 0 1 32 1 2 0
+			CPC=0
+#NT=20186 0
+	PC=2
+	posx=1 v=2003 471.750000
+	posy=1 v=2003 830.500000
+	group=-1
+	ISC=2
+		SVT=5022 3002 1 0 1 
+		SCS=rgb
+		SVT=5022 3002 2 0 0 
+	OSC=1
+		SVT=5022 3002 3 
+		CC=1
+			C=26 0 3 1 2 3 0
+			CPC=0
+#NT=20186 0
+	PC=2
+	posx=1 v=2003 911.666016
+	posy=1 v=2003 1236.209961
+	group=-1
+	ISC=2
+		SVT=5022 3002 1 0 1 
+		SCS=rgb
+		SVT=5022 2003 2 0 0 
+	OSC=1
+		SVT=5022 3002 3 
+		CC=1
+			C=27 0 3 6 2 3 0
+			CPC=0
+#NT=20185 0
+	PC=6
+	name=1 v=5000 AO_Intensity
+	posx=1 v=2003 672.486023
+	posy=1 v=2003 1408.680054
+	type=2 e=0 v=5012 0
+	defaultscalar=2 e=0 v=2003 1.000000
+	uiorder=2 e=0 v=2002 15
+	group=-1
+	ISC=0
+	OSC=1
+		SVT=5022 2003 1 
+		CC=1
+			C=28 0 1 27 1 2 0
+			CPC=0
+#NT=20177 0
+	PC=4
+	name=1 v=5000 Emissive_Map
+	posx=1 v=2003 221.250000
+	posy=1 v=2003 758.388977
+	uiorder=2 e=0 v=2002 5
+	group=-1
+	ISC=2
+		SVT=5022 3001 1 0 0 
+		SVT=5022 2003 2 0 0 
+	OSC=1
+		SVT=5022 3003 3 
+		CC=1
+			C=29 0 3 26 0 1 0
+			CPC=0
+#NT=20184 0
+	PC=2
+	posx=1 v=2003 -187.249985
+	posy=1 v=2003 -380.388977
+	group=-1
+	ISC=3
+		SVT=5022 2003 1 0 0 
+		SVT=5022 2003 2 0 1 
+		SCS=b
+		SVT=5022 2003 3 0 1 
+		SCS=r
+	OSC=1
+		SVT=5022 2003 4 
+		CC=1
+			C=30 0 4 35 2 3 0
+			CPC=0
+#NT=20196 0
+	PC=2
+	posx=1 v=2003 -489.166840
+	posy=1 v=2003 -373.750183
+	group=-1
+	ISC=1
+		SVT=5022 2003 1 1 0 
+		SDV=1.000000
+	OSC=1
+		SVT=5022 2003 2 
+		CC=1
+			C=31 0 2 30 0 1 0
+			CPC=0
+#NT=20186 0
+	PC=2
+	posx=1 v=2003 -177.555069
+	posy=1 v=2003 -184.222214
+	group=-1
+	ISC=2
+		SVT=5022 3001 1 0 1 
+		SCS=rg
+		SVT=5022 2003 2 0 0 
+	OSC=1
+		SVT=5022 3001 3 
+		CC=2
+			C=32 0 3 35 0 1 0
+			CPC=0
+			C=32 0 3 35 1 2 0
+			CPC=0
+#NT=20196 0
+	PC=2
+	posx=1 v=2003 -412.045441
+	posy=1 v=2003 -114.356064
+	group=-1
+	ISC=1
+		SVT=5022 2003 1 1 0 
+		SDV=3.000000
+	OSC=1
+		SVT=5022 2003 2 
+		CC=1
+			C=33 0 2 36 1 2 0
+			CPC=0
+#NT=20193 0
+	PC=2
+	posx=1 v=2003 -920.833252
+	posy=1 v=2003 -321.527802
+	group=-1
+	ISC=3
+		SVT=5022 2003 1 0 0 
+		SVT=5022 2003 2 1 0 
+		SDV=1.000000
+		SVT=5022 2003 3 1 0 
+		SDV=0.000000
+	OSC=1
+		SVT=5022 2003 4 
+		CC=1
+			C=34 0 4 30 2 3 0
+			CPC=0
+#NT=20203 0
+	PC=2
+	posx=1 v=2003 100.250000
+	posy=1 v=2003 -235.250000
+	group=-1
+	ISC=3
+		SVT=5022 2003 1 0 0 
+		SVT=5022 2003 2 0 1 
+		SCS=y
+		SVT=5022 2003 3 0 0 
+	OSC=1
+		SVT=5022 3002 4 
+		CC=1
+			C=35 0 4 36 0 1 0
+			CPC=0
+#NT=20186 0
+	PC=2
+	posx=1 v=2003 408.560791
+	posy=1 v=2003 -94.343292
+	group=-1
+	ISC=2
+		SVT=5022 3002 1 0 0 
+		SVT=5022 2003 2 0 0 
+	OSC=1
+		SVT=5022 3002 3 
+		CC=1
+			C=36 0 3 3 2 3 0
 			CPC=0
 #NT=20177 0
 	PC=5
 	name=1 v=5000 Normal_Map
-	posx=1 v=2003 440.0
-	posy=1 v=2003 -60.0
+	posx=1 v=2003 -876.285522
+	posy=1 v=2003 -690.916931
 	encoding=2 e=0 v=5012 2
 	uiorder=2 e=0 v=2002 2
 	group=-1
@@ -263,13 +603,13 @@ NumberOfNodes=36
 	OSC=1
 		SVT=5022 3003 3 
 		CC=1
-			C=15 0 3 14 0 1 0
+			C=37 0 3 12 0 1 0
 			CPC=0
 #NT=20177 0
 	PC=6
 	name=1 v=5000 Metallic_Map
-	posx=1 v=2003 700.909
-	posy=1 v=2003 246.932
+	posx=1 v=2003 518.801636
+	posy=1 v=2003 239.170013
 	encoding=2 e=0 v=5012 0
 	filter=2 e=0 v=5012 1
 	uiorder=2 e=0 v=2002 3
@@ -280,118 +620,29 @@ NumberOfNodes=36
 	OSC=1
 		SVT=5022 3003 3 
 		CC=1
-			C=16 0 3 0 2 3 0
+			C=38 0 3 0 2 3 0
 			CPC=0
-#NT=20185 0
-	PC=6
-	name=1 v=5000 use_metallic_map
-	posx=1 v=2003 700.0
-	posy=1 v=2003 178.889
-	type=2 e=0 v=5012 0
-	uitype=2 e=0 v=5012 1
-	uiorder=2 e=0 v=2002 12
-	group=-1
-	ISC=0
-	OSC=1
-		SVT=5022 2003 1 
-		CC=1
-			C=17 0 1 0 0 1 0
-			CPC=0
-#NT=20185 0
+#NT=20177 0
 	PC=5
-	name=1 v=5000 Metallic
-	posx=1 v=2003 700.0
-	posy=1 v=2003 338.75
-	type=2 e=0 v=5012 0
-	uiorder=2 e=0 v=2002 21
+	name=1 v=5000 Roughness_Map
+	posx=1 v=2003 688.750000
+	posy=1 v=2003 518.028015
+	encoding=2 e=0 v=5012 0
+	uiorder=2 e=0 v=2002 4
 	group=-1
-	ISC=0
+	ISC=2
+		SVT=5022 3001 1 0 0 
+		SVT=5022 2003 2 0 0 
 	OSC=1
-		SVT=5022 2003 1 
+		SVT=5022 3003 3 
 		CC=1
-			C=18 0 1 0 3 4 0
-			CPC=0
-#NT=20185 0
-	PC=6
-	name=1 v=5000 use_roughness_map
-	posx=1 v=2003 694.659
-	posy=1 v=2003 452.525
-	type=2 e=0 v=5012 0
-	uitype=2 e=0 v=5012 1
-	uiorder=2 e=0 v=2002 13
-	group=-1
-	ISC=0
-	OSC=1
-		SVT=5022 2003 1 
-		CC=1
-			C=19 0 1 4 0 1 0
-			CPC=0
-#NT=20185 0
-	PC=6
-	name=1 v=5000 Roughness
-	posx=1 v=2003 700.0
-	posy=1 v=2003 640.0
-	type=2 e=0 v=5012 0
-	defaultscalar=2 e=0 v=2003 1.0
-	uiorder=2 e=0 v=2002 22
-	group=-1
-	ISC=0
-	OSC=1
-		SVT=5022 2003 1 
-		CC=1
-			C=20 0 1 4 3 4 0
-			CPC=0
-#NT=20185 0
-	PC=5
-	name=1 v=5000 Emissive
-	posx=1 v=2003 234.0
-	posy=1 v=2003 944.889
-	type=2 e=0 v=5012 2
-	uiorder=2 e=0 v=2002 23
-	group=-1
-	ISC=0
-	OSC=1
-		SVT=5022 3002 1 
-		CC=2
-			C=21 0 1 32 1 2 0
-			CPC=0
-			C=21 0 1 1 3 4 0
-			CPC=0
-#NT=20185 0
-	PC=6
-	name=1 v=5000 use_emissive_map
-	posx=1 v=2003 473.75
-	posy=1 v=2003 695.25
-	type=2 e=0 v=5012 0
-	uitype=2 e=0 v=5012 1
-	uiorder=2 e=0 v=2002 14
-	group=-1
-	ISC=0
-	OSC=1
-		SVT=5022 2003 1 
-		CC=1
-			C=22 0 1 1 0 1 0
-			CPC=0
-#NT=20185 0
-	PC=6
-	name=1 v=5000 use_ao_map
-	posx=1 v=2003 701.667
-	posy=1 v=2003 1017.5
-	type=2 e=0 v=5012 0
-	uitype=2 e=0 v=5012 1
-	uiorder=2 e=0 v=2002 15
-	group=-1
-	ISC=0
-	OSC=1
-		SVT=5022 2003 1 
-		CC=1
-			C=23 0 1 6 0 1 0
+			C=39 0 3 4 2 3 0
 			CPC=0
 #NT=20177 0
 	PC=6
 	name=1 v=5000 AO_Map
-	posx=1 v=2003 682.324
-	posy=1 v=2003 1171.62
+	posx=1 v=2003 442.824005
+	posy=1 v=2003 1166.870117
 	encoding=2 e=0 v=5012 0
 	filter=2 e=0 v=5012 1
 	uiorder=2 e=0 v=2002 6
@@ -402,167 +653,14 @@ NumberOfNodes=36
 	OSC=1
 		SVT=5022 3003 3 
 		CC=1
-			C=24 0 3 33 0 1 0
-			CPC=0
-#NT=20186 0
-	PC=2
-	posx=1 v=2003 -60.0
-	posy=1 v=2003 400.0
-	group=-1
-	ISC=2
-		SVT=5022 3001 1 0 0 
-		SVT=5022 3001 2 0 0 
-	OSC=1
-		SVT=5022 3001 3 
-		CC=1
-			C=25 0 3 26 1 2 0
-			CPC=0
-#NT=20187 0
-	PC=2
-	posx=1 v=2003 120.0
-	posy=1 v=2003 400.0
-	group=-1
-	ISC=2
-		SVT=5022 3001 1 0 0 
-		SVT=5022 3001 2 0 0 
-	OSC=1
-		SVT=5022 3001 3 
-		CC=6
-			C=26 0 3 10 0 1 0
-			CPC=0
-			C=26 0 3 15 0 1 0
-			CPC=0
-			C=26 0 3 16 0 1 0
-			CPC=0
-			C=26 0 3 8 0 1 0
-			CPC=0
-			C=26 0 3 24 0 1 0
-			CPC=0
-			C=26 0 3 35 0 1 0
-			CPC=0
-#NT=20185 0
-	PC=7
-	name=1 v=5000 uv_offset
-	posx=1 v=2003 -68.1818
-	posy=1 v=2003 302.727
-	type=2 e=0 v=5012 1
-	minrange=2 e=0 v=2003 -100001.0
-	maxrange=2 e=0 v=2003 100001.0
-	uiorder=2 e=0 v=2002 60
-	group=-1
-	ISC=0
-	OSC=1
-		SVT=5022 3001 1 
-		CC=1
-			C=27 0 1 26 0 1 0
-			CPC=0
-#NT=20185 0
-	PC=9
-	name=1 v=5000 uv_scale
-	posx=1 v=2003 -255.455
-	posy=1 v=2003 315.455
-	type=2 e=0 v=5012 1
-	defaultvectwo=2 e=0 v=3001 1.0,1.0
-	defaultvector=2 e=0 v=3003 1.0,1.0,0.0,0.0
-	minrange=2 e=0 v=2003 -100001.0
-	maxrange=2 e=0 v=2003 100001.0
-	uiorder=2 e=0 v=2002 61
-	group=-1
-	ISC=0
-	OSC=1
-		SVT=5022 3001 1 
-		CC=1
-			C=28 0 1 25 0 1 0
-			CPC=0
-#NT=20186 0
-	PC=2
-	posx=1 v=2003 766.667
-	posy=1 v=2003 -511.111
-	group=-1
-	ISC=2
-		SVT=5022 3002 1 0 1 
-		SCS=rgb
-		SVT=5022 3002 2 0 0 
-	OSC=1
-		SVT=5022 3002 3 
-		CC=1
-			C=29 0 3 2 2 3 0
-			CPC=0
-#NT=20186 0
-	PC=2
-	posx=1 v=2003 871.113
-	posy=1 v=2003 -53.3334
-	group=-1
-	ISC=2
-		SVT=5022 3002 1 0 0 
-		SVT=5022 2003 2 0 0 
-	OSC=1
-		SVT=5022 3002 3 
-		CC=1
-			C=30 0 3 3 2 3 0
-			CPC=0
-#NT=20185 0
-	PC=5
-	name=1 v=5000 Normal_Intensity
-	posx=1 v=2003 114.444
-	posy=1 v=2003 48.8891
-	type=2 e=0 v=5012 0
-	uiorder=2 e=0 v=2002 21
-	group=-1
-	ISC=0
-	OSC=1
-		SVT=5022 2003 1 
-		CC=1
-			C=31 0 1 30 1 2 0
-			CPC=0
-#NT=20186 0
-	PC=2
-	posx=1 v=2003 471.75
-	posy=1 v=2003 830.5
-	group=-1
-	ISC=2
-		SVT=5022 3002 1 0 1 
-		SCS=rgb
-		SVT=5022 3002 2 0 0 
-	OSC=1
-		SVT=5022 3002 3 
-		CC=1
-			C=32 0 3 1 2 3 0
-			CPC=0
-#NT=20186 0
-	PC=2
-	posx=1 v=2003 911.666
-	posy=1 v=2003 1236.21
-	group=-1
-	ISC=2
-		SVT=5022 2003 1 0 1 
-		SCS=r
-		SVT=5022 2003 2 0 0 
-	OSC=1
-		SVT=5022 2003 3 
-		CC=1
-			C=33 0 3 6 2 3 0
-			CPC=0
-#NT=20185 0
-	PC=5
-	name=1 v=5000 AO_Intensity
-	posx=1 v=2003 672.486
-	posy=1 v=2003 1408.68
-	type=2 e=0 v=5012 0
-	uiorder=2 e=0 v=2002 15
-	group=-1
-	ISC=0
-	OSC=1
-		SVT=5022 2003 1 
-		CC=1
-			C=34 0 1 33 1 2 0
+			C=40 0 3 27 0 1 0
 			CPC=0
 #NT=20177 0
 	PC=4
-	name=1 v=5000 Emissive_Map
-	posx=1 v=2003 221.25
-	posy=1 v=2003 757.139
-	uiorder=2 e=0 v=2002 5
+	name=1 v=5000 BaseColor_Map
+	posx=1 v=2003 465.958405
+	posy=1 v=2003 -585.215698
+	uiorder=2 e=0 v=2002 1
 	group=-1
 	ISC=2
 		SVT=5022 3001 1 0 0 
@@ -570,7 +668,7 @@ NumberOfNodes=36
 	OSC=1
 		SVT=5022 3003 3 
 		CC=1
-			C=35 0 3 32 0 1 0
+			C=41 0 3 24 0 1 0
 			CPC=0
 
  */ } 
@@ -590,7 +688,7 @@ connections = [
 			instance_id = "abbaabba-abba-abba-abba-abbaabbaabb3" 
 		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab11" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab10" 
 		} 
 	} 
 	{ 
@@ -602,46 +700,46 @@ connections = [
 			"rgb" 
 			] 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab31" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab29" 
 		} 
 	} 
 	{ 
 		destination = { 
 			connector_id = "c5823c75-4ae5-4c71-b070-315fa4d03e8e" 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab31" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab29" 
 		} 
 		select = [ 
 			"rgb" 
 			] 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab12" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab48" 
 		} 
 	} 
 	{ 
 		destination = { 
 			connector_id = "1ee9af1f-65f2-4739-ad28-5ea6a0e68fc3" 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab12" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab34" 
 		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab28" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab26" 
 		} 
 	} 
 	{ 
 		destination = { 
 			connector_id = "1ee9af1f-65f2-4739-ad28-5ea6a0e68fc3" 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab17" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab43" 
 		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab28" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab26" 
 		} 
 	} 
 	{ 
 		destination = { 
 			connector_id = "1ee9af1f-65f2-4739-ad28-5ea6a0e68fc3" 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab18" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab44" 
 		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab28" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab26" 
 		} 
 	} 
 	{ 
@@ -650,58 +748,58 @@ connections = [
 			instance_id = "abbaabba-abba-abba-abba-abbaabbaabb9" 
 		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab28" 
-		} 
-	} 
-	{ 
-		destination = { 
-			connector_id = "1ee9af1f-65f2-4739-ad28-5ea6a0e68fc3" 
 			instance_id = "abbaabba-abba-abba-abba-abbaabbaab26" 
 		} 
+	} 
+	{ 
+		destination = { 
+			connector_id = "1ee9af1f-65f2-4739-ad28-5ea6a0e68fc3" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab47" 
+		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab28" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab26" 
 		} 
 	} 
 	{ 
 		destination = { 
 			connector_id = "1ee9af1f-65f2-4739-ad28-5ea6a0e68fc3" 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab37" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab48" 
 		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab28" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab26" 
 		} 
 	} 
 	{ 
 		destination = { 
 			connector_id = "f72597c4-7487-419a-affb-df690e6582e1" 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab28" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab26" 
 		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab29" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab27" 
 		} 
 	} 
 	{ 
 		destination = { 
 			connector_id = "0806db0d-2c4a-43ca-99cc-f5a2f036a8e8" 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab28" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab26" 
 		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab27" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab25" 
 		} 
 	} 
 	{ 
 		destination = { 
 			connector_id = "c5823c75-4ae5-4c71-b070-315fa4d03e8e" 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab27" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab25" 
 		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab30" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab28" 
 		} 
 	} 
 	{ 
 		destination = { 
 			connector_id = "242d1648-a626-445b-9534-bccec094112f" 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab27" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab25" 
 		} 
 		source = { 
 			instance_id = "abbaabba-abba-abba-abba-abbaabbaabb8" 
@@ -713,16 +811,16 @@ connections = [
 			instance_id = "abbaabba-abba-abba-abba-abbaabbaabb3" 
 		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab13" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab11" 
 		} 
 	} 
 	{ 
 		destination = { 
 			connector_id = "242d1648-a626-445b-9534-bccec094112f" 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab31" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab29" 
 		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab13" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab11" 
 		} 
 	} 
 	{ 
@@ -730,6 +828,9 @@ connections = [
 			connector_id = "b1c86408-aacb-4466-b754-ddcf37a3a2c8" 
 			instance_id = "abbaabba-abba-abba-abba-abbaabbaabb6" 
 		} 
+		select = [ 
+			"xyz" 
+			] 
 		source = { 
 			instance_id = "abbaabba-abba-abba-abba-abbaabbaabb4" 
 		} 
@@ -740,7 +841,7 @@ connections = [
 			instance_id = "abbaabba-abba-abba-abba-abbaabbaabb4" 
 		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab14" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab12" 
 		} 
 	} 
 	{ 
@@ -749,37 +850,130 @@ connections = [
 			instance_id = "abbaabba-abba-abba-abba-abbaabbaabb4" 
 		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab32" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab42" 
 		} 
 	} 
 	{ 
 		destination = { 
 			connector_id = "c5823c75-4ae5-4c71-b070-315fa4d03e8e" 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab32" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab42" 
 		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab16" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab41" 
+		} 
+	} 
+	{ 
+		destination = { 
+			connector_id = "c010729f-6137-412c-99a5-f263fdeaa53c" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab41" 
+		} 
+		select = [ 
+			"x" 
+			] 
+		source = { 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab38" 
+		} 
+	} 
+	{ 
+		destination = { 
+			connector_id = "d6179868-364c-4f38-bdc0-ea639b305015" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab41" 
+		} 
+		select = [ 
+			"y" 
+			] 
+		source = { 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab38" 
+		} 
+	} 
+	{ 
+		destination = { 
+			connector_id = "5551ea38-126d-4d89-ab57-14b36b92a93c" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab36" 
+		} 
+		select = [ 
+			"b" 
+			] 
+		source = { 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab14" 
+		} 
+	} 
+	{ 
+		destination = { 
+			connector_id = "c5823c75-4ae5-4c71-b070-315fa4d03e8e" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab38" 
+		} 
+		select = [ 
+			"rg" 
+			] 
+		source = { 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab14" 
 		} 
 	} 
 	{ 
 		destination = { 
 			connector_id = "f72597c4-7487-419a-affb-df690e6582e1" 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab16" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab14" 
 		} 
 		select = [ 
 			"rgb" 
 			] 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab17" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab43" 
+		} 
+	} 
+	{ 
+		destination = { 
+			connector_id = "be3ca146-3448-40d8-bd4b-da66ef6ff935" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab40" 
+		} 
+		source = { 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab30" 
 		} 
 	} 
 	{ 
 		destination = { 
 			connector_id = "242d1648-a626-445b-9534-bccec094112f" 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab32" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab38" 
 		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab33" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab30" 
+		} 
+	} 
+	{ 
+		destination = { 
+			connector_id = "6cce8b1d-5c70-44ea-bea3-b1ceafeb750e" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab41" 
+		} 
+		source = { 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab36" 
+		} 
+	} 
+	{ 
+		destination = { 
+			connector_id = "995996dc-408e-4e6f-a310-0db5b3276075" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab36" 
+		} 
+		source = { 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab37" 
+		} 
+	} 
+	{ 
+		destination = { 
+			connector_id = "cdc83a63-3365-4c10-9353-79ff5f2fd1f0" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab36" 
+		} 
+		source = { 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab40" 
+		} 
+	} 
+	{ 
+		destination = { 
+			connector_id = "242d1648-a626-445b-9534-bccec094112f" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab42" 
+		} 
+		source = { 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab39" 
 		} 
 	} 
 	{ 
@@ -788,7 +982,7 @@ connections = [
 			instance_id = "abbaabba-abba-abba-abba-abbaabbaabb4" 
 		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab15" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab13" 
 		} 
 	} 
 	{ 
@@ -806,7 +1000,7 @@ connections = [
 			instance_id = "abbaabba-abba-abba-abba-abbaabbaabb1" 
 		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab19" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab17" 
 		} 
 	} 
 	{ 
@@ -818,7 +1012,7 @@ connections = [
 			"r" 
 			] 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab18" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab44" 
 		} 
 	} 
 	{ 
@@ -827,7 +1021,7 @@ connections = [
 			instance_id = "abbaabba-abba-abba-abba-abbaabbaabb1" 
 		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab20" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab18" 
 		} 
 	} 
 	{ 
@@ -845,7 +1039,7 @@ connections = [
 			instance_id = "abbaabba-abba-abba-abba-abbaabbaabb5" 
 		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab21" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab19" 
 		} 
 	} 
 	{ 
@@ -866,7 +1060,7 @@ connections = [
 			instance_id = "abbaabba-abba-abba-abba-abbaabbaabb5" 
 		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab22" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab20" 
 		} 
 	} 
 	{ 
@@ -884,7 +1078,7 @@ connections = [
 			instance_id = "abbaabba-abba-abba-abba-abbaabbaabb2" 
 		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab24" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab22" 
 		} 
 	} 
 	{ 
@@ -896,28 +1090,28 @@ connections = [
 			"rgb" 
 			] 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab34" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab31" 
 		} 
 	} 
 	{ 
 		destination = { 
 			connector_id = "c5823c75-4ae5-4c71-b070-315fa4d03e8e" 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab34" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab31" 
 		} 
 		select = [ 
 			"rgb" 
 			] 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab37" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab34" 
 		} 
 	} 
 	{ 
 		destination = { 
 			connector_id = "242d1648-a626-445b-9534-bccec094112f" 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab34" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab31" 
 		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab23" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab21" 
 		} 
 	} 
 	{ 
@@ -926,7 +1120,7 @@ connections = [
 			instance_id = "abbaabba-abba-abba-abba-abbaabbaabb2" 
 		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab23" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab21" 
 		} 
 	} 
 	{ 
@@ -944,7 +1138,7 @@ connections = [
 			instance_id = "abbaabba-abba-abba-abba-abbaabbaabb7" 
 		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab25" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab23" 
 		} 
 	} 
 	{ 
@@ -952,29 +1146,32 @@ connections = [
 			connector_id = "4CBB4480-79E8-4CE7-AC0F-8B09BAF12390" 
 			instance_id = "abbaabba-abba-abba-abba-abbaabbaabb7" 
 		} 
+		select = [ 
+			"r" 
+			] 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab35" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab32" 
 		} 
 	} 
 	{ 
 		destination = { 
 			connector_id = "c5823c75-4ae5-4c71-b070-315fa4d03e8e" 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab35" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab32" 
 		} 
 		select = [ 
-			"r" 
+			"rgb" 
 			] 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab26" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab47" 
 		} 
 	} 
 	{ 
 		destination = { 
 			connector_id = "242d1648-a626-445b-9534-bccec094112f" 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab35" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab32" 
 		} 
 		source = { 
-			instance_id = "abbaabba-abba-abba-abba-abbaabbaab36" 
+			instance_id = "abbaabba-abba-abba-abba-abbaabbaab33" 
 		} 
 	} 
 ]
@@ -984,7 +1181,7 @@ constants = [
 		id = "1bbaabba-abba-abba-abba-abbaabbaabb3" 
 		instance_id = "abbaabba-abba-abba-abba-abbaabbaabb3" 
 		value = [ 
-			1.0
+			1.000000
 		] 
 	} 
 	{ 
@@ -992,7 +1189,39 @@ constants = [
 		id = "1bbaabba-abba-abba-abba-abbaabbaabb4" 
 		instance_id = "abbaabba-abba-abba-abba-abbaabbaabb4" 
 		value = [ 
-			1.0
+			1.000000
+		] 
+	} 
+	{ 
+		connector_id = "c4d6bc08-c489-430f-a836-ed490e59c3f9" 
+		id = "0bbaabba-abba-abba-abba-abbaabbaab37" 
+		instance_id = "abbaabba-abba-abba-abba-abbaabbaab37" 
+		value = [ 
+			1.000000
+		] 
+	} 
+	{ 
+		connector_id = "6f471281-8e67-4fd5-978f-5e378ef0668d" 
+		id = "1bbaabba-abba-abba-abba-abbaabbaab40" 
+		instance_id = "abbaabba-abba-abba-abba-abbaabbaab40" 
+		value = [ 
+			1.000000
+		] 
+	} 
+	{ 
+		connector_id = "e64169ad-12a5-41ba-a708-4cc5526e1ea0" 
+		id = "2bbaabba-abba-abba-abba-abbaabbaab40" 
+		instance_id = "abbaabba-abba-abba-abba-abbaabbaab40" 
+		value = [ 
+			0.000000
+		] 
+	} 
+	{ 
+		connector_id = "c4d6bc08-c489-430f-a836-ed490e59c3f9" 
+		id = "0bbaabba-abba-abba-abba-abbaabbaab39" 
+		instance_id = "abbaabba-abba-abba-abba-abbaabbaab39" 
+		value = [ 
+			3.000000
 		] 
 	} 
 	{ 
@@ -1000,7 +1229,7 @@ constants = [
 		id = "1bbaabba-abba-abba-abba-abbaabbaabb1" 
 		instance_id = "abbaabba-abba-abba-abba-abbaabbaabb1" 
 		value = [ 
-			1.0
+			1.000000
 		] 
 	} 
 	{ 
@@ -1008,7 +1237,7 @@ constants = [
 		id = "1bbaabba-abba-abba-abba-abbaabbaabb5" 
 		instance_id = "abbaabba-abba-abba-abba-abbaabbaabb5" 
 		value = [ 
-			1.0
+			1.000000
 		] 
 	} 
 	{ 
@@ -1016,7 +1245,7 @@ constants = [
 		id = "1bbaabba-abba-abba-abba-abbaabbaabb2" 
 		instance_id = "abbaabba-abba-abba-abba-abbaabbaabb2" 
 		value = [ 
-			1.0
+			1.000000
 		] 
 	} 
 	{ 
@@ -1024,7 +1253,7 @@ constants = [
 		id = "1bbaabba-abba-abba-abba-abbaabbaabb7" 
 		instance_id = "abbaabba-abba-abba-abba-abbaabbaabb7" 
 		value = [ 
-			1.0
+			1.000000
 		] 
 	} 
 	{ 
@@ -1032,7 +1261,7 @@ constants = [
 		id = "3bbaabba-abba-abba-abba-abbaabbaabb7" 
 		instance_id = "abbaabba-abba-abba-abba-abbaabbaabb7" 
 		value = [ 
-			1.0
+			1.000000
 		] 
 	} 
 ]
@@ -1049,8 +1278,8 @@ nodes = [
 			"2b136447-676e-4943-997b-04a28ae68497"
 		] 
 		position = [ 
-			1430 
-			202 
+			1564 
+			239 
 		] 
 		samplers = { 
 		} 
@@ -1088,16 +1317,16 @@ nodes = [
 				name = "use_color_map" 
 				ui = { 
 					max = 1 
-					min = 0.0 
+					min = 0.000000 
 					step = 1 
 					order = 10 
 					ui_type = "checkbox" 
 				} 
 				type = "float" 
-				value = 0.0 
+				value = 0.000000 
 			} 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab11" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab10" 
 		options = [ 
 		] 
 		position = [ 
@@ -1116,7 +1345,7 @@ nodes = [
 		] 
 		export = { 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab31" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab29" 
 		options = [ 
 		] 
 		position = [ 
@@ -1135,15 +1364,15 @@ nodes = [
 		] 
 		export = { 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab12" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab48" 
 		options = [ 
 			"1e067464-12d8-4826-9b72-cfd5765003e3"
 			"fb3f709b-a54a-4e93-ac9f-e9fc76fb8bcd"
 			"5dd59b3d-1762-4a14-9930-7500230ef3db"
 		] 
 		position = [ 
-			491 
-			-564 
+			465 
+			-585 
 		] 
 		samplers = { 
 			texture_map = { 
@@ -1164,7 +1393,7 @@ nodes = [
 		] 
 		export = { 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab28" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab26" 
 		options = [ 
 		] 
 		position = [ 
@@ -1186,16 +1415,16 @@ nodes = [
 				display_name = "Uv Offset" 
 				name = "uv_offset" 
 				ui = { 
-					max = [ 100001.0 100001.0 ] 
-					min = [ -100001.0 -100001.0 ] 
+					max = [ 100001.000000 100001.000000 ] 
+					min = [ -100001.000000 -100001.000000 ] 
 					step = [ 0.01 0.01 ] 
 					order = 60 
 				} 
 				type = "float2" 
-				value = [0.0 0.0] 
+				value = [10.000000 10.000000] 
 			} 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab29" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab27" 
 		options = [ 
 		] 
 		position = [ 
@@ -1214,7 +1443,7 @@ nodes = [
 		] 
 		export = { 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab27" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab25" 
 		options = [ 
 		] 
 		position = [ 
@@ -1236,16 +1465,16 @@ nodes = [
 				display_name = "Uv Scale" 
 				name = "uv_scale" 
 				ui = { 
-					max = [ 100001.0 100001.0 ] 
-					min = [ -100001.0 -100001.0 ] 
+					max = [ 100001.000000 100001.000000 ] 
+					min = [ -100001.000000 -100001.000000 ] 
 					step = [ 0.01 0.01 ] 
 					order = 61 
 				} 
 				type = "float2" 
-				value = [1.0 1.0] 
+				value = [4.000000 4.000000] 
 			} 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab30" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab28" 
 		options = [ 
 		] 
 		position = [ 
@@ -1286,17 +1515,17 @@ nodes = [
 				display_name = "BaseColor" 
 				name = "BaseColor" 
 				ui = { 
-					max = [ 1.0 1.0 1.0 ] 
-					min = [ 0.0 0.0 0.0 ] 
+					max = [ 1.000000 1.000000 1.000000 ] 
+					min = [ 0.000000 0.000000 0.000000 ] 
 					step = [ 0.01 0.01 0.01 ] 
 					order = 20 
 					ui_type = "color" 
 				} 
 				type = "float3" 
-				value = [1.0 1.0 1.0] 
+				value = [1.000000 1.000000 1.000000] 
 			} 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab13" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab11" 
 		options = [ 
 		] 
 		position = [ 
@@ -1320,8 +1549,8 @@ nodes = [
 			"9A84282B-F1A2-46D4-9FC4-5A76FC9B30DD"
 		] 
 		position = [ 
-			1150 
-			-94 
+			1145 
+			-80 
 		] 
 		samplers = { 
 		} 
@@ -1339,16 +1568,16 @@ nodes = [
 				name = "use_normal_map" 
 				ui = { 
 					max = 1 
-					min = 0.0 
+					min = 0.000000 
 					step = 1 
 					order = 11 
 					ui_type = "checkbox" 
 				} 
 				type = "float" 
-				value = 0.0 
+				value = 0.000000 
 			} 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab14" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab12" 
 		options = [ 
 		] 
 		position = [ 
@@ -1367,12 +1596,12 @@ nodes = [
 		] 
 		export = { 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab32" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab42" 
 		options = [ 
 		] 
 		position = [ 
-			871 
-			-53 
+			408 
+			-94 
 		] 
 		samplers = { 
 		} 
@@ -1386,12 +1615,51 @@ nodes = [
 		] 
 		export = { 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab16" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab41" 
 		options = [ 
 		] 
 		position = [ 
-			652 
-			-104 
+			100 
+			-235 
+		] 
+		samplers = { 
+		} 
+		title = "Construct Vector3" 
+		type = "core/shader_nodes/construct_vector3" 
+	} 
+	{ 
+		content_size = [ 
+			160 
+			0 
+		] 
+		export = { 
+		} 
+		id = "abbaabba-abba-abba-abba-abbaabbaab38" 
+		options = [ 
+		] 
+		position = [ 
+			-177 
+			-184 
+		] 
+		samplers = { 
+		} 
+		title = "Multiply" 
+		type = "core/shader_nodes/mul" 
+	} 
+	{ 
+		content_size = [ 
+			160 
+			0 
+		] 
+		export = { 
+		} 
+		id = "abbaabba-abba-abba-abba-abbaabbaab14" 
+		options = [ 
+			"0a0fb5ad-145d-4229-abd4-5b36562607b3"
+		] 
+		position = [ 
+			-448 
+			-650 
 		] 
 		samplers = { 
 		} 
@@ -1405,15 +1673,15 @@ nodes = [
 		] 
 		export = { 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab17" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab43" 
 		options = [ 
 			"1e067464-12d8-4826-9b72-cfd5765003e3"
 			"90e20826-8689-42fa-8e24-f484ec64c5c3"
 			"5dd59b3d-1762-4a14-9930-7500230ef3db"
 		] 
 		position = [ 
-			440 
-			-60 
+			-876 
+			-690 
 		] 
 		samplers = { 
 			texture_map = { 
@@ -1437,21 +1705,21 @@ nodes = [
 				display_name = "Normal Intensity" 
 				name = "Normal_Intensity" 
 				ui = { 
-					max = 1.0 
-					min = 0.0 
+					max = 1.000000 
+					min = 0.000000 
 					step = 0.01 
 					order = 21 
 				} 
 				type = "float" 
-				value = 0.0 
+				value = 1.000000 
 			} 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab33" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab30" 
 		options = [ 
 		] 
 		position = [ 
-			114 
-			48 
+			-1296 
+			-465 
 		] 
 		samplers = { 
 		} 
@@ -1465,12 +1733,88 @@ nodes = [
 		] 
 		export = { 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab15" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab36" 
 		options = [ 
 		] 
 		position = [ 
-			449 
-			132 
+			-187 
+			-380 
+		] 
+		samplers = { 
+		} 
+		title = "Linear Interpolate" 
+		type = "core/shader_nodes/lerp" 
+	} 
+	{ 
+		content_size = [ 
+			160 
+			0 
+		] 
+		export = { 
+		} 
+		id = "abbaabba-abba-abba-abba-abbaabbaab37" 
+		options = [ 
+		] 
+		position = [ 
+			-489 
+			-373 
+		] 
+		samplers = { 
+		} 
+		title = "Constant Scalar" 
+		type = "core/shader_nodes/constant_scalar" 
+	} 
+	{ 
+		content_size = [ 
+			160 
+			0 
+		] 
+		export = { 
+		} 
+		id = "abbaabba-abba-abba-abba-abbaabbaab40" 
+		options = [ 
+		] 
+		position = [ 
+			-920 
+			-321 
+		] 
+		samplers = { 
+		} 
+		title = "ClampOp" 
+		type = "core/shader_nodes/clamp" 
+	} 
+	{ 
+		content_size = [ 
+			160 
+			0 
+		] 
+		export = { 
+		} 
+		id = "abbaabba-abba-abba-abba-abbaabbaab39" 
+		options = [ 
+		] 
+		position = [ 
+			-412 
+			-114 
+		] 
+		samplers = { 
+		} 
+		title = "Constant Scalar" 
+		type = "core/shader_nodes/constant_scalar" 
+	} 
+	{ 
+		content_size = [ 
+			160 
+			0 
+		] 
+		export = { 
+		} 
+		id = "abbaabba-abba-abba-abba-abbaabbaab13" 
+		options = [ 
+		] 
+		position = [ 
+			467 
+			76 
 		] 
 		samplers = { 
 		} 
@@ -1508,16 +1852,16 @@ nodes = [
 				name = "use_metallic_map" 
 				ui = { 
 					max = 1 
-					min = 0.0 
+					min = 0.000000 
 					step = 1 
 					order = 12 
 					ui_type = "checkbox" 
 				} 
 				type = "float" 
-				value = 0.0 
+				value = 0.000000 
 			} 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab19" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab17" 
 		options = [ 
 		] 
 		position = [ 
@@ -1536,15 +1880,15 @@ nodes = [
 		] 
 		export = { 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab18" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab44" 
 		options = [ 
 			"f669a3a6-0376-4187-840e-80000e2939d5"
 			"e94e53e6-49b6-4194-a747-8f064a5932e0"
 			"5dd59b3d-1762-4a14-9930-7500230ef3db"
 		] 
 		position = [ 
-			700 
-			246 
+			518 
+			239 
 		] 
 		samplers = { 
 			texture_map = { 
@@ -1568,21 +1912,21 @@ nodes = [
 				display_name = "Metallic" 
 				name = "Metallic" 
 				ui = { 
-					max = 1.0 
-					min = 0.0 
+					max = 1.000000 
+					min = 0.000000 
 					step = 0.01 
 					order = 21 
 				} 
 				type = "float" 
-				value = 0.0 
+				value = 1.000000 
 			} 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab20" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab18" 
 		options = [ 
 		] 
 		position = [ 
-			700 
-			338 
+			520 
+			386 
 		] 
 		samplers = { 
 		} 
@@ -1620,16 +1964,16 @@ nodes = [
 				name = "use_roughness_map" 
 				ui = { 
 					max = 1 
-					min = 0.0 
+					min = 0.000000 
 					step = 1 
 					order = 13 
 					ui_type = "checkbox" 
 				} 
 				type = "float" 
-				value = 0.0 
+				value = 0.000000 
 			} 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab21" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab19" 
 		options = [ 
 		] 
 		position = [ 
@@ -1655,8 +1999,8 @@ nodes = [
 			"5dd59b3d-1762-4a14-9930-7500230ef3db"
 		] 
 		position = [ 
-			693 
-			508 
+			688 
+			518 
 		] 
 		samplers = { 
 			texture_map = { 
@@ -1680,16 +2024,16 @@ nodes = [
 				display_name = "Roughness" 
 				name = "Roughness" 
 				ui = { 
-					max = 1.0 
-					min = 0.0 
+					max = 1.000000 
+					min = 0.000000 
 					step = 0.01 
 					order = 22 
 				} 
 				type = "float" 
-				value = 1.0 
+				value = 1.000000 
 			} 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab22" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab20" 
 		options = [ 
 		] 
 		position = [ 
@@ -1732,16 +2076,16 @@ nodes = [
 				name = "use_emissive_map" 
 				ui = { 
 					max = 1 
-					min = 0.0 
+					min = 0.000000 
 					step = 1 
 					order = 14 
 					ui_type = "checkbox" 
 				} 
 				type = "float" 
-				value = 0.0 
+				value = 0.000000 
 			} 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab24" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab22" 
 		options = [ 
 		] 
 		position = [ 
@@ -1760,7 +2104,7 @@ nodes = [
 		] 
 		export = { 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab34" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab31" 
 		options = [ 
 		] 
 		position = [ 
@@ -1779,7 +2123,7 @@ nodes = [
 		] 
 		export = { 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab37" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab34" 
 		options = [ 
 			"1e067464-12d8-4826-9b72-cfd5765003e3"
 			"fb3f709b-a54a-4e93-ac9f-e9fc76fb8bcd"
@@ -1787,7 +2131,7 @@ nodes = [
 		] 
 		position = [ 
 			221 
-			757 
+			758 
 		] 
 		samplers = { 
 			texture_map = { 
@@ -1811,22 +2155,22 @@ nodes = [
 				display_name = "Emissive" 
 				name = "Emissive" 
 				ui = { 
-					max = [ 1.0 1.0 1.0 ] 
-					min = [ 0.0 0.0 0.0 ] 
+					max = [ 1.000000 1.000000 1.000000 ] 
+					min = [ 0.000000 0.000000 0.000000 ] 
 					step = [ 0.01 0.01 0.01 ] 
 					order = 23 
 					ui_type = "color" 
 				} 
 				type = "float3" 
-				value = [0.0 0.0 0.0] 
+				value = [0.000000 0.000000 0.000000] 
 			} 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab23" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab21" 
 		options = [ 
 		] 
 		position = [ 
-			234 
-			944 
+			144 
+			927 
 		] 
 		samplers = { 
 		} 
@@ -1864,16 +2208,16 @@ nodes = [
 				name = "use_ao_map" 
 				ui = { 
 					max = 1 
-					min = 0.0 
+					min = 0.000000 
 					step = 1 
 					order = 15 
 					ui_type = "checkbox" 
 				} 
 				type = "float" 
-				value = 0.0 
+				value = 0.000000 
 			} 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab25" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab23" 
 		options = [ 
 		] 
 		position = [ 
@@ -1892,7 +2236,7 @@ nodes = [
 		] 
 		export = { 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab35" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab32" 
 		options = [ 
 		] 
 		position = [ 
@@ -1911,15 +2255,15 @@ nodes = [
 		] 
 		export = { 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab26" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab47" 
 		options = [ 
 			"f669a3a6-0376-4187-840e-80000e2939d5"
 			"e94e53e6-49b6-4194-a747-8f064a5932e0"
 			"5dd59b3d-1762-4a14-9930-7500230ef3db"
 		] 
 		position = [ 
-			682 
-			1171 
+			442 
+			1166 
 		] 
 		samplers = { 
 			texture_map = { 
@@ -1943,16 +2287,16 @@ nodes = [
 				display_name = "AO Intensity" 
 				name = "AO_Intensity" 
 				ui = { 
-					max = 1.0 
-					min = 0.0 
+					max = 1.000000 
+					min = 0.000000 
 					step = 0.01 
 					order = 15 
 				} 
 				type = "float" 
-				value = 0.0 
+				value = 1.000000 
 			} 
 		} 
-		id = "abbaabba-abba-abba-abba-abbaabbaab36" 
+		id = "abbaabba-abba-abba-abba-abbaabbaab33" 
 		options = [ 
 		] 
 		position = [ 

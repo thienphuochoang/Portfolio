@@ -99,6 +99,8 @@ class MainExporter(QtWidgets.QMainWindow, exporter_mainUI.Ui_MainWindowExporter)
                 self.queryRadioButtonStatus(), 
                 self.queryCheckboxBinaryStatus(), 
                 self.queryCheckboxInstanceStatus()))
+        self.btnExportToUnity.clicked.connect(
+            lambda: exporter_func.exportToUnity())
 
         
     def changeSelfRadioButtonText(self):
