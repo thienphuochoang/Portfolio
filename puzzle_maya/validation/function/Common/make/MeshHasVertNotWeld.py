@@ -1,8 +1,3 @@
-# -*- coding: utf-8 -*-
-# @Author: tungle
-# @Date:   2019-03-08 09:43:53
-# @Last Modified by:   tungle
-# @Last Modified time: 2019-03-26 09:43:25
 import os
 import maya.api.OpenMaya as om2
 import maya.cmds as cmds

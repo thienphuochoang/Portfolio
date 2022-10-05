@@ -5,14 +5,14 @@ import importlib
 rootPath = mel.eval('getenv("PUZZLE_ROOT_PATH")')
 
 def import_file(str_module):
-    """import a module from string"""
-    nameModule = importlib.import_module(str_module)
-    try:
-        reload(nameModule)
-    except:
-        importlib.reload(nameModule)
-    return nameModule
-    
+	"""import a module from string"""
+	nameModule = importlib.import_module(str_module)
+	try:
+		reload(nameModule)
+	except:
+		importlib.reload(nameModule)
+	return nameModule
+	
 #import Function____________________
 exporter_func = import_file(r"puzzle_maya.exporter.function.exporter_function")
 

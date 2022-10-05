@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-# @Author: tungle
-# @Date:   2019-02-21 11:08:49
-# @Last Modified by:   tungle
-# @Last Modified time: 2019-03-18 18:57:02
-
 import maya.cmds as cmds
 import maya.mel as mel
 import maya.api.OpenMaya as om2

@@ -309,6 +309,9 @@ def exportToUnity():
 	exportFBX(exportImportUnityPath, createTempGroup = False, sg="true", sm="true", 
 			ins="false", tri="false", tan="false", ascii="true")
 
+def exportModelSettingsFile():
+	pass
+
 def exportFileToCurrentFolder(Status, cbBinary, cbKeepInstance):
 	filepath = cmds.file(q=True, sn=True)
 	if filepath != "":

@@ -1,8 +1,3 @@
-# -*- coding: utf-8 -*-
-# @Author: tungle
-# @Date:   2019-03-20 12:23:45
-# @Last Modified by:   tungle
-# @Last Modified time: 2019-03-26 09:44:05
 description = ""
 toolTips = "Hard edge must cut uv seam"
 

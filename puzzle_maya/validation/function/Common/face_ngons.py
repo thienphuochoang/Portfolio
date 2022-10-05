@@ -1,8 +1,3 @@
-# -*- coding: utf-8 -*-
-# @Author: tungle
-# @Date:   2019-08-20 18:30:05
-# @Last Modified by:   tungle
-# @Last Modified time: 2019-11-05 12:20:13
 functionDescription = " Face N-Gons "
 toolTip = ""
 
