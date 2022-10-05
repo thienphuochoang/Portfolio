@@ -35,7 +35,20 @@ exporter_function = importerFunction.importModule("puzzle_maya.exporter.function
 
 class MatCreationFunction():
 	def __init__(self):
-		pass
+		self.puzzleOpaqueShaderAttributeList = ["uv_scale", 
+		"uv_offset", 
+		"BaseColor_Map", 
+		"Normal_Map", 
+		"Metallic_Map", 
+		"Roughness_Map", 
+		"AO_Map", 
+		"Emissive_Map", 
+		"BaseColor", 
+		"AO_Intensity", 
+		"Normal_Intensity", 
+		"Metallic", 
+		"Roughness", 
+		"Emissive"]
 
 	def getSDLibraryLocation(self):
 		sdLibrary = rootPath + "/" + "lib" + "/" + "substance_designer_library"
@@ -309,6 +322,16 @@ class MatCreationFunction():
 				#if "sd_" in shader.lower():
 				shaders.append(shader)
 		return list(set(shaders))
+
+	def getAttributeFromShader(self, shaderName, attributeName, isStingrayShader = True):
+		if (isStingrayShader):
+			try:
+				return cmds.getAttr(shaderName + "." + attributeName)
+			except ValueError:
+				fileNode = cmds.listConnections(shaderName + ".TEX_" + attributeName, type='file')
+				if (fileNode != None):
+					return cmds.getAttr(fileNode[0], fileNode[0] + ".fileTextureName")
+				return ""
 
 	def getColorFromMat(self, matName):
 		matColor = cmds.getAttr(matName + ".color")

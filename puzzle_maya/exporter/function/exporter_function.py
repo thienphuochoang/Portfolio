@@ -4,8 +4,8 @@ import sys
 import maya.OpenMayaUI as omui
 import maya.mel as mel
 import maya.cmds as cmds
-
-
+import json
+import importlib
 
 exportImportPath = r"C:/Temp_Exporter/temp"
 exportImportUnityPath = "C:/Temp_Exporter/temp_unity"
@@ -13,7 +13,7 @@ exportImportWorkingPath = r"//glassegg.com/GROUPS/SHARE/PhuocHoang/EnvWorkingFil
 exportSubstancePainterPath = r"C:/Temp_Exporter/temp_SubstancePainter"
 exportImportHighPath = r"C:/Temp_Exporter/temp_highpoly"
 exportImportLowPath = r"C:/Temp_Exporter/temp_lowpoly"
-
+unityExportFilePath = "C:/Temp_Exporter/temp_unity.json"
 
 
 # convertUnitSetupDict = {"millimeter": 10.0,
@@ -24,6 +24,19 @@ exportImportLowPath = r"C:/Temp_Exporter/temp_lowpoly"
 #                         "yard": 0.0109361}
 
 
+moduleImporterPath = 'general.modules_importer.modules_importer_function'
+importerFunction = None
+
+if moduleImporterPath in sys.modules:
+	importerFunction = sys.modules[moduleImporterPath]
+	try:
+		importlib.reload(importerFunction)
+	except:
+		reload(importerFunction)
+else:
+	importerFunction = importlib.import_module(moduleImporterPath)
+
+mat_creation_function = importerFunction.importModule("puzzle_maya.sbsar_mat_creation.function.mat_creation_function")
 
 def changeSceneUnitToCm():
 	global currentSceneUnit
@@ -306,11 +319,36 @@ def exportFile(Status, cbBinary, cbKeepInstance):
 		exportMA(exportImportPath)
 
 def exportToUnity():
-	exportFBX(exportImportUnityPath, createTempGroup = False, sg="true", sm="true", 
-			ins="false", tri="false", tan="false", ascii="true")
+	currentSel=cmds.ls(sl=True)
+	checkSelectedMesh = checkSelectionMesh()
+	if checkSelectedMesh == True:
+		exportFBX(exportImportUnityPath, createTempGroup = False, sg="true", sm="true", 
+				ins="false", tri="false", tan="false", ascii="true")
+		exportModelSettingsFile(currentSel[0])
 
-def exportModelSettingsFile():
-	pass
+def exportModelSettingsFile(modelName):
+	matCreationFunctionInstance = mat_creation_function.MatCreationFunction()
+	data = {}
+	assignedMatList = []
+	data["Model_Name"] = modelName
+	materialList = matCreationFunctionInstance.getSDShadersFromMesh(modelName)
+	for mat in materialList:
+		eachMatAttrDict = {}
+		# Get shader type
+		shaderPath = matCreationFunctionInstance.getShaderFXPath()
+		shaderPathWithoutSuffix = (shaderPath.split("/")[-1]).split(".")[0]
+		# Add material name attribute
+		eachMatAttrDict["material_name"] = mat
+		# Add material type attribute
+		eachMatAttrDict["material_type"] = shaderPathWithoutSuffix
+		# Get all attributes from StingrayPBR Shader
+		for attr in matCreationFunctionInstance.puzzleOpaqueShaderAttributeList:
+			value = matCreationFunctionInstance.getAttributeFromShader(mat, attr, isStingrayShader = True)
+			eachMatAttrDict[str(attr)] = str(value)
+		assignedMatList.append(eachMatAttrDict)
+	data["Materials"] = assignedMatList
+	with open(unityExportFilePath, 'w', encoding='utf-8') as f:
+		json.dump(data, f, ensure_ascii=False, indent=4)
 
 def exportFileToCurrentFolder(Status, cbBinary, cbKeepInstance):
 	filepath = cmds.file(q=True, sn=True)
