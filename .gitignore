@@ -74,6 +74,8 @@ crashlytics-build.properties
 # Specify filepatterns you want git to ignore.
 *.pyc
 *.swatch
+*.bck
+*.bak
 
 # Autosave folder will be ignored.
 /lib/substance_designer_library/.autosave
