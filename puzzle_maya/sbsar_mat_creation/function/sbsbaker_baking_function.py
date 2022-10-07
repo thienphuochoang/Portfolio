@@ -210,7 +210,7 @@ class SBSBakerBakingFunction():
 				os.remove(newAoPath)
 			except:
 				print ("Remove old file: " + aoPath)
-				os.rename(aoPath, newAoPath)
+			os.rename(aoPath, newAoPath)
 
 		colorIDPath = outputPath + "/" + fbxFileName + "_color-from-mesh" + "." + outputFormat
 		newColorIDPath = outputPath + "/" + fbxFileName + "_color_id" + "." + outputFormat
